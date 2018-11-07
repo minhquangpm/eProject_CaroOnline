@@ -33,6 +33,16 @@ namespace ProjectCaro
         public string name { get; set; }
         public int status { get; set; }
     }
+    public class RoomGame
+    {
+        public string host_id { get; set; }
+        public string room_no { get; set; }
+        public string join_id { get; set; }
+    }
+    public class GetRoom
+    {
+        public List<RoomGame> data = new List<RoomGame>();
+    }
     public class GetFriendList
     {
         public List<FriendList> data = new List<FriendList>();
@@ -75,6 +85,8 @@ namespace ProjectCaro
         public static ThongKe thongke;
 
         public static GetFriendList getFriendList;
+
+        public static GetRoom getRoom;
 
         public static GetRank getRank;
 
@@ -438,21 +450,22 @@ namespace ProjectCaro
 
         #endregion
 
-        #region Draw
-        public static async Task<bool> DrawAsync(UserModel userModel, HttpClient client)
+        #region get room
+
+        public static async Task<GetRoom> RoomAsync(HttpClient client)
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync(
-       "api/draw", userModel);
+            string url = baseAddress + "api/room/";
+            HttpResponseMessage response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                return true;
+                getRoom = await response.Content.ReadAsAsync<GetRoom>();
             }
-            return false;
+            return getRoom;
 
         }
 
 
-        public static async Task Draw()
+        public static async Task Room()
         {
             var client = new HttpClient();
             SetupClientDefaults(client);
@@ -463,7 +476,7 @@ namespace ProjectCaro
 
             try
             {
-                bool check = await DrawAsync(user, client);
+                getRoom = await RoomAsync(client);
             }
             catch (Exception e)
             {
@@ -473,7 +486,6 @@ namespace ProjectCaro
             }
 
         }
-
 
         #endregion
 
