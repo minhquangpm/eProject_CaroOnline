@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28302.56
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCaro", "ProjectCaro\ProjectCaro.csproj", "{48CED4B1-1947-4E1E-B577-83C262E95FF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaroGameServer", "CaroGameServer\CaroGameServer.csproj", "{2149269E-5637-49A4-9E77-FA74630A77F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48CED4B1-1947-4E1E-B577-83C262E95FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CED4B1-1947-4E1E-B577-83C262E95FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CED4B1-1947-4E1E-B577-83C262E95FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CED4B1-1947-4E1E-B577-83C262E95FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2149269E-5637-49A4-9E77-FA74630A77F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2149269E-5637-49A4-9E77-FA74630A77F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2149269E-5637-49A4-9E77-FA74630A77F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2149269E-5637-49A4-9E77-FA74630A77F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55989B5F-5635-4154-B846-D21A69F67909}
+	EndGlobalSection
+EndGlobal
