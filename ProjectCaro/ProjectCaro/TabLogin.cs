@@ -15,7 +15,7 @@ namespace ProjectCaro
         {
             Client.InitClient();
         }
-        public void btnLogin_Click()
+        public async void btnLogin_Click()
         {
 
             Client.user_id = txt_Log1.Text;
@@ -42,7 +42,7 @@ namespace ProjectCaro
             //panelSignup.Visible = false;
         }
         
-        public void btnResgister_click()
+        public async void btnResgister_click()
         {
             if (txtFullname.Text == "")
             {
