@@ -22,7 +22,8 @@ namespace ProjectCaro
         private static int serverPort = 12345;
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
-        private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+        //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+        private static TcpClient client = new TcpClient(serverIp, serverPort);
 
         // kiểm tra
         public static bool checkLogin = false;
@@ -39,23 +40,24 @@ namespace ProjectCaro
         //public static string user_session = "";
 
 
-        //public static Label join_label;
-        //public static Label host_label;
-        //public static Label waiting_label;
+        public static Label join_label;
+        public static Label host_label;
+        public static Label waiting_label;
 
         // khai báo kết nối
-        public static UdpClient client = null;
+        //public static UdpClient client = null;
         //private static IPEndPoint serverEP = null;
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
         public static BackgroundWorker workerWaitForPlayer = null;
         public static BackgroundWorker workerChangeTurn = null;
+        public static BackgroundWorker workerRefreshRoom = null;
 
         public static void InitClient()
         {
             // tạo udpclient
-            client = new UdpClient();
+            //client = new UdpClient();
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -73,10 +75,16 @@ namespace ProjectCaro
                 WorkerSupportsCancellation = true
             };
 
+            workerRefreshRoom = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
             workerWaitForPlayer.DoWork += DoWaitForPlayer;
             workerChangeTurn.DoWork += DoChangeTurn;
+            workerRefreshRoom.DoWork += DoRefreshRoom;
 
             // start worker
             workerListener.RunWorkerAsync();
@@ -136,18 +144,104 @@ namespace ProjectCaro
         }
 
 
+        private static void RefreshRoom()
+        {
+            string message = "refreshroom";
+            SendData(message);
+        }
+
 
         private static void SendData(string message)
         {
-            // gửi api lên server
-            byte[] messageEncode = Encoding.ASCII.GetBytes(message);
-            //try
+            // gửi dữ liệu lên server
+            // chuyển dữ liệu từ string thành bytes
+            byte[] data = Encoding.ASCII.GetBytes(message);
+
+            // tạo 1 stream để để đọc ghi
+            NetworkStream stream = client.GetStream();
+
+            // gửi
+            stream.Write(data, 0, data.Length);
+            //client.Send(messageEncode, messageEncode.Length);
+
+            //// nhận dữ liệu từ server
+            //// tạo buffer lưu trữ dữ liệu nhận đc
+            //data = new byte[256];
+
+            //// đọc dữ liệu nhận về
+            //string response = string.Empty;
+            //int bytes = stream.Read(data, 0, data.Length);
+            //response = Encoding.ASCII.GetString(data, 0, bytes);
+
+            //// xử lý dữ liệu nhận về
+            //string[] rp = response.Split(':');
+            //switch (rp[0])
             //{
-            client.Send(messageEncode, messageEncode.Length);
-            //} catch (Exception ex)
-            //{
-            //    MessageBox.Show("cant connect to server");
+            //    case "play":
+            //        int x = Convert.ToInt32(rp[1]);
+            //        int y = Convert.ToInt32(rp[2]);
+
+            //        if (Form1.player_turn == 1)
+            //        {
+            //            BanCo.DanhCo(x, y, 2, Form1.grs);
+            //        }
+            //        else if (Form1.player_turn == 2)
+            //        {
+            //            BanCo.DanhCo(x, y, 1, Form1.grs);
+            //        }
+
+            //        Form1.turn++;
+            //        //MessageBox.Show(Convert.ToString(Form1.turn));
+            //        break;
+            //    case "login":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkLogin = true;
+            //        }
+            //        break;
+            //    case "register":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkRegister = true;
+            //        }
+            //        break;
+            //    case "create":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkCreateRoom = true;
+            //        }
+            //        break;
+            //    case "join":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            host_id = rp[2];
+
+            //            // set player turn
+            //            Form1.player_turn = Convert.ToInt32(rp[3]);
+
+            //            // set turn = 0 (bắt đầu game)
+            //            Form1.turn = 0;
+
+            //            checkJoinRoom = true;
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Phòng không tồn tại");
+            //        }
+            //        break;
+            //    case "host":
+            //        if (rp[1].Equals(user_id))
+            //        {
+            //            join_id = rp[2];
+
+            //            // set player turn
+            //            Form1.player_turn = Convert.ToInt32(rp[3]);
+            //        }
+            //        break;
             //}
+
+            // đóng stream
+            //stream.Close();
         }
 
 
@@ -155,7 +249,7 @@ namespace ProjectCaro
         {
             // connect to server
             // try catch to check server on/off
-            client.Connect(serverEP);
+            //client.Connect(serverEP);
 
             while (true)
             {
@@ -166,9 +260,16 @@ namespace ProjectCaro
                     return;
                 }
 
-                // xử lý data nhận được từ server
-                byte[] data = client.Receive(ref serverEP);
-                string response = Encoding.ASCII.GetString(data);
+                // nhận dữ liệu từ server
+                // tạo buffer lưu trữ dữ liệu nhận đc
+                byte[] data = new byte[256];
+
+                NetworkStream stream = client.GetStream();
+
+                // đọc dữ liệu nhận về
+                string response = string.Empty;
+                int bytes = stream.Read(data, 0, data.Length);
+                response = Encoding.ASCII.GetString(data, 0, bytes);
                 string[] rp = response.Split(':');
 
                 /// <summary>
@@ -182,17 +283,17 @@ namespace ProjectCaro
                         int x = Convert.ToInt32(rp[1]);
                         int y = Convert.ToInt32(rp[2]);
 
-                        //if (Fom1.player_turn == 1)
-                        //{
-                        //    BanCo.DanhCo(x, y, 2, Fom1.grs);
-                        //}
-                        //else if (Fom1.player_turn == 2)
-                        //{
-                        //    BanCo.DanhCo(x, y, 1, Fom1.grs);
-                        //}
+                        if (Form1.player_turn == 1)
+                        {
+                            //BanCo.DanhCo(x, y, 2, Form1.grs);
+                        }
+                        else if (Form1.player_turn == 2)
+                        {
+                            //BanCo.DanhCo(x, y, 1, Form1.grs);
+                        }
 
-                        //Fom1.turn++;
-                        //MessageBox.Show(Convert.ToString(Fom1.turn));
+                        Form1.turn++;
+                        //MessageBox.Show(Convert.ToString(Form1.turn));
                         break;
                     case "login":
                         if (rp[1].Equals("true"))
@@ -218,10 +319,10 @@ namespace ProjectCaro
                             host_id = rp[2];
 
                             // set player turn
-                            //Fom1.player_turn = Convert.ToInt32(rp[3]);
+                            Form1.player_turn = Convert.ToInt32(rp[3]);
 
                             // set turn = 0 (bắt đầu game)
-                            //Fom1.turn = 0;
+                            Form1.turn = 0;
 
                             checkJoinRoom = true;
                         }
@@ -236,7 +337,7 @@ namespace ProjectCaro
                             join_id = rp[2];
 
                             // set player turn
-                            //Fom1.player_turn = Convert.ToInt32(rp[3]);
+                            Form1.player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
                 }
@@ -258,26 +359,26 @@ namespace ProjectCaro
                 }
 
 
-                //if (join_id != null)
-                //{
-                //    // xóa dòng "Chờ người chơi"
-                //    waiting_label.Invoke((Action)delegate
-                //    {
-                //        waiting_label.Text = "";
-                //    });
+                if (join_id != null)
+                {
+                    // xóa dòng "Chờ người chơi"
+                    waiting_label.Invoke((Action)delegate
+                    {
+                        waiting_label.Text = "";
+                    });
 
-                //    // hiện tên người chơi vào phòng
-                //    join_label.Invoke((Action)delegate
-                //    {
-                //        join_label.Text = join_id;
-                //    });
+                    // hiện tên người chơi vào phòng
+                    join_label.Invoke((Action)delegate
+                    {
+                        join_label.Text = join_id;
+                    });
 
-                //    // set turn = 0 (bắt đầu game)
-                //    //Fom1.turn = 0;
+                    // set turn = 0 (bắt đầu game)
+                    Form1.turn = 0;
 
-                //    // dừng worker
-                //    workerWaitForPlayer.CancelAsync();
-                //}
+                    // dừng worker
+                    workerWaitForPlayer.CancelAsync();
+                }
 
                 Thread.Sleep(100);
             }
@@ -288,82 +389,100 @@ namespace ProjectCaro
 
         private static void DoChangeTurn(object sender, DoWorkEventArgs e)
         {
-            //while (true)
-            //{
-            //    // cancel worker nếu có tín hiệu cancel gửi đến
-            //    if (workerChangeTurn.CancellationPending)
-            //    {
-            //        e.Cancel = true;
-            //        return;
-            //    }
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerChangeTurn.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
 
-            //    if (((Fom1.player_turn == 1) && (Fom1.turn % 2 == 0)) ||
-            //        ((Fom1.player_turn == 2) && (Fom1.turn % 2 > 0)))
-            //    {
-            //        if (user_id.Equals(host_id))
-            //        {
-            //            // đổi màu nền tên người chơi
-            //            host_label.Invoke((Action)delegate
-            //            {
-            //                host_label.BackColor = Color.Green;
-            //            });
+                if (((Form1.player_turn == 1) && (Form1.turn % 2 == 0)) ||
+                    ((Form1.player_turn == 2) && (Form1.turn % 2 > 0)))
+                {
+                    if (user_id.Equals(host_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Green;
+                        });
 
-            //            join_label.Invoke((Action)delegate
-            //            {
-            //                join_label.BackColor = Color.Transparent;
-            //            });
-            //        }
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Transparent;
+                        });
+                    }
 
-            //        if (user_id.Equals(join_id))
-            //        {
-            //            // đổi màu nền tên người chơi
-            //            join_label.Invoke((Action)delegate
-            //            {
-            //                join_label.BackColor = Color.Green;
-            //            });
+                    if (user_id.Equals(join_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Green;
+                        });
 
-            //            host_label.Invoke((Action)delegate
-            //            {
-            //                host_label.BackColor = Color.Transparent;
-            //            });
-            //        }
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Transparent;
+                        });
+                    }
 
-            //    }
-            //    else if (((Fom1.player_turn == 1) && (Fom1.turn % 2 > 0)) ||
-            //      ((Fom1.player_turn == 2) && (Fom1.turn % 2 == 0)))
-            //    {
-            //        if (user_id.Equals(host_id))
-            //        {
-            //            // đổi màu nền tên người chơi
-            //            host_label.Invoke((Action)delegate
-            //            {
-            //                host_label.BackColor = Color.Transparent;
-            //            });
+                }
+                else if (((Form1.player_turn == 1) && (Form1.turn % 2 > 0)) ||
+                  ((Form1.player_turn == 2) && (Form1.turn % 2 == 0)))
+                {
+                    if (user_id.Equals(host_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Transparent;
+                        });
 
-            //            join_label.Invoke((Action)delegate
-            //            {
-            //                join_label.BackColor = Color.Red;
-            //            });
-            //        }
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Red;
+                        });
+                    }
 
-            //        if (user_id.Equals(join_id))
-            //        {
-            //            // đổi màu nền tên người chơi
-            //            join_label.Invoke((Action)delegate
-            //            {
-            //                join_label.BackColor = Color.Transparent;
-            //            });
+                    if (user_id.Equals(join_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Transparent;
+                        });
 
-            //            host_label.Invoke((Action)delegate
-            //            {
-            //                host_label.BackColor = Color.Red;
-            //            });
-            //        }
-            //    }
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Red;
+                        });
+                    }
+                }
 
-            //    Thread.Sleep(100);
-            //}
+                // chạy kiểm tra mỗi 0.1s
+                Thread.Sleep(100);
+            }
         }
 
+
+
+        private static void DoRefreshRoom(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerRefreshRoom.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                // do something to refresh roomlist here
+            }
+        }
+    
     }
 }

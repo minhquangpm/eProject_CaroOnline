@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Threading;
-using Microsoft.VisualBasic;
-using System.Drawing;
-using System.Media;
 using System.Text.RegularExpressions;
 
 namespace ProjectCaro
@@ -11,14 +7,10 @@ namespace ProjectCaro
     partial class Form1
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
-        //public TabLogin()
-        //{
-        //    Client.InitClient();
-        //}
 
+       
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-
             Client.user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
             bool check = await CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
@@ -26,9 +18,8 @@ namespace ProjectCaro
             if (check)
             {
                 //check login và chạy hàm load
-                //processbartime.Enabled = true;
+                processbartime.Enabled = true;
                 Client.UserOnline(Client.user_id);
-                tabControl.SelectTab(Home);
             }
             else
             {
@@ -36,12 +27,46 @@ namespace ProjectCaro
                 CaroAPI.userReturn = null;
             }
         }
-        
 
-        public void btnSignup_Click()
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            //panelSignup.Visible = false;
+            Application.Exit();
         }
+
+        private void processbartime_Tick(object sender, EventArgs e)
+        {
+            //không cho hành động khi load form 
+            progressBar1.Visible = true;
+            progressBar1.Value = progressBar1.Value + 50;
+            if (progressBar1.Value >= 999)
+            {
+                //dừng thanh load
+                processbartime.Enabled = false;
+                //không cho hành động khi load form
+                txt_Log1.Enabled = false;
+                txt_Log2.Enabled = false;
+                btnLogin.Enabled = false;
+                panelLogin.Visible = false;
+                //mở trang home
+                tabControl.SelectTab(Home);
+            }
+
+        }
+        //mở form đăng ký
+
+        private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Client.client.Close();
+            Client.UserOffline(Client.user_id);
+        }
+
+
+        //Form đăng ký
+        private void txtSignin_Click(object sender, EventArgs e)
+        {
+            panelSignup.Visible = false;
+        }
+
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {

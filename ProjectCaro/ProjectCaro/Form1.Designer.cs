@@ -88,7 +88,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
@@ -153,7 +152,7 @@
             this.panelSignup.Controls.Add(this.txtUsername);
             this.panelSignup.Location = new System.Drawing.Point(347, 145);
             this.panelSignup.Name = "panelSignup";
-            this.panelSignup.Size = new System.Drawing.Size(468, 436);
+            this.panelSignup.Size = new System.Drawing.Size(468, 433);
             this.panelSignup.TabIndex = 48;
             // 
             // textBox1
@@ -186,7 +185,6 @@
             this.txtSignin.Size = new System.Drawing.Size(90, 13);
             this.txtSignin.TabIndex = 44;
             this.txtSignin.Text = "click here to login";
-            this.txtSignin.Click += new System.EventHandler(this.txtSignin_Click);
             // 
             // btnExit
             // 
@@ -751,7 +749,7 @@
             this.panel8.BackColor = System.Drawing.Color.Transparent;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel8.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel8.Location = new System.Drawing.Point(-3, 112);
+            this.panel8.Location = new System.Drawing.Point(3, 112);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(225, 189);
             this.panel8.TabIndex = 48;
@@ -813,6 +811,14 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(548, 20);
             this.textBox2.TabIndex = 45;
+            // 
+            // processbartime
+            // 
+            this.processbartime.Tick += new System.EventHandler(this.processbartime_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -917,7 +923,6 @@
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.Timer timer2;
         public System.Windows.Forms.Timer timer1;
         private System.ComponentModel.IContainer components;
     }
