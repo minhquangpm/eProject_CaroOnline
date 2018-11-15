@@ -20,6 +20,8 @@ namespace ProjectCaro
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
                 Client.UserOnline(Client.user_id);
+                lblUsername.Text = CaroAPI.user.name;
+                
             }
             else
             {
@@ -27,11 +29,7 @@ namespace ProjectCaro
                 CaroAPI.userReturn = null;
             }
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void processbartime_Tick(object sender, EventArgs e)
         {
@@ -53,8 +51,17 @@ namespace ProjectCaro
 
         }
         //mở form đăng ký
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            panelSignup.Visible = true;
+        }
 
-        private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Client.client.Close();
             Client.UserOffline(Client.user_id);

@@ -24,7 +24,7 @@ namespace ProjectCaro
         private static List<int> playerO = new List<int>();
 
         //dem gio
-        DateTime da;
+       
 
         public void loadMap()
         {
@@ -34,9 +34,6 @@ namespace ProjectCaro
 
             timer1.Start();
             button1.Text = "Start";
-            //đếm giờ
-            da = DateTime.Now;
-            timer1.Start();
 
             Client.host_label = lblHost;
             Client.join_label = lblJoin;
