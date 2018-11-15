@@ -39,9 +39,9 @@ namespace ProjectCaro
         //public static string user_session = "";
 
 
-        public static Label join_label;
-        public static Label host_label;
-        public static Label waiting_label;
+        //public static Label join_label;
+        //public static Label host_label;
+        //public static Label waiting_label;
 
         // khai báo kết nối
         public static UdpClient client = null;
@@ -182,16 +182,16 @@ namespace ProjectCaro
                         int x = Convert.ToInt32(rp[1]);
                         int y = Convert.ToInt32(rp[2]);
 
-                        if (Fom1.player_turn == 1)
-                        {
-                            BanCo.DanhCo(x, y, 2, Fom1.grs);
-                        }
-                        else if (Fom1.player_turn == 2)
-                        {
-                            BanCo.DanhCo(x, y, 1, Fom1.grs);
-                        }
+                        //if (Fom1.player_turn == 1)
+                        //{
+                        //    BanCo.DanhCo(x, y, 2, Fom1.grs);
+                        //}
+                        //else if (Fom1.player_turn == 2)
+                        //{
+                        //    BanCo.DanhCo(x, y, 1, Fom1.grs);
+                        //}
 
-                        Fom1.turn++;
+                        //Fom1.turn++;
                         //MessageBox.Show(Convert.ToString(Fom1.turn));
                         break;
                     case "login":
@@ -218,10 +218,10 @@ namespace ProjectCaro
                             host_id = rp[2];
 
                             // set player turn
-                            Fom1.player_turn = Convert.ToInt32(rp[3]);
+                            //Fom1.player_turn = Convert.ToInt32(rp[3]);
 
                             // set turn = 0 (bắt đầu game)
-                            Fom1.turn = 0;
+                            //Fom1.turn = 0;
 
                             checkJoinRoom = true;
                         }
@@ -236,7 +236,7 @@ namespace ProjectCaro
                             join_id = rp[2];
 
                             // set player turn
-                            Fom1.player_turn = Convert.ToInt32(rp[3]);
+                            //Fom1.player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
                 }
@@ -258,26 +258,26 @@ namespace ProjectCaro
                 }
 
 
-                if (join_id != null)
-                {
-                    // xóa dòng "Chờ người chơi"
-                    waiting_label.Invoke((Action)delegate
-                    {
-                        waiting_label.Text = "";
-                    });
+                //if (join_id != null)
+                //{
+                //    // xóa dòng "Chờ người chơi"
+                //    waiting_label.Invoke((Action)delegate
+                //    {
+                //        waiting_label.Text = "";
+                //    });
 
-                    // hiện tên người chơi vào phòng
-                    join_label.Invoke((Action)delegate
-                    {
-                        join_label.Text = join_id;
-                    });
+                //    // hiện tên người chơi vào phòng
+                //    join_label.Invoke((Action)delegate
+                //    {
+                //        join_label.Text = join_id;
+                //    });
 
-                    // set turn = 0 (bắt đầu game)
-                    Fom1.turn = 0;
+                //    // set turn = 0 (bắt đầu game)
+                //    //Fom1.turn = 0;
 
-                    // dừng worker
-                    workerWaitForPlayer.CancelAsync();
-                }
+                //    // dừng worker
+                //    workerWaitForPlayer.CancelAsync();
+                //}
 
                 Thread.Sleep(100);
             }
@@ -288,81 +288,81 @@ namespace ProjectCaro
 
         private static void DoChangeTurn(object sender, DoWorkEventArgs e)
         {
-            while (true)
-            {
-                // cancel worker nếu có tín hiệu cancel gửi đến
-                if (workerChangeTurn.CancellationPending)
-                {
-                    e.Cancel = true;
-                    return;
-                }
+            //while (true)
+            //{
+            //    // cancel worker nếu có tín hiệu cancel gửi đến
+            //    if (workerChangeTurn.CancellationPending)
+            //    {
+            //        e.Cancel = true;
+            //        return;
+            //    }
 
-                if (((Fom1.player_turn == 1) && (Fom1.turn % 2 == 0)) ||
-                    ((Fom1.player_turn == 2) && (Fom1.turn % 2 > 0)))
-                {
-                    if (user_id.Equals(host_id))
-                    {
-                        // đổi màu nền tên người chơi
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Green;
-                        });
+            //    if (((Fom1.player_turn == 1) && (Fom1.turn % 2 == 0)) ||
+            //        ((Fom1.player_turn == 2) && (Fom1.turn % 2 > 0)))
+            //    {
+            //        if (user_id.Equals(host_id))
+            //        {
+            //            // đổi màu nền tên người chơi
+            //            host_label.Invoke((Action)delegate
+            //            {
+            //                host_label.BackColor = Color.Green;
+            //            });
 
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Transparent;
-                        });
-                    }
+            //            join_label.Invoke((Action)delegate
+            //            {
+            //                join_label.BackColor = Color.Transparent;
+            //            });
+            //        }
 
-                    if (user_id.Equals(join_id))
-                    {
-                        // đổi màu nền tên người chơi
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Green;
-                        });
+            //        if (user_id.Equals(join_id))
+            //        {
+            //            // đổi màu nền tên người chơi
+            //            join_label.Invoke((Action)delegate
+            //            {
+            //                join_label.BackColor = Color.Green;
+            //            });
 
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Transparent;
-                        });
-                    }
+            //            host_label.Invoke((Action)delegate
+            //            {
+            //                host_label.BackColor = Color.Transparent;
+            //            });
+            //        }
 
-                }
-                else if (((Fom1.player_turn == 1) && (Fom1.turn % 2 > 0)) ||
-                  ((Fom1.player_turn == 2) && (Fom1.turn % 2 == 0)))
-                {
-                    if (user_id.Equals(host_id))
-                    {
-                        // đổi màu nền tên người chơi
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Transparent;
-                        });
+            //    }
+            //    else if (((Fom1.player_turn == 1) && (Fom1.turn % 2 > 0)) ||
+            //      ((Fom1.player_turn == 2) && (Fom1.turn % 2 == 0)))
+            //    {
+            //        if (user_id.Equals(host_id))
+            //        {
+            //            // đổi màu nền tên người chơi
+            //            host_label.Invoke((Action)delegate
+            //            {
+            //                host_label.BackColor = Color.Transparent;
+            //            });
 
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Red;
-                        });
-                    }
+            //            join_label.Invoke((Action)delegate
+            //            {
+            //                join_label.BackColor = Color.Red;
+            //            });
+            //        }
 
-                    if (user_id.Equals(join_id))
-                    {
-                        // đổi màu nền tên người chơi
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Transparent;
-                        });
+            //        if (user_id.Equals(join_id))
+            //        {
+            //            // đổi màu nền tên người chơi
+            //            join_label.Invoke((Action)delegate
+            //            {
+            //                join_label.BackColor = Color.Transparent;
+            //            });
 
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Red;
-                        });
-                    }
-                }
+            //            host_label.Invoke((Action)delegate
+            //            {
+            //                host_label.BackColor = Color.Red;
+            //            });
+            //        }
+            //    }
 
-                Thread.Sleep(100);
-            }
+            //    Thread.Sleep(100);
+            //}
         }
 
     }
