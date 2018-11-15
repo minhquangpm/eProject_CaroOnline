@@ -8,14 +8,15 @@ using System.Text.RegularExpressions;
 
 namespace ProjectCaro
 {
-    public partial class TabLogin : Form1
+    partial class Form1
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
-        public TabLogin()
-        {
-            Client.InitClient();
-        }
-        public async void btnLogin_Click()
+        //public TabLogin()
+        //{
+        //    Client.InitClient();
+        //}
+
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
 
             Client.user_id = txt_Log1.Text;
@@ -41,8 +42,8 @@ namespace ProjectCaro
         {
             //panelSignup.Visible = false;
         }
-        
-        public async void btnResgister_click()
+
+        private async void btnSignup_Click(object sender, EventArgs e)
         {
             if (txtFullname.Text == "")
             {

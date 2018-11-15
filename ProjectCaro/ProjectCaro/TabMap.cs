@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace ProjectCaro
 {
-    class TabMap : Form1
+    partial class Form1
     {
-        public static Banco bc;
-        public static Graphics grs;
+        //public static Banco bc;
+        //public static Graphics grs;
 
         // xac dinh so dong so cot
         private int soDong = 28;
@@ -19,12 +19,38 @@ namespace ProjectCaro
         public static int player_turn = 0;
         public List<int> KeHuyDiet = new List<int>();
 
-        public TabMap()
+        //public Form1()
+        //{
+        //    bc = new Banco(soDong, soCot);
+        //    grs = pnlChess.CreateGraphics();
+        //}
+
+        public void LoadMap()
         {
-            InitializeComponent();
-            bc = new Banco(soDong, soCot);
-            grs = pnlChess.CreateGraphics();
+            //loadmap
+            lblSophong.Text = Client.room_no;
+            lblHost.Text = Client.host_id;
+            lblJoin.Text = Client.join_id;
+
+            // thực thi nếu người chơi là host
+            if (Client.host_id.Equals(Client.user_id))
+            {
+                label7.Text = "Chờ người chơi...";
+
+                // chạy thread chờ người chơi join
+                if (!Client.workerWaitForPlayer.IsBusy)
+                {
+                    Client.workerWaitForPlayer.RunWorkerAsync();
+                }
+            }
+
+            // chạy thread đổi màu tên người chơi khi đến lượt
+            if (!Client.workerChangeTurn.IsBusy)
+            {
+                Client.workerChangeTurn.RunWorkerAsync();
+            }
         }
+
 
         public void Danhco(object sender, MouseEventArgs e)
         {
