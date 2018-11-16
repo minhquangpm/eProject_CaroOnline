@@ -29,12 +29,12 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
             this.panelSignup = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
             this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.repassword = new System.Windows.Forms.Label();
-            this.password2 = new System.Windows.Forms.TextBox();
+            this.txtpassword2 = new System.Windows.Forms.TextBox();
             this.txtFullname = new System.Windows.Forms.TextBox();
             this.fullname1 = new System.Windows.Forms.Label();
             this.password1 = new System.Windows.Forms.Label();
@@ -74,11 +74,17 @@
             this.listfriend = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Map = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblJoin = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.Avt2 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblHost = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.Avt1 = new System.Windows.Forms.PictureBox();
             this.TenPhong = new System.Windows.Forms.Panel();
             this.Phong = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
-            this.lblHost = new System.Windows.Forms.Label();
-            this.lblJoin = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -88,12 +94,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.Avt1 = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.Avt2 = new System.Windows.Forms.PictureBox();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -107,14 +107,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.listfriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.Map.SuspendLayout();
-            this.TenPhong.SuspendLayout();
-            this.pnlChess.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avt2)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).BeginInit();
+            this.TenPhong.SuspendLayout();
+            this.pnlChess.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -127,6 +127,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1175, 742);
             this.tabControl.TabIndex = 0;
+            this.tabControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl_KeyDown);
             // 
             // Login
             // 
@@ -147,12 +148,12 @@
             this.panelSignup.BackColor = System.Drawing.Color.Transparent;
             this.panelSignup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSignup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSignup.Controls.Add(this.textBox1);
+            this.panelSignup.Controls.Add(this.txtEmail);
             this.panelSignup.Controls.Add(this.Email);
             this.panelSignup.Controls.Add(this.txtSignin);
             this.panelSignup.Controls.Add(this.btnExit);
             this.panelSignup.Controls.Add(this.repassword);
-            this.panelSignup.Controls.Add(this.password2);
+            this.panelSignup.Controls.Add(this.txtpassword2);
             this.panelSignup.Controls.Add(this.txtFullname);
             this.panelSignup.Controls.Add(this.fullname1);
             this.panelSignup.Controls.Add(this.password1);
@@ -166,15 +167,15 @@
             this.panelSignup.Size = new System.Drawing.Size(468, 435);
             this.panelSignup.TabIndex = 48;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(102, 314);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 26);
-            this.textBox1.TabIndex = 48;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtEmail.Location = new System.Drawing.Point(102, 314);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(261, 26);
+            this.txtEmail.TabIndex = 48;
             // 
             // Email
             // 
@@ -222,15 +223,15 @@
             this.repassword.TabIndex = 40;
             this.repassword.Text = "Re-Password";
             // 
-            // password2
+            // txtpassword2
             // 
-            this.password2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.password2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.password2.Location = new System.Drawing.Point(104, 259);
-            this.password2.Name = "password2";
-            this.password2.Size = new System.Drawing.Size(261, 26);
-            this.password2.TabIndex = 39;
+            this.txtpassword2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtpassword2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassword2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtpassword2.Location = new System.Drawing.Point(104, 259);
+            this.txtpassword2.Name = "txtpassword2";
+            this.txtpassword2.Size = new System.Drawing.Size(261, 26);
+            this.txtpassword2.TabIndex = 39;
             // 
             // txtFullname
             // 
@@ -249,9 +250,9 @@
             this.fullname1.ForeColor = System.Drawing.Color.Black;
             this.fullname1.Location = new System.Drawing.Point(101, 71);
             this.fullname1.Name = "fullname1";
-            this.fullname1.Size = new System.Drawing.Size(69, 17);
+            this.fullname1.Size = new System.Drawing.Size(44, 17);
             this.fullname1.TabIndex = 37;
-            this.fullname1.Text = "Full name";
+            this.fullname1.Text = "Name";
             // 
             // password1
             // 
@@ -679,6 +680,92 @@
             this.Map.Text = "Map";
             this.Map.UseVisualStyleBackColor = true;
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.BackgroundImage = global::ProjectCaro.Properties.Resources.level__2_;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Controls.Add(this.lblJoin);
+            this.panel7.Location = new System.Drawing.Point(945, 331);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(217, 109);
+            this.panel7.TabIndex = 58;
+            // 
+            // lblJoin
+            // 
+            this.lblJoin.AutoSize = true;
+            this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblJoin.Location = new System.Drawing.Point(53, 67);
+            this.lblJoin.Name = "lblJoin";
+            this.lblJoin.Size = new System.Drawing.Size(98, 25);
+            this.lblJoin.TabIndex = 52;
+            this.lblJoin.Text = "UserJoin";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BackgroundImage = global::ProjectCaro.Properties.Resources.avata;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Controls.Add(this.Avt2);
+            this.panel8.Location = new System.Drawing.Point(934, 149);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(225, 189);
+            this.panel8.TabIndex = 57;
+            // 
+            // Avt2
+            // 
+            this.Avt2.Image = ((System.Drawing.Image)(resources.GetObject("Avt2.Image")));
+            this.Avt2.Location = new System.Drawing.Point(57, 28);
+            this.Avt2.Name = "Avt2";
+            this.Avt2.Size = new System.Drawing.Size(118, 133);
+            this.Avt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Avt2.TabIndex = 0;
+            this.Avt2.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = global::ProjectCaro.Properties.Resources.level;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.lblHost);
+            this.panel5.Location = new System.Drawing.Point(2, 303);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(217, 109);
+            this.panel5.TabIndex = 56;
+            // 
+            // lblHost
+            // 
+            this.lblHost.AutoSize = true;
+            this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.lblHost.ForeColor = System.Drawing.Color.Blue;
+            this.lblHost.Location = new System.Drawing.Point(59, 67);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(101, 25);
+            this.lblHost.TabIndex = 53;
+            this.lblHost.Text = "UserHost";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImage = global::ProjectCaro.Properties.Resources.avata;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Controls.Add(this.Avt1);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panel6.Location = new System.Drawing.Point(8, 121);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(225, 189);
+            this.panel6.TabIndex = 55;
+            // 
+            // Avt1
+            // 
+            this.Avt1.Location = new System.Drawing.Point(58, 28);
+            this.Avt1.Name = "Avt1";
+            this.Avt1.Size = new System.Drawing.Size(111, 133);
+            this.Avt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Avt1.TabIndex = 0;
+            this.Avt1.TabStop = false;
+            // 
             // TenPhong
             // 
             this.TenPhong.BackColor = System.Drawing.Color.Transparent;
@@ -714,28 +801,6 @@
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "0000";
             // 
-            // lblHost
-            // 
-            this.lblHost.AutoSize = true;
-            this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHost.ForeColor = System.Drawing.Color.Blue;
-            this.lblHost.Location = new System.Drawing.Point(59, 67);
-            this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(101, 25);
-            this.lblHost.TabIndex = 53;
-            this.lblHost.Text = "UserHost";
-            // 
-            // lblJoin
-            // 
-            this.lblJoin.AutoSize = true;
-            this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblJoin.Location = new System.Drawing.Point(53, 67);
-            this.lblJoin.Name = "lblJoin";
-            this.lblJoin.Size = new System.Drawing.Size(98, 25);
-            this.lblJoin.TabIndex = 52;
-            this.lblJoin.Text = "UserJoin";
-            // 
             // Time
             // 
             this.Time.AutoSize = true;
@@ -763,7 +828,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(320, 191);
+            this.label7.Location = new System.Drawing.Point(288, 213);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 0;
@@ -814,76 +879,13 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = global::ProjectCaro.Properties.Resources.level;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.lblHost);
-            this.panel5.Location = new System.Drawing.Point(2, 303);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(217, 109);
-            this.panel5.TabIndex = 56;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = global::ProjectCaro.Properties.Resources.avata;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Controls.Add(this.Avt1);
-            this.panel6.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel6.Location = new System.Drawing.Point(8, 121);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(225, 189);
-            this.panel6.TabIndex = 55;
-            // 
-            // Avt1
-            // 
-            this.Avt1.Location = new System.Drawing.Point(58, 28);
-            this.Avt1.Name = "Avt1";
-            this.Avt1.Size = new System.Drawing.Size(111, 133);
-            this.Avt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Avt1.TabIndex = 0;
-            this.Avt1.TabStop = false;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.BackgroundImage = global::ProjectCaro.Properties.Resources.level__2_;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Controls.Add(this.lblJoin);
-            this.panel7.Location = new System.Drawing.Point(945, 331);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(217, 109);
-            this.panel7.TabIndex = 58;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.BackgroundImage = global::ProjectCaro.Properties.Resources.avata;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Controls.Add(this.Avt2);
-            this.panel8.Location = new System.Drawing.Point(934, 149);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(225, 189);
-            this.panel8.TabIndex = 57;
-            // 
-            // Avt2
-            // 
-            this.Avt2.Image = ((System.Drawing.Image)(resources.GetObject("Avt2.Image")));
-            this.Avt2.Location = new System.Drawing.Point(57, 28);
-            this.Avt2.Name = "Avt2";
-            this.Avt2.Size = new System.Drawing.Size(118, 133);
-            this.Avt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Avt2.TabIndex = 0;
-            this.Avt2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 741);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Caro";
@@ -910,18 +912,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
-            this.TenPhong.ResumeLayout(false);
-            this.TenPhong.PerformLayout();
-            this.pnlChess.ResumeLayout(false);
-            this.pnlChess.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Avt2)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).EndInit();
+            this.TenPhong.ResumeLayout(false);
+            this.TenPhong.PerformLayout();
+            this.pnlChess.ResumeLayout(false);
+            this.pnlChess.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -963,12 +965,12 @@
         public System.Windows.Forms.TabPage Map;
         public System.Windows.Forms.Timer processbartime;
         public System.Windows.Forms.Panel panelSignup;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtEmail;
         public System.Windows.Forms.Label Email;
         public System.Windows.Forms.Label txtSignin;
         public System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Label repassword;
-        public System.Windows.Forms.TextBox password2;
+        public System.Windows.Forms.TextBox txtpassword2;
         public System.Windows.Forms.TextBox txtFullname;
         public System.Windows.Forms.Label fullname1;
         public System.Windows.Forms.Label password1;

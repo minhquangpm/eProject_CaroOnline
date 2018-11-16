@@ -24,21 +24,31 @@ namespace ProjectCaro
         private static List<int> playerO = new List<int>();
 
         //dem gio
-       
-
-        public void loadMap()
+        public void map_Load()
         {
-            InitializeComponent();
+            lblSophong.Text = Client.room_no;
+            lblHost.Text = Client.host_id;
+            lblJoin.Text = Client.join_id;
 
-            DrawChessBoard();
+            // thực thi nếu người chơi là host
+            if (Client.host_id.Equals(Client.user_id))
+            {
+                label7.Text = "Chờ người chơi...";
 
-            timer1.Start();
-            button1.Text = "Start";
+                // chạy thread chờ người chơi join
+                if (!Client.workerWaitForPlayer.IsBusy)
+                {
+                    Client.workerWaitForPlayer.RunWorkerAsync();
+                }
+            }
 
-            Client.host_label = lblHost;
-            Client.join_label = lblJoin;
-            Client.waiting_label = label7;
+            // chạy thread đổi màu tên người chơi khi đến lượt
+            if (!Client.workerChangeTurn.IsBusy)
+            {
+                Client.workerChangeTurn.RunWorkerAsync();
+            }
         }
+
 
 
         public void DrawChessBoard()
@@ -152,33 +162,7 @@ namespace ProjectCaro
 
             return false;
         }
-
-
-
-        private void Map_Load(object sender, EventArgs e)
-        {
-            lblSophong.Text = Client.room_no;
-            lblHost.Text = Client.host_id;
-            lblJoin.Text = Client.join_id;
-
-            // thực thi nếu người chơi là host
-            if (Client.host_id.Equals(Client.user_id))
-            {
-                label7.Text = "Chờ người chơi...";
-
-                // chạy thread chờ người chơi join
-                if (!Client.workerWaitForPlayer.IsBusy)
-                {
-                    Client.workerWaitForPlayer.RunWorkerAsync();
-                }
-            }
-
-            // chạy thread đổi màu tên người chơi khi đến lượt
-            if (!Client.workerChangeTurn.IsBusy)
-            {
-                Client.workerChangeTurn.RunWorkerAsync();
-            }
-        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now.Subtract(da);

@@ -16,11 +16,12 @@ namespace ProjectCaro
         {
             InitializeComponent();
             Client.InitClient();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panelSignup.Visible = false;
+            load_Login();
         }
         
         
@@ -30,6 +31,10 @@ namespace ProjectCaro
         {
             //tabMap.Danhco();
         }
-        
+
+        private void tabControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }

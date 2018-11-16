@@ -15,12 +15,10 @@ namespace ProjectCaro
             {
                 //mở map
                 tabControl.SelectTab(Map);
-                lblSophong.Text = Client.room_no;
-                lblHost.Text = Client.host_id;
-                lblJoin.Text = Client.join_id;
                 //đếm giờ
                 da = DateTime.Now;
                 timer1.Start();
+                map_Load();
             }
         }
 
