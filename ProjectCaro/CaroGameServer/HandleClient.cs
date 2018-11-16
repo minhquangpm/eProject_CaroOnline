@@ -39,6 +39,7 @@ namespace CaroGameServer
         }
 
 
+
         public static void CreateRoom(string user_id, string room_no, TcpClient userClient)
         {
             Room room = new Room
@@ -103,6 +104,19 @@ namespace CaroGameServer
             if (!check_room)
             {
                 Server.SendData("join:false", userClient);
+            }
+        }
+
+
+
+        public static void RemoveRoom(string room_no)
+        {
+            foreach (Room room in roomList)
+            {
+                if (room.room_no.Equals(room_no))
+                {
+                    roomList.Remove(room);
+                }
             }
         }
 

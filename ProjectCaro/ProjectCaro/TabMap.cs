@@ -231,13 +231,25 @@ namespace ProjectCaro
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnThoatTran_Click(object sender, EventArgs e)
         {
-            btnList[12].BackgroundImage = Resources.o;
+            DialogResult result = MessageBox.Show("Exit?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            switch (result)
+            {
+                case DialogResult.Yes:
+
+                    break;
+                case DialogResult.No:
+
+                    break;
+                case DialogResult.Cancel:
+
+                    break;
+            }
         }
 
 
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now.Subtract(da);

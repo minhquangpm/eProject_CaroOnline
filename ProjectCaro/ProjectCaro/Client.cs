@@ -100,18 +100,19 @@ namespace ProjectCaro
         }
 
 
+        public static void QuitRoom(string user_id, string room_no)
+        {
+
+        }
+
+
+
         public static void UserOnline(string user_id)
         {
             string message = "online:" + user_id;
             SendData(message);
         }
 
-
-        //public static void UserOffline(string user_id)
-        //{
-        //    string message = "offline:" + user_id;
-        //    SendData(message);
-        //}
 
 
         private static void RefreshRoom()
@@ -166,12 +167,10 @@ namespace ProjectCaro
                 switch (rp[0])
                 {
                     case "play":
-
-                        //MessageBox.Show(response);
-
                         int vi_tri = Convert.ToInt32(rp[1]);
 
                         opponent_btnClick(btnList[vi_tri]);
+
                         break;
                     case "login":
                         if (rp[1].Equals("true"))
@@ -206,7 +205,7 @@ namespace ProjectCaro
                         }
                         else
                         {
-                            MessageBox.Show("Phòng không tồn tại");
+                            MessageBox.Show("No room match!");
                         }
                         break;
                     case "host":

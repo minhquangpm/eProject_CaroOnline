@@ -89,6 +89,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnThoatTran = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -647,6 +648,7 @@
             // 
             // Map
             // 
+            this.Map.Controls.Add(this.btnThoatTran);
             this.Map.Controls.Add(this.TenPhong);
             this.Map.Controls.Add(this.lblHost);
             this.Map.Controls.Add(this.lblJoin);
@@ -727,7 +729,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(930, 112);
+            this.panel7.Location = new System.Drawing.Point(928, 112);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(225, 189);
             this.panel7.TabIndex = 46;
@@ -818,6 +820,16 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnThoatTran
+            // 
+            this.btnThoatTran.Location = new System.Drawing.Point(987, 496);
+            this.btnThoatTran.Name = "btnThoatTran";
+            this.btnThoatTran.Size = new System.Drawing.Size(75, 23);
+            this.btnThoatTran.TabIndex = 55;
+            this.btnThoatTran.Text = "thoát trận";
+            this.btnThoatTran.UseVisualStyleBackColor = true;
+            this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
             // 
             // Caro
             // 
@@ -925,6 +937,7 @@
         public System.Windows.Forms.Label lblHost;
         public System.Windows.Forms.Label lblJoin;
         public System.Windows.Forms.Label lblWaiting;
+        private System.Windows.Forms.Button btnThoatTran;
     }
 }
 
