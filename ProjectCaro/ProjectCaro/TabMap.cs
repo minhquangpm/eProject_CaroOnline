@@ -82,7 +82,7 @@ namespace ProjectCaro
                         Width = CHESS_WIDTH,
                         Height = CHESS_HEIGHT,
                         Location = new Point(x, y),
-                        Text = Convert.ToString(vi_tri)
+                        //Text = Convert.ToString(vi_tri)
                     };
 
                     btn.Click += btn_Click;
