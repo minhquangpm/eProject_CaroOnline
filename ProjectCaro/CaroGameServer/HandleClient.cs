@@ -201,10 +201,9 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = $"UPDATE user SET status = @status WHERE name = '" + user_id + "';";
+                MyCommand.CommandText = $"UPDATE user SET status = @status WHERE userName = '" + user_id + "';";
                 MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
                 MyCommand.ExecuteNonQuery();
-                Console.WriteLine("hello");
             }
             catch (Exception ex)
             {
