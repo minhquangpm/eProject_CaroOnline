@@ -151,9 +151,36 @@ namespace CaroGameServer
             {
                 if (userOnline.userClient.Equals(userClient))
                 {
+                    ChangeStatus(userOnline.user_id);
                     onlineList.Remove(userOnline);
                     break;
                 }
+            }
+        }
+
+        public static void ChangeStatus(string user_id)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = $"UPDATE user SET status = @status WHERE name = '" + user_id + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
+                MyCommand.ExecuteNonQuery();
+                Console.WriteLine("hello");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                conn.Dispose();
+                conn.Close();
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
             }
         }
     }
