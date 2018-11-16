@@ -4,14 +4,14 @@ using System.Text.RegularExpressions;
 
 namespace ProjectCaro
 {
-    partial class Form1
+    partial class Caro
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
        
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            Client.user_id = txt_Log1.Text;
+            user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
             bool check = await CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
 
@@ -19,7 +19,7 @@ namespace ProjectCaro
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
-                Client.UserOnline(Client.user_id);
+                UserOnline(user_id);
             }
             else
             {
@@ -56,8 +56,8 @@ namespace ProjectCaro
 
         private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Client.client.Close();
-            Client.UserOffline(Client.user_id);
+            //Close();
+            UserOffline(user_id);
         }
 
 

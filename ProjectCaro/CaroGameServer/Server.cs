@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace CaroGameServer
 {
@@ -9,64 +11,99 @@ namespace CaroGameServer
     {
         // mở port listen
         private const int serverPort = 12345;
-        private static UdpClient server = new UdpClient(serverPort);
+        //private static UdpClient server = new UdpClient(serverPort);
+        private static TcpListener server = new TcpListener(IPAddress.Any, serverPort);
 
-        // nhận dữ liệu từ tất cả các client
-        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, 0);
 
-        public static void SendData(string message)
+
+        public static void SendData(string message, TcpClient client)
         {
             // gửi response về client
             byte[] data = Encoding.ASCII.GetBytes(message);
-            server.Send(data, data.Length, clientEP);
-        }
 
-        public static void SendData(string message, IPEndPoint userEP)
-        {
-            // gửi response về client
-            byte[] data = Encoding.ASCII.GetBytes(message);
-            server.Send(data, data.Length, userEP);
+            NetworkStream stream = client.GetStream();
+
+            stream.Write(data, 0, data.Length);
+
+            Console.WriteLine("Send: " + message);
         }
 
 
         public static void Listener()
         {
+            int counter = 0;
+            Server sv = new Server();
+
+            server.Start();
+
             while (true)
             {
+                counter++;
+
                 // xử lý data gửi từ client
-                byte[] data = server.Receive(ref clientEP);
-                string message = Encoding.ASCII.GetString(data);
-                Console.WriteLine(message);
+                TcpClient client = server.AcceptTcpClient();
 
-                string[] code = message.Split(':');
+                Thread userThread = new Thread(new ThreadStart(() => sv.User(client)));
+                userThread.Start();
+            }
+        }
 
-                switch (code[0])
+
+        public void User(TcpClient client)
+        {
+            string data;
+
+            NetworkStream stream = null;
+
+            while (true)
+            {
+                try
                 {
-                    case "play":
-                        string user_id = code[1];
-                        string room_no = code[2];
-                        int x = Convert.ToInt32(code[3]);
-                        int y = Convert.ToInt32(code[4]);
-                        HandleClient.Play(user_id, room_no, x, y);
+                    byte[] bytes = new byte[1024];
+
+                    stream = client.GetStream();
+
+                    int i = stream.Read(bytes, 0, bytes.Length);
+                    data = Encoding.ASCII.GetString(bytes, 0, i);
+
+                    Console.WriteLine("Receive: " + data);
+
+                    string[] code = data.Split(':');
+
+                    switch (code[0])
+                    {
+                        case "play":
+                            string user_id = code[1];
+                            string room_no = code[2];
+                            int vi_tri = Convert.ToInt32(code[3]);
+                            HandleClient.Play(user_id, room_no, vi_tri);
+                            break;
+                        case "create":
+                            HandleClient.CreateRoom(code[1], code[2], client);
+                            break;
+                        case "join":
+                            HandleClient.JoinRoom(code[1], code[2], client);
+                            break;
+                        //case "online":
+                        //    HandleClient.UserOnline(code[1], client);
+                        //    break;
+                        //case "offline":
+                        //    HandleClient.UserOffline(code[1]);
+                        //    break;
+                        case "refreshroom":
+                            HandleClient.RefreshRoom();
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex is IOException || ex is InvalidOperationException)
+                    {
+                        Console.WriteLine("Client disconnected");
+                        stream.Close();
+                        client.Close();
                         break;
-                    //case "login":
-                    //    HandleClient.Login(code[1], code[2]);
-                    //    break;
-                    //case "register":
-                    //    HandleClient.Register(code[1], code[2], code[3]);
-                    //    break;
-                    case "create":
-                        HandleClient.CreateRoom(code[1], code[2], clientEP);
-                        break;
-                    case "join":
-                        HandleClient.JoinRoom(code[1], code[2], clientEP);
-                        break;
-                    case "online":
-                        HandleClient.UserOnline(code[1], clientEP);
-                        break;
-                    case "offline":
-                        HandleClient.UserOffline(code[1]);
-                        break;
+                    }
                 }
             }
         }

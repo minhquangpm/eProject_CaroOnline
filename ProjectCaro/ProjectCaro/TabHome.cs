@@ -3,16 +3,17 @@ using System.Threading;
 
 namespace ProjectCaro
 {
-    partial class Form1
+    partial class Caro
     {
         private void btnTao_Click(object sender, EventArgs e)
         {
-            Client.host_id = Client.user_id;
-            Client.CreateRoom(Client.user_id);
+            host_id = user_id;
+            CreateRoom(user_id);
             Thread.Sleep(200);
-            if (Client.checkCreateRoom)
+            if (checkCreateRoom)
             {
                 //mở map
+                MapLoad();
                 tabControl.SelectTab(Map);
             }
         }
@@ -20,14 +21,15 @@ namespace ProjectCaro
 
         private void btnVao_Click(object sender, EventArgs e)
         {
-            Client.join_id = Client.user_id;
-            Client.room_no = txtSophong.Text;
-            Client.JoinRoom(Client.user_id, Client.room_no);
+            join_id = user_id;
+            room_no = txtSophong.Text;
+            JoinRoom(user_id, room_no);
             Thread.Sleep(1000);
 
-            if (Client.checkJoinRoom)
+            if (checkJoinRoom)
             {
                 //mở map
+                MapLoad();
                 tabControl.SelectTab(Map);
             }
 

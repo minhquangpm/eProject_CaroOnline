@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectCaro
 {
-    class Client
+    partial class Caro
     {
         // khai báo thông tin server
         //debug
@@ -37,16 +33,7 @@ namespace ProjectCaro
         public static string host_id;
         public static string join_id;
         public static string room_no;
-        //public static string user_session = "";
 
-
-        public static Label join_label;
-        public static Label host_label;
-        public static Label waiting_label;
-
-        // khai báo kết nối
-        //public static UdpClient client = null;
-        //private static IPEndPoint serverEP = null;
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
@@ -90,28 +77,11 @@ namespace ProjectCaro
             workerListener.RunWorkerAsync();
         }
 
-        public static void Login(string user_id, string user_pass)
-        {
-            string message = "login:" + user_id + ":" + user_pass;
-            //try
-            //{
-            SendData(message);
-            //} catch (Exception ex)
-            //{
-            //    MessageBox.Show("Cant connect to server");
-            //} 
 
-        }
 
-        public static void Register(string user_id, string user_pass)
+        public static void Play(string user_id, string room_no, int vi_tri)
         {
-            string message = "register:" + user_id + ":" + user_pass;
-            SendData(message);
-        }
-
-        public static void Play(string user_id, string room_no, int x, int y)
-        {
-            string message = "play:" + user_id + ":" + room_no + ":" + x + ":" + y;
+            string message = "play:" + user_id + ":" + room_no + ":" + vi_tri;
             SendData(message);
         }
 
@@ -162,95 +132,11 @@ namespace ProjectCaro
 
             // gửi
             stream.Write(data, 0, data.Length);
-            //client.Send(messageEncode, messageEncode.Length);
-
-            //// nhận dữ liệu từ server
-            //// tạo buffer lưu trữ dữ liệu nhận đc
-            //data = new byte[256];
-
-            //// đọc dữ liệu nhận về
-            //string response = string.Empty;
-            //int bytes = stream.Read(data, 0, data.Length);
-            //response = Encoding.ASCII.GetString(data, 0, bytes);
-
-            //// xử lý dữ liệu nhận về
-            //string[] rp = response.Split(':');
-            //switch (rp[0])
-            //{
-            //    case "play":
-            //        int x = Convert.ToInt32(rp[1]);
-            //        int y = Convert.ToInt32(rp[2]);
-
-            //        if (Form1.player_turn == 1)
-            //        {
-            //            BanCo.DanhCo(x, y, 2, Form1.grs);
-            //        }
-            //        else if (Form1.player_turn == 2)
-            //        {
-            //            BanCo.DanhCo(x, y, 1, Form1.grs);
-            //        }
-
-            //        Form1.turn++;
-            //        //MessageBox.Show(Convert.ToString(Form1.turn));
-            //        break;
-            //    case "login":
-            //        if (rp[1].Equals("true"))
-            //        {
-            //            checkLogin = true;
-            //        }
-            //        break;
-            //    case "register":
-            //        if (rp[1].Equals("true"))
-            //        {
-            //            checkRegister = true;
-            //        }
-            //        break;
-            //    case "create":
-            //        if (rp[1].Equals("true"))
-            //        {
-            //            checkCreateRoom = true;
-            //        }
-            //        break;
-            //    case "join":
-            //        if (rp[1].Equals("true"))
-            //        {
-            //            host_id = rp[2];
-
-            //            // set player turn
-            //            Form1.player_turn = Convert.ToInt32(rp[3]);
-
-            //            // set turn = 0 (bắt đầu game)
-            //            Form1.turn = 0;
-
-            //            checkJoinRoom = true;
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Phòng không tồn tại");
-            //        }
-            //        break;
-            //    case "host":
-            //        if (rp[1].Equals(user_id))
-            //        {
-            //            join_id = rp[2];
-
-            //            // set player turn
-            //            Form1.player_turn = Convert.ToInt32(rp[3]);
-            //        }
-            //        break;
-            //}
-
-            // đóng stream
-            //stream.Close();
         }
 
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
-            // connect to server
-            // try catch to check server on/off
-            //client.Connect(serverEP);
-
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -280,20 +166,12 @@ namespace ProjectCaro
                 switch (rp[0])
                 {
                     case "play":
-                        int x = Convert.ToInt32(rp[1]);
-                        int y = Convert.ToInt32(rp[2]);
 
-                        if (Form1.player_turn == 1)
-                        {
-                            //BanCo.DanhCo(x, y, 2, Form1.grs);
-                        }
-                        else if (Form1.player_turn == 2)
-                        {
-                            //BanCo.DanhCo(x, y, 1, Form1.grs);
-                        }
+                        //MessageBox.Show(response);
 
-                        Form1.turn++;
-                        //MessageBox.Show(Convert.ToString(Form1.turn));
+                        int vi_tri = Convert.ToInt32(rp[1]);
+
+                        opponent_btnClick(btnList[vi_tri]);
                         break;
                     case "login":
                         if (rp[1].Equals("true"))
@@ -319,10 +197,10 @@ namespace ProjectCaro
                             host_id = rp[2];
 
                             // set player turn
-                            Form1.player_turn = Convert.ToInt32(rp[3]);
+                            player_turn = Convert.ToInt32(rp[3]);
 
                             // set turn = 0 (bắt đầu game)
-                            Form1.turn = 0;
+                            turn = 0;
 
                             checkJoinRoom = true;
                         }
@@ -337,7 +215,7 @@ namespace ProjectCaro
                             join_id = rp[2];
 
                             // set player turn
-                            Form1.player_turn = Convert.ToInt32(rp[3]);
+                            player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
                 }
@@ -362,19 +240,14 @@ namespace ProjectCaro
                 if (join_id != null)
                 {
                     // xóa dòng "Chờ người chơi"
-                    waiting_label.Invoke((Action)delegate
-                    {
-                        waiting_label.Text = "";
-                    });
+                    lblWaiting.Text = "";
 
                     // hiện tên người chơi vào phòng
-                    join_label.Invoke((Action)delegate
-                    {
-                        join_label.Text = join_id;
-                    });
+
+                    lblJoin.Text = join_id;
 
                     // set turn = 0 (bắt đầu game)
-                    Form1.turn = 0;
+                    turn = 0;
 
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();
@@ -398,67 +271,43 @@ namespace ProjectCaro
                     return;
                 }
 
-                if (((Form1.player_turn == 1) && (Form1.turn % 2 == 0)) ||
-                    ((Form1.player_turn == 2) && (Form1.turn % 2 > 0)))
+                if (((player_turn == 1) && (turn % 2 == 0)) ||
+                    ((player_turn == 2) && (turn % 2 > 0)))
                 {
                     if (user_id.Equals(host_id))
                     {
                         // đổi màu nền tên người chơi
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Green;
-                        });
+                        lblHost.BackColor = Color.Green;
 
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Transparent;
-                        });
+                        lblJoin.BackColor = Color.Transparent;
                     }
 
                     if (user_id.Equals(join_id))
                     {
                         // đổi màu nền tên người chơi
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Green;
-                        });
+                        lblJoin.BackColor = Color.Green;
 
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Transparent;
-                        });
+                        lblHost.BackColor = Color.Transparent;
                     }
 
                 }
-                else if (((Form1.player_turn == 1) && (Form1.turn % 2 > 0)) ||
-                  ((Form1.player_turn == 2) && (Form1.turn % 2 == 0)))
+                else if (((player_turn == 1) && (turn % 2 > 0)) ||
+                  ((player_turn == 2) && (turn % 2 == 0)))
                 {
                     if (user_id.Equals(host_id))
                     {
                         // đổi màu nền tên người chơi
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Transparent;
-                        });
+                        lblHost.BackColor = Color.Transparent;
 
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Red;
-                        });
+                        lblJoin.BackColor = Color.Red;
                     }
 
                     if (user_id.Equals(join_id))
                     {
                         // đổi màu nền tên người chơi
-                        join_label.Invoke((Action)delegate
-                        {
-                            join_label.BackColor = Color.Transparent;
-                        });
+                        lblJoin.BackColor = Color.Transparent;
 
-                        host_label.Invoke((Action)delegate
-                        {
-                            host_label.BackColor = Color.Red;
-                        });
+                        lblHost.BackColor = Color.Red;
                     }
                 }
 
@@ -483,6 +332,8 @@ namespace ProjectCaro
                 // do something to refresh roomlist here
             }
         }
-    
+
+
+
     }
 }

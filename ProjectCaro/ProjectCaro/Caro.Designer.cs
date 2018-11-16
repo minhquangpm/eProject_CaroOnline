@@ -1,6 +1,6 @@
 ﻿namespace ProjectCaro
 {
-    partial class Form1
+    partial class Caro
     {
 
         /// <summary>
@@ -76,13 +76,13 @@
             this.TenPhong = new System.Windows.Forms.Panel();
             this.Phong = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
-            this.lblHost = new System.Windows.Forms.Label();
-            this.lblJoin = new System.Windows.Forms.Label();
+            lblHost = new System.Windows.Forms.Label();
+            lblJoin = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.Time = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnlChess = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            lblWaiting = new System.Windows.Forms.Label();
             this.lb1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -648,8 +648,8 @@
             // Map
             // 
             this.Map.Controls.Add(this.TenPhong);
-            this.Map.Controls.Add(this.lblHost);
-            this.Map.Controls.Add(this.lblJoin);
+            this.Map.Controls.Add(lblHost);
+            this.Map.Controls.Add(lblJoin);
             this.Map.Controls.Add(this.panel7);
             this.Map.Controls.Add(this.Time);
             this.Map.Controls.Add(this.panel8);
@@ -703,25 +703,25 @@
             // 
             // lblHost
             // 
-            this.lblHost.AutoSize = true;
-            this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHost.ForeColor = System.Drawing.Color.Blue;
-            this.lblHost.Location = new System.Drawing.Point(51, 345);
-            this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(101, 25);
-            this.lblHost.TabIndex = 53;
-            this.lblHost.Text = "UserHost";
+            lblHost.AutoSize = true;
+            lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            lblHost.ForeColor = System.Drawing.Color.Blue;
+            lblHost.Location = new System.Drawing.Point(51, 345);
+            lblHost.Name = "lblHost";
+            lblHost.Size = new System.Drawing.Size(101, 25);
+            lblHost.TabIndex = 53;
+            lblHost.Text = "UserHost";
             // 
             // lblJoin
             // 
-            this.lblJoin.AutoSize = true;
-            this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblJoin.Location = new System.Drawing.Point(982, 345);
-            this.lblJoin.Name = "lblJoin";
-            this.lblJoin.Size = new System.Drawing.Size(98, 25);
-            this.lblJoin.TabIndex = 52;
-            this.lblJoin.Text = "UserJoin";
+            lblJoin.AutoSize = true;
+            lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            lblJoin.Location = new System.Drawing.Point(982, 345);
+            lblJoin.Name = "lblJoin";
+            lblJoin.Size = new System.Drawing.Size(98, 25);
+            lblJoin.TabIndex = 52;
+            lblJoin.Text = "UserJoin";
             // 
             // panel7
             // 
@@ -736,11 +736,11 @@
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time.ForeColor = System.Drawing.Color.Red;
             this.Time.Location = new System.Drawing.Point(512, 20);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(83, 32);
+            this.Time.Size = new System.Drawing.Size(79, 31);
             this.Time.TabIndex = 49;
             this.Time.Text = "0 :  0";
             // 
@@ -759,21 +759,20 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Controls.Add(this.label7);
+            this.pnlChess.Controls.Add(lblWaiting);
             this.pnlChess.Location = new System.Drawing.Point(239, 55);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(672, 528);
             this.pnlChess.TabIndex = 43;
-            this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
             // 
-            // label7
+            // lblWaiting
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(320, 191);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "label1";
+            lblWaiting.AutoSize = true;
+            lblWaiting.Location = new System.Drawing.Point(320, 191);
+            lblWaiting.Name = "lblWaiting";
+            lblWaiting.Size = new System.Drawing.Size(26, 13);
+            lblWaiting.TabIndex = 0;
+            lblWaiting.Text = "wait";
             // 
             // lb1
             // 
@@ -820,13 +819,13 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 741);
             this.Controls.Add(this.tabControl);
-            this.Name = "Form1";
+            this.Name = "Caro";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
@@ -912,19 +911,19 @@
         public System.Windows.Forms.Panel TenPhong;
         public System.Windows.Forms.Label Phong;
         public System.Windows.Forms.Label lblSophong;
-        public System.Windows.Forms.Label lblHost;
-        public System.Windows.Forms.Label lblJoin;
         public System.Windows.Forms.Panel panel7;
         public System.Windows.Forms.Label Time;
         public System.Windows.Forms.Panel panel8;
         public System.Windows.Forms.Panel pnlChess;
-        public System.Windows.Forms.Label label7;
         public System.Windows.Forms.ListBox lb1;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.Timer timer1;
         private System.ComponentModel.IContainer components;
+        public static System.Windows.Forms.Label lblHost;
+        public static System.Windows.Forms.Label lblJoin;
+        public static System.Windows.Forms.Label lblWaiting;
     }
 }
 

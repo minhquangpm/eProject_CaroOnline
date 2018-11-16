@@ -7,11 +7,11 @@ using ProjectCaro.Properties;
 
 namespace ProjectCaro
 {
-    partial class Form1
+    partial class Caro
     {
         // xac dinh so dong so cot
-        private const int CHESS_WIDTH = 24;
-        private const int CHESS_HEIGHT = 24;
+        private const int CHESS_WIDTH = 30;
+        private const int CHESS_HEIGHT = 30;
 
         private const int BOARD_HEIGHT = 20;
         private const int BOARD_WIDTH = 20;
@@ -22,14 +22,15 @@ namespace ProjectCaro
 
         private static List<int> playerX = new List<int>();
         private static List<int> playerO = new List<int>();
+        public static List<Button> btnList = new List<Button>();
+
 
         //dem gio
         DateTime da;
 
-        public void loadMap()
+        public void MapLoad()
         {
-            InitializeComponent();
-
+            InitMap();
             DrawChessBoard();
 
             timer1.Start();
@@ -37,10 +38,32 @@ namespace ProjectCaro
             //đếm giờ
             da = DateTime.Now;
             timer1.Start();
+        }
 
-            Client.host_label = lblHost;
-            Client.join_label = lblJoin;
-            Client.waiting_label = label7;
+
+        private void InitMap()
+        {
+            lblSophong.Text = room_no;
+            lblHost.Text = host_id;
+            lblJoin.Text = join_id;
+
+            // thực thi nếu người chơi là host
+            if (host_id.Equals(user_id))
+            {
+                lblWaiting.Text = "Chờ người chơi...";
+
+                // chạy thread chờ người chơi join
+                if (!workerWaitForPlayer.IsBusy)
+                {
+                    workerWaitForPlayer.RunWorkerAsync();
+                }
+            }
+
+            // chạy thread đổi màu tên người chơi khi đến lượt
+            if (!workerChangeTurn.IsBusy)
+            {
+                workerChangeTurn.RunWorkerAsync();
+            }
         }
 
 
@@ -50,14 +73,21 @@ namespace ProjectCaro
             {
                 for (int j = 0; j < BOARD_HEIGHT; j++)
                 {
+                    int x = j * CHESS_WIDTH;
+                    int y = i * CHESS_HEIGHT;
+                    int vi_tri = (x + y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT - 1;
+
                     Button btn = new Button()
                     {
                         Width = CHESS_WIDTH,
                         Height = CHESS_HEIGHT,
-                        Location = new Point(i * CHESS_WIDTH, j * CHESS_HEIGHT)
+                        Location = new Point(x, y),
+                        Text = Convert.ToString(vi_tri)
                     };
 
                     btn.Click += btn_Click;
+
+                    btnList.Add(btn);
 
                     pnlChess.Controls.Add(btn);
                 }
@@ -76,12 +106,14 @@ namespace ProjectCaro
             
 
             // lưu vị trí theo thứ tự 1-> 81 vào List
-            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT;
+            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT - 1;
 
             if ((turn % 2 == 0) && (player_turn == 1))
             {
                 btn.BackgroundImage = Resources.x;
                 playerX.Add(vi_tri);
+
+                Play(user_id, room_no, vi_tri);
 
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
@@ -96,6 +128,8 @@ namespace ProjectCaro
                 btn.BackgroundImage = Resources.o;
                 playerO.Add(vi_tri);
 
+                Play(user_id, room_no, vi_tri);
+
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
                 {
@@ -105,6 +139,46 @@ namespace ProjectCaro
                 turn++;
             }
         }
+
+
+
+        public static void opponent_btnClick(Button btn)
+        {
+            // lưu vị trí theo thứ tự 1-> 81 vào List
+            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT;
+
+            //SoundPlayer sound = new SoundPlayer(Resources.DanhCoSound);
+
+            if (player_turn == 2)
+            {
+                btn.BackgroundImage = Resources.x;
+                playerX.Add(vi_tri);
+                //sound.Play();
+
+                bool win = CheckWin(playerX, vi_tri);
+                if (win)
+                {
+                    MessageBox.Show("Player " + player_turn + " won");
+                }
+
+                turn++;
+            }
+            else if (player_turn == 1)
+            {
+                btn.BackgroundImage = Resources.o;
+                playerO.Add(vi_tri);
+                //sound.Play();
+
+                bool win = CheckWin(playerO, vi_tri);
+                if (win)
+                {
+                    MessageBox.Show("Player " + player_turn + " won");
+                }
+
+                turn++;
+            }
+        }
+
 
 
         // check thắng
@@ -157,31 +231,13 @@ namespace ProjectCaro
         }
 
 
-
-        private void Map_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            lblSophong.Text = Client.room_no;
-            lblHost.Text = Client.host_id;
-            lblJoin.Text = Client.join_id;
-
-            // thực thi nếu người chơi là host
-            if (Client.host_id.Equals(Client.user_id))
-            {
-                label7.Text = "Chờ người chơi...";
-
-                // chạy thread chờ người chơi join
-                if (!Client.workerWaitForPlayer.IsBusy)
-                {
-                    Client.workerWaitForPlayer.RunWorkerAsync();
-                }
-            }
-
-            // chạy thread đổi màu tên người chơi khi đến lượt
-            if (!Client.workerChangeTurn.IsBusy)
-            {
-                Client.workerChangeTurn.RunWorkerAsync();
-            }
+            btnList[12].BackgroundImage = Resources.o;
         }
+
+
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now.Subtract(da);
