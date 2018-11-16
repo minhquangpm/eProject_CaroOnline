@@ -232,14 +232,21 @@ namespace ProjectCaro
                             {
                                 case DialogResult.Yes:
                                     RemoveRoom(room_no);
-                                    tabControl.SelectTab(Home);
-                                    NewGame();
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
                                     break;
                                 case DialogResult.No:
-                                    ReGame();
-                                    Thread.Sleep(500);
-                                    host_id = user_id;
-                                    MapLoad();
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
                                     break;
                             }
                         }
@@ -250,14 +257,23 @@ namespace ProjectCaro
                             {
                                 case DialogResult.Yes:
                                     RemoveRoom(room_no);
-                                    tabControl.SelectTab(Home);
-                                    NewGame();
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
                                     break;
                                 case DialogResult.No:
-                                    ReGame();
-                                    Thread.Sleep(500);
-                                    host_id = user_id;
-                                    MapLoad();
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
+
                                     break;
                             }
                         }
@@ -284,12 +300,15 @@ namespace ProjectCaro
 
                 if (join_id != null)
                 {
-                    // xóa dòng "Chờ người chơi"
+                    Invoke(new Action(() => {
+                        // xóa dòng "Chờ người chơi"
                     lblWaiting.Text = "";
 
                     // hiện tên người chơi vào phòng
 
                     lblJoin.Text = join_id;
+                    }));
+                    
 
                     // set turn = 0 (bắt đầu game)
                     turn = 0;

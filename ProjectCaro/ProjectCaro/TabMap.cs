@@ -300,10 +300,7 @@ namespace ProjectCaro
 
             btnList.Clear();
 
-            Invoke(new Action(() =>
-            {
-                pnlChess.Controls.Clear();
-            }));
+            pnlChess.Controls.Clear();
         }
 
 
@@ -319,11 +316,7 @@ namespace ProjectCaro
 
             btnList.Clear();
 
-            
-            Invoke(new Action(() =>
-            {
-                pnlChess.Controls.Clear();
-            }));
+            pnlChess.Controls.Clear();
         }
 
 

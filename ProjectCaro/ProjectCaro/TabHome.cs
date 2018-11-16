@@ -9,7 +9,7 @@ namespace ProjectCaro
         {
             host_id = user_id;
             CreateRoom(user_id);
-            Thread.Sleep(200);
+            Thread.Sleep(100);
             if (checkCreateRoom)
             {
                 //mở map
@@ -24,7 +24,7 @@ namespace ProjectCaro
             join_id = user_id;
             room_no = txtSophong.Text;
             JoinRoom(user_id, room_no);
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
 
             if (checkJoinRoom)
             {
