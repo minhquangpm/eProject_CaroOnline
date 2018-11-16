@@ -107,11 +107,11 @@ namespace ProjectCaro
         }
 
 
-        public static void UserOffline(string user_id)
-        {
-            string message = "offline:" + user_id;
-            SendData(message);
-        }
+        //public static void UserOffline(string user_id)
+        //{
+        //    string message = "offline:" + user_id;
+        //    SendData(message);
+        //}
 
 
         private static void RefreshRoom()

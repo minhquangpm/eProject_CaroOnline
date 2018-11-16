@@ -13,7 +13,7 @@ namespace CaroGameServer
         private static List<Room> roomList = new List<Room>();
 
         // danh sách người chơi online
-        //private static List<Online> onlineList = new List<Online>();
+        private static List<Online> onlineList = new List<Online>();
 
 
 
@@ -115,33 +115,32 @@ namespace CaroGameServer
 
 
         // thêm user vào online list
-        //public static void UserOnline(string user_id, TcpClient userClient)
-        //{
-        //    Online userOnline = new Online
-        //    {
-        //        user_id = user_id,
-        //        userEP = userEP
-        //    };
+        public static void UserOnline(string user_id, TcpClient userClient)
+        {
+            Online userOnline = new Online
+            {
+                user_id = user_id,
+                userClient = userClient
+            };
 
-        //    // thêm user vào online list
-        //    onlineList.Add(userOnline);
+            // thêm user vào online list
+            onlineList.Add(userOnline);
 
-        //    Console.WriteLine("User " + user_id + " online");
-        //}
+            //Console.WriteLine("User " + user_id + " online");
+        }
 
 
         //// xóa user khỏi online list
-        //public static void UserOffline(string user_id)
-        //{
-        //    foreach (Online userOnline in onlineList)
-        //    {
-        //        if (userOnline.user_id.Equals(user_id))
-        //        {
-        //            onlineList.Remove(userOnline);
-        //            Console.WriteLine("User " + user_id + " offline");
-        //            break;
-        //        }
-        //    }
-        //}
+        public static void UserOffline(TcpClient userClient)
+        {
+            foreach (Online userOnline in onlineList)
+            {
+                if (userOnline.userClient.Equals(userClient))
+                {
+                    onlineList.Remove(userOnline);
+                    break;
+                }
+            }
+        }
     }
 }

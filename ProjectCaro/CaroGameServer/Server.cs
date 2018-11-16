@@ -84,9 +84,9 @@ namespace CaroGameServer
                         case "join":
                             HandleClient.JoinRoom(code[1], code[2], client);
                             break;
-                        //case "online":
-                        //    HandleClient.UserOnline(code[1], client);
-                        //    break;
+                        case "online":
+                            HandleClient.UserOnline(code[1], client);
+                            break;
                         //case "offline":
                         //    HandleClient.UserOffline(code[1]);
                         //    break;
@@ -100,6 +100,9 @@ namespace CaroGameServer
                     if (ex is IOException || ex is InvalidOperationException)
                     {
                         Console.WriteLine("Client disconnected");
+                        HandleClient.UserOffline(client);
+
+
                         stream.Close();
                         client.Close();
                         break;
