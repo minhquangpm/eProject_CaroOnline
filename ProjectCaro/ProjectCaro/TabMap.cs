@@ -231,11 +231,6 @@ namespace ProjectCaro
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            btnList[12].BackgroundImage = Resources.o;
-        }
-
 
         
         private void timer1_Tick(object sender, EventArgs e)

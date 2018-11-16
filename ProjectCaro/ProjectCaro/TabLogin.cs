@@ -8,6 +8,13 @@ namespace ProjectCaro
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
+        public void load_Login()
+        {
+            panelSignup.Visible = false;
+            txt_Log2.PasswordChar = '*';
+            txtPassword.PasswordChar = '*';
+            txtpassword2.PasswordChar = '*';
+        }
        
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -19,7 +26,8 @@ namespace ProjectCaro
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
-                UserOnline(user_id);
+
+                lblUsername.Text = CaroAPI.user.name;
             }
             else
             {
@@ -27,11 +35,7 @@ namespace ProjectCaro
                 CaroAPI.userReturn = null;
             }
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void processbartime_Tick(object sender, EventArgs e)
         {
@@ -53,8 +57,17 @@ namespace ProjectCaro
 
         }
         //mở form đăng ký
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            panelSignup.Visible = true;
+        }
 
-        private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Close();
             UserOffline(user_id);
@@ -82,17 +95,17 @@ namespace ProjectCaro
             {
                 MessageBox.Show("Chưa có password");
             }
-            else if (txtPassword.Text != password2.Text)
+            else if (txtPassword.Text != txtpassword2.Text)
             {
                 MessageBox.Show("Mật khẩu không trùng nhau");
             }
-            else if (!reg.IsMatch(textBox1.Text))
+            else if (!reg.IsMatch(txtEmail.Text))
             {
                 MessageBox.Show("Email chưa đúng định dạng");
             }
             else
             {
-                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, textBox1.Text);
+                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, txtEmail.Text);
                 if (check)
                 {
                     MessageBox.Show("Thành Công");

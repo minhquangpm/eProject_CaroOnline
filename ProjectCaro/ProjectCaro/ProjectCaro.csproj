@@ -106,5 +106,17 @@
   <ItemGroup>
     <None Include="Resources\x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caroIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
