@@ -109,6 +109,37 @@ namespace CaroGameServer
 
 
 
+        // do some trick here.
+        // nếu host quit thì gửi thông báo cho join và ngược lại
+        public static void QuitRoom(string user_quitting, string room_no)
+        {
+            foreach (Room room in roomList)
+            {
+                if (room.room_no.Equals(room_no))
+                {
+                    if (room.host_id.Equals(user_quitting))
+                    {
+                        Server.SendData("otherquit:host", room.joinClient);
+                        room.host_id = room.join_id;
+                        room.hostClient = room.joinClient;
+                        room.join_id = null;
+                        room.joinClient = null;
+                    }
+                    else if (room.join_id.Equals(user_quitting))
+                    {
+                        Server.SendData("otherquit:join", room.hostClient);
+                        room.join_id = null;
+                        room.joinClient = null; 
+                    }
+                    
+                    //roomList.Remove(room);
+                }
+            }
+        }
+
+
+
+        // xóa room khi chủ phòng (host) thoát
         public static void RemoveRoom(string room_no)
         {
             foreach (Room room in roomList)
@@ -144,7 +175,8 @@ namespace CaroGameServer
         }
 
 
-        //// xóa user khỏi online list
+
+        // xóa user khỏi online list
         public static void UserOffline(TcpClient userClient)
         {
             foreach (Online userOnline in onlineList)
