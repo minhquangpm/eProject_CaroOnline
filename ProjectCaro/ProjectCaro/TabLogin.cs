@@ -52,13 +52,6 @@ namespace ProjectCaro
             }
 
         }
-        //mở form đăng ký
-
-        private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Close();
-            UserOffline(user_id);
-        }
 
 
         //Form đăng ký

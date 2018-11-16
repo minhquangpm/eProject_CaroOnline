@@ -14,8 +14,8 @@ namespace ProjectCaro
         //debug
         //private static string serverIp = "127.0.0.1";
         // real server
-        private static string serverIp = "159.89.193.234";
-        private static int serverPort = 12345;
+        private const string serverIp = "159.89.193.234";
+        private const int serverPort = 12345;
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
         //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
@@ -36,12 +36,12 @@ namespace ProjectCaro
 
 
         // khai báo worker
-        public static BackgroundWorker workerListener = null;
-        public static BackgroundWorker workerWaitForPlayer = null;
-        public static BackgroundWorker workerChangeTurn = null;
-        public static BackgroundWorker workerRefreshRoom = null;
+        public BackgroundWorker workerListener = null;
+        public BackgroundWorker workerWaitForPlayer = null;
+        public BackgroundWorker workerChangeTurn = null;
+        public BackgroundWorker workerRefreshRoom = null;
 
-        public static void InitClient()
+        public void InitClient()
         {
             // tạo udpclient
             //client = new UdpClient();
@@ -135,7 +135,7 @@ namespace ProjectCaro
         }
 
 
-        private static void DoReceiver(object sender, DoWorkEventArgs e)
+        private void DoReceiver(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -225,7 +225,7 @@ namespace ProjectCaro
 
 
 
-        private static void DoWaitForPlayer(object sender, DoWorkEventArgs e)
+        private void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -260,7 +260,7 @@ namespace ProjectCaro
 
 
 
-        private static void DoChangeTurn(object sender, DoWorkEventArgs e)
+        private void DoChangeTurn(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -318,7 +318,7 @@ namespace ProjectCaro
 
 
 
-        private static void DoRefreshRoom(object sender, DoWorkEventArgs e)
+        private void DoRefreshRoom(object sender, DoWorkEventArgs e)
         {
             while (true)
             {

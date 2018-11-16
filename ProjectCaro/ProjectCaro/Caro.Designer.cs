@@ -76,13 +76,13 @@
             this.TenPhong = new System.Windows.Forms.Panel();
             this.Phong = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
-            lblHost = new System.Windows.Forms.Label();
-            lblJoin = new System.Windows.Forms.Label();
+            this.lblHost = new System.Windows.Forms.Label();
+            this.lblJoin = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.Time = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnlChess = new System.Windows.Forms.Panel();
-            lblWaiting = new System.Windows.Forms.Label();
+            this.lblWaiting = new System.Windows.Forms.Label();
             this.lb1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -648,8 +648,8 @@
             // Map
             // 
             this.Map.Controls.Add(this.TenPhong);
-            this.Map.Controls.Add(lblHost);
-            this.Map.Controls.Add(lblJoin);
+            this.Map.Controls.Add(this.lblHost);
+            this.Map.Controls.Add(this.lblJoin);
             this.Map.Controls.Add(this.panel7);
             this.Map.Controls.Add(this.Time);
             this.Map.Controls.Add(this.panel8);
@@ -703,25 +703,25 @@
             // 
             // lblHost
             // 
-            lblHost.AutoSize = true;
-            lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            lblHost.ForeColor = System.Drawing.Color.Blue;
-            lblHost.Location = new System.Drawing.Point(51, 345);
-            lblHost.Name = "lblHost";
-            lblHost.Size = new System.Drawing.Size(101, 25);
-            lblHost.TabIndex = 53;
-            lblHost.Text = "UserHost";
+            this.lblHost.AutoSize = true;
+            this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.lblHost.ForeColor = System.Drawing.Color.Blue;
+            this.lblHost.Location = new System.Drawing.Point(51, 345);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(101, 25);
+            this.lblHost.TabIndex = 53;
+            this.lblHost.Text = "UserHost";
             // 
             // lblJoin
             // 
-            lblJoin.AutoSize = true;
-            lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            lblJoin.Location = new System.Drawing.Point(982, 345);
-            lblJoin.Name = "lblJoin";
-            lblJoin.Size = new System.Drawing.Size(98, 25);
-            lblJoin.TabIndex = 52;
-            lblJoin.Text = "UserJoin";
+            this.lblJoin.AutoSize = true;
+            this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblJoin.Location = new System.Drawing.Point(982, 345);
+            this.lblJoin.Name = "lblJoin";
+            this.lblJoin.Size = new System.Drawing.Size(98, 25);
+            this.lblJoin.TabIndex = 52;
+            this.lblJoin.Text = "UserJoin";
             // 
             // panel7
             // 
@@ -759,7 +759,7 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Controls.Add(lblWaiting);
+            this.pnlChess.Controls.Add(this.lblWaiting);
             this.pnlChess.Location = new System.Drawing.Point(239, 55);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(672, 528);
@@ -767,12 +767,12 @@
             // 
             // lblWaiting
             // 
-            lblWaiting.AutoSize = true;
-            lblWaiting.Location = new System.Drawing.Point(320, 191);
-            lblWaiting.Name = "lblWaiting";
-            lblWaiting.Size = new System.Drawing.Size(26, 13);
-            lblWaiting.TabIndex = 0;
-            lblWaiting.Text = "wait";
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Location = new System.Drawing.Point(320, 191);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(26, 13);
+            this.lblWaiting.TabIndex = 0;
+            this.lblWaiting.Text = "wait";
             // 
             // lb1
             // 
@@ -827,6 +827,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Caro";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Caro_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
@@ -921,9 +922,9 @@
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.Timer timer1;
         private System.ComponentModel.IContainer components;
-        public static System.Windows.Forms.Label lblHost;
-        public static System.Windows.Forms.Label lblJoin;
-        public static System.Windows.Forms.Label lblWaiting;
+        public System.Windows.Forms.Label lblHost;
+        public System.Windows.Forms.Label lblJoin;
+        public System.Windows.Forms.Label lblWaiting;
     }
 }
 
