@@ -21,12 +21,6 @@ namespace ProjectCaro
         //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
         private static TcpClient client = new TcpClient(serverIp, serverPort);
 
-        // kiểm tra
-        public static bool checkLogin = false;
-        public static bool checkRegister = false;
-        public static bool checkCreateRoom = false;
-        public static bool checkJoinRoom = false;
-
 
         // thông tin user
         public static string user_id;
@@ -79,69 +73,6 @@ namespace ProjectCaro
 
 
 
-        public static void Play(string user_id, string room_no, int vi_tri)
-        {
-            string message = "play:" + user_id + ":" + room_no + ":" + vi_tri;
-            SendData(message);
-        }
-
-        public static void CreateRoom(string user_id)
-        {
-            Random random = new Random();
-            room_no = Convert.ToString(random.Next(1, 10000));
-            string message = "create:" + user_id + ":" + room_no;
-            SendData(message);
-        }
-
-        public static void JoinRoom(string user_id, string room_no)
-        {
-            string message = "join:" + user_id + ":" + room_no;
-            SendData(message);
-        }
-
-
-        public static void QuitRoom(string user_id, string room_no)
-        {
-            string message = "quit:" + user_id + ":" + room_no;
-            SendData(message);
-        }
-
-
-        public static void RemoveRoom(string room_no)
-        {
-            string message = "removeroom:" + room_no;
-            SendData(message);
-        }
-
-
-        public static void UserOnline(string user_id)
-        {
-            string message = "online:" + user_id;
-            SendData(message);
-        }
-
-
-
-        private static void RefreshRoom()
-        {
-            string message = "refreshroom";
-            SendData(message);
-        }
-
-
-        private static void SendData(string message)
-        {
-            // gửi dữ liệu lên server
-            // chuyển dữ liệu từ string thành bytes
-            byte[] data = Encoding.ASCII.GetBytes(message);
-
-            // tạo 1 stream để để đọc ghi
-            NetworkStream stream = client.GetStream();
-
-            // gửi
-            stream.Write(data, 0, data.Length);
-        }
-
 
         private void DoReceiver(object sender, DoWorkEventArgs e)
         {
@@ -174,41 +105,20 @@ namespace ProjectCaro
                 switch (rp[0])
                 {
                     case "play":
-                        int vi_tri = Convert.ToInt32(rp[1]);
-
-                        opponent_btnClick(btnList[vi_tri]);
-
-                        break;
-                    case "login":
-                        if (rp[1].Equals("true"))
-                        {
-                            checkLogin = true;
-                        }
-                        break;
-                    case "register":
-                        if (rp[1].Equals("true"))
-                        {
-                            checkRegister = true;
-                        }
+                        RecvPlay(rp[1]);
                         break;
                     case "create":
-                        if (rp[1].Equals("true"))
-                        {
-                            checkCreateRoom = true;
-                        }
+                        RecvCreateRoom(rp[1]);
                         break;
                     case "join":
-                        if (rp[1].Equals("true"))
+                        string check = rp[1];
+                        if (check.Equals("true"))
                         {
-                            host_id = rp[2];
-
-                            // set player turn
-                            player_turn = Convert.ToInt32(rp[3]);
-
-                            // set turn = 0 (bắt đầu game)
-                            turn = 0;
-
-                            checkJoinRoom = true;
+                            RecvJoinRoom(rp[2], rp[3]);
+                        }
+                        else if (check.Equals("full"))
+                        {
+                            MessageBox.Show("Room is full.");
                         }
                         else
                         {
@@ -216,68 +126,10 @@ namespace ProjectCaro
                         }
                         break;
                     case "host":
-                        if (rp[1].Equals(user_id))
-                        {
-                            join_id = rp[2];
-
-                            // set player turn
-                            player_turn = Convert.ToInt32(rp[3]);
-                        }
+                        RecvSomeoneJoin(rp[1], rp[2], rp[3]);
                         break;
                     case "otherquit":
-                        if (rp[1].Equals("join"))
-                        {
-                            DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
-                            switch (result)
-                            {
-                                case DialogResult.Yes:
-                                    RemoveRoom(room_no);
-
-                                    Invoke(new Action(() =>
-                                    {
-                                        tabControl.SelectTab(Home);
-                                        NewGame();
-                                    }));
-
-                                    break;
-                                case DialogResult.No:
-                                    Invoke(new Action(() =>
-                                    {
-                                        ReGame();
-                                        host_id = user_id;
-                                        MapLoad();
-                                    }));
-                                    break;
-                            }
-                        }
-                        else if (rp[1].Equals("host"))
-                        {
-                            DialogResult result = MessageBox.Show("User " + host_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
-                            switch (result)
-                            {
-                                case DialogResult.Yes:
-                                    RemoveRoom(room_no);
-
-                                    Invoke(new Action(() =>
-                                    {
-                                        tabControl.SelectTab(Home);
-                                        NewGame();
-                                    }));
-
-                                    break;
-                                case DialogResult.No:
-
-                                    Invoke(new Action(() =>
-                                    {
-                                        ReGame();
-                                        host_id = user_id;
-                                        MapLoad();
-                                    }));
-
-                                    break;
-                            }
-                        }
-                        
+                        RecvPlayerQuit(rp[1]);
                         break;
                 }
             }
@@ -302,14 +154,13 @@ namespace ProjectCaro
                 {
                     Invoke(new Action(() => {
                         // xóa dòng "Chờ người chơi"
-                    lblWaiting.Text = "";
+                        lblWaiting.Text = "";
+
                         //đếm giờ
-                        da = DateTime.Now;
                         timer1.Start();
 
-                    // hiện tên người chơi vào phòng
-
-                    lblJoin.Text = join_id;
+                        // hiện tên người chơi vào phòng
+                        lblJoin.Text = join_id;
                     }));
                     
 
