@@ -24,8 +24,7 @@ namespace ProjectCaro
 
         private void Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            client.GetStream().Close();
-            client.Close();
+            //UserOffline(user_id);
         }
     }
 }

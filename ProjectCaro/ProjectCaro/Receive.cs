@@ -47,14 +47,14 @@ namespace ProjectCaro
             // set turn = 0 (bắt đầu game)
             turn = 0;
 
+            // bắt đầu timer
+            timer1.Start();
+
             // mở tab Map
             Invoke(new Action(() =>
             {
                 MapLoad();
                 tabControl.SelectTab(Map);
-
-                da = DateTime.Now;
-                timer1.Start();
             }));
         }
 
