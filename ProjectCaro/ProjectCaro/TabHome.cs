@@ -31,6 +31,7 @@ namespace ProjectCaro
                 //mở map
                 MapLoad();
                 tabControl.SelectTab(Map);
+                lblWaiting.Visible = false;
             }
 
         }

@@ -9,11 +9,17 @@ namespace ProjectCaro
         {
             InitializeComponent();
             InitClient();
+            //đổi pass thành *
+            txt_Log2.PasswordChar = '*';
+            txtPassword.PasswordChar = '*';
+            password2.PasswordChar = '*';
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             panelSignup.Visible = false;
+            processBar1.Visible = false;
         }
 
         private void Caro_FormClosing(object sender, FormClosingEventArgs e)

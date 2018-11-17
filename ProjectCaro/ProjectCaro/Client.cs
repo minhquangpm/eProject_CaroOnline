@@ -303,6 +303,9 @@ namespace ProjectCaro
                     Invoke(new Action(() => {
                         // xóa dòng "Chờ người chơi"
                     lblWaiting.Text = "";
+                        //đếm giờ
+                        da = DateTime.Now;
+                        timer1.Start();
 
                     // hiện tên người chơi vào phòng
 
