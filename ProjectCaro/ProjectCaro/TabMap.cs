@@ -24,6 +24,10 @@ namespace ProjectCaro
         private static List<int> playerO = new List<int>();
         public static List<Button> btnList = new List<Button>();
 
+
+        //dem gio
+        DateTime da;
+
         public void MapLoad()
         {
             InitMap();
@@ -103,7 +107,7 @@ namespace ProjectCaro
                 btn.BackgroundImage = Resources.x;
                 playerX.Add(vi_tri);
 
-                SendPlay(user_id, room_no, vi_tri);
+                Play(user_id, room_no, vi_tri);
 
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
@@ -118,7 +122,7 @@ namespace ProjectCaro
                 btn.BackgroundImage = Resources.o;
                 playerO.Add(vi_tri);
 
-                SendPlay(user_id, room_no, vi_tri);
+                Play(user_id, room_no, vi_tri);
 
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
@@ -244,7 +248,7 @@ namespace ProjectCaro
             switch (result)
             {
                 case DialogResult.Yes:
-                    SendRemoveRoom(room_no);
+                    RemoveRoom(room_no);
 
                     tabControl.SelectTab(Home);
 
@@ -263,7 +267,7 @@ namespace ProjectCaro
             switch (result)
             {
                 case DialogResult.Yes:
-                    SendQuitRoom(user_id, room_no);
+                    QuitRoom(user_id, room_no);
 
                     tabControl.SelectTab(Home);
 
@@ -314,7 +318,7 @@ namespace ProjectCaro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TimeSpan span = DateTime.Now.Subtract(DateTime.Now);
+            TimeSpan span = DateTime.Now.Subtract(da);
             Time.Text = span.Minutes.ToString() + " : " + span.Seconds.ToString();
         }
     }

@@ -70,61 +70,40 @@ namespace CaroGameServer
             {
                 if (room.room_no.Equals(room_no))
                 {
-                    if (roomIsAvailable(room))
+                    room.join_id = user_id;
+                    room.joinClient = userClient;
+
+                    Random random = new Random();
+                    int host_turn = random.Next(1, 3);
+                    int join_turn = 0;
+                    if (host_turn == 1)
                     {
-                        room.join_id = user_id;
-                        room.joinClient = userClient;
-
-                        Random random = new Random();
-                        int host_turn = random.Next(1, 3);
-                        int join_turn = 0;
-                        if (host_turn == 1)
-                        {
-                            join_turn = 2;
-                        }
-                        else
-                        {
-                            join_turn = 1;
-                        }
-
-                        // gửi thông tin của host cho join
-                        string message_to_join = "join:true:" + room.host_id + ":" + join_turn;
-                        Server.SendData(message_to_join, userClient);
-                        //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
-
-                        // gửi thông tin của join cho host
-                        string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
-                        Server.SendData(message_to_host, room.hostClient);
-                        //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
-
-
-                        check_room = true;
-                        break;
+                        join_turn = 2;
                     }
                     else
                     {
-                        Server.SendData("join:full", userClient);
+                        join_turn = 1;
                     }
+
+                    // gửi thông tin của host cho join
+                    string message_to_join = "join:true:" + room.host_id + ":" + join_turn;
+                    Server.SendData(message_to_join, userClient);
+                    //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
+
+                    // gửi thông tin của join cho host
+                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
+                    Server.SendData(message_to_host, room.hostClient);
+                    //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
+
+
+                    check_room = true;
+                    break;
                 }
             }
 
             if (!check_room)
             {
                 Server.SendData("join:false", userClient);
-            }
-        }
-
-
-        // kiểm tra phòng có full hay không
-        private static bool roomIsAvailable(Room room)
-        {
-            if (room.join_id == null && room.joinClient == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
 

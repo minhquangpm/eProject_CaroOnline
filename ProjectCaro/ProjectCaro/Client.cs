@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectCaro
@@ -22,22 +21,27 @@ namespace ProjectCaro
         //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
         private static TcpClient client = new TcpClient(serverIp, serverPort);
 
+        // kiểm tra
+        public static bool checkLogin = false;
+        public static bool checkRegister = false;
+        public static bool checkCreateRoom = false;
+        public static bool checkJoinRoom = false;
+
 
         // thông tin user
-        private static string user_id;
-        private static string host_id;
-        private static string join_id;
-        private static string room_no;
+        public static string user_id;
+        public static string host_id;
+        public static string join_id;
+        public static string room_no;
 
 
         // khai báo worker
-        private BackgroundWorker workerListener = null;
-        private BackgroundWorker workerWaitForPlayer = null;
-        private BackgroundWorker workerChangeTurn = null;
-        private BackgroundWorker workerRefreshRoom = null;
-        private BackgroundWorker workerRefreshFriend = null;
+        public BackgroundWorker workerListener = null;
+        public BackgroundWorker workerWaitForPlayer = null;
+        public BackgroundWorker workerChangeTurn = null;
+        public BackgroundWorker workerRefreshRoom = null;
 
-        private void InitClient()
+        public void InitClient()
         {
             // tạo udpclient
             //client = new UdpClient();
@@ -63,20 +67,79 @@ namespace ProjectCaro
                 WorkerSupportsCancellation = true
             };
 
-            workerRefreshFriend = new BackgroundWorker
-            {
-                WorkerSupportsCancellation = true
-            };
-
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
             workerWaitForPlayer.DoWork += DoWaitForPlayer;
             workerChangeTurn.DoWork += DoChangeTurn;
             workerRefreshRoom.DoWork += DoRefreshRoom;
-            workerRefreshFriend.DoWork += DoRefreshFriend;
 
             // start worker
             workerListener.RunWorkerAsync();
+        }
+
+
+
+        public static void Play(string user_id, string room_no, int vi_tri)
+        {
+            string message = "play:" + user_id + ":" + room_no + ":" + vi_tri;
+            SendData(message);
+        }
+
+        public static void CreateRoom(string user_id)
+        {
+            Random random = new Random();
+            room_no = Convert.ToString(random.Next(1, 10000));
+            string message = "create:" + user_id + ":" + room_no;
+            SendData(message);
+        }
+
+        public static void JoinRoom(string user_id, string room_no)
+        {
+            string message = "join:" + user_id + ":" + room_no;
+            SendData(message);
+        }
+
+
+        public static void QuitRoom(string user_id, string room_no)
+        {
+            string message = "quit:" + user_id + ":" + room_no;
+            SendData(message);
+        }
+
+
+        public static void RemoveRoom(string room_no)
+        {
+            string message = "removeroom:" + room_no;
+            SendData(message);
+        }
+
+
+        public static void UserOnline(string user_id)
+        {
+            string message = "online:" + user_id;
+            SendData(message);
+        }
+
+
+
+        private static void RefreshRoom()
+        {
+            string message = "refreshroom";
+            SendData(message);
+        }
+
+
+        private static void SendData(string message)
+        {
+            // gửi dữ liệu lên server
+            // chuyển dữ liệu từ string thành bytes
+            byte[] data = Encoding.ASCII.GetBytes(message);
+
+            // tạo 1 stream để để đọc ghi
+            NetworkStream stream = client.GetStream();
+
+            // gửi
+            stream.Write(data, 0, data.Length);
         }
 
 
@@ -104,35 +167,117 @@ namespace ProjectCaro
                 string[] rp = response.Split(':');
 
                 /// <summary>
-                /// Xử lý thông tin nhận được từ server.
-                /// Giao tiếp giữa server và client thông qua tcp socket.
-                /// Client và server giao tiếp với nhau thông qua string.
+                /// play:user_session:user_id:x:y
+                /// login:user_id:user_pass
+                /// register:user_id:user_pass
                 /// </summary>
                 switch (rp[0])
                 {
                     case "play":
-                        ReceivePlay(rp[1]);
+                        int vi_tri = Convert.ToInt32(rp[1]);
+
+                        opponent_btnClick(btnList[vi_tri]);
+
+                        break;
+                    case "login":
+                        if (rp[1].Equals("true"))
+                        {
+                            checkLogin = true;
+                        }
+                        break;
+                    case "register":
+                        if (rp[1].Equals("true"))
+                        {
+                            checkRegister = true;
+                        }
                         break;
                     case "create":
-                        ReceiveCreateRoom(rp[1]);
+                        if (rp[1].Equals("true"))
+                        {
+                            checkCreateRoom = true;
+                        }
                         break;
                     case "join":
-                        string check = rp[1];
-                        switch (check)
+                        if (rp[1].Equals("true"))
                         {
-                            case "true":
-                                ReceiveJoinRoom(rp[2], rp[3]);
-                                break;
-                            default:
-                                ReceiveJoinRoom(check);
-                                break;
+                            host_id = rp[2];
+
+                            // set player turn
+                            player_turn = Convert.ToInt32(rp[3]);
+
+                            // set turn = 0 (bắt đầu game)
+                            turn = 0;
+
+                            checkJoinRoom = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No room match!");
                         }
                         break;
                     case "host":
-                        ReceiveSomeoneJoin(rp[1], rp[2], rp[3]);
+                        if (rp[1].Equals(user_id))
+                        {
+                            join_id = rp[2];
+
+                            // set player turn
+                            player_turn = Convert.ToInt32(rp[3]);
+                        }
                         break;
                     case "otherquit":
-                        ReceiveOtherQuit(rp[1]);
+                        if (rp[1].Equals("join"))
+                        {
+                            DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                            switch (result)
+                            {
+                                case DialogResult.Yes:
+                                    RemoveRoom(room_no);
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
+                                    break;
+                                case DialogResult.No:
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
+                                    break;
+                            }
+                        }
+                        else if (rp[1].Equals("host"))
+                        {
+                            DialogResult result = MessageBox.Show("User " + host_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                            switch (result)
+                            {
+                                case DialogResult.Yes:
+                                    RemoveRoom(room_no);
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
+                                    break;
+                                case DialogResult.No:
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
+
+                                    break;
+                            }
+                        }
+                        
                         break;
                 }
             }
@@ -163,18 +308,13 @@ namespace ProjectCaro
                         timer1.Start();
 
                     // hiện tên người chơi vào phòng
-                        lblWaiting.Text = "";
 
-                        // hiện tên người chơi vào phòng
-                        lblJoin.Text = join_id;
+                    lblJoin.Text = join_id;
                     }));
                     
 
                     // set turn = 0 (bắt đầu game)
                     turn = 0;
-
-                    // bắt đầu timer
-                    timer1.Start();
 
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();
@@ -219,7 +359,7 @@ namespace ProjectCaro
 
                 }
                 else if (((player_turn == 1) && (turn % 2 > 0)) ||
-                        ((player_turn == 2) && (turn % 2 == 0)))
+                  ((player_turn == 2) && (turn % 2 == 0)))
                 {
                     if (user_id.Equals(host_id))
                     {
@@ -257,30 +397,6 @@ namespace ProjectCaro
                 }
 
                 // do something to refresh roomlist here
-                SendRefreshRoom();
-
-
-            }
-        }
-
-
-        private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
-        {
-            await Task.Run(() =>
-            {
-                CaroAPI.FriendList().GetAwaiter().GetResult();
-            });
-            while (true)
-            {
-                // cancel worker nếu có tín hiệu cancel gửi đến
-                if (workerRefreshFriend.CancellationPending)
-                {
-                    e.Cancel = true;
-                    return;
-                }
-
-                // do something to refresh friendlist here
-                //SendRefreshFriend();
             }
         }
 
