@@ -57,8 +57,8 @@ namespace CaroGameServer
 
             while (true)
             {
-                //try
-                //{
+                try
+                {
                     byte[] bytes = new byte[1024];
 
                     stream = client.GetStream();
@@ -97,20 +97,20 @@ namespace CaroGameServer
                             HandleClient.RefreshRoom();
                             break;
                     }
-                //}
-                //catch (Exception ex)
-                //{
-                //    if (ex is IOException || ex is InvalidOperationException)
-                //    {
-                //        Console.WriteLine("Client disconnected");
-                //        HandleClient.UserOffline();
+                }
+                catch (Exception ex)
+                {
+                    if (ex is IOException || ex is InvalidOperationException)
+                    {
+                        Console.WriteLine("Client disconnected");
+                        HandleClient.UserOffline();
 
 
-                //        stream.Close();
-                //        client.Close();
-                //        break;
-                //    }
-                //}
+                        stream.Close();
+                        client.Close();
+                        break;
+                    }
+                }
             }
         }
     }
