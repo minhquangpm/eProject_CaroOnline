@@ -33,12 +33,13 @@ namespace ProjectCaro
             InitMap();
             DrawChessBoard();
 
+            button1.Text = "Start";
         }
 
 
         private void InitMap()
         {
-            lblSophong.Text = room_no;
+            lblSophong.Text = "Phòng :" + " " + room_no;
             lblHost.Text = host_id;
             lblJoin.Text = join_id;
 

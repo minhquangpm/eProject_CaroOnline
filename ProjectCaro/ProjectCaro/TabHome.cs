@@ -16,6 +16,16 @@ namespace ProjectCaro
         {
             // gửi thông tin vào phòng lên server
             room_no = txtSophong.Text;
+            JoinRoom(user_id, room_no);
+            Thread.Sleep(100);
+
+            if (checkJoinRoom)
+            {
+                //mở map
+                MapLoad();
+                tabControl.SelectTab(Map);
+                lblWaiting.Visible = false;
+            }
 
             SendJoinRoom(user_id, room_no);
         }

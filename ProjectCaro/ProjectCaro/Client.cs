@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectCaro
@@ -156,6 +157,12 @@ namespace ProjectCaro
                 {
                     Invoke(new Action(() => {
                         // xóa dòng "Chờ người chơi"
+                    lblWaiting.Text = "";
+                        //đếm giờ
+                        da = DateTime.Now;
+                        timer1.Start();
+
+                    // hiện tên người chơi vào phòng
                         lblWaiting.Text = "";
 
                         // hiện tên người chơi vào phòng
@@ -258,8 +265,12 @@ namespace ProjectCaro
         }
 
 
-        private void DoRefreshFriend(object sender, DoWorkEventArgs e)
+        private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
         {
+            await Task.Run(() =>
+            {
+                CaroAPI.FriendList().GetAwaiter().GetResult();
+            });
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến

@@ -8,7 +8,10 @@ namespace ProjectCaro
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
-       
+       public void load_login()
+       {
+           lblUsername.Text = user_id;
+       }
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             user_id = txt_Log1.Text;
@@ -17,6 +20,15 @@ namespace ProjectCaro
 
             if (check)
             {
+                //không cho hành động khi load form
+                txt_Log1.Enabled = false;
+                txt_Log2.Enabled = false;
+                btnLogin.Enabled = false;
+                //Load home
+                lblUsername.Text = user_id;
+                //check login và chạy hàm load
+                processbartime.Enabled = true;
+                UserOnline(user_id);
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
 
@@ -33,31 +45,23 @@ namespace ProjectCaro
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            panelSignup.Visible = true;
         }
 
         private void processbartime_Tick(object sender, EventArgs e)
         {
             //không cho hành động khi load form 
-            progressBar1.Visible = true;
-            progressBar1.Value = progressBar1.Value + 50;
-            if (progressBar1.Value >= 999)
+            processBar1.Visible = true;
+            processBar1.Value = processBar1.Value + 50;
+            if (processBar1.Value >= 999)
             {
                 //dừng thanh load
                 processbartime.Enabled = false;
-                //không cho hành động khi load form
-                txt_Log1.Enabled = false;
-                txt_Log2.Enabled = false;
-                btnLogin.Enabled = false;
-                panelLogin.Visible = false;
-
                 //mở trang home
-                lblUsername.Text = user_id;
                 tabControl.SelectTab(Home);
             }
-
         }
 
 
