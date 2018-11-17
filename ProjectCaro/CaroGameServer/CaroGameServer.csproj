@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase.cs" />
     <Compile Include="DBMySQLUtils.cs" />
     <Compile Include="DBUtils.cs" />
     <Compile Include="HandleClient.cs" />
