@@ -47,7 +47,9 @@ namespace ProjectCaro
                 txt_Log2.Enabled = false;
                 btnLogin.Enabled = false;
                 panelLogin.Visible = false;
+
                 //mở trang home
+                lblUsername.Text = user_id;
                 tabControl.SelectTab(Home);
             }
 

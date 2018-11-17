@@ -73,6 +73,7 @@
             this.listfriend = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Map = new System.Windows.Forms.TabPage();
+            this.btnThoatTran = new System.Windows.Forms.Button();
             this.TenPhong = new System.Windows.Forms.Panel();
             this.Phong = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnThoatTran = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -567,7 +567,7 @@
             this.lblRank.AutoSize = true;
             this.lblRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRank.ForeColor = System.Drawing.Color.Red;
-            this.lblRank.Location = new System.Drawing.Point(133, 247);
+            this.lblRank.Location = new System.Drawing.Point(120, 261);
             this.lblRank.Name = "lblRank";
             this.lblRank.Size = new System.Drawing.Size(64, 25);
             this.lblRank.TabIndex = 15;
@@ -578,7 +578,7 @@
             this.lblLevel.AutoSize = true;
             this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLevel.ForeColor = System.Drawing.Color.Red;
-            this.lblLevel.Location = new System.Drawing.Point(133, 211);
+            this.lblLevel.Location = new System.Drawing.Point(120, 221);
             this.lblLevel.Name = "lblLevel";
             this.lblLevel.Size = new System.Drawing.Size(38, 25);
             this.lblLevel.TabIndex = 14;
@@ -589,7 +589,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(212)))), ((int)(((byte)(95)))));
-            this.label3.Location = new System.Drawing.Point(15, 247);
+            this.label3.Location = new System.Drawing.Point(15, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 13;
@@ -600,7 +600,7 @@
             this.Level.AutoSize = true;
             this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Level.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(212)))), ((int)(((byte)(95)))));
-            this.Level.Location = new System.Drawing.Point(15, 211);
+            this.Level.Location = new System.Drawing.Point(15, 221);
             this.Level.Name = "Level";
             this.Level.Size = new System.Drawing.Size(83, 25);
             this.Level.TabIndex = 12;
@@ -613,7 +613,7 @@
             this.panel4.Controls.Add(this.lblUsername);
             this.panel4.Location = new System.Drawing.Point(19, 37);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(242, 47);
+            this.panel4.Size = new System.Drawing.Size(242, 66);
             this.panel4.TabIndex = 11;
             // 
             // lblUsername
@@ -621,27 +621,28 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Red;
-            this.lblUsername.Location = new System.Drawing.Point(97, 10);
+            this.lblUsername.Location = new System.Drawing.Point(38, 12);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(55, 31);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Zin";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listfriend
             // 
             this.listfriend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.listfriend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listfriend.Location = new System.Drawing.Point(0, 274);
+            this.listfriend.Location = new System.Drawing.Point(0, 302);
             this.listfriend.Name = "listfriend";
-            this.listfriend.Size = new System.Drawing.Size(276, 482);
+            this.listfriend.Size = new System.Drawing.Size(276, 454);
             this.listfriend.TabIndex = 10;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(44, 90);
+            this.pictureBox2.Location = new System.Drawing.Point(44, 109);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(192, 118);
+            this.pictureBox2.Size = new System.Drawing.Size(192, 99);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -667,6 +668,16 @@
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
             this.Map.UseVisualStyleBackColor = true;
+            // 
+            // btnThoatTran
+            // 
+            this.btnThoatTran.Location = new System.Drawing.Point(987, 496);
+            this.btnThoatTran.Name = "btnThoatTran";
+            this.btnThoatTran.Size = new System.Drawing.Size(75, 23);
+            this.btnThoatTran.TabIndex = 55;
+            this.btnThoatTran.Text = "thoát trận";
+            this.btnThoatTran.UseVisualStyleBackColor = true;
+            this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
             // 
             // TenPhong
             // 
@@ -820,16 +831,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnThoatTran
-            // 
-            this.btnThoatTran.Location = new System.Drawing.Point(987, 496);
-            this.btnThoatTran.Name = "btnThoatTran";
-            this.btnThoatTran.Size = new System.Drawing.Size(75, 23);
-            this.btnThoatTran.TabIndex = 55;
-            this.btnThoatTran.Text = "thoát trận";
-            this.btnThoatTran.UseVisualStyleBackColor = true;
-            this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
             // 
             // Caro
             // 
