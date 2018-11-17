@@ -55,18 +55,19 @@ namespace CaroGameServer
 
             string data;
 
-            byte[] bytes = new byte[1024];
-
             NetworkStream stream = null;
 
-            stream = client.GetStream();
-
-            i = stream.Read(bytes, 0, bytes.Length);
-
-            while (i > 0)
+            try
             {
-                try
+                byte[] bytes = new byte[1024];  
+
+                stream = client.GetStream();
+
+                i = stream.Read(bytes, 0, bytes.Length);
+
+                while (i > 0)
                 {
+
                     data = Encoding.ASCII.GetString(bytes, 0, i);
 
                     Console.WriteLine("Receive: " + data);
@@ -100,18 +101,17 @@ namespace CaroGameServer
 
                     i = stream.Read(bytes, 0, bytes.Length);
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                if (ex is IOException || ex is InvalidOperationException)
                 {
-                    if (ex is IOException || ex is InvalidOperationException)
-                    {
-                        Console.WriteLine("Client disconnected");
-                        HandleClient.UserOffline();
+                    Console.WriteLine("Client disconnected");
+                    HandleClient.UserOffline();
 
 
-                        stream.Close();
-                        client.Close();
-                        break;
-                    }
+                    stream.Close();
+                    client.Close();
                 }
             }
         }
