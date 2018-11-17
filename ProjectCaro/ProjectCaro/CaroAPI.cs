@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaroGame
+namespace ProjectCaro
 {
     public class ThongKe
     {
