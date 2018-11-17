@@ -419,11 +419,11 @@
             // 
             this.progressBar1.BackColor = System.Drawing.Color.Red;
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Location = new System.Drawing.Point(24, 625);
+            this.progressBar1.Location = new System.Drawing.Point(347, 625);
             this.progressBar1.MarqueeAnimationSpeed = 1000;
             this.progressBar1.Maximum = 1000;
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1072, 23);
+            this.progressBar1.Size = new System.Drawing.Size(468, 23);
             this.progressBar1.TabIndex = 49;
             // 
             // Home
