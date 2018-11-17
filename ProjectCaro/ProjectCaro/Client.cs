@@ -166,6 +166,9 @@ namespace ProjectCaro
                     // set turn = 0 (bắt đầu game)
                     turn = 0;
 
+                    // bắt đầu timer
+                    timer1.Start();
+
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();
                 }
@@ -266,7 +269,7 @@ namespace ProjectCaro
                 }
 
                 // do something to refresh friendlist here
-                SendRefreshFriend();
+                //SendRefreshFriend();
             }
         }
 

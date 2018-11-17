@@ -118,7 +118,7 @@ namespace CaroGameServer
         // kiểm tra phòng có full hay không
         private static bool roomIsAvailable(Room room)
         {
-            if (room.join_id != null && room.joinClient != null)
+            if (room.join_id == null && room.joinClient == null)
             {
                 return true;
             }

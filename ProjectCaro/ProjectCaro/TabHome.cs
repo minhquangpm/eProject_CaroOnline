@@ -15,6 +15,8 @@ namespace ProjectCaro
         private void btnVao_Click(object sender, EventArgs e)
         {
             // gửi thông tin vào phòng lên server
+            room_no = txtSophong.Text;
+
             SendJoinRoom(user_id, room_no);
         }
 

@@ -38,7 +38,6 @@ namespace ProjectCaro
             // set thông tin phòng
             join_id = user_id;
 
-            room_no = txtSophong.Text;
 
             host_id = rc_host_id;
 
@@ -47,6 +46,9 @@ namespace ProjectCaro
 
             // set turn = 0 (bắt đầu game)
             turn = 0;
+
+            // bắt đầu timer
+            timer1.Start();
 
             // mở tab Map
             Invoke(new Action(() =>
