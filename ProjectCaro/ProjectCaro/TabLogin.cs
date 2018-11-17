@@ -19,7 +19,7 @@ namespace ProjectCaro
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
-                UserOnline(user_id);
+                SendUserOnline(user_id);
             }
             else
             {

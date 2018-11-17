@@ -113,7 +113,7 @@ namespace ProjectCaro
                 btn.BackgroundImage = Resources.x;
                 playerX.Add(vi_tri);
 
-                Play(user_id, room_no, vi_tri);
+                SendPlay(user_id, room_no, vi_tri);
 
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
@@ -128,7 +128,7 @@ namespace ProjectCaro
                 btn.BackgroundImage = Resources.o;
                 playerO.Add(vi_tri);
 
-                Play(user_id, room_no, vi_tri);
+                SendPlay(user_id, room_no, vi_tri);
 
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
@@ -254,7 +254,7 @@ namespace ProjectCaro
             switch (result)
             {
                 case DialogResult.Yes:
-                    RemoveRoom(room_no);
+                    SendRemoveRoom(room_no);
 
                     tabControl.SelectTab(Home);
 
@@ -273,7 +273,7 @@ namespace ProjectCaro
             switch (result)
             {
                 case DialogResult.Yes:
-                    QuitRoom(user_id, room_no);
+                    SendQuitRoom(user_id, room_no);
 
                     tabControl.SelectTab(Home);
 
