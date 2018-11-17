@@ -103,7 +103,7 @@ namespace CaroGameServer
                     if (ex is IOException || ex is InvalidOperationException)
                     {
                         Console.WriteLine("Client disconnected");
-                        HandleClient.UserOffline(client);
+                        HandleClient.UserOffline();
 
 
                         stream.Close();
