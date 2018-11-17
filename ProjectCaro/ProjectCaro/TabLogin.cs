@@ -47,7 +47,7 @@ namespace ProjectCaro
             //không cho hành động khi load form 
             processBar1.Visible = true;
             processBar1.Value = processBar1.Value + 50;
-            if (processBar1.Value >= 999)
+            if (processBar1.Value >= 199)
             {
                 //dừng thanh load
                 processbartime.Enabled = false;
