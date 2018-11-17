@@ -106,7 +106,6 @@ namespace ProjectCaro
             {
                 var client = new HttpClient();
                 SetupClientDefaults(client);
-                client.Timeout = TimeSpan.FromSeconds(3000);
                 client.BaseAddress = new Uri(baseAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
@@ -161,7 +160,6 @@ namespace ProjectCaro
             {
                 var client = new HttpClient();
                 SetupClientDefaults(client);
-                client.Timeout = TimeSpan.FromSeconds(3000);
                 client.BaseAddress = new Uri(baseAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
@@ -232,7 +230,46 @@ namespace ProjectCaro
                 }
 
             }
-            #endregion
+        #endregion
+
+
+            #region logout
+
+        public static async Task<bool> LogOutAsync(UserModel userLogin, HttpClient client)
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+       "api/logout", userLogin);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+
         }
- 
+
+
+        public static async Task LogOut()
+        {
+            var client = new HttpClient();
+            SetupClientDefaults(client);
+            client.BaseAddress = new Uri(baseAddress);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            try
+            {
+                bool logout = await LogOutAsync(user, client);
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+            }
+
+        }
+        #endregion
+    }
+
 }
