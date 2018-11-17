@@ -160,14 +160,15 @@ namespace ProjectCaro
 
                         // hiện tên người chơi vào phòng
                         lblJoin.Text = join_id;
+
+                        // bắt đầu timer
+                        da = DateTime.Now;
+                        timer1.Start();
                     }));
                     
 
                     // set turn = 0 (bắt đầu game)
                     turn = 0;
-
-                    // bắt đầu timer
-                    timer1.Start();
 
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();

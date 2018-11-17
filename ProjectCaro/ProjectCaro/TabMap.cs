@@ -24,10 +24,15 @@ namespace ProjectCaro
         private static List<int> playerO = new List<int>();
         public static List<Button> btnList = new List<Button>();
 
+
+        //dem gio
+        private DateTime da;
+
         public void MapLoad()
         {
             InitMap();
             DrawChessBoard();
+
         }
 
 
@@ -314,7 +319,7 @@ namespace ProjectCaro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TimeSpan span = DateTime.Now.Subtract(DateTime.Now);
+            TimeSpan span = DateTime.Now.Subtract(da);
             Time.Text = span.Minutes.ToString() + " : " + span.Seconds.ToString();
         }
     }
