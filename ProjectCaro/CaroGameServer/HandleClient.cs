@@ -183,7 +183,8 @@ namespace CaroGameServer
             {
                 if (userOnline.userClient.Equals(userClient))
                 {
-                    ChangeStatus(userOnline.user_id);
+                    ChangeStatusUser(userOnline.user_id);
+                    ChangeStatusFriendList(userOnline.user_id);
                     onlineList.Remove(userOnline);
                     break;
                 }
@@ -193,7 +194,7 @@ namespace CaroGameServer
 
 
 
-        public static void ChangeStatus(string user_id)
+        public static void ChangeStatusUser(string user_id)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
@@ -210,6 +211,29 @@ namespace CaroGameServer
                 Console.WriteLine(ex.Message);
                 conn.Dispose();
                 conn.Close();
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+        public static void ChangeStatusFriendList(string user_id)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = $"UPDATE friendlist SET status = @status WHERE name = '" + user_id + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             finally
             {
