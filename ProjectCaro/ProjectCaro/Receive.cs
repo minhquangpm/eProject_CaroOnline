@@ -90,8 +90,6 @@ namespace ProjectCaro
 
                         break;
                     case DialogResult.No:
-
-                        host_id = user_id;
                         Invoke(new Action(() =>
                         {
                             ReGame();
@@ -116,7 +114,6 @@ namespace ProjectCaro
 
                         break;
                     case DialogResult.No:
-                        host_id = user_id;
                         Invoke(new Action(() =>
                         {
                             ReGame();

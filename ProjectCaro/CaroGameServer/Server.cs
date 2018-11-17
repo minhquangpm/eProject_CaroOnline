@@ -51,19 +51,22 @@ namespace CaroGameServer
 
         public void User(TcpClient client)
         {
+            int i;
+
             string data;
+
+            byte[] bytes = new byte[1024];
 
             NetworkStream stream = null;
 
-            while (true)
+            stream = client.GetStream();
+
+            i = stream.Read(bytes, 0, bytes.Length);
+
+            while (i > 0)
             {
                 try
                 {
-                    byte[] bytes = new byte[1024];
-
-                    stream = client.GetStream();
-
-                    int i = stream.Read(bytes, 0, bytes.Length);
                     data = Encoding.ASCII.GetString(bytes, 0, i);
 
                     Console.WriteLine("Receive: " + data);
@@ -93,10 +96,9 @@ namespace CaroGameServer
                         case "removeroom":
                             HandleClient.RemoveRoom(code[1]);
                             break;
-                        case "refreshroom":
-                            HandleClient.RefreshRoom();
-                            break;
                     }
+
+                    i = stream.Read(bytes, 0, bytes.Length);
                 }
                 catch (Exception ex)
                 {

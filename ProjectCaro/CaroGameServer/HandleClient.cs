@@ -56,8 +56,8 @@ namespace CaroGameServer
             // allow create room
             Server.SendData("create:true", userClient);
 
-            // log
-            //Console.WriteLine("User " + user_id + " create room ");
+            // lưu room vào db
+            DataBase.TaoRoom(user_id, room_no);
         }
 
 
@@ -99,12 +99,16 @@ namespace CaroGameServer
                         //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
 
 
+                        // update room trong db
+                        DataBase.UpdateRoom(room.host_id, user_id, room_no);
+
                         check_room = true;
                         break;
                     }
                     else
                     {
                         Server.SendData("join:full", userClient);
+                        break;
                     }
                 }
             }
@@ -146,15 +150,23 @@ namespace CaroGameServer
                         room.hostClient = room.joinClient;
                         room.join_id = null;
                         room.joinClient = null;
+
+                        // update db
+                        DataBase.UpdateRoom(room.host_id, null, room_no);
+
+                        break;
                     }
                     else if (room.join_id.Equals(user_quitting))
                     {
                         Server.SendData("otherquit:join", room.hostClient);
                         room.join_id = null;
-                        room.joinClient = null; 
+                        room.joinClient = null;
+
+                        //update db
+                        DataBase.UpdateRoom(room.host_id, null, room_no);
+
+                        break;
                     }
-                    
-                    //roomList.Remove(room);
                 }
             }
         }
@@ -168,17 +180,14 @@ namespace CaroGameServer
             {
                 if (room.room_no.Equals(room_no))
                 {
+                    // xóa phòng trong db
+                    DataBase.XoaRoom(room.host_id);
+
                     roomList.Remove(room);
+
                     break;
                 }
             }
-        }
-
-
-
-        public static void RefreshRoom()
-        {
-
         }
 
 
@@ -210,11 +219,38 @@ namespace CaroGameServer
                     ChangeStatusUser(userOnline.user_id);
                     ChangeStatusFriendList(userOnline.user_id);
                     onlineList.Remove(userOnline);
-                    
+
+                    // xử lý khi người chơi disconnect trong room
+                    RemoveUserFromRoom(userOnline.user_id);
+
                     break;
                 }
             }
         }
+
+
+        // TH1: xử lý khi host disconnect (room chỉ có host)
+        // TH2: xử lý khi host disconnect giữa trận
+        // TH3: xử lý khi join disconnect giữa trận
+        private static void RemoveUserFromRoom(string disconnect_user)
+        {
+            foreach (Room room in roomList)
+            { 
+                if (room.host_id.Equals(disconnect_user) && room.join_id == null)
+                {
+                    RemoveRoom(room.room_no);
+                    break;
+                }
+                else if ((room.host_id.Equals(disconnect_user) && room.join_id != null) ||
+                        room.join_id.Equals(disconnect_user))
+                {
+                    QuitRoom(disconnect_user, room.room_no);
+                    break;
+                }
+            }
+        }
+
+
         public static void ChangeStatusUser(string user_id)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
@@ -239,6 +275,9 @@ namespace CaroGameServer
                 conn.Close();
             }
         }
+
+
+
 
         private static bool isConnected(TcpClient client)
         {

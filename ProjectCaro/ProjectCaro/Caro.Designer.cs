@@ -435,7 +435,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(131, 45);
             this.button2.TabIndex = 25;
-            this.button2.Text = "Create Room";
+            this.button2.Text = "Quick Join";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // danhsachphong
@@ -450,7 +450,7 @@
             // 
             // btnVao
             // 
-            this.btnVao.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnVao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVao.ForeColor = System.Drawing.Color.White;
             this.btnVao.Location = new System.Drawing.Point(508, 280);
@@ -463,10 +463,10 @@
             // 
             // btnTao
             // 
-            this.btnTao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnTao.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.White;
-            this.btnTao.Location = new System.Drawing.Point(11, 279);
+            this.btnTao.Location = new System.Drawing.Point(11, 280);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(131, 45);
             this.btnTao.TabIndex = 10;
@@ -500,7 +500,7 @@
             this.txtSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSophong.Location = new System.Drawing.Point(395, 280);
             this.txtSophong.Name = "txtSophong";
-            this.txtSophong.Size = new System.Drawing.Size(107, 45);
+            this.txtSophong.Size = new System.Drawing.Size(107, 44);
             this.txtSophong.TabIndex = 12;
             this.txtSophong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

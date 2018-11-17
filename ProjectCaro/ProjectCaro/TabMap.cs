@@ -300,7 +300,7 @@ namespace ProjectCaro
         {
             player_turn = 0;
             turn = -1;
-            host_id = null;
+            host_id = user_id;
             join_id = null;
 
             playerO.Clear();
