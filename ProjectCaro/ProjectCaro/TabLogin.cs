@@ -29,6 +29,14 @@ namespace ProjectCaro
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
                 UserOnline(user_id);
+                //check login và chạy hàm load
+                processbartime.Enabled = true;
+
+                SendUserOnline(user_id);
+
+                lblUsername.Text = user_id;
+
+                tabControl.SelectTab(Home);
             }
             else
             {
