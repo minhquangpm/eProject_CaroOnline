@@ -52,13 +52,14 @@ namespace ProjectCaro
                 //dừng thanh load
                 processbartime.Enabled = false;
                 //mở trang home
+                HomeLoad();
                 tabControl.SelectTab(Home);
             }
         }
 
 
         //Form đăng ký
-        private void txtSignin_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             panelSignup.Visible = false;
         }

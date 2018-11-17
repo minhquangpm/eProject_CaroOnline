@@ -262,11 +262,6 @@ namespace ProjectCaro
 
         private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
         {
-            await Task.Run(() =>
-            {
-                CaroAPI.FriendList().GetAwaiter().GetResult();
-            });
-
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -277,6 +272,20 @@ namespace ProjectCaro
                 }
 
                 // do something to refresh friendlist here
+                await Task.Run(() =>
+                {
+                    CaroAPI.FriendList().GetAwaiter().GetResult();
+                });
+
+
+                foreach (FriendList friend in CaroAPI.getFriendList.data)
+                {
+                    MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
+                }
+
+
+
+                Thread.Sleep(1000);
             }
         }
 

@@ -28,10 +28,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
+            this.panelLogin = new System.Windows.Forms.Panel();
             this.panelSignup = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
-            this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.repassword = new System.Windows.Forms.Label();
             this.password2 = new System.Windows.Forms.TextBox();
@@ -43,17 +43,17 @@
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.panelLogin = new System.Windows.Forms.Panel();
             this.txtSignup = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.processBar1 = new System.Windows.Forms.ProgressBar();
             this.password = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
             this.formName = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
-            this.processBar1 = new System.Windows.Forms.ProgressBar();
             this.Home = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
             this.btnVao = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
@@ -68,7 +68,6 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
-            this.listfriend = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Map = new System.Windows.Forms.TabPage();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -86,12 +85,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
-            this.panelSignup.SuspendLayout();
             this.panelLogin.SuspendLayout();
+            this.panelSignup.SuspendLayout();
             this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listfriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.Map.SuspendLayout();
             this.pnlChess.SuspendLayout();
@@ -111,9 +109,7 @@
             // Login
             // 
             this.Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Login.Controls.Add(this.panelSignup);
             this.Login.Controls.Add(this.panelLogin);
-            this.Login.Controls.Add(this.processBar1);
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
@@ -122,6 +118,26 @@
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
             // 
+            // panelLogin
+            // 
+            this.panelLogin.BackColor = System.Drawing.Color.Transparent;
+            this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLogin.Controls.Add(this.panelSignup);
+            this.panelLogin.Controls.Add(this.txtSignup);
+            this.panelLogin.Controls.Add(this.btnRegister);
+            this.panelLogin.Controls.Add(this.processBar1);
+            this.panelLogin.Controls.Add(this.password);
+            this.panelLogin.Controls.Add(this.username);
+            this.panelLogin.Controls.Add(this.formName);
+            this.panelLogin.Controls.Add(this.btnLogin);
+            this.panelLogin.Controls.Add(this.txt_Log2);
+            this.panelLogin.Controls.Add(this.txt_Log1);
+            this.panelLogin.Location = new System.Drawing.Point(213, 43);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(468, 436);
+            this.panelLogin.TabIndex = 50;
+            // 
             // panelSignup
             // 
             this.panelSignup.BackColor = System.Drawing.Color.Transparent;
@@ -129,7 +145,6 @@
             this.panelSignup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSignup.Controls.Add(this.textBox1);
             this.panelSignup.Controls.Add(this.Email);
-            this.panelSignup.Controls.Add(this.txtSignin);
             this.panelSignup.Controls.Add(this.btnExit);
             this.panelSignup.Controls.Add(this.repassword);
             this.panelSignup.Controls.Add(this.password2);
@@ -141,7 +156,7 @@
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(278, 43);
+            this.panelSignup.Location = new System.Drawing.Point(-1, -1);
             this.panelSignup.Name = "panelSignup";
             this.panelSignup.Size = new System.Drawing.Size(468, 436);
             this.panelSignup.TabIndex = 48;
@@ -151,7 +166,7 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(102, 314);
+            this.textBox1.Location = new System.Drawing.Point(104, 314);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 48;
@@ -167,35 +182,25 @@
             this.Email.TabIndex = 47;
             this.Email.Text = "Email";
             // 
-            // txtSignin
-            // 
-            this.txtSignin.AutoSize = true;
-            this.txtSignin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignin.Location = new System.Drawing.Point(172, 410);
-            this.txtSignin.Name = "txtSignin";
-            this.txtSignin.Size = new System.Drawing.Size(90, 13);
-            this.txtSignin.TabIndex = 44;
-            this.txtSignin.Text = "click here to login";
-            this.txtSignin.Click += new System.EventHandler(this.txtSignin_Click);
-            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(242, 351);
+            this.btnExit.Location = new System.Drawing.Point(244, 372);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(121, 45);
             this.btnExit.TabIndex = 44;
             this.btnExit.Text = "Cancel";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // repassword
             // 
             this.repassword.AutoSize = true;
             this.repassword.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.repassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.repassword.Location = new System.Drawing.Point(104, 239);
+            this.repassword.Location = new System.Drawing.Point(101, 239);
             this.repassword.Name = "repassword";
             this.repassword.Size = new System.Drawing.Size(86, 17);
             this.repassword.TabIndex = 40;
@@ -237,7 +242,7 @@
             this.password1.AutoSize = true;
             this.password1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.password1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.password1.Location = new System.Drawing.Point(103, 180);
+            this.password1.Location = new System.Drawing.Point(101, 180);
             this.password1.Name = "password1";
             this.password1.Size = new System.Drawing.Size(66, 17);
             this.password1.TabIndex = 34;
@@ -260,7 +265,7 @@
             this.Signup.BackColor = System.Drawing.Color.Transparent;
             this.Signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Signup.Location = new System.Drawing.Point(158, 15);
+            this.Signup.Location = new System.Drawing.Point(169, 14);
             this.Signup.Name = "Signup";
             this.Signup.Size = new System.Drawing.Size(124, 33);
             this.Signup.TabIndex = 32;
@@ -271,7 +276,7 @@
             this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(102, 351);
+            this.btnSignup.Location = new System.Drawing.Point(104, 372);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(121, 45);
             this.btnSignup.TabIndex = 43;
@@ -299,29 +304,11 @@
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
             this.txtUsername.TabIndex = 1;
             // 
-            // panelLogin
-            // 
-            this.panelLogin.BackColor = System.Drawing.Color.Transparent;
-            this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelLogin.Controls.Add(this.txtSignup);
-            this.panelLogin.Controls.Add(this.btnRegister);
-            this.panelLogin.Controls.Add(this.password);
-            this.panelLogin.Controls.Add(this.username);
-            this.panelLogin.Controls.Add(this.formName);
-            this.panelLogin.Controls.Add(this.btnLogin);
-            this.panelLogin.Controls.Add(this.txt_Log2);
-            this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(278, 43);
-            this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(468, 320);
-            this.panelLogin.TabIndex = 50;
-            // 
             // txtSignup
             // 
             this.txtSignup.AutoSize = true;
             this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignup.Location = new System.Drawing.Point(179, 285);
+            this.txtSignup.Location = new System.Drawing.Point(179, 314);
             this.txtSignup.Name = "txtSignup";
             this.txtSignup.Size = new System.Drawing.Size(95, 13);
             this.txtSignup.TabIndex = 36;
@@ -332,13 +319,24 @@
             this.btnRegister.BackColor = System.Drawing.Color.Red;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(242, 224);
+            this.btnRegister.Location = new System.Drawing.Point(242, 239);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(121, 45);
             this.btnRegister.TabIndex = 35;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // processBar1
+            // 
+            this.processBar1.BackColor = System.Drawing.Color.Red;
+            this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.processBar1.Location = new System.Drawing.Point(104, 358);
+            this.processBar1.MarqueeAnimationSpeed = 1000;
+            this.processBar1.Maximum = 1000;
+            this.processBar1.Name = "processBar1";
+            this.processBar1.Size = new System.Drawing.Size(259, 23);
+            this.processBar1.TabIndex = 49;
             // 
             // password
             // 
@@ -379,7 +377,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(104, 224);
+            this.btnLogin.Location = new System.Drawing.Point(104, 239);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(121, 45);
             this.btnLogin.TabIndex = 3;
@@ -407,20 +405,10 @@
             this.txt_Log1.Size = new System.Drawing.Size(259, 26);
             this.txt_Log1.TabIndex = 1;
             // 
-            // processBar1
-            // 
-            this.processBar1.BackColor = System.Drawing.Color.Red;
-            this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.processBar1.Location = new System.Drawing.Point(278, 494);
-            this.processBar1.MarqueeAnimationSpeed = 1000;
-            this.processBar1.Maximum = 1000;
-            this.processBar1.Name = "processBar1";
-            this.processBar1.Size = new System.Drawing.Size(468, 23);
-            this.processBar1.TabIndex = 49;
-            // 
             // Home
             // 
             this.Home.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Home.Controls.Add(this.button2);
             this.Home.Controls.Add(this.danhsachphong);
             this.Home.Controls.Add(this.btnVao);
             this.Home.Controls.Add(this.btnTao);
@@ -438,26 +426,38 @@
             this.Home.Text = "Home";
             this.Home.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(157, 279);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 45);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Create Room";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // danhsachphong
             // 
             this.danhsachphong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.danhsachphong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachphong.Location = new System.Drawing.Point(6, 47);
+            this.danhsachphong.Location = new System.Drawing.Point(11, 47);
             this.danhsachphong.Name = "danhsachphong";
-            this.danhsachphong.Size = new System.Drawing.Size(615, 224);
+            this.danhsachphong.Size = new System.Drawing.Size(610, 224);
             this.danhsachphong.TabIndex = 24;
             // 
             // btnVao
             // 
-            this.btnVao.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnVao.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVao.ForeColor = System.Drawing.Color.White;
-            this.btnVao.Location = new System.Drawing.Point(522, 278);
+            this.btnVao.Location = new System.Drawing.Point(508, 280);
             this.btnVao.Name = "btnVao";
-            this.btnVao.Size = new System.Drawing.Size(99, 28);
+            this.btnVao.Size = new System.Drawing.Size(113, 45);
             this.btnVao.TabIndex = 11;
-            this.btnVao.Text = "Vào phòng";
+            this.btnVao.Text = "Join Room";
             this.btnVao.UseVisualStyleBackColor = false;
             this.btnVao.Click += new System.EventHandler(this.btnVao_Click);
             // 
@@ -466,11 +466,11 @@
             this.btnTao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.White;
-            this.btnTao.Location = new System.Drawing.Point(424, 277);
+            this.btnTao.Location = new System.Drawing.Point(11, 279);
             this.btnTao.Name = "btnTao";
-            this.btnTao.Size = new System.Drawing.Size(92, 28);
+            this.btnTao.Size = new System.Drawing.Size(131, 45);
             this.btnTao.TabIndex = 10;
-            this.btnTao.Text = "Tạo phòng";
+            this.btnTao.Text = "Create Room";
             this.btnTao.UseVisualStyleBackColor = false;
             this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
             // 
@@ -479,35 +479,38 @@
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
             this.btnChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChat.ForeColor = System.Drawing.Color.White;
-            this.btnChat.Location = new System.Drawing.Point(497, 498);
+            this.btnChat.Location = new System.Drawing.Point(508, 498);
             this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(93, 28);
+            this.btnChat.Size = new System.Drawing.Size(113, 26);
             this.btnChat.TabIndex = 20;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = false;
             // 
             // txtChat
             // 
-            this.txtChat.Location = new System.Drawing.Point(11, 504);
+            this.txtChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat.Location = new System.Drawing.Point(11, 498);
             this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(480, 20);
+            this.txtChat.Size = new System.Drawing.Size(491, 26);
             this.txtChat.TabIndex = 21;
             // 
             // txtSophong
             // 
-            this.txtSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSophong.Location = new System.Drawing.Point(6, 278);
+            this.txtSophong.BackColor = System.Drawing.Color.White;
+            this.txtSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSophong.Location = new System.Drawing.Point(395, 280);
             this.txtSophong.Name = "txtSophong";
-            this.txtSophong.Size = new System.Drawing.Size(412, 29);
+            this.txtSophong.Size = new System.Drawing.Size(107, 45);
             this.txtSophong.TabIndex = 12;
+            this.txtSophong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chat
             // 
             this.chat.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.chat.FormattingEnabled = true;
-            this.chat.Location = new System.Drawing.Point(11, 332);
+            this.chat.Location = new System.Drawing.Point(11, 345);
             this.chat.Name = "chat";
-            this.chat.Size = new System.Drawing.Size(579, 160);
+            this.chat.Size = new System.Drawing.Size(491, 134);
             this.chat.TabIndex = 19;
             // 
             // label1
@@ -516,7 +519,7 @@
             this.label1.BackColor = System.Drawing.Color.Maroon;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 5);
+            this.label1.Location = new System.Drawing.Point(11, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 33);
             this.label1.TabIndex = 23;
@@ -530,11 +533,10 @@
             this.panel1.Controls.Add(this.lblLevel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Level);
-            this.panel1.Controls.Add(this.listfriend);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(644, 7);
+            this.panel1.Location = new System.Drawing.Point(639, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 527);
+            this.panel1.Size = new System.Drawing.Size(237, 519);
             this.panel1.TabIndex = 20;
             // 
             // lblUsername
@@ -592,15 +594,6 @@
             this.Level.Size = new System.Drawing.Size(61, 20);
             this.Level.TabIndex = 12;
             this.Level.Text = "Level :";
-            // 
-            // listfriend
-            // 
-            this.listfriend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.listfriend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listfriend.Location = new System.Drawing.Point(0, 200);
-            this.listfriend.Name = "listfriend";
-            this.listfriend.Size = new System.Drawing.Size(237, 331);
-            this.listfriend.TabIndex = 10;
             // 
             // pictureBox2
             // 
@@ -768,16 +761,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
-            this.panelSignup.ResumeLayout(false);
-            this.panelSignup.PerformLayout();
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
+            this.panelSignup.ResumeLayout(false);
+            this.panelSignup.PerformLayout();
             this.Home.ResumeLayout(false);
             this.Home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listfriend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
@@ -815,14 +807,12 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Level;
         public System.Windows.Forms.Label lblUsername;
-        public System.Windows.Forms.DataGridView listfriend;
         public System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.TabPage Map;
         public System.Windows.Forms.Timer processbartime;
         public System.Windows.Forms.Panel panelSignup;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Label Email;
-        public System.Windows.Forms.Label txtSignin;
         public System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Label repassword;
         public System.Windows.Forms.TextBox password2;
@@ -848,6 +838,7 @@
         public System.Windows.Forms.Label lblWaiting;
         private System.Windows.Forms.Button btnThoatTran;
         public System.Windows.Forms.DataGridView danhsachphong;
+        public System.Windows.Forms.Button button2;
     }
 }
 
