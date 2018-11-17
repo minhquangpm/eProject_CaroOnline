@@ -1,8 +1,8 @@
 ﻿# TODO
-[x] Server nhận biết được khi người chơi out giữa trận (thông báo cho người chơi còn lại, xóa room).
-[x] Chuyển giao thức sang TCP Async hoặc REST API.
-[ ] Giao điện đơn giản, thân thiện với người dùng.
-[ ] Hoàn thành 2 cái list phòng và bạn bè
+- [x] Server nhận biết được khi người chơi out giữa trận (thông báo cho người chơi còn lại, xóa room).
+- [x] Chuyển giao thức sang TCP Async hoặc REST API.
+- [ ] Giao điện đơn giản, thân thiện với người dùng.
+- [ ] Hoàn thành 2 cái list phòng và bạn bè
 
 # Công việc
 ### 1. Phạm Minh Quang
