@@ -34,6 +34,7 @@ namespace ProjectCaro
         public BackgroundWorker workerWaitForPlayer = null;
         public BackgroundWorker workerChangeTurn = null;
         public BackgroundWorker workerRefreshRoom = null;
+        public BackgroundWorker workerRefreshFriend = null;
 
         public void InitClient()
         {
@@ -61,11 +62,17 @@ namespace ProjectCaro
                 WorkerSupportsCancellation = true
             };
 
+            workerRefreshFriend = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
             workerWaitForPlayer.DoWork += DoWaitForPlayer;
             workerChangeTurn.DoWork += DoChangeTurn;
             workerRefreshRoom.DoWork += DoRefreshRoom;
+            workerRefreshFriend.DoWork += DoRefreshFriend;
 
             // start worker
             workerListener.RunWorkerAsync();
@@ -248,6 +255,22 @@ namespace ProjectCaro
                 }
 
                 // do something to refresh roomlist here
+            }
+        }
+
+
+        private void DoRefreshFriend(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerRefreshFriend.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                // do something to refresh friendlist here
             }
         }
 
