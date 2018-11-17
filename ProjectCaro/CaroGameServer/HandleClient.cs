@@ -184,18 +184,15 @@ namespace CaroGameServer
                 if (!isConnected(userOnline.userClient))
                 {
                     Console.WriteLine("User " + userOnline.user_id + " offline");
-                    ChangeStatus(userOnline.user_id);
+                    ChangeStatusUser(userOnline.user_id);
+                    ChangeStatusFriendList(userOnline.user_id);
                     onlineList.Remove(userOnline);
                     
                     break;
                 }
             }
         }
-
-
-
-
-        public static void ChangeStatus(string user_id)
+        public static void ChangeStatusUser(string user_id)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
@@ -219,7 +216,6 @@ namespace CaroGameServer
                 conn.Close();
             }
         }
-
 
         private static bool isConnected(TcpClient client)
         {
@@ -264,6 +260,27 @@ namespace CaroGameServer
         }
 
 
-
+        public static void ChangeStatusFriendList(string user_id)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = $"UPDATE friendlist SET status = @status WHERE name = '" + user_id + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
     }
 }
