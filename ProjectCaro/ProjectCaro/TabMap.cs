@@ -33,11 +33,11 @@ namespace ProjectCaro
             InitMap();
             DrawChessBoard();
 
-            timer1.Start();
-            button1.Text = "Start";
-            //đếm giờ
-            da = DateTime.Now;
-            timer1.Start();
+            //timer1.Start();
+            //button1.Text = "Start";
+            ////đếm giờ
+            //da = DateTime.Now;
+            //timer1.Start();
         }
 
 
@@ -233,20 +233,92 @@ namespace ProjectCaro
 
         private void btnThoatTran_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Exit?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //  thoát trước khi vào trận sẽ không trừ điểm
+            if ((host_id != null) && (join_id == null))
+            {
+                QuitBeforeMatch();
+            }
+            // thoát khi đang trong trận sẽ bị trừ điểm
+            else if ((host_id != null) && (join_id != null))
+            {
+                QuitInMatch();
+            }
+            
+        }
+
+
+
+        private void QuitBeforeMatch()
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Quiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (result)
             {
                 case DialogResult.Yes:
+                    RemoveRoom(room_no);
 
+                    tabControl.SelectTab(Home);
+
+                    NewGame();
                     break;
                 case DialogResult.No:
-
-                    break;
-                case DialogResult.Cancel:
-
                     break;
             }
         }
+
+
+
+        private void QuitInMatch()
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?\n\nIf Yes, your point will be reduced", "Quiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    QuitRoom(user_id, room_no);
+
+                    tabControl.SelectTab(Home);
+
+                    NewGame();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+
+
+        private void NewGame()
+        {
+            player_turn = 0;
+            turn = -1;
+
+            host_id = null;
+            join_id = null;
+            room_no = null;
+
+            playerO.Clear();
+            playerX.Clear();
+
+            btnList.Clear();
+
+            pnlChess.Controls.Clear();
+        }
+
+
+        private void ReGame()
+        {
+            player_turn = 0;
+            turn = -1;
+            host_id = null;
+            join_id = null;
+
+            playerO.Clear();
+            playerX.Clear();
+
+            btnList.Clear();
+
+            pnlChess.Controls.Clear();
+        }
+
 
 
 

@@ -102,9 +102,16 @@ namespace ProjectCaro
 
         public static void QuitRoom(string user_id, string room_no)
         {
-
+            string message = "quit:" + user_id + ":" + room_no;
+            SendData(message);
         }
 
+
+        public static void RemoveRoom(string room_no)
+        {
+            string message = "removeroom:" + room_no;
+            SendData(message);
+        }
 
 
         public static void UserOnline(string user_id)
@@ -217,6 +224,61 @@ namespace ProjectCaro
                             player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
+                    case "otherquit":
+                        if (rp[1].Equals("join"))
+                        {
+                            DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                            switch (result)
+                            {
+                                case DialogResult.Yes:
+                                    RemoveRoom(room_no);
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
+                                    break;
+                                case DialogResult.No:
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
+                                    break;
+                            }
+                        }
+                        else if (rp[1].Equals("host"))
+                        {
+                            DialogResult result = MessageBox.Show("User " + host_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                            switch (result)
+                            {
+                                case DialogResult.Yes:
+                                    RemoveRoom(room_no);
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        tabControl.SelectTab(Home);
+                                        NewGame();
+                                    }));
+
+                                    break;
+                                case DialogResult.No:
+
+                                    Invoke(new Action(() =>
+                                    {
+                                        ReGame();
+                                        host_id = user_id;
+                                        MapLoad();
+                                    }));
+
+                                    break;
+                            }
+                        }
+                        
+                        break;
                 }
             }
         }
@@ -238,12 +300,15 @@ namespace ProjectCaro
 
                 if (join_id != null)
                 {
-                    // xóa dòng "Chờ người chơi"
+                    Invoke(new Action(() => {
+                        // xóa dòng "Chờ người chơi"
                     lblWaiting.Text = "";
 
                     // hiện tên người chơi vào phòng
 
                     lblJoin.Text = join_id;
+                    }));
+                    
 
                     // set turn = 0 (bắt đầu game)
                     turn = 0;
