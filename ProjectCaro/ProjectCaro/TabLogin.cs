@@ -8,10 +8,13 @@ namespace ProjectCaro
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
-       public void load_login()
-       {
-           lblUsername.Text = user_id;
-       }
+        //public void load_login()
+        //{
+        //    lblUsername.Text = user_id;
+        //}
+
+
+
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             user_id = txt_Log1.Text;
@@ -24,7 +27,11 @@ namespace ProjectCaro
                 txt_Log1.Enabled = false;
                 txt_Log2.Enabled = false;
                 btnLogin.Enabled = false;
+
+
                 //Load home
+                HomeLoad();
+
                 lblUsername.Text = user_id;
                 //check login và chạy hàm load
                 processbartime.Start();

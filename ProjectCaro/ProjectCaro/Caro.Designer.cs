@@ -102,10 +102,10 @@
             this.tabControl.Controls.Add(this.Login);
             this.tabControl.Controls.Add(this.Home);
             this.tabControl.Controls.Add(this.Map);
-            this.tabControl.Location = new System.Drawing.Point(-5, 1);
+            this.tabControl.Location = new System.Drawing.Point(-5, -2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(894, 562);
+            this.tabControl.Size = new System.Drawing.Size(894, 570);
             this.tabControl.TabIndex = 0;
             // 
             // Login
@@ -118,7 +118,7 @@
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
-            this.Login.Size = new System.Drawing.Size(886, 536);
+            this.Login.Size = new System.Drawing.Size(886, 544);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             // 
@@ -142,7 +142,7 @@
             this.panelSignup.Controls.Add(this.txtUsername);
             this.panelSignup.Location = new System.Drawing.Point(235, 43);
             this.panelSignup.Name = "panelSignup";
-            this.panelSignup.Size = new System.Drawing.Size(468, 436);
+            this.panelSignup.Size = new System.Drawing.Size(402, 436);
             this.panelSignup.TabIndex = 48;
             // 
             // textBox1
@@ -150,7 +150,7 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(104, 314);
+            this.textBox1.Location = new System.Drawing.Point(68, 314);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 48;
@@ -160,7 +160,7 @@
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.Email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Email.Location = new System.Drawing.Point(101, 294);
+            this.Email.Location = new System.Drawing.Point(65, 294);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(42, 17);
             this.Email.TabIndex = 47;
@@ -171,7 +171,7 @@
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(244, 372);
+            this.btnExit.Location = new System.Drawing.Point(208, 372);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(121, 45);
             this.btnExit.TabIndex = 44;
@@ -184,7 +184,7 @@
             this.repassword.AutoSize = true;
             this.repassword.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.repassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.repassword.Location = new System.Drawing.Point(101, 239);
+            this.repassword.Location = new System.Drawing.Point(65, 239);
             this.repassword.Name = "repassword";
             this.repassword.Size = new System.Drawing.Size(86, 17);
             this.repassword.TabIndex = 40;
@@ -195,7 +195,7 @@
             this.password2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.password2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.password2.Location = new System.Drawing.Point(104, 259);
+            this.password2.Location = new System.Drawing.Point(68, 259);
             this.password2.Name = "password2";
             this.password2.Size = new System.Drawing.Size(261, 26);
             this.password2.TabIndex = 39;
@@ -205,7 +205,7 @@
             this.txtFullname.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtFullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFullname.Location = new System.Drawing.Point(104, 87);
+            this.txtFullname.Location = new System.Drawing.Point(68, 89);
             this.txtFullname.Name = "txtFullname";
             this.txtFullname.Size = new System.Drawing.Size(261, 26);
             this.txtFullname.TabIndex = 38;
@@ -215,7 +215,7 @@
             this.fullname1.AutoSize = true;
             this.fullname1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullname1.ForeColor = System.Drawing.Color.Black;
-            this.fullname1.Location = new System.Drawing.Point(101, 71);
+            this.fullname1.Location = new System.Drawing.Point(65, 69);
             this.fullname1.Name = "fullname1";
             this.fullname1.Size = new System.Drawing.Size(69, 17);
             this.fullname1.TabIndex = 37;
@@ -226,7 +226,7 @@
             this.password1.AutoSize = true;
             this.password1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.password1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.password1.Location = new System.Drawing.Point(101, 180);
+            this.password1.Location = new System.Drawing.Point(65, 180);
             this.password1.Name = "password1";
             this.password1.Size = new System.Drawing.Size(66, 17);
             this.password1.TabIndex = 34;
@@ -237,7 +237,7 @@
             this.username1.AutoSize = true;
             this.username1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.username1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.username1.Location = new System.Drawing.Point(101, 126);
+            this.username1.Location = new System.Drawing.Point(65, 126);
             this.username1.Name = "username1";
             this.username1.Size = new System.Drawing.Size(69, 17);
             this.username1.TabIndex = 33;
@@ -249,7 +249,7 @@
             this.Signup.BackColor = System.Drawing.Color.Transparent;
             this.Signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Signup.Location = new System.Drawing.Point(169, 14);
+            this.Signup.Location = new System.Drawing.Point(138, 23);
             this.Signup.Name = "Signup";
             this.Signup.Size = new System.Drawing.Size(124, 33);
             this.Signup.TabIndex = 32;
@@ -260,7 +260,7 @@
             this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(130)))), ((int)(((byte)(197)))));
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(104, 372);
+            this.btnSignup.Location = new System.Drawing.Point(68, 372);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(121, 45);
             this.btnSignup.TabIndex = 43;
@@ -273,7 +273,7 @@
             this.txtPassword.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtPassword.Location = new System.Drawing.Point(104, 200);
+            this.txtPassword.Location = new System.Drawing.Point(68, 200);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(259, 26);
             this.txtPassword.TabIndex = 40;
@@ -283,9 +283,9 @@
             this.txtUsername.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtUsername.Location = new System.Drawing.Point(104, 146);
+            this.txtUsername.Location = new System.Drawing.Point(68, 146);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(259, 26);
+            this.txtUsername.Size = new System.Drawing.Size(261, 26);
             this.txtUsername.TabIndex = 1;
             // 
             // panelLogin
@@ -357,7 +357,7 @@
             this.formName.BackColor = System.Drawing.Color.Transparent;
             this.formName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Underline);
             this.formName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.formName.Location = new System.Drawing.Point(176, 14);
+            this.formName.Location = new System.Drawing.Point(158, 11);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(86, 33);
             this.formName.TabIndex = 32;
@@ -409,7 +409,7 @@
             // 
             // Home
             // 
-            this.Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(97)))));
+            this.Home.BackColor = System.Drawing.Color.Pink;
             this.Home.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Home.Controls.Add(this.lblRoomList);
             this.Home.Controls.Add(this.btnVaoNhanh);
@@ -424,7 +424,7 @@
             this.Home.Location = new System.Drawing.Point(4, 22);
             this.Home.Name = "Home";
             this.Home.Padding = new System.Windows.Forms.Padding(3);
-            this.Home.Size = new System.Drawing.Size(886, 536);
+            this.Home.Size = new System.Drawing.Size(886, 544);
             this.Home.TabIndex = 1;
             this.Home.Text = "Home";
             // 
@@ -558,13 +558,13 @@
             this.chat.FormattingEnabled = true;
             this.chat.Location = new System.Drawing.Point(11, 358);
             this.chat.Name = "chat";
-            this.chat.Size = new System.Drawing.Size(469, 134);
+            this.chat.Size = new System.Drawing.Size(603, 134);
             this.chat.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Sienna;
+            this.label1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(11, 7);
@@ -620,7 +620,7 @@
             // 
             // Map
             // 
-            this.Map.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(155)))), ((int)(((byte)(71)))));
+            this.Map.BackColor = System.Drawing.Color.PaleTurquoise;
             this.Map.Controls.Add(this.label3);
             this.Map.Controls.Add(this.lblSophong);
             this.Map.Controls.Add(this.lb1);
@@ -635,7 +635,7 @@
             this.Map.Location = new System.Drawing.Point(4, 22);
             this.Map.Name = "Map";
             this.Map.Padding = new System.Windows.Forms.Padding(3);
-            this.Map.Size = new System.Drawing.Size(886, 536);
+            this.Map.Size = new System.Drawing.Size(886, 544);
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
             // 
@@ -644,7 +644,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(8)))));
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 25);
@@ -656,7 +656,7 @@
             this.lblSophong.AutoSize = true;
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
             this.lblSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lblSophong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(205)))), ((int)(((byte)(227)))));
+            this.lblSophong.ForeColor = System.Drawing.Color.Red;
             this.lblSophong.Location = new System.Drawing.Point(106, 13);
             this.lblSophong.Name = "lblSophong";
             this.lblSophong.Size = new System.Drawing.Size(60, 25);
@@ -690,8 +690,8 @@
             // 
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHost.ForeColor = System.Drawing.Color.White;
-            this.lblHost.Location = new System.Drawing.Point(504, 53);
+            this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.lblHost.Location = new System.Drawing.Point(541, 53);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(101, 25);
             this.lblHost.TabIndex = 53;
@@ -701,8 +701,8 @@
             // 
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.Color.White;
-            this.lblJoin.Location = new System.Drawing.Point(775, 53);
+            this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.lblJoin.Location = new System.Drawing.Point(736, 53);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 25);
             this.lblJoin.TabIndex = 52;
@@ -726,7 +726,7 @@
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChess.Controls.Add(this.lblWaiting);
-            this.pnlChess.Location = new System.Drawing.Point(6, 53);
+            this.pnlChess.Location = new System.Drawing.Point(18, 49);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(480, 480);
             this.pnlChess.TabIndex = 43;
