@@ -21,6 +21,11 @@ namespace ProjectCaro
             SendCreateRoom(user_id);
         }
 
+        private void btnVaoNhanh_Click(object sender, EventArgs e)
+        {
+            SendQuickJoin(user_id);
+        }
+
         private void btnVao_Click(object sender, EventArgs e)
         {
             //room_no = txtSophong.Text;
