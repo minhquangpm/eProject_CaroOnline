@@ -109,7 +109,9 @@
             // Login
             // 
             this.Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Login.Controls.Add(this.panelSignup);
             this.Login.Controls.Add(this.panelLogin);
+            this.Login.Controls.Add(this.processBar1);
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
@@ -123,19 +125,17 @@
             this.panelLogin.BackColor = System.Drawing.Color.Transparent;
             this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelLogin.Controls.Add(this.panelSignup);
             this.panelLogin.Controls.Add(this.txtSignup);
             this.panelLogin.Controls.Add(this.btnRegister);
-            this.panelLogin.Controls.Add(this.processBar1);
             this.panelLogin.Controls.Add(this.password);
             this.panelLogin.Controls.Add(this.username);
             this.panelLogin.Controls.Add(this.formName);
             this.panelLogin.Controls.Add(this.btnLogin);
             this.panelLogin.Controls.Add(this.txt_Log2);
             this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(213, 43);
+            this.panelLogin.Location = new System.Drawing.Point(235, 43);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(468, 436);
+            this.panelLogin.Size = new System.Drawing.Size(402, 357);
             this.panelLogin.TabIndex = 50;
             // 
             // panelSignup
@@ -156,7 +156,7 @@
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(-1, -1);
+            this.panelSignup.Location = new System.Drawing.Point(235, 43);
             this.panelSignup.Name = "panelSignup";
             this.panelSignup.Size = new System.Drawing.Size(468, 436);
             this.panelSignup.TabIndex = 48;
@@ -308,7 +308,7 @@
             // 
             this.txtSignup.AutoSize = true;
             this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignup.Location = new System.Drawing.Point(179, 314);
+            this.txtSignup.Location = new System.Drawing.Point(149, 298);
             this.txtSignup.Name = "txtSignup";
             this.txtSignup.Size = new System.Drawing.Size(95, 13);
             this.txtSignup.TabIndex = 36;
@@ -319,7 +319,7 @@
             this.btnRegister.BackColor = System.Drawing.Color.Red;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(242, 239);
+            this.btnRegister.Location = new System.Drawing.Point(206, 213);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(121, 45);
             this.btnRegister.TabIndex = 35;
@@ -331,11 +331,11 @@
             // 
             this.processBar1.BackColor = System.Drawing.Color.Red;
             this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.processBar1.Location = new System.Drawing.Point(104, 358);
+            this.processBar1.Location = new System.Drawing.Point(6, 510);
             this.processBar1.MarqueeAnimationSpeed = 20;
             this.processBar1.Maximum = 200;
             this.processBar1.Name = "processBar1";
-            this.processBar1.Size = new System.Drawing.Size(259, 23);
+            this.processBar1.Size = new System.Drawing.Size(874, 23);
             this.processBar1.TabIndex = 49;
             // 
             // password
@@ -343,7 +343,7 @@
             this.password.AutoSize = true;
             this.password.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.password.Location = new System.Drawing.Point(101, 136);
+            this.password.Location = new System.Drawing.Point(65, 136);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(66, 17);
             this.password.TabIndex = 34;
@@ -354,7 +354,7 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.username.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.username.Location = new System.Drawing.Point(101, 70);
+            this.username.Location = new System.Drawing.Point(65, 70);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(69, 17);
             this.username.TabIndex = 33;
@@ -377,7 +377,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(104, 239);
+            this.btnLogin.Location = new System.Drawing.Point(68, 213);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(121, 45);
             this.btnLogin.TabIndex = 3;
@@ -390,7 +390,7 @@
             this.txt_Log2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Log2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Log2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txt_Log2.Location = new System.Drawing.Point(104, 157);
+            this.txt_Log2.Location = new System.Drawing.Point(68, 156);
             this.txt_Log2.Name = "txt_Log2";
             this.txt_Log2.Size = new System.Drawing.Size(259, 26);
             this.txt_Log2.TabIndex = 2;
@@ -400,7 +400,7 @@
             this.txt_Log1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Log1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Log1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txt_Log1.Location = new System.Drawing.Point(104, 90);
+            this.txt_Log1.Location = new System.Drawing.Point(68, 90);
             this.txt_Log1.Name = "txt_Log1";
             this.txt_Log1.Size = new System.Drawing.Size(259, 26);
             this.txt_Log1.TabIndex = 1;

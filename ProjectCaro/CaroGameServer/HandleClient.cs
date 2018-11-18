@@ -218,11 +218,12 @@ namespace CaroGameServer
                     Console.WriteLine("User " + userOnline.user_id + " offline");
                     ChangeStatusUser(userOnline.user_id);
                     ChangeStatusFriendList(userOnline.user_id);
-                    onlineList.Remove(userOnline);
 
                     // xử lý khi người chơi disconnect trong room
                     RemoveUserFromRoom(userOnline.user_id);
 
+                    // xóa object
+                    onlineList.Remove(userOnline);
                     break;
                 }
             }
