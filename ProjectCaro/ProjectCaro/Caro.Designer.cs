@@ -25,6 +25,7 @@
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
@@ -83,6 +84,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -431,7 +436,7 @@
             this.btnVaoNhanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnVaoNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.White;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(157, 279);
+            this.btnVaoNhanh.Location = new System.Drawing.Point(168, 280);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
             this.btnVaoNhanh.Size = new System.Drawing.Size(131, 45);
             this.btnVaoNhanh.TabIndex = 25;
@@ -441,12 +446,32 @@
             // 
             // danhsachphong
             // 
+            this.danhsachphong.AllowUserToAddRows = false;
             this.danhsachphong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.danhsachphong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.danhsachphong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachphong.Location = new System.Drawing.Point(11, 47);
+            this.danhsachphong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.danhsachphong_room_no,
+            this.danhsachphong_room_name,
+            this.danhsachphong_room_host,
+            this.danhsachphong_player});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong.DefaultCellStyle = dataGridViewCellStyle1;
+            this.danhsachphong.Location = new System.Drawing.Point(18, 47);
+            this.danhsachphong.MultiSelect = false;
             this.danhsachphong.Name = "danhsachphong";
-            this.danhsachphong.Size = new System.Drawing.Size(610, 224);
+            this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.danhsachphong.RowTemplate.Height = 30;
+            this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.danhsachphong.Size = new System.Drawing.Size(603, 224);
             this.danhsachphong.TabIndex = 24;
             // 
             // btnVao
@@ -467,7 +492,7 @@
             this.btnTao.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.White;
-            this.btnTao.Location = new System.Drawing.Point(11, 280);
+            this.btnTao.Location = new System.Drawing.Point(17, 280);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(131, 45);
             this.btnTao.TabIndex = 10;
@@ -748,12 +773,37 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // danhsachphong_room_no
+            // 
+            this.danhsachphong_room_no.HeaderText = "Number";
+            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
+            // 
+            // danhsachphong_room_name
+            // 
+            this.danhsachphong_room_name.HeaderText = "Name";
+            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
+            this.danhsachphong_room_name.Width = 160;
+            // 
+            // danhsachphong_room_host
+            // 
+            this.danhsachphong_room_host.HeaderText = "Host";
+            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
+            this.danhsachphong_room_host.Width = 140;
+            // 
+            // danhsachphong_player
+            // 
+            this.danhsachphong_player.HeaderText = "Players";
+            this.danhsachphong_player.Name = "danhsachphong_player";
+            this.danhsachphong_player.Width = 150;
+            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.tabControl);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Caro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -840,6 +890,10 @@
         private System.Windows.Forms.Button btnThoatTran;
         public System.Windows.Forms.DataGridView danhsachphong;
         public System.Windows.Forms.Button btnVaoNhanh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
     }
 }
 

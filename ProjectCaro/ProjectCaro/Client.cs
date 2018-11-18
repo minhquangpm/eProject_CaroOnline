@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -84,6 +85,10 @@ namespace ProjectCaro
 
         private void DoReceiver(object sender, DoWorkEventArgs e)
         {
+            NetworkStream stream = null;
+
+            int bytes = 0;
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -97,11 +102,22 @@ namespace ProjectCaro
                 // tạo buffer lưu trữ dữ liệu nhận đc
                 byte[] data = new byte[256];
 
-                NetworkStream stream = client.GetStream();
 
-                // đọc dữ liệu nhận về
+                try
+                {
+                    stream = client.GetStream();
+
+                    // đọc dữ liệu nhận về
+                    bytes = stream.Read(data, 0, data.Length);
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Disconnected from server");
+                }
+                
+
                 string response = string.Empty;
-                int bytes = stream.Read(data, 0, data.Length);
+
                 response = Encoding.ASCII.GetString(data, 0, bytes);
                 string[] code = response.Split(':');
 
@@ -248,7 +264,7 @@ namespace ProjectCaro
 
 
 
-        private void DoRefreshRoom(object sender, DoWorkEventArgs e)
+        private async void DoRefreshRoom(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -259,12 +275,35 @@ namespace ProjectCaro
                     return;
                 }
 
+
                 // do something to refresh roomlist here
+                await Task.Run(() =>
+                {
+                    CaroAPI.Room().GetAwaiter().GetResult();
+                });
+
+                //Invoke(new Action(() =>
+                //{
+                //    danhsachphong.Rows.Clear();
+                //}));
+
+                foreach (RoomGame room in CaroAPI.getRoom.data)
+                {
+                    string[] row = { room.room_no, "", room.host_id, room.join_id };
+                    Invoke(new Action(() =>
+                    {
+                        danhsachphong.Rows.Add(row);
+                    }));
+                    
+                }
+
+                Thread.Sleep(5000);
             }
+
         }
 
 
-        private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
+            private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -284,7 +323,7 @@ namespace ProjectCaro
 
                 foreach (FriendList friend in CaroAPI.getFriendList.data)
                 {
-                    MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
+                    //MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
                 }
 
 

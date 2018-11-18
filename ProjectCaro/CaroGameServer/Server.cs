@@ -18,21 +18,33 @@ namespace CaroGameServer
 
         public static void SendData(string message, TcpClient client)
         {
-            // gửi response về client
-            byte[] data = Encoding.ASCII.GetBytes(message);
+            try
+            {
+                // gửi response về client
+                byte[] data = Encoding.ASCII.GetBytes(message);
 
-            NetworkStream stream = client.GetStream();
+                NetworkStream stream = client.GetStream();
 
-            stream.Write(data, 0, data.Length);
+                stream.Write(data, 0, data.Length);
 
-            Console.WriteLine("Send: " + message);
+                Console.WriteLine("Send: " + message);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("socket has been shutdown");
+            }
+                
         }
+
+
 
 
         public static void Listener()
         {
             int counter = 0;
             Server sv = new Server();
+
+            DataBase.ClearRoom();
 
             server.Start();
 
@@ -113,8 +125,8 @@ namespace CaroGameServer
                     HandleClient.UserOffline();
 
 
-                    stream.Close();
-                    client.Close();
+                    //stream.Close();
+                    //client.Close();
                 }
             }
         }

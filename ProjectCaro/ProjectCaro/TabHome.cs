@@ -13,7 +13,28 @@ namespace ProjectCaro
 
             txtSophong.GotFocus += new EventHandler(RemoveHint);
             txtSophong.LostFocus += new EventHandler(ShowHint);
+
+            RoomListInit();
+
+
+            if (!workerRefreshRoom.IsBusy)
+            {
+                workerRefreshRoom.RunWorkerAsync();
+            }
+
         }
+
+
+        private void RoomListInit()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                danhsachphong.Rows.Add();
+                danhsachphong.Rows[i].ReadOnly = true;
+            }
+        }
+
+
 
         private void btnTao_Click(object sender, EventArgs e)
         {

@@ -9,6 +9,8 @@ namespace ProjectCaro
         {
             InitializeComponent();
             InitClient();
+
+
             //đổi pass thành *
             txt_Log2.PasswordChar = '*';
             txtPassword.PasswordChar = '*';

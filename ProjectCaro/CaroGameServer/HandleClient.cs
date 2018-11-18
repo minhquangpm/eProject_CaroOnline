@@ -276,24 +276,38 @@ namespace CaroGameServer
         // TH3: xử lý khi join disconnect giữa trận
         private static void RemoveUserFromRoom(string disconnect_user)
         {
-            foreach (Room room in roomList)
-            { 
-                if (room.host_id.Equals(disconnect_user) && room.join_id == null)
+            //try
+            //{
+                foreach (Room room in roomList)
                 {
-                    Console.WriteLine("User " + disconnect_user + " disconnect while waiting join");
+                    if (disconnect_user.Equals(room.host_id) && room.join_id == null)
+                    {
+                        Console.WriteLine("User " + disconnect_user + " disconnect while waiting join");
 
-                    RemoveRoom(room.room_no);
-                    break;
-                }
-                else if ((room.host_id.Equals(disconnect_user) && room.join_id != null) ||
-                        room.join_id.Equals(disconnect_user))
-                {
-                    Console.WriteLine("User " + disconnect_user + " disconnect between match");
+                        RemoveRoom(room.room_no);
+                        break;
+                    }
+                    else if (disconnect_user.Equals(room.host_id) && room.join_id != null)
+                    {
+                        Console.WriteLine("User " + disconnect_user + " disconnect between match");
 
-                    QuitRoom(disconnect_user, room.room_no);
-                    break;
+                        QuitRoom(disconnect_user, room.room_no);
+                        break;
+                    }
+                    else if (disconnect_user.Equals(room.join_id))
+                    {
+                        Console.WriteLine("User " + disconnect_user + " disconnect between match");
+
+                        QuitRoom(disconnect_user, room.room_no);
+                        break;
+                    }
                 }
-            }
+            //}
+            //catch (NullReferenceException ex)
+            //{
+            //    Console.WriteLine("NULL ERROR: " + disconnect_user + " " + roomList.Count);
+            //}
+            
         }
 
 

@@ -70,8 +70,8 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "DELETE FROM room WHERE host_id = '" + host_id + "';";
-                MyCommand.Parameters.AddWithValue("@room_no", host_id);
+                MyCommand.CommandText = "DELETE FROM room WHERE host_id = @host_id;";
+                MyCommand.Parameters.AddWithValue("@host_id", host_id);
                 MyCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
