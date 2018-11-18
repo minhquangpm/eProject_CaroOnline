@@ -59,7 +59,6 @@
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
-            this.txtSophong = new System.Windows.Forms.TextBox();
             this.chat = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -400,9 +399,10 @@
             this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.processBar1.Location = new System.Drawing.Point(6, 510);
             this.processBar1.MarqueeAnimationSpeed = 20;
-            this.processBar1.Maximum = 200;
+            this.processBar1.Maximum = 10;
             this.processBar1.Name = "processBar1";
             this.processBar1.Size = new System.Drawing.Size(874, 23);
+            this.processBar1.Step = 1;
             this.processBar1.TabIndex = 49;
             // 
             // Home
@@ -414,7 +414,6 @@
             this.Home.Controls.Add(this.btnTao);
             this.Home.Controls.Add(this.btnChat);
             this.Home.Controls.Add(this.txtChat);
-            this.Home.Controls.Add(this.txtSophong);
             this.Home.Controls.Add(this.chat);
             this.Home.Controls.Add(this.label1);
             this.Home.Controls.Add(this.panel1);
@@ -494,16 +493,6 @@
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(491, 26);
             this.txtChat.TabIndex = 21;
-            // 
-            // txtSophong
-            // 
-            this.txtSophong.BackColor = System.Drawing.Color.White;
-            this.txtSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSophong.Location = new System.Drawing.Point(395, 280);
-            this.txtSophong.Name = "txtSophong";
-            this.txtSophong.Size = new System.Drawing.Size(107, 44);
-            this.txtSophong.TabIndex = 12;
-            this.txtSophong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chat
             // 
@@ -798,7 +787,6 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnTao;
         public System.Windows.Forms.Button btnVao;
-        public System.Windows.Forms.TextBox txtSophong;
         public System.Windows.Forms.TextBox txtChat;
         public System.Windows.Forms.Button btnChat;
         public System.Windows.Forms.ListBox chat;

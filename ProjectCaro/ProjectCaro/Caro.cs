@@ -26,5 +26,10 @@ namespace ProjectCaro
         {
             //UserOffline(user_id);
         }
+
+        private void btnVaoNhanh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
