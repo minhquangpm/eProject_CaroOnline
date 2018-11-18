@@ -670,17 +670,17 @@
             this.lb1.Location = new System.Drawing.Point(509, 292);
             this.lb1.Name = "lb1";
             this.lb1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lb1.Size = new System.Drawing.Size(371, 160);
+            this.lb1.Size = new System.Drawing.Size(364, 160);
             this.lb1.TabIndex = 42;
             // 
             // btnThoatTran
             // 
-            this.btnThoatTran.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnThoatTran.BackColor = System.Drawing.Color.IndianRed;
             this.btnThoatTran.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnThoatTran.Location = new System.Drawing.Point(509, 488);
             this.btnThoatTran.Name = "btnThoatTran";
-            this.btnThoatTran.Size = new System.Drawing.Size(371, 42);
+            this.btnThoatTran.Size = new System.Drawing.Size(364, 42);
             this.btnThoatTran.TabIndex = 55;
             this.btnThoatTran.Text = "Thoát trận";
             this.btnThoatTran.UseVisualStyleBackColor = false;
@@ -726,7 +726,7 @@
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChess.Controls.Add(this.lblWaiting);
-            this.pnlChess.Location = new System.Drawing.Point(18, 49);
+            this.pnlChess.Location = new System.Drawing.Point(13, 49);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(480, 480);
             this.pnlChess.TabIndex = 43;
@@ -742,7 +742,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(818, 458);
+            this.button1.Location = new System.Drawing.Point(811, 459);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(62, 24);
             this.button1.TabIndex = 44;
@@ -765,7 +765,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(509, 458);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(303, 24);
+            this.textBox2.Size = new System.Drawing.Size(281, 24);
             this.textBox2.TabIndex = 45;
             // 
             // processbartime
