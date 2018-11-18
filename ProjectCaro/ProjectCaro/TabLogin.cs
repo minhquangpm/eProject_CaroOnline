@@ -27,7 +27,7 @@ namespace ProjectCaro
                 //Load home
                 lblUsername.Text = user_id;
                 //check login và chạy hàm load
-                processbartime.Start();
+                processbartime.Enabled = true;
                 SendUserOnline(user_id);
             }
             else
@@ -46,20 +46,20 @@ namespace ProjectCaro
         {
             //không cho hành động khi load form 
             processBar1.Visible = true;
-            //processBar1.Value = processBar1.Value + 50;
-            //if (processBar1.Value >= 199)
-            //{
-            //    //dừng thanh load
-            //    processbartime.Enabled = false;
-            //    //mở trang home
-            //    HomeLoad();
-            //    tabControl.SelectTab(Home);
-            //}
-            processBar1.Increment(1);
-            if (processBar1.Value == processBar1.Maximum)
+            processBar1.Value = processBar1.Value + 50;
+            if (processBar1.Value >= 199)
             {
+                //dừng thanh load
+                processbartime.Enabled = false;
+                //mở trang home
+                HomeLoad();
                 tabControl.SelectTab(Home);
             }
+            //processBar1.Increment(1);
+            //if (processBar1.Value == processBar1.Maximum)
+            //{
+            //    tabControl.SelectTab(Home);
+            //}
         }
 
 
