@@ -35,7 +35,7 @@ namespace ProjectCaro
 
         private void InitMap()
         {
-            lblSophong.Text = "Phòng :" + " " + room_no;
+            lblSophong.Text = room_no;
             lblHost.Text = host_id;
             lblJoin.Text = join_id;
 
