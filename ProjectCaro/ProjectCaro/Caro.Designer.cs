@@ -398,7 +398,7 @@
             this.processBar1.BackColor = System.Drawing.Color.Red;
             this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.processBar1.Location = new System.Drawing.Point(6, 510);
-            this.processBar1.Maximum = 200;
+            this.processBar1.Maximum = 20;
             this.processBar1.Name = "processBar1";
             this.processBar1.Size = new System.Drawing.Size(874, 23);
             this.processBar1.Step = 1;
