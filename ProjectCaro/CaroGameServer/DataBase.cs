@@ -84,5 +84,29 @@ namespace CaroGameServer
                 conn.Close();
             }
         }
+
+        //Clear Room
+
+        public static void ClearRoom()
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "TRUNCATE TABLE room;";
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
     }
 }
