@@ -108,5 +108,64 @@ namespace CaroGameServer
                 conn.Close();
             }
         }
+
+        //Reset
+        #region Reset
+        
+        public static void ResetUser()
+        {
+            int status = 0;
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "UPDATE user SET status = @status;";
+                MyCommand.Parameters.AddWithValue("@status", status);
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+        public static void ResetFriendList()
+        {
+            int status = 0;
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "UPDATE friendlist SET status = @status;";
+                MyCommand.Parameters.AddWithValue("@status", status);
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+        public static void Reset()
+        {
+            ResetUser();
+            ResetFriendList();
+        }
+
+        #endregion
     }
 }
