@@ -30,6 +30,14 @@ namespace ProjectCaro
         }
 
 
+        private static void SendQuickJoin(string user_id)
+        {
+            string message = "quickjoin:" + user_id;
+            SendData(message);
+        }
+
+
+
         private static void SendQuitRoom(string user_id, string room_no)
         {
             string message = "quit:" + user_id + ":" + room_no;

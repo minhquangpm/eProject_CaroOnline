@@ -28,7 +28,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
-            this.panelLogin = new System.Windows.Forms.Panel();
             this.panelSignup = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
@@ -43,17 +42,18 @@
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.panelLogin = new System.Windows.Forms.Panel();
             this.txtSignup = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.processBar1 = new System.Windows.Forms.ProgressBar();
             this.password = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
             this.formName = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
+            this.processBar1 = new System.Windows.Forms.ProgressBar();
             this.Home = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
             this.btnVao = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
@@ -85,8 +85,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
-            this.panelLogin.SuspendLayout();
             this.panelSignup.SuspendLayout();
+            this.panelLogin.SuspendLayout();
             this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.panel1.SuspendLayout();
@@ -119,24 +119,6 @@
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
-            // 
-            // panelLogin
-            // 
-            this.panelLogin.BackColor = System.Drawing.Color.Transparent;
-            this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelLogin.Controls.Add(this.txtSignup);
-            this.panelLogin.Controls.Add(this.btnRegister);
-            this.panelLogin.Controls.Add(this.password);
-            this.panelLogin.Controls.Add(this.username);
-            this.panelLogin.Controls.Add(this.formName);
-            this.panelLogin.Controls.Add(this.btnLogin);
-            this.panelLogin.Controls.Add(this.txt_Log2);
-            this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(235, 43);
-            this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(402, 357);
-            this.panelLogin.TabIndex = 50;
             // 
             // panelSignup
             // 
@@ -304,6 +286,24 @@
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
             this.txtUsername.TabIndex = 1;
             // 
+            // panelLogin
+            // 
+            this.panelLogin.BackColor = System.Drawing.Color.Transparent;
+            this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLogin.Controls.Add(this.txtSignup);
+            this.panelLogin.Controls.Add(this.btnRegister);
+            this.panelLogin.Controls.Add(this.password);
+            this.panelLogin.Controls.Add(this.username);
+            this.panelLogin.Controls.Add(this.formName);
+            this.panelLogin.Controls.Add(this.btnLogin);
+            this.panelLogin.Controls.Add(this.txt_Log2);
+            this.panelLogin.Controls.Add(this.txt_Log1);
+            this.panelLogin.Location = new System.Drawing.Point(235, 43);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(402, 357);
+            this.panelLogin.TabIndex = 50;
+            // 
             // txtSignup
             // 
             this.txtSignup.AutoSize = true;
@@ -326,17 +326,6 @@
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // processBar1
-            // 
-            this.processBar1.BackColor = System.Drawing.Color.Red;
-            this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.processBar1.Location = new System.Drawing.Point(6, 510);
-            this.processBar1.MarqueeAnimationSpeed = 20;
-            this.processBar1.Maximum = 200;
-            this.processBar1.Name = "processBar1";
-            this.processBar1.Size = new System.Drawing.Size(874, 23);
-            this.processBar1.TabIndex = 49;
             // 
             // password
             // 
@@ -405,10 +394,21 @@
             this.txt_Log1.Size = new System.Drawing.Size(259, 26);
             this.txt_Log1.TabIndex = 1;
             // 
+            // processBar1
+            // 
+            this.processBar1.BackColor = System.Drawing.Color.Red;
+            this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.processBar1.Location = new System.Drawing.Point(6, 510);
+            this.processBar1.MarqueeAnimationSpeed = 20;
+            this.processBar1.Maximum = 200;
+            this.processBar1.Name = "processBar1";
+            this.processBar1.Size = new System.Drawing.Size(874, 23);
+            this.processBar1.TabIndex = 49;
+            // 
             // Home
             // 
             this.Home.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Home.Controls.Add(this.button2);
+            this.Home.Controls.Add(this.btnVaoNhanh);
             this.Home.Controls.Add(this.danhsachphong);
             this.Home.Controls.Add(this.btnVao);
             this.Home.Controls.Add(this.btnTao);
@@ -426,17 +426,18 @@
             this.Home.Text = "Home";
             this.Home.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVaoNhanh
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(157, 279);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 45);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Quick Join";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnVaoNhanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnVaoNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVaoNhanh.ForeColor = System.Drawing.Color.White;
+            this.btnVaoNhanh.Location = new System.Drawing.Point(157, 279);
+            this.btnVaoNhanh.Name = "btnVaoNhanh";
+            this.btnVaoNhanh.Size = new System.Drawing.Size(131, 45);
+            this.btnVaoNhanh.TabIndex = 25;
+            this.btnVaoNhanh.Text = "Quick Join";
+            this.btnVaoNhanh.UseVisualStyleBackColor = false;
+            this.btnVaoNhanh.Click += new System.EventHandler(this.btnVaoNhanh_Click);
             // 
             // danhsachphong
             // 
@@ -662,7 +663,7 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.Color.Blue;
-            this.lblHost.Location = new System.Drawing.Point(750, 53);
+            this.lblHost.Location = new System.Drawing.Point(539, 53);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(101, 25);
             this.lblHost.TabIndex = 53;
@@ -673,7 +674,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblJoin.Location = new System.Drawing.Point(518, 53);
+            this.lblJoin.Location = new System.Drawing.Point(736, 53);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 25);
             this.lblJoin.TabIndex = 52;
@@ -761,10 +762,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
-            this.panelLogin.ResumeLayout(false);
-            this.panelLogin.PerformLayout();
             this.panelSignup.ResumeLayout(false);
             this.panelSignup.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
             this.Home.ResumeLayout(false);
             this.Home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
@@ -838,7 +839,7 @@
         public System.Windows.Forms.Label lblWaiting;
         private System.Windows.Forms.Button btnThoatTran;
         public System.Windows.Forms.DataGridView danhsachphong;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnVaoNhanh;
     }
 }
 

@@ -24,7 +24,7 @@ namespace ProjectCaro
 
 
         // thông tin user
-        public static string user_id;
+        public static string user_id;   
         public static string host_id;
         public static string join_id;
         public static string room_no;
@@ -103,26 +103,26 @@ namespace ProjectCaro
                 string response = string.Empty;
                 int bytes = stream.Read(data, 0, data.Length);
                 response = Encoding.ASCII.GetString(data, 0, bytes);
-                string[] rp = response.Split(':');
+                string[] code = response.Split(':');
 
                 /// <summary>
                 /// play:user_session:user_id:x:y
                 /// login:user_id:user_pass
                 /// register:user_id:user_pass
                 /// </summary>
-                switch (rp[0])
+                switch (code[0])
                 {
                     case "play":
-                        RecvPlay(rp[1]);
+                        RecvPlay(code[1]);
                         break;
                     case "create":
-                        RecvCreateRoom(rp[1]);
+                        RecvCreateRoom(code[1]);
                         break;
                     case "join":
-                        string check = rp[1];
+                        string check = code[1];
                         if (check.Equals("true"))
                         {
-                            RecvJoinRoom(rp[2], rp[3]);
+                            RecvJoinRoom(code[2], code[3]);
                         }
                         else if (check.Equals("full"))
                         {
@@ -133,11 +133,14 @@ namespace ProjectCaro
                             MessageBox.Show("No room match!");
                         }
                         break;
+                    case "quickjoin":
+                        RecvQuickJoin(code[1], code[2], code[3]);
+                        break;
                     case "host":
-                        RecvSomeoneJoin(rp[1], rp[2], rp[3]);
+                        RecvSomeoneJoin(code[1], code[2], code[3]);
                         break;
                     case "otherquit":
-                        RecvPlayerQuit(rp[1]);
+                        RecvPlayerQuit(code[1]);
                         break;
                 }
             }
@@ -164,7 +167,8 @@ namespace ProjectCaro
                         // xóa dòng "Chờ người chơi"
                         lblWaiting.Text = "";
 
-                        //đếm giờ
+                        // start timer
+                        da = DateTime.Now;
                         timer1.Start();
 
                         // hiện tên người chơi vào phòng

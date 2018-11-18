@@ -121,6 +121,47 @@ namespace CaroGameServer
 
 
 
+        public static void QuickJoinRoom(string user_id, TcpClient userClient)
+        {
+            foreach (Room room in roomList)
+            {
+                if (!isFull(room))
+                {
+                    room.join_id = user_id;
+                    room.joinClient = userClient;
+
+                    Random random = new Random();
+                    int host_turn = random.Next(1, 3);
+                    int join_turn = 0;
+                    if (host_turn == 1)
+                    {
+                        join_turn = 2;
+                    }
+                    else
+                    {
+                        join_turn = 1;
+                    }
+
+                    // gửi thông tin của host cho join
+                    string message_to_join = "quickjoin:" + room.host_id + ":" + room.room_no + ":" + join_turn;
+                    Server.SendData(message_to_join, userClient);
+                    //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
+
+                    // gửi thông tin của join cho host
+                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
+                    Server.SendData(message_to_host, room.hostClient);
+                    //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
+
+
+                    // update room trong db
+                    DataBase.UpdateRoom(room.host_id, user_id, room.room_no);
+
+                    break;
+                }
+            }
+        }
+
+
         private static bool isFull(Room room)
         {
             if (room.join_id != null && room.joinClient != null)
@@ -239,12 +280,16 @@ namespace CaroGameServer
             { 
                 if (room.host_id.Equals(disconnect_user) && room.join_id == null)
                 {
+                    Console.WriteLine("User " + disconnect_user + " disconnect while waiting join");
+
                     RemoveRoom(room.room_no);
                     break;
                 }
                 else if ((room.host_id.Equals(disconnect_user) && room.join_id != null) ||
                         room.join_id.Equals(disconnect_user))
                 {
+                    Console.WriteLine("User " + disconnect_user + " disconnect between match");
+
                     QuitRoom(disconnect_user, room.room_no);
                     break;
                 }

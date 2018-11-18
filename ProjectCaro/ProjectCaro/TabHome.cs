@@ -28,6 +28,13 @@ namespace ProjectCaro
         }
 
 
+
+        private void btnVaoNhanh_Click(object sender, EventArgs e)
+        {
+            SendQuickJoin(user_id);
+        }
+
+
         private void RemoveHint(object sender, EventArgs e)
         {
             txtSophong.Text = "";

@@ -53,6 +53,36 @@ namespace ProjectCaro
                 tabControl.SelectTab(Map);
                 lblWaiting.Visible = false;
 
+                // start timer
+                da = DateTime.Now;
+                timer1.Start();
+            }));
+        }
+
+
+        private void RecvQuickJoin(string recv_host_id, string recv_room_no, string recv_player_turn)
+        {
+            host_id = recv_host_id;
+
+            join_id = user_id;
+
+            room_no = recv_room_no;
+
+            // set player turn
+            player_turn = Convert.ToInt32(recv_player_turn);
+
+            // set turn = 0 (bắt đầu game)
+            turn = 0;
+
+            Invoke(new Action(() =>
+            {
+                //mở map
+                MapLoad();
+                tabControl.SelectTab(Map);
+                lblWaiting.Visible = false;
+
+                // start timer
+                da = DateTime.Now;
                 timer1.Start();
             }));
         }
