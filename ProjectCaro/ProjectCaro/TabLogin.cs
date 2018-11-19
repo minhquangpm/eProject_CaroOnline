@@ -62,7 +62,7 @@ namespace ProjectCaro
             //    HomeLoad();
             //    tabControl.SelectTab(Home);
             //}
-            processBar1.Increment(2);
+            processBar1.Increment(14);
             if (processBar1.Value == processBar1.Maximum)
             {
                 tabControl.SelectTab(Home);
@@ -82,34 +82,34 @@ namespace ProjectCaro
         {
             if (txtFullname.Text == "")
             {
-                MessageBox.Show("Chưa có full name");
+                MessageBox.Show("Full name can not be empty!");
             }
             else if (txtUsername.Text == "")
             {
-                MessageBox.Show("Chưa có username");
+                MessageBox.Show("Username can not be empty!");
             }
             else if (txtPassword.Text == "")
             {
-                MessageBox.Show("Chưa có password");
+                MessageBox.Show("Password can not be empty!");
             }
             else if (txtPassword.Text != password2.Text)
             {
-                MessageBox.Show("Mật khẩu không trùng nhau");
+                MessageBox.Show("Passwords do not match!");
             }
             else if (!reg.IsMatch(textBox1.Text))
             {
-                MessageBox.Show("Email chưa đúng định dạng");
+                MessageBox.Show("Invalid email format!");
             }
             else
             {
                 bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, textBox1.Text);
                 if (check)
                 {
-                    MessageBox.Show("Thành Công");
+                    MessageBox.Show("Success");
                 }
                 else
                 {
-                    MessageBox.Show("username hoặc email đã tồn tại");
+                    MessageBox.Show("Username or Email exists");
                 }
 
             }

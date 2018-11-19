@@ -402,11 +402,11 @@
             // 
             this.processBar1.BackColor = System.Drawing.Color.Red;
             this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.processBar1.Location = new System.Drawing.Point(6, 510);
-            this.processBar1.Maximum = 20;
+            this.processBar1.Location = new System.Drawing.Point(235, 510);
             this.processBar1.Name = "processBar1";
-            this.processBar1.Size = new System.Drawing.Size(874, 23);
-            this.processBar1.Step = 1;
+            this.processBar1.Size = new System.Drawing.Size(402, 23);
+            this.processBar1.Step = 5;
+            this.processBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.processBar1.TabIndex = 49;
             // 
             // Home
@@ -749,9 +749,9 @@
             // picWinLose
             // 
             this.picWinLose.Image = global::ProjectCaro.Properties.Resources.win;
-            this.picWinLose.Location = new System.Drawing.Point(4, 3);
+            this.picWinLose.Location = new System.Drawing.Point(21, 22);
             this.picWinLose.Name = "picWinLose";
-            this.picWinLose.Size = new System.Drawing.Size(471, 472);
+            this.picWinLose.Size = new System.Drawing.Size(433, 434);
             this.picWinLose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWinLose.TabIndex = 1;
             this.picWinLose.TabStop = false;
