@@ -39,6 +39,8 @@ namespace ProjectCaro
             lblHost.Text = host_id;
             lblJoin.Text = join_id;
 
+            picWinLose.Visible = false;
+
             // thực thi nếu người chơi là host
             if (host_id.Equals(user_id))
             {
@@ -110,7 +112,12 @@ namespace ProjectCaro
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
                 {
-                    MessageBox.Show("Player " + player_turn + " won");
+                    //MessageBox.Show("Player " + player_turn + " won");
+                    SendWin(user_id, room_no);
+                    picWinLose.Image = Resources.win;
+                    picWinLose.Visible = true;
+
+
                 }
 
                 turn++;
@@ -125,7 +132,10 @@ namespace ProjectCaro
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
                 {
-                    MessageBox.Show("Player " + player_turn + " won");
+                    //MessageBox.Show("Player " + player_turn + " won");
+                    SendWin(user_id, room_no);
+                    picWinLose.Image = Resources.win;
+                    picWinLose.Visible = true;
                 }
 
                 turn++;
@@ -134,7 +144,7 @@ namespace ProjectCaro
 
 
 
-        public static void opponent_btnClick(Button btn)
+        public void opponent_btnClick(Button btn)
         {
             // lưu vị trí theo thứ tự 1-> 81 vào List
             int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT;
@@ -150,8 +160,12 @@ namespace ProjectCaro
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
                 {
-                    MessageBox.Show("Player " + player_turn + " won");
-
+                    //MessageBox.Show("Player " + player_turn + " won");
+                    Invoke(new Action(() =>
+                    {
+                        picWinLose.Image = Resources.lose;
+                        picWinLose.Visible = true;
+                    }));
                 }
 
                 turn++;
@@ -165,7 +179,12 @@ namespace ProjectCaro
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
                 {
-                    MessageBox.Show("Player " + player_turn + " won");
+                    //MessageBox.Show("Player " + player_turn + " won");
+                    Invoke(new Action(() =>
+                    {
+                        picWinLose.Image = Resources.lose;
+                        picWinLose.Visible = true;
+                    }));
                 }
 
                 turn++;
@@ -318,6 +337,36 @@ namespace ProjectCaro
             pnlChess.Controls.Clear();
         }
 
+
+        private void PlayAgain()
+        {
+            // đổi player turn
+            if (player_turn == 1)
+            {
+                player_turn = 2;
+            }
+            else if (player_turn == 2)
+            {
+                player_turn = 1;
+            }
+
+            turn = 0;
+            playerO.Clear();
+            playerX.Clear();
+
+            btnList.Clear();
+
+            pnlChess.Controls.Clear();
+
+            DrawChessBoard();
+        }
+
+
+        private void picWinLose_Click(object sender, EventArgs e)
+        {
+            picWinLose.Visible = false;
+            PlayAgain();
+        }
 
 
 

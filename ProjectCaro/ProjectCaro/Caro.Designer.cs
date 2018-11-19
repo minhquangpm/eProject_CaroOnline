@@ -72,6 +72,7 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
             this.Map = new System.Windows.Forms.TabPage();
+            this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
             this.lb1 = new System.Windows.Forms.ListBox();
@@ -80,7 +81,7 @@
             this.lblJoin = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
-            this.lblWaiting = new System.Windows.Forms.Label();
+            this.picWinLose = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -94,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.panel1.SuspendLayout();
             this.Map.SuspendLayout();
+            this.pnlChess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -640,6 +643,17 @@
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
             // 
+            // lblWaiting
+            // 
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
+            this.lblWaiting.Location = new System.Drawing.Point(611, 253);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
+            this.lblWaiting.TabIndex = 0;
+            this.lblWaiting.Text = "Wait for player ...";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -726,21 +740,22 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChess.Controls.Add(this.picWinLose);
             this.pnlChess.Location = new System.Drawing.Point(13, 49);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(480, 480);
             this.pnlChess.TabIndex = 43;
             // 
-            // lblWaiting
+            // picWinLose
             // 
-            this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
-            this.lblWaiting.Location = new System.Drawing.Point(611, 253);
-            this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
-            this.lblWaiting.TabIndex = 0;
-            this.lblWaiting.Text = "Wait for player ...";
+            this.picWinLose.Image = global::ProjectCaro.Properties.Resources.win;
+            this.picWinLose.Location = new System.Drawing.Point(4, 3);
+            this.picWinLose.Name = "picWinLose";
+            this.picWinLose.Size = new System.Drawing.Size(471, 472);
+            this.picWinLose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picWinLose.TabIndex = 1;
+            this.picWinLose.TabStop = false;
+            this.picWinLose.Click += new System.EventHandler(this.picWinLose_Click);
             // 
             // button1
             // 
@@ -807,6 +822,8 @@
             this.panel1.PerformLayout();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
+            this.pnlChess.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -873,6 +890,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox picWinLose;
     }
 }
 

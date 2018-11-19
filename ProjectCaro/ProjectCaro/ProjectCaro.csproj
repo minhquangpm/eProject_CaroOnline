@@ -119,5 +119,11 @@
   <ItemGroup>
     <None Include="Resources\bgtab.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\win.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

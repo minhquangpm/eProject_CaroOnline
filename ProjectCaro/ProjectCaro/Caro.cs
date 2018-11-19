@@ -26,7 +26,7 @@ namespace ProjectCaro
 
         private void Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            workerWaitForPlayer.CancelAsync();
+            //workerWaitForPlayer.CancelAsync();
         }
     }
 }

@@ -207,7 +207,7 @@ namespace ProjectCaro
 
                 }
 
-
+                // xử lý thông tin khi người chơi vào phòng
                 if (join_id != null)
                 {
                     Invoke(new Action(() => {

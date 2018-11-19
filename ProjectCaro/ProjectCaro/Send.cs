@@ -15,6 +15,14 @@ namespace ProjectCaro
             SendData(message);
         }
 
+
+        private static void SendWin(string user_id, string room_no)
+        {
+            string message = "win:" + user_id + ":" + room_no;
+            SendData(message);
+        }
+
+
         private static void SendCreateRoom(string user_id)
         {
             Random random = new Random();
@@ -37,7 +45,6 @@ namespace ProjectCaro
         }
 
 
-
         private static void SendQuitRoom(string user_id, string room_no)
         {
             string message = "quit:" + user_id + ":" + room_no;
@@ -55,14 +62,6 @@ namespace ProjectCaro
         private static void SendUserOnline(string user_id)
         {
             string message = "online:" + user_id;
-            SendData(message);
-        }
-
-
-
-        private static void SendRefreshRoom()
-        {
-            string message = "refreshroom";
             SendData(message);
         }
 
