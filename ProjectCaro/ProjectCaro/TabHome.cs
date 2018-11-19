@@ -10,15 +10,8 @@ namespace ProjectCaro
     {
         private void HomeLoad()
         {
-            //txtSophong.Text = "Enter...";
-            //txtSophong.ForeColor = Color.Gray;
-
-            //txtSophong.GotFocus += new EventHandler(RemoveHint);
-            //txtSophong.LostFocus += new EventHandler(ShowHint);
-
             RoomListInit();
-
-
+            
             if (!workerRefreshRoom.IsBusy)
             {
                 workerRefreshRoom.RunWorkerAsync();
@@ -35,8 +28,7 @@ namespace ProjectCaro
                 danhsachphong.Rows[i].ReadOnly = true;
             }
         }
-
-
+        
 
         private void btnTao_Click(object sender, EventArgs e)
         {
@@ -50,8 +42,7 @@ namespace ProjectCaro
             room_no = input;
             SendJoinRoom(user_id, room_no);
         }
-
-
+        
 
         private void btnVaoNhanh_Click(object sender, EventArgs e)
         {
@@ -76,20 +67,5 @@ namespace ProjectCaro
                 SendJoinRoom(user_id, room_no_selected);
             }
         }
-
-
-        //private void RemoveHint(object sender, EventArgs e)
-        //{
-        //    txtSophong.Text = "";
-        //}
-
-        //private void ShowHint(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtSophong.Text))
-        //    {
-        //        txtSophong.Text = "Enter...";
-        //    }
-        //}
-
     }
 }

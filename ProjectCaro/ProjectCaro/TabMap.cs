@@ -262,7 +262,7 @@ namespace ProjectCaro
 
         private void QuitBeforeMatch()
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Quiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (result)
             {
                 case DialogResult.Yes:
@@ -281,7 +281,7 @@ namespace ProjectCaro
 
         private void QuitInMatch()
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to quit?\n\nIf Yes, your point will be reduced", "Quiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?\n\nIf Yes, your point will be reduced", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (result)
             {
                 case DialogResult.Yes:
