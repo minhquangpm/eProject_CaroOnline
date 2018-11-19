@@ -38,14 +38,13 @@ namespace ProjectCaro
 
         private void btnVao_Click(object sender, EventArgs e)
         {
-            var input = Interaction.InputBox("Enter room number: ", "Caro", "", -1, -1);
+            string input = Interaction.InputBox("Enter room number: ", "Caro", "", -1, -1);
             
-            if (input !="")
+            if (input.Length > 0)
             {
                 room_no = input;
                 SendJoinRoom(user_id, room_no);
             }
-            
         }
         
 
