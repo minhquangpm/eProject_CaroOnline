@@ -23,7 +23,7 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "INSERT INTO room (host_id, room_no)  VALUES (@host_id, @room_no) ";
+                MyCommand.CommandText = "INSERT INTO room (host_id,roomname , room_no)  VALUES (@host_id,@roomname, @room_no) ";
                 MyCommand.Parameters.AddWithValue("@host_id", host_id);
                 MyCommand.Parameters.AddWithValue("@room_no", room_no);
                 MyCommand.Parameters.AddWithValue("@roomname", roomname);
