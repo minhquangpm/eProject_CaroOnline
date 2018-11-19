@@ -324,7 +324,7 @@ namespace ProjectCaro
                 {
                     RoomGame room = CaroAPI.getRoom.data[i];
                     danhsachphong.Rows[i].Cells[0].Value = room.room_no;
-                    danhsachphong.Rows[i].Cells[1].Value = "";
+                    danhsachphong.Rows[i].Cells[1].Value = room.roomname;
                     danhsachphong.Rows[i].Cells[2].Value = room.host_id;
                     danhsachphong.Rows[i].Cells[3].Value = room.join_id;
                 }
