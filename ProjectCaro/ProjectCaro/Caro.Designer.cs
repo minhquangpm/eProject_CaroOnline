@@ -169,7 +169,7 @@
             this.textBox1.Location = new System.Drawing.Point(68, 314);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
-            this.textBox1.TabIndex = 48;
+            this.textBox1.TabIndex = 42;
             // 
             // Email
             // 
@@ -214,7 +214,7 @@
             this.password2.Location = new System.Drawing.Point(68, 259);
             this.password2.Name = "password2";
             this.password2.Size = new System.Drawing.Size(261, 26);
-            this.password2.TabIndex = 39;
+            this.password2.TabIndex = 41;
             // 
             // txtFullname
             // 
@@ -302,7 +302,7 @@
             this.txtUsername.Location = new System.Drawing.Point(68, 146);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(261, 26);
-            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabIndex = 39;
             // 
             // panelLogin
             // 
