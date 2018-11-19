@@ -113,7 +113,7 @@ namespace ProjectCaro
                 }
                 catch (IOException ex)
                 {
-                    MessageBox.Show("Disconnected from server");
+                    MessageBox.Show("Disconnected from server", "Caro");
                 }
                 
 
@@ -146,11 +146,11 @@ namespace ProjectCaro
                         }
                         else if (check.Equals("full"))
                         {
-                            MessageBox.Show("Room is full.");
+                            MessageBox.Show("Room is full.", "Caro");
                         }
                         else
                         {
-                            MessageBox.Show("No room match!");
+                            MessageBox.Show("No room match!", "Caro");
                         }
                         break;
                     case "quickjoin":
