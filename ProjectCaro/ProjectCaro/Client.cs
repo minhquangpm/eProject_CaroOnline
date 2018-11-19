@@ -132,8 +132,11 @@ namespace ProjectCaro
                     case "play":
                         RecvPlay(code[1]);
                         break;
-                    case "win":
-
+                    case "chat":
+                        RecvChat(code[1], code[2]);
+                        break;
+                    case "chatall":
+                        RecvChatAll(code[1], code[2]);
                         break;
                     case "create":
                         RecvCreateRoom(code[1]);

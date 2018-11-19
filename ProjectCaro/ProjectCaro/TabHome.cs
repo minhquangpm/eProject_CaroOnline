@@ -48,10 +48,14 @@ namespace ProjectCaro
         }
         
 
+
         private void btnVaoNhanh_Click(object sender, EventArgs e)
         {
             SendQuickJoin(user_id);
         }
+
+
+
 
         // xử lý khi người chơi double click vào phòng
         private void danhsachphong_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -69,6 +73,27 @@ namespace ProjectCaro
                 string room_no_selected = dgv.CurrentRow.Cells[0].Value.ToString();
                 room_no = room_no_selected;
                 SendJoinRoom(user_id, room_no_selected);
+            }
+        }
+
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            if (txtChat.Text.Length > 0)
+            {
+                SendChat(user_id, txtChat.Text);
+                txtChat.Text = "";
+            }
+        }
+
+
+
+        // xử lý chat
+        private void txtChat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChat.PerformClick();
             }
         }
     }

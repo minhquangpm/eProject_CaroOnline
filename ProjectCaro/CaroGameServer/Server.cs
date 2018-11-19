@@ -96,6 +96,12 @@ namespace CaroGameServer
                             int vi_tri = Convert.ToInt32(code[3]);
                             HandleClient.Play(user_id, room_no, vi_tri);
                             break;
+                        case "chat":
+                            HandleClient.Chat(code[1], code[2], code[3]);
+                            break;
+                        case "chatall":
+                            HandleClient.ChatAll(code[1], code[2]);
+                            break;
                         case "create":
                             HandleClient.CreateRoom(code[1], code[2], client);
                             break;

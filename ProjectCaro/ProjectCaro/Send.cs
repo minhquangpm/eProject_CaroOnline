@@ -23,6 +23,21 @@ namespace ProjectCaro
         }
 
 
+
+        private static void SendChat(string user_id, string chat_message)
+        {
+            string message = "chatall:" + user_id + ":" + chat_message;
+            SendData(message);
+        }
+
+
+        private static void SendChat(string user_id, string room_no, string chat_message)
+        {
+            string message = "chat:" + user_id + ":" + room_no + ":" + chat_message;
+            SendData(message);
+        }
+
+
         private static void SendCreateRoom(string user_id)
         {
             Random random = new Random();

@@ -1,8 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Net;
 using System.Net.Sockets;
 
 namespace CaroGameServer
@@ -258,8 +255,9 @@ namespace CaroGameServer
                 if (!isConnected(userOnline.userClient))
                 {
                     Console.WriteLine("User " + userOnline.user_id + " offline");
-                    ChangeStatusUser(userOnline.user_id);
-                    ChangeStatusFriendList(userOnline.user_id);
+
+                    DataBase.ChangeStatusUser(userOnline.user_id);
+                    DataBase.ChangeStatusFriendList(userOnline.user_id);
 
                     // xử lý khi người chơi disconnect trong room
                     RemoveUserFromRoom(userOnline.user_id);
@@ -312,34 +310,6 @@ namespace CaroGameServer
         }
 
 
-        public static void ChangeStatusUser(string user_id)
-        {
-            MySqlConnection conn = DBUtils.GetDBConnection();
-            MySqlCommand MyCommand;
-            MyCommand = conn.CreateCommand();
-            conn.Open();
-            try
-            {
-                MyCommand.CommandText = $"UPDATE user SET status = @status WHERE userName = '" + user_id + "';";
-                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
-                MyCommand.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                conn.Dispose();
-                conn.Close();
-            }
-            finally
-            {
-                conn.Dispose();
-                conn.Close();
-            }
-        }
-
-
-
-
         private static bool isConnected(TcpClient client)
         {
             try
@@ -383,27 +353,33 @@ namespace CaroGameServer
         }
 
 
-        public static void ChangeStatusFriendList(string user_id)
+        // chat all
+        public static void ChatAll(string user_id, string chat_message)
         {
-            MySqlConnection conn = DBUtils.GetDBConnection();
-            MySqlCommand MyCommand;
-            MyCommand = conn.CreateCommand();
-            conn.Open();
-            try
+            foreach (Online userOnline in onlineList)
             {
-                MyCommand.CommandText = $"UPDATE friendlist SET status = @status WHERE name = '" + user_id + "';";
-                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
-                MyCommand.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                conn.Dispose();
-                conn.Close();
+                string message = "chatall:" + user_id + ":" + chat_message;
+                Server.SendData(message, userOnline.userClient);
             }
         }
+
+
+
+
+        public static void Chat(string user_id, string room_no, string chat_message)
+        {
+            foreach (Room room in roomList)
+            {
+                if (room.room_no.Equals(room_no))
+                {
+                    string message = "chat:" + user_id + ":" + chat_message;
+                    Server.SendData(message, room.joinClient);
+                    Server.SendData(message, room.hostClient);
+
+                    break;
+                }
+            }
+        }
+
     }
 }

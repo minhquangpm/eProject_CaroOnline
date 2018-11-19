@@ -66,7 +66,7 @@
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
-            this.chat = new System.Windows.Forms.ListBox();
+            this.listboxchat = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -76,16 +76,16 @@
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
-            this.lb1 = new System.Windows.Forms.ListBox();
+            this.listboxchat2 = new System.Windows.Forms.ListBox();
             this.btnThoatTran = new System.Windows.Forms.Button();
             this.lblHost = new System.Windows.Forms.Label();
             this.lblJoin = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
             this.picWinLose = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChat2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtChat2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl.SuspendLayout();
@@ -435,7 +435,7 @@
             this.Home.Controls.Add(this.btnTao);
             this.Home.Controls.Add(this.btnChat);
             this.Home.Controls.Add(this.txtChat);
-            this.Home.Controls.Add(this.chat);
+            this.Home.Controls.Add(this.listboxchat);
             this.Home.Controls.Add(this.label1);
             this.Home.Controls.Add(this.panel1);
             this.Home.Location = new System.Drawing.Point(4, 22);
@@ -560,6 +560,7 @@
             this.btnChat.TabIndex = 20;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = false;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
             // 
             // txtChat
             // 
@@ -568,16 +569,17 @@
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(469, 26);
             this.txtChat.TabIndex = 21;
+            this.txtChat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat_KeyDown);
             // 
-            // chat
+            // listboxchat
             // 
-            this.chat.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.chat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(226)))), ((int)(((byte)(193)))));
-            this.chat.FormattingEnabled = true;
-            this.chat.Location = new System.Drawing.Point(11, 358);
-            this.chat.Name = "chat";
-            this.chat.Size = new System.Drawing.Size(603, 134);
-            this.chat.TabIndex = 19;
+            this.listboxchat.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.listboxchat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(226)))), ((int)(((byte)(193)))));
+            this.listboxchat.FormattingEnabled = true;
+            this.listboxchat.Location = new System.Drawing.Point(11, 358);
+            this.listboxchat.Name = "listboxchat";
+            this.listboxchat.Size = new System.Drawing.Size(603, 134);
+            this.listboxchat.TabIndex = 19;
             // 
             // label1
             // 
@@ -642,15 +644,15 @@
             this.Map.Controls.Add(this.lblWaiting);
             this.Map.Controls.Add(this.label3);
             this.Map.Controls.Add(this.lblSophong);
-            this.Map.Controls.Add(this.lb1);
+            this.Map.Controls.Add(this.listboxchat2);
             this.Map.Controls.Add(this.btnThoatTran);
             this.Map.Controls.Add(this.lblHost);
             this.Map.Controls.Add(this.lblJoin);
             this.Map.Controls.Add(this.Time);
             this.Map.Controls.Add(this.pnlChess);
-            this.Map.Controls.Add(this.button1);
+            this.Map.Controls.Add(this.btnChat2);
             this.Map.Controls.Add(this.label5);
-            this.Map.Controls.Add(this.textBox2);
+            this.Map.Controls.Add(this.txtChat2);
             this.Map.Location = new System.Drawing.Point(4, 22);
             this.Map.Name = "Map";
             this.Map.Padding = new System.Windows.Forms.Padding(3);
@@ -693,15 +695,15 @@
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "0000";
             // 
-            // lb1
+            // listboxchat2
             // 
-            this.lb1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lb1.FormattingEnabled = true;
-            this.lb1.Location = new System.Drawing.Point(509, 292);
-            this.lb1.Name = "lb1";
-            this.lb1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lb1.Size = new System.Drawing.Size(364, 160);
-            this.lb1.TabIndex = 42;
+            this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listboxchat2.FormattingEnabled = true;
+            this.listboxchat2.Location = new System.Drawing.Point(509, 292);
+            this.listboxchat2.Name = "listboxchat2";
+            this.listboxchat2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listboxchat2.Size = new System.Drawing.Size(364, 160);
+            this.listboxchat2.TabIndex = 42;
             // 
             // btnThoatTran
             // 
@@ -772,14 +774,15 @@
             this.picWinLose.TabStop = false;
             this.picWinLose.Click += new System.EventHandler(this.picWinLose_Click);
             // 
-            // button1
+            // btnChat2
             // 
-            this.button1.Location = new System.Drawing.Point(811, 459);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 24);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnChat2.Location = new System.Drawing.Point(811, 459);
+            this.btnChat2.Name = "btnChat2";
+            this.btnChat2.Size = new System.Drawing.Size(62, 24);
+            this.btnChat2.TabIndex = 44;
+            this.btnChat2.Text = "Send";
+            this.btnChat2.UseVisualStyleBackColor = true;
+            this.btnChat2.Click += new System.EventHandler(this.btnChat2_Click);
             // 
             // label5
             // 
@@ -792,13 +795,14 @@
             this.label5.Size = new System.Drawing.Size(0, 25);
             this.label5.TabIndex = 47;
             // 
-            // textBox2
+            // txtChat2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(509, 458);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 24);
-            this.textBox2.TabIndex = 45;
+            this.txtChat2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat2.Location = new System.Drawing.Point(509, 458);
+            this.txtChat2.Name = "txtChat2";
+            this.txtChat2.Size = new System.Drawing.Size(281, 24);
+            this.txtChat2.TabIndex = 45;
+            this.txtChat2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat2_KeyDown);
             // 
             // processbartime
             // 
@@ -864,7 +868,7 @@
         public System.Windows.Forms.Button btnVao;
         public System.Windows.Forms.TextBox txtChat;
         public System.Windows.Forms.Button btnChat;
-        public System.Windows.Forms.ListBox chat;
+        public System.Windows.Forms.ListBox listboxchat;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label lblLevel;
         public System.Windows.Forms.Label Level;
@@ -888,10 +892,10 @@
         public System.Windows.Forms.Label lblSophong;
         public System.Windows.Forms.Label Time;
         public System.Windows.Forms.Panel pnlChess;
-        public System.Windows.Forms.ListBox lb1;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.ListBox listboxchat2;
+        public System.Windows.Forms.Button btnChat2;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtChat2;
         public System.Windows.Forms.Timer timer1;
         private System.ComponentModel.IContainer components;
         public System.Windows.Forms.Label lblHost;

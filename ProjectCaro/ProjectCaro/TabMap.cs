@@ -310,6 +310,8 @@ namespace ProjectCaro
             lblHost.BackColor = Color.Transparent;
             lblJoin.BackColor = Color.Transparent;
 
+            listboxchat2.Items.Clear();
+
             playerO.Clear();
             playerX.Clear();
 
@@ -328,6 +330,8 @@ namespace ProjectCaro
 
             lblHost.BackColor = Color.Transparent;
             lblJoin.BackColor = Color.Transparent;
+
+            listboxchat2.Items.Clear();
 
             playerO.Clear();
             playerX.Clear();
@@ -367,6 +371,27 @@ namespace ProjectCaro
             picWinLose.Visible = false;
             PlayAgain();
         }
+
+
+        private void btnChat2_Click(object sender, EventArgs e)
+        {
+            if (txtChat2.Text.Length > 0)
+            {
+                SendChat(user_id, room_no, txtChat2.Text);
+                txtChat2.Text = "";
+            }
+        }
+
+
+
+        private void txtChat2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnChat2.PerformClick();
+            }
+        }
+
 
 
 
