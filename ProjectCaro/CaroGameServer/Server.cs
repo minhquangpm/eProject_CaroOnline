@@ -44,7 +44,9 @@ namespace CaroGameServer
             int counter = 0;
             Server sv = new Server();
 
+            // reset database
             DataBase.ClearRoom();
+            DataBase.ResetUser();
 
             server.Start();
 

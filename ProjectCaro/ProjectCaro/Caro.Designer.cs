@@ -94,7 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.panel1.SuspendLayout();
             this.Map.SuspendLayout();
-            this.pnlChess.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -481,6 +480,7 @@
             this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.danhsachphong.Size = new System.Drawing.Size(603, 224);
             this.danhsachphong.TabIndex = 24;
+            this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             // 
             // danhsachphong_room_no
             // 
@@ -621,6 +621,7 @@
             // Map
             // 
             this.Map.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.Map.Controls.Add(this.lblWaiting);
             this.Map.Controls.Add(this.label3);
             this.Map.Controls.Add(this.lblSophong);
             this.Map.Controls.Add(this.lb1);
@@ -647,9 +648,9 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 25);
+            this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 56;
-            this.label3.Text = "Phòng :";
+            this.label3.Text = "Room :";
             // 
             // lblSophong
             // 
@@ -682,7 +683,7 @@
             this.btnThoatTran.Name = "btnThoatTran";
             this.btnThoatTran.Size = new System.Drawing.Size(364, 42);
             this.btnThoatTran.TabIndex = 55;
-            this.btnThoatTran.Text = "Thoát trận";
+            this.btnThoatTran.Text = "Quit game";
             this.btnThoatTran.UseVisualStyleBackColor = false;
             this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
             // 
@@ -725,7 +726,6 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Controls.Add(this.lblWaiting);
             this.pnlChess.Location = new System.Drawing.Point(13, 49);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(480, 480);
@@ -734,11 +734,13 @@
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Location = new System.Drawing.Point(211, 202);
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
+            this.lblWaiting.Location = new System.Drawing.Point(611, 253);
             this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(26, 13);
+            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
             this.lblWaiting.TabIndex = 0;
-            this.lblWaiting.Text = "wait";
+            this.lblWaiting.Text = "Wait for player ...";
             // 
             // button1
             // 
@@ -805,8 +807,6 @@
             this.panel1.PerformLayout();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
-            this.pnlChess.ResumeLayout(false);
-            this.pnlChess.PerformLayout();
             this.ResumeLayout(false);
 
         }

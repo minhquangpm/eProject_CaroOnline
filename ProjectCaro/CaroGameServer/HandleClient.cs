@@ -108,6 +108,7 @@ namespace CaroGameServer
                     else
                     {
                         Server.SendData("join:full", userClient);
+                        check_room = true;
                         break;
                     }
                 }

@@ -42,7 +42,7 @@ namespace ProjectCaro
             // thực thi nếu người chơi là host
             if (host_id.Equals(user_id))
             {
-                lblWaiting.Text = "Chờ người chơi...";
+                lblWaiting.Text = "Wait for player...";
 
                 // chạy thread chờ người chơi join
                 if (!workerWaitForPlayer.IsBusy)
@@ -151,6 +151,7 @@ namespace ProjectCaro
                 if (win)
                 {
                     MessageBox.Show("Player " + player_turn + " won");
+
                 }
 
                 turn++;
@@ -287,6 +288,9 @@ namespace ProjectCaro
             join_id = null;
             room_no = null;
 
+            lblHost.BackColor = Color.Transparent;
+            lblJoin.BackColor = Color.Transparent;
+
             playerO.Clear();
             playerX.Clear();
 
@@ -302,6 +306,9 @@ namespace ProjectCaro
             turn = -1;
             host_id = user_id;
             join_id = null;
+
+            lblHost.BackColor = Color.Transparent;
+            lblJoin.BackColor = Color.Transparent;
 
             playerO.Clear();
             playerX.Clear();

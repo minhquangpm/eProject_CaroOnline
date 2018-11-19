@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
@@ -131,6 +132,9 @@ namespace ProjectCaro
                     case "play":
                         RecvPlay(code[1]);
                         break;
+                    case "win":
+
+                        break;
                     case "create":
                         RecvCreateRoom(code[1]);
                         break;
@@ -174,6 +178,33 @@ namespace ProjectCaro
                 {
                     e.Cancel = true;
                     return;
+                }
+
+
+                // make color: đổi màu lblwaiting khi đợi người chơi join
+                List<Color> color_list = new List<Color>();
+                color_list.Add(Color.DarkGreen);
+                color_list.Add(Color.DarkKhaki);
+                color_list.Add(Color.DarkMagenta);
+                color_list.Add(Color.DarkOrange);
+                color_list.Add(Color.DarkRed);
+                color_list.Add(Color.DarkSalmon);
+
+                foreach (Color color in color_list)
+                {
+                    try
+                    {
+                        Invoke(new Action(() => {
+                            lblWaiting.ForeColor = color;
+                        }));
+                    }
+                    catch (ObjectDisposedException ex)
+                    {
+                        //
+                    }
+
+                    Thread.Sleep(400);
+
                 }
 
 
@@ -263,9 +294,12 @@ namespace ProjectCaro
         }
 
 
-
+        #region refresh_room
         private async void DoRefreshRoom(object sender, DoWorkEventArgs e)
         {
+            int server_room = 0;
+            int client_room = 0;
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -276,34 +310,75 @@ namespace ProjectCaro
                 }
 
 
-                // do something to refresh roomlist here
+                // lấy danh sách phòng trên server
                 await Task.Run(() =>
                 {
                     CaroAPI.Room().GetAwaiter().GetResult();
                 });
 
-                //Invoke(new Action(() =>
-                //{
-                //    danhsachphong.Rows.Clear();
-                //}));
+                // đếm số phòng nhận được từ server và nhét vào danhsachphong
+                server_room = CaroAPI.getRoom.data.Count;
 
-                foreach (RoomGame room in CaroAPI.getRoom.data)
+                for (int i = 0; i < server_room; i++)
                 {
-                    string[] row = { room.room_no, "", room.host_id, room.join_id };
-                    Invoke(new Action(() =>
-                    {
-                        danhsachphong.Rows.Add(row);
-                    }));
-                    
+                    RoomGame room = CaroAPI.getRoom.data[i];
+                    danhsachphong.Rows[i].Cells[0].Value = room.room_no;
+                    danhsachphong.Rows[i].Cells[1].Value = "";
+                    danhsachphong.Rows[i].Cells[2].Value = room.host_id;
+                    danhsachphong.Rows[i].Cells[3].Value = room.join_id;
                 }
 
-                Thread.Sleep(5000);
+                // quét những phòng đã xóa
+                List<int> row_remove_list = new List<int>();
+
+                if (server_room == 0)
+                {
+                    for (int j = 0; j < client_room; j++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            danhsachphong.Rows.RemoveAt(j);
+                        }));
+                    }
+                }
+
+                if (server_room < client_room)
+                {
+                    for (int k = 0; k < client_room; k++)
+                    {
+                        DataGridViewRow row = danhsachphong.Rows[k];
+
+                        foreach(RoomGame room in CaroAPI.getRoom.data)
+                        {
+                            if (!row.Cells[0].Value.Equals(room.room_no))
+                            {
+                                row_remove_list.Add(row.Index);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // xóa những phòng quét được trên danhsachphong
+                foreach (int row_remove_index in row_remove_list)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        danhsachphong.Rows.RemoveAt(row_remove_index);
+                    }));
+                }
+
+
+                // lưu số lượng phòng mới vào biến tạm thời trên client
+                client_room = server_room;
+
+                Thread.Sleep(2000);
             }
 
         }
+        #endregion
 
-
-            private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
+        private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
