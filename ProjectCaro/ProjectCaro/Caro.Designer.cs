@@ -87,6 +87,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -114,6 +115,7 @@
             // 
             this.Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
             this.Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Login.Controls.Add(this.label2);
             this.Login.Controls.Add(this.panelSignup);
             this.Login.Controls.Add(this.panelLogin);
             this.Login.Controls.Add(this.processBar1);
@@ -142,7 +144,7 @@
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(235, 43);
+            this.panelSignup.Location = new System.Drawing.Point(235, 68);
             this.panelSignup.Name = "panelSignup";
             this.panelSignup.Size = new System.Drawing.Size(402, 436);
             this.panelSignup.TabIndex = 48;
@@ -303,7 +305,7 @@
             this.panelLogin.Controls.Add(this.btnLogin);
             this.panelLogin.Controls.Add(this.txt_Log2);
             this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(235, 43);
+            this.panelLogin.Location = new System.Drawing.Point(235, 98);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(402, 357);
             this.panelLogin.TabIndex = 50;
@@ -793,6 +795,18 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(313, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 33);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "C A R O G A M E";
+            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,6 +825,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
+            this.Login.PerformLayout();
             this.panelSignup.ResumeLayout(false);
             this.panelSignup.PerformLayout();
             this.panelLogin.ResumeLayout(false);
@@ -891,6 +906,7 @@
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picWinLose;
+        public System.Windows.Forms.Label label2;
     }
 }
 

@@ -44,7 +44,6 @@ namespace ProjectCaro
 
         private void processbartime_Tick(object sender, EventArgs e)
         {
-            //không cho hành động khi load form 
             processBar1.Visible = true;
             processBar1.Increment(14);
             if (processBar1.Value == processBar1.Maximum)
@@ -98,7 +97,5 @@ namespace ProjectCaro
 
             }
         }
-
-
     }
 }
