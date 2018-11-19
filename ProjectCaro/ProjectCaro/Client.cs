@@ -171,6 +171,8 @@ namespace ProjectCaro
 
         private void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
+            int count = 0;
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -190,22 +192,19 @@ namespace ProjectCaro
                 color_list.Add(Color.DarkRed);
                 color_list.Add(Color.DarkSalmon);
 
-                foreach (Color color in color_list)
+                int i = count % 5;
+
+                try
                 {
-                    try
-                    {
-                        Invoke(new Action(() => {
-                            lblWaiting.ForeColor = color;
-                        }));
-                    }
-                    catch (ObjectDisposedException ex)
-                    {
-                        //
-                    }
-
-                    Thread.Sleep(400);
-
+                    Invoke(new Action(() => {
+                        lblWaiting.ForeColor = color_list[i];
+                    }));
                 }
+                catch (ObjectDisposedException ex)
+                {
+                    //
+                }
+
 
                 // xử lý thông tin khi người chơi vào phòng
                 if (join_id != null)
@@ -230,7 +229,9 @@ namespace ProjectCaro
                     workerWaitForPlayer.CancelAsync();
                 }
 
-                Thread.Sleep(100);
+                count++;
+
+                Thread.Sleep(300);
             }
         }
 

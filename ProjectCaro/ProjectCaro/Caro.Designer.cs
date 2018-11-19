@@ -29,6 +29,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelSignup = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -125,6 +125,18 @@
             this.Login.Size = new System.Drawing.Size(886, 544);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(313, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 33);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "C A R O G A M E";
             // 
             // panelSignup
             // 
@@ -389,6 +401,7 @@
             this.txt_Log2.Name = "txt_Log2";
             this.txt_Log2.Size = new System.Drawing.Size(259, 26);
             this.txt_Log2.TabIndex = 2;
+            this.txt_Log2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Log2_KeyDown);
             // 
             // txt_Log1
             // 
@@ -794,18 +807,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(313, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 33);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "C A R O G A M E";
             // 
             // Caro
             // 

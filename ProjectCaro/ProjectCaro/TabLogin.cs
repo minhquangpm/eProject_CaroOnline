@@ -16,19 +16,7 @@ namespace ProjectCaro
 
             if (check)
             {
-                //không cho hành động khi load form
-                txt_Log1.Enabled = false;
-                txt_Log2.Enabled = false;
-                btnLogin.Enabled = false;
-
-
-                //Load home
-                HomeLoad();
-
-                lblUsername.Text = user_id;
-                //check login và chạy hàm load
-                processbartime.Start();
-                SendUserOnline(user_id);
+                UserLogin();
             }
             else
             {
@@ -52,6 +40,34 @@ namespace ProjectCaro
                 processbartime.Stop();
             }
         }
+
+        // ấn enter sau khi nhập password để login
+        private void txt_Log2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UserLogin();
+            }
+        }
+
+
+        private void UserLogin()
+        {
+            //không cho hành động khi load form
+            txt_Log1.Enabled = false;
+            txt_Log2.Enabled = false;
+            btnLogin.Enabled = false;
+
+
+            //Load home
+            HomeLoad();
+
+            lblUsername.Text = user_id;
+            //check login và chạy hàm load
+            processbartime.Start();
+            SendUserOnline(user_id);
+        }
+
 
 
         //Form đăng ký
