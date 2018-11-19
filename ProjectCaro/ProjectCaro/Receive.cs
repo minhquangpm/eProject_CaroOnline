@@ -106,7 +106,7 @@ namespace ProjectCaro
         {
             if (recv_who_quit.Equals("join"))
             {
-                DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "Caro", MessageBoxButtons.YesNo);
                 switch (result)
                 {
                     case DialogResult.Yes:
