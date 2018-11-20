@@ -32,7 +32,16 @@ namespace ProjectCaro
 
         private void btnTao_Click(object sender, EventArgs e)
         {
-            SendCreateRoom(user_id);
+            string input = Interaction.InputBox("Create password : ", "Caro", "", -1, -1);
+
+            if (input.Length == 0)
+            {
+                SendCreateRoom(user_id);
+            }
+            else
+            {
+
+            }
         }
 
 
