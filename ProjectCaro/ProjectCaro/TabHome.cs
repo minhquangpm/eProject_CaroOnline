@@ -34,7 +34,7 @@ namespace ProjectCaro
         {
             string input = Interaction.InputBox("Create password : ", "Caro", "", -1, -1);
 
-            if (input.Length == 0)
+            if (input.Length > 0)
             {
                 SendCreateRoom(user_id);
             }

@@ -111,12 +111,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bgtab.png" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\win.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
