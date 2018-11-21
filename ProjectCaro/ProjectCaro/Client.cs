@@ -132,8 +132,11 @@ namespace ProjectCaro
                     case "play":
                         RecvPlay(code[1]);
                         break;
-                    case "win":
-
+                    case "chat":
+                        RecvChat(code[1], code[2]);
+                        break;
+                    case "chatall":
+                        RecvChatAll(code[1], code[2]);
                         break;
                     case "create":
                         RecvCreateRoom(code[1]);
@@ -171,6 +174,8 @@ namespace ProjectCaro
 
         private void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
+            int count = 0;
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -190,22 +195,19 @@ namespace ProjectCaro
                 color_list.Add(Color.DarkRed);
                 color_list.Add(Color.DarkSalmon);
 
-                foreach (Color color in color_list)
+                int i = count % 5;
+
+                try
                 {
-                    try
-                    {
-                        Invoke(new Action(() => {
-                            lblWaiting.ForeColor = color;
-                        }));
-                    }
-                    catch (ObjectDisposedException ex)
-                    {
-                        //
-                    }
-
-                    Thread.Sleep(400);
-
+                    Invoke(new Action(() => {
+                        lblWaiting.ForeColor = color_list[i];
+                    }));
                 }
+                catch (ObjectDisposedException ex)
+                {
+                    //
+                }
+
 
                 // xử lý thông tin khi người chơi vào phòng
                 if (join_id != null)
@@ -230,7 +232,9 @@ namespace ProjectCaro
                     workerWaitForPlayer.CancelAsync();
                 }
 
-                Thread.Sleep(100);
+                count++;
+
+                Thread.Sleep(300);
             }
         }
 
@@ -323,7 +327,7 @@ namespace ProjectCaro
                 {
                     RoomGame room = CaroAPI.getRoom.data[i];
                     danhsachphong.Rows[i].Cells[0].Value = room.room_no;
-                    danhsachphong.Rows[i].Cells[1].Value = "";
+                    danhsachphong.Rows[i].Cells[1].Value = room.roomname;
                     danhsachphong.Rows[i].Cells[2].Value = room.host_id;
                     danhsachphong.Rows[i].Cells[3].Value = room.join_id;
                 }

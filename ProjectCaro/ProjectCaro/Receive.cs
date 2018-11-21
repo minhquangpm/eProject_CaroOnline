@@ -155,5 +155,28 @@ namespace ProjectCaro
             }
         }
 
+
+        private void RecvChatAll(string chat_id, string chat_message)
+        {
+            string message = chat_id + ": " + chat_message;
+
+            Invoke(new Action(() =>
+            {
+                listboxchat.Items.Add(message);
+            }));
+        }
+
+
+        private void RecvChat(string chat_id, string chat_message)
+        {
+            string message = chat_id + ": " + chat_message;
+
+            Invoke(new Action(() =>
+            {
+                listboxchat2.Items.Add(message);
+            }));
+        }
+
+
     }
 }

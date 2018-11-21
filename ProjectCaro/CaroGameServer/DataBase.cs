@@ -1,15 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace CaroGameServer
 {
     class DataBase
     {
-        public static string[] roomName = { "Lets Play","Play Now","Play With Me","Terminator" };
+        public static string[] roomName = { "Lets Play", "Play Now", "Play With Me", "Terminator" };
         //Tạo phòng
         public static void TaoRoom(string host_id, string room_no)
         {
@@ -22,7 +19,7 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "INSERT INTO room (host_id,roomname, room_no)  VALUES (@host_id,@roomname, @room_no) ";
+                MyCommand.CommandText = "INSERT INTO room (host_id, roomname, room_no)  VALUES (@host_id, @roomname, @room_no) ";
                 MyCommand.Parameters.AddWithValue("@host_id", host_id);
                 MyCommand.Parameters.AddWithValue("@room_no", room_no);
                 MyCommand.Parameters.AddWithValue("@roomname", roomname);
@@ -172,5 +169,58 @@ namespace CaroGameServer
         }
 
         #endregion
+
+
+        public static void ChangeStatusUser(string user_id)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = $"UPDATE user SET status = @status WHERE userName = '" + user_id + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                conn.Dispose();
+                conn.Close();
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+
+
+        public static void ChangeStatusFriendList(string user_id)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = $"UPDATE friendlist SET status = @status WHERE name = '" + user_id + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 0;
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+
     }
 }
