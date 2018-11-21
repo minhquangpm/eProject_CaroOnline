@@ -105,5 +105,17 @@ namespace ProjectCaro
                 btnChat.PerformClick();
             }
         }
+
+
+
+        private void btnCloseForm2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizeForm2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

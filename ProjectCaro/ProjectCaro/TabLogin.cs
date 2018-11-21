@@ -39,7 +39,8 @@ namespace ProjectCaro
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            panelSignup.Visible = true;
+            pnlBorderSignup.Visible = true;
+            pnlBorderLogin.Visible = false;
         }
 
         private void processbartime_Tick(object sender, EventArgs e)
@@ -65,9 +66,10 @@ namespace ProjectCaro
 
 
         //Form đăng ký
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            panelSignup.Visible = false;
+            pnlBorderSignup.Visible = false;
+            pnlBorderLogin.Visible = true;
         }
 
 
@@ -107,5 +109,18 @@ namespace ProjectCaro
 
             }
         }
+
+
+        private void btnCloseForm1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizeForm1_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+
     }
 }

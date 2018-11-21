@@ -24,7 +24,8 @@ namespace ProjectCaro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panelSignup.Visible = false;
+            pnlBorderSignup.Visible = false;
+            pnlBorderLogin.Visible = true;
             processBar1.Visible = false;
         }
 
@@ -46,7 +47,5 @@ namespace ProjectCaro
             FormBorderStyle = FormBorderStyle.None;
             tabControl.Dock = DockStyle.Fill;
         }
-
-
     }
 }
