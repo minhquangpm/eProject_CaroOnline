@@ -22,6 +22,8 @@ namespace ProjectCaro
             host_id = user_id;
             room_no = recv_room_no;
 
+            txtChat2.Enabled = false;
+
             Invoke(new Action(() =>
             {
                 //mở map
