@@ -39,7 +39,7 @@ namespace ProjectCaro
         public string room_no { get; set; }
         public string roomname { get; set; }
         public string join_id { get; set; }
-        public int room_key { get; set; }
+        public string room_key { get; set; }
     }
     public class GetRoom
     {

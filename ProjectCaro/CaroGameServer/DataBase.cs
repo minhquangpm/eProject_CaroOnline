@@ -8,7 +8,7 @@ namespace CaroGameServer
     {
         public static string[] roomName = { "Lets Play", "Play Now", "Play With Me", "Terminator" };
         //Tạo phòng
-        public static void TaoRoom(string host_id, string room_no)
+        public static void TaoRoom(string host_id, string room_no, string room_key = null)
         {
             Random random = new Random();
             int start = random.Next(0, roomName.Length);
@@ -19,10 +19,11 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "INSERT INTO room (host_id, roomname, room_no)  VALUES (@host_id, @roomname, @room_no) ";
+                MyCommand.CommandText = "INSERT INTO room (host_id, roomname, room_no, room_key)  VALUES (@host_id, @roomname, @room_no, @room_key) ";
                 MyCommand.Parameters.AddWithValue("@host_id", host_id);
                 MyCommand.Parameters.AddWithValue("@room_no", room_no);
                 MyCommand.Parameters.AddWithValue("@roomname", roomname);
+                MyCommand.Parameters.AddWithValue("@room_key", room_key);
                 //MyCommand.Parameters.AddWithValue("@join_id", join_id);
                 MyCommand.ExecuteNonQuery();
             }
