@@ -69,10 +69,6 @@
             this.lblRoomList = new System.Windows.Forms.Label();
             this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
-            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVao = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
@@ -102,6 +98,11 @@
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -505,7 +506,6 @@
             this.btnCloseForm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm1.ForeColor = System.Drawing.Color.PapayaWhip;
-            this.btnCloseForm1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCloseForm1.Location = new System.Drawing.Point(851, 6);
             this.btnCloseForm1.Name = "btnCloseForm1";
             this.btnCloseForm1.Size = new System.Drawing.Size(35, 35);
@@ -549,7 +549,6 @@
             // 
             this.btnCloseForm2.BackColor = System.Drawing.Color.Transparent;
             this.btnCloseForm2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
-            this.btnCloseForm2.FlatAppearance.BorderSize = 2;
             this.btnCloseForm2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm2.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -566,7 +565,6 @@
             // 
             this.btnMinimizeForm2.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimizeForm2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
-            this.btnMinimizeForm2.FlatAppearance.BorderSize = 2;
             this.btnMinimizeForm2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeForm2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizeForm2.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -629,6 +627,7 @@
             this.danhsachphong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.danhsachphong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.danhsachphong_lock,
             this.danhsachphong_room_no,
             this.danhsachphong_room_name,
             this.danhsachphong_room_host,
@@ -663,33 +662,6 @@
             this.danhsachphong.TabIndex = 33;
             this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             // 
-            // danhsachphong_room_no
-            // 
-            this.danhsachphong_room_no.HeaderText = "Number";
-            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
-            this.danhsachphong_room_no.ReadOnly = true;
-            // 
-            // danhsachphong_room_name
-            // 
-            this.danhsachphong_room_name.HeaderText = "Name";
-            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
-            this.danhsachphong_room_name.ReadOnly = true;
-            this.danhsachphong_room_name.Width = 200;
-            // 
-            // danhsachphong_room_host
-            // 
-            this.danhsachphong_room_host.HeaderText = "Host";
-            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
-            this.danhsachphong_room_host.ReadOnly = true;
-            this.danhsachphong_room_host.Width = 140;
-            // 
-            // danhsachphong_player
-            // 
-            this.danhsachphong_player.HeaderText = "Players";
-            this.danhsachphong_player.Name = "danhsachphong_player";
-            this.danhsachphong_player.ReadOnly = true;
-            this.danhsachphong_player.Width = 150;
-            // 
             // btnVao
             // 
             this.btnVao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -721,7 +693,7 @@
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
             this.btnChat.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChat.ForeColor = System.Drawing.Color.White;
-            this.btnChat.Location = new System.Drawing.Point(488, 500);
+            this.btnChat.Location = new System.Drawing.Point(485, 496);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(125, 32);
             this.btnChat.TabIndex = 30;
@@ -1012,6 +984,40 @@
             this.bunifuDragControl1.TargetControl = this.Login;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // danhsachphong_lock
+            // 
+            this.danhsachphong_lock.HeaderText = "Lock";
+            this.danhsachphong_lock.Name = "danhsachphong_lock";
+            this.danhsachphong_lock.ReadOnly = true;
+            this.danhsachphong_lock.Width = 50;
+            // 
+            // danhsachphong_room_no
+            // 
+            this.danhsachphong_room_no.HeaderText = "Number";
+            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
+            this.danhsachphong_room_no.ReadOnly = true;
+            // 
+            // danhsachphong_room_name
+            // 
+            this.danhsachphong_room_name.HeaderText = "Name";
+            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
+            this.danhsachphong_room_name.ReadOnly = true;
+            this.danhsachphong_room_name.Width = 160;
+            // 
+            // danhsachphong_room_host
+            // 
+            this.danhsachphong_room_host.HeaderText = "Host";
+            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
+            this.danhsachphong_room_host.ReadOnly = true;
+            this.danhsachphong_room_host.Width = 140;
+            // 
+            // danhsachphong_player
+            // 
+            this.danhsachphong_player.HeaderText = "Players";
+            this.danhsachphong_player.Name = "danhsachphong_player";
+            this.danhsachphong_player.ReadOnly = true;
+            this.danhsachphong_player.Width = 140;
+            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1128,6 +1134,7 @@
         public System.Windows.Forms.Label Level;
         private System.Windows.Forms.Button btnCloseForm2;
         private System.Windows.Forms.Button btnMinimizeForm2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_lock;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
