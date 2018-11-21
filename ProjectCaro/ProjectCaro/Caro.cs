@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProjectCaro
@@ -10,6 +11,9 @@ namespace ProjectCaro
             InitializeComponent();
             InitClient();
 
+            HideTab();
+
+            FullWindow();
 
             //đổi pass thành *
             txt_Log2.PasswordChar = '*';
@@ -28,5 +32,21 @@ namespace ProjectCaro
         {
             //workerWaitForPlayer.CancelAsync();
         }
+
+        private void HideTab()
+        {
+            tabControl.Appearance = TabAppearance.FlatButtons;
+            tabControl.ItemSize = new Size(0, 1);
+            tabControl.SizeMode = TabSizeMode.Fixed;
+        }
+
+
+        private void FullWindow()
+        {
+            FormBorderStyle = FormBorderStyle.None;
+            tabControl.Dock = DockStyle.Fill;
+        }
+
+
     }
 }
