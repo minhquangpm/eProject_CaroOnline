@@ -7,7 +7,6 @@ namespace CaroGameServer
     class DataBase
     {
         public static string[] roomName = { "Lets Play", "Play Now", "Play With Me", "Terminator" };
-
         //Tạo phòng
         public static void TaoRoom(string host_id, string room_no)
         {
