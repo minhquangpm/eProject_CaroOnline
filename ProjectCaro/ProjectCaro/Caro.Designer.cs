@@ -164,7 +164,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F);
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBox1.Location = new System.Drawing.Point(68, 314);
             this.textBox1.Name = "textBox1";
@@ -174,18 +174,18 @@
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Email.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.Email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Email.Location = new System.Drawing.Point(65, 294);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(44, 16);
+            this.Email.Size = new System.Drawing.Size(42, 19);
             this.Email.TabIndex = 47;
             this.Email.Text = "Email";
             // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(208, 372);
             this.btnExit.Name = "btnExit";
@@ -198,18 +198,18 @@
             // repassword
             // 
             this.repassword.AutoSize = true;
-            this.repassword.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repassword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.repassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.repassword.Location = new System.Drawing.Point(65, 239);
             this.repassword.Name = "repassword";
-            this.repassword.Size = new System.Drawing.Size(89, 16);
+            this.repassword.Size = new System.Drawing.Size(88, 19);
             this.repassword.TabIndex = 40;
             this.repassword.Text = "Re-Password";
             // 
             // password2
             // 
             this.password2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.password2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password2.Font = new System.Drawing.Font("Consolas", 12F);
             this.password2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.password2.Location = new System.Drawing.Point(68, 259);
             this.password2.Name = "password2";
@@ -219,7 +219,7 @@
             // txtFullname
             // 
             this.txtFullname.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txtFullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFullname.Font = new System.Drawing.Font("Consolas", 12F);
             this.txtFullname.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtFullname.Location = new System.Drawing.Point(68, 89);
             this.txtFullname.Name = "txtFullname";
@@ -229,33 +229,33 @@
             // fullname1
             // 
             this.fullname1.AutoSize = true;
-            this.fullname1.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullname1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullname1.ForeColor = System.Drawing.Color.Black;
             this.fullname1.Location = new System.Drawing.Point(65, 69);
             this.fullname1.Name = "fullname1";
-            this.fullname1.Size = new System.Drawing.Size(70, 16);
+            this.fullname1.Size = new System.Drawing.Size(69, 19);
             this.fullname1.TabIndex = 37;
             this.fullname1.Text = "Full name";
             // 
             // password1
             // 
             this.password1.AutoSize = true;
-            this.password1.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.password1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.password1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.password1.Location = new System.Drawing.Point(65, 180);
             this.password1.Name = "password1";
-            this.password1.Size = new System.Drawing.Size(68, 16);
+            this.password1.Size = new System.Drawing.Size(65, 19);
             this.password1.TabIndex = 34;
             this.password1.Text = "Password";
             // 
             // username1
             // 
             this.username1.AutoSize = true;
-            this.username1.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.username1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.username1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.username1.Location = new System.Drawing.Point(65, 126);
             this.username1.Name = "username1";
-            this.username1.Size = new System.Drawing.Size(70, 16);
+            this.username1.Size = new System.Drawing.Size(69, 19);
             this.username1.TabIndex = 33;
             this.username1.Text = "Username";
             // 
@@ -263,18 +263,18 @@
             // 
             this.Signup.AutoSize = true;
             this.Signup.BackColor = System.Drawing.Color.Transparent;
-            this.Signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Signup.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Signup.Location = new System.Drawing.Point(138, 23);
             this.Signup.Name = "Signup";
-            this.Signup.Size = new System.Drawing.Size(124, 33);
+            this.Signup.Size = new System.Drawing.Size(133, 40);
             this.Signup.TabIndex = 32;
             this.Signup.Text = "Register";
             // 
             // btnSignup
             // 
             this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(130)))), ((int)(((byte)(197)))));
-            this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignup.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
             this.btnSignup.Location = new System.Drawing.Point(68, 372);
             this.btnSignup.Name = "btnSignup";
@@ -287,7 +287,7 @@
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Consolas", 12F);
             this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.Location = new System.Drawing.Point(68, 200);
             this.txtPassword.Name = "txtPassword";
@@ -297,7 +297,7 @@
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Consolas", 12F);
             this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUsername.Location = new System.Drawing.Point(68, 146);
             this.txtUsername.Name = "txtUsername";
@@ -326,17 +326,17 @@
             // 
             this.txtSignup.AutoSize = true;
             this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSignup.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSignup.Location = new System.Drawing.Point(149, 298);
             this.txtSignup.Name = "txtSignup";
-            this.txtSignup.Size = new System.Drawing.Size(95, 13);
+            this.txtSignup.Size = new System.Drawing.Size(102, 16);
             this.txtSignup.TabIndex = 36;
             this.txtSignup.Text = "Forget Password ?";
             // 
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(155)))), ((int)(((byte)(210)))));
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.Location = new System.Drawing.Point(206, 213);
             this.btnRegister.Name = "btnRegister";
@@ -349,22 +349,22 @@
             // password
             // 
             this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.password.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.password.Location = new System.Drawing.Point(65, 136);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(68, 16);
+            this.password.Size = new System.Drawing.Size(65, 19);
             this.password.TabIndex = 34;
             this.password.Text = "Password";
             // 
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Ink Free", 9.75F, System.Drawing.FontStyle.Bold);
+            this.username.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.username.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.username.Location = new System.Drawing.Point(65, 70);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(70, 16);
+            this.username.Size = new System.Drawing.Size(69, 19);
             this.username.TabIndex = 33;
             this.username.Text = "Username";
             // 
@@ -372,18 +372,18 @@
             // 
             this.formName.AutoSize = true;
             this.formName.BackColor = System.Drawing.Color.Transparent;
-            this.formName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Underline);
+            this.formName.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.formName.Location = new System.Drawing.Point(158, 11);
             this.formName.Name = "formName";
-            this.formName.Size = new System.Drawing.Size(86, 33);
+            this.formName.Size = new System.Drawing.Size(86, 40);
             this.formName.TabIndex = 32;
             this.formName.Text = "Login";
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(68, 213);
             this.btnLogin.Name = "btnLogin";
@@ -396,7 +396,7 @@
             // txt_Log2
             // 
             this.txt_Log2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txt_Log2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Log2.Font = new System.Drawing.Font("Consolas", 12F);
             this.txt_Log2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_Log2.Location = new System.Drawing.Point(68, 156);
             this.txt_Log2.Name = "txt_Log2";
@@ -407,7 +407,7 @@
             // txt_Log1
             // 
             this.txt_Log1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txt_Log1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Log1.Font = new System.Drawing.Font("Consolas", 12F);
             this.txt_Log1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_Log1.Location = new System.Drawing.Point(68, 90);
             this.txt_Log1.Name = "txt_Log1";
@@ -448,18 +448,18 @@
             // lblRoomList
             // 
             this.lblRoomList.AutoSize = true;
-            this.lblRoomList.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomList.ForeColor = System.Drawing.Color.White;
-            this.lblRoomList.Location = new System.Drawing.Point(11, 54);
+            this.lblRoomList.Location = new System.Drawing.Point(11, 47);
             this.lblRoomList.Name = "lblRoomList";
-            this.lblRoomList.Size = new System.Drawing.Size(94, 23);
+            this.lblRoomList.Size = new System.Drawing.Size(97, 27);
             this.lblRoomList.TabIndex = 26;
             this.lblRoomList.Text = "List room";
             // 
             // btnVaoNhanh
             // 
             this.btnVaoNhanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnVaoNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.White;
             this.btnVaoNhanh.Location = new System.Drawing.Point(142, 307);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
@@ -528,7 +528,7 @@
             // btnVao
             // 
             this.btnVao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVao.ForeColor = System.Drawing.Color.White;
             this.btnVao.Location = new System.Drawing.Point(489, 307);
             this.btnVao.Name = "btnVao";
@@ -541,7 +541,7 @@
             // btnTao
             // 
             this.btnTao.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.White;
             this.btnTao.Location = new System.Drawing.Point(11, 307);
             this.btnTao.Name = "btnTao";
@@ -554,7 +554,9 @@
             // btnChat
             // 
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
-            this.btnChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.btnChat.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.btnChat.ForeColor = System.Drawing.Color.White;
             this.btnChat.Location = new System.Drawing.Point(489, 494);
             this.btnChat.Name = "btnChat";
@@ -566,7 +568,7 @@
             // 
             // txtChat
             // 
-            this.txtChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChat.Location = new System.Drawing.Point(11, 498);
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(472, 26);
@@ -577,11 +579,14 @@
             // 
             this.listboxchat.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.listboxchat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(226)))), ((int)(((byte)(193)))));
-            this.listboxchat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+
+            this.listboxchat.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat.FormattingEnabled = true;
-            this.listboxchat.Location = new System.Drawing.Point(11, 358);
+            this.listboxchat.ItemHeight = 15;
+            this.listboxchat.Location = new System.Drawing.Point(11, 368);
             this.listboxchat.Name = "listboxchat";
-            this.listboxchat.Size = new System.Drawing.Size(603, 121);
+            this.listboxchat.Size = new System.Drawing.Size(598, 124);
+
             this.listboxchat.TabIndex = 19;
             // 
             // label1
@@ -610,11 +615,13 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.lblUsername.Font = new System.Drawing.Font("Copperplate Gothic Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Black;
             this.lblUsername.Location = new System.Drawing.Point(54, 6);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(132, 29);
+            this.lblUsername.Size = new System.Drawing.Size(148, 26);
+
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -666,11 +673,11 @@
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.Font = new System.Drawing.Font("Berlin Sans FB Demi", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
-            this.lblWaiting.Location = new System.Drawing.Point(611, 253);
+            this.lblWaiting.Location = new System.Drawing.Point(594, 266);
             this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
+            this.lblWaiting.Size = new System.Drawing.Size(161, 23);
             this.lblWaiting.TabIndex = 0;
             this.lblWaiting.Text = "Wait for player ...";
             // 
@@ -678,11 +685,13 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 25);
+            this.label3.Size = new System.Drawing.Size(82, 29);
+
             this.label3.TabIndex = 56;
             this.label3.Text = "Room :";
             // 
@@ -690,29 +699,36 @@
             // 
             this.lblSophong.AutoSize = true;
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
-            this.lblSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSophong.ForeColor = System.Drawing.Color.Red;
             this.lblSophong.Location = new System.Drawing.Point(106, 13);
             this.lblSophong.Name = "lblSophong";
-            this.lblSophong.Size = new System.Drawing.Size(60, 25);
+            this.lblSophong.Size = new System.Drawing.Size(61, 29);
+
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "0000";
             // 
             // listboxchat2
             // 
             this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listboxchat2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.listboxchat2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat2.FormattingEnabled = true;
+            this.listboxchat2.ItemHeight = 15;
             this.listboxchat2.Location = new System.Drawing.Point(509, 292);
             this.listboxchat2.Name = "listboxchat2";
             this.listboxchat2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listboxchat2.Size = new System.Drawing.Size(364, 147);
+            this.listboxchat2.Size = new System.Drawing.Size(364, 139);
+
             this.listboxchat2.TabIndex = 42;
             // 
             // btnThoatTran
             // 
             this.btnThoatTran.BackColor = System.Drawing.Color.IndianRed;
-            this.btnThoatTran.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnThoatTran.Location = new System.Drawing.Point(509, 488);
             this.btnThoatTran.Name = "btnThoatTran";
@@ -725,22 +741,26 @@
             // lblHost
             // 
             this.lblHost.AutoSize = true;
-            this.lblHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+
+            this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
             this.lblHost.Location = new System.Drawing.Point(542, 49);
             this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(101, 25);
+            this.lblHost.Size = new System.Drawing.Size(98, 23);
+
             this.lblHost.TabIndex = 53;
             this.lblHost.Text = "UserHost";
             // 
             // lblJoin
             // 
             this.lblJoin.AutoSize = true;
-            this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+
+            this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
             this.lblJoin.Location = new System.Drawing.Point(741, 49);
             this.lblJoin.Name = "lblJoin";
-            this.lblJoin.Size = new System.Drawing.Size(98, 25);
+            this.lblJoin.Size = new System.Drawing.Size(98, 23);
+
             this.lblJoin.TabIndex = 52;
             this.lblJoin.Text = "UserJoin";
             // 
@@ -748,11 +768,15 @@
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.Time.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.Time.ForeColor = System.Drawing.Color.Red;
-            this.Time.Location = new System.Drawing.Point(545, 120);
+            this.Time.Location = new System.Drawing.Point(559, 104);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(289, 108);
+
+            this.Time.Size = new System.Drawing.Size(246, 117);
+
             this.Time.TabIndex = 49;
             this.Time.Text = "0  :  0";
             // 
@@ -780,6 +804,7 @@
             // 
             // btnChat2
             // 
+            this.btnChat2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChat2.Location = new System.Drawing.Point(811, 459);
             this.btnChat2.Name = "btnChat2";
             this.btnChat2.Size = new System.Drawing.Size(62, 24);
@@ -801,10 +826,10 @@
             // 
             // txtChat2
             // 
-            this.txtChat2.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat2.Font = new System.Drawing.Font("Consolas", 12F);
             this.txtChat2.Location = new System.Drawing.Point(509, 458);
             this.txtChat2.Name = "txtChat2";
-            this.txtChat2.Size = new System.Drawing.Size(296, 24);
+            this.txtChat2.Size = new System.Drawing.Size(296, 26);
             this.txtChat2.TabIndex = 45;
             this.txtChat2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat2_KeyDown);
             // 
