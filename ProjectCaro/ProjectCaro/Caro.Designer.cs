@@ -29,7 +29,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelSignup = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
@@ -88,6 +87,12 @@
             this.txtChat2 = new System.Windows.Forms.TextBox();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCloseForm1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bunifuGradientPanel2 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panelSignup.SuspendLayout();
@@ -98,6 +103,8 @@
             this.Map.SuspendLayout();
             this.pnlChess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
+            this.bunifuGradientPanel1.SuspendLayout();
+            this.bunifuGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -113,30 +120,18 @@
             // 
             // Login
             // 
-            this.Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.Login.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Login.Controls.Add(this.label2);
-            this.Login.Controls.Add(this.panelSignup);
-            this.Login.Controls.Add(this.panelLogin);
-            this.Login.Controls.Add(this.processBar1);
+            this.Login.Controls.Add(this.btnCloseForm1);
+            this.Login.Controls.Add(this.bunifuGradientPanel2);
+            this.Login.Controls.Add(this.button1);
+            this.Login.Controls.Add(this.bunifuGradientPanel1);
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
             this.Login.Size = new System.Drawing.Size(886, 544);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(313, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 33);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "C A R O G A M E";
             // 
             // panelSignup
             // 
@@ -145,6 +140,7 @@
             this.panelSignup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSignup.Controls.Add(this.textBox1);
             this.panelSignup.Controls.Add(this.Email);
+            this.panelSignup.Controls.Add(this.processBar1);
             this.panelSignup.Controls.Add(this.btnExit);
             this.panelSignup.Controls.Add(this.repassword);
             this.panelSignup.Controls.Add(this.password2);
@@ -156,7 +152,7 @@
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(235, 68);
+            this.panelSignup.Location = new System.Drawing.Point(247, 8);
             this.panelSignup.Name = "panelSignup";
             this.panelSignup.Size = new System.Drawing.Size(402, 436);
             this.panelSignup.TabIndex = 48;
@@ -265,7 +261,7 @@
             this.Signup.BackColor = System.Drawing.Color.Transparent;
             this.Signup.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Signup.Location = new System.Drawing.Point(138, 23);
+            this.Signup.Location = new System.Drawing.Point(129, 13);
             this.Signup.Name = "Signup";
             this.Signup.Size = new System.Drawing.Size(133, 40);
             this.Signup.TabIndex = 32;
@@ -317,7 +313,7 @@
             this.panelLogin.Controls.Add(this.btnLogin);
             this.panelLogin.Controls.Add(this.txt_Log2);
             this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(235, 98);
+            this.panelLogin.Location = new System.Drawing.Point(247, 47);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(402, 357);
             this.panelLogin.TabIndex = 50;
@@ -418,7 +414,7 @@
             // 
             this.processBar1.BackColor = System.Drawing.Color.Red;
             this.processBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.processBar1.Location = new System.Drawing.Point(235, 510);
+            this.processBar1.Location = new System.Drawing.Point(-1, 401);
             this.processBar1.Name = "processBar1";
             this.processBar1.Size = new System.Drawing.Size(402, 23);
             this.processBar1.Step = 5;
@@ -554,9 +550,7 @@
             // btnChat
             // 
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
-
             this.btnChat.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.btnChat.ForeColor = System.Drawing.Color.White;
             this.btnChat.Location = new System.Drawing.Point(489, 494);
             this.btnChat.Name = "btnChat";
@@ -579,25 +573,23 @@
             // 
             this.listboxchat.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.listboxchat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(226)))), ((int)(((byte)(193)))));
-
             this.listboxchat.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat.FormattingEnabled = true;
             this.listboxchat.ItemHeight = 15;
             this.listboxchat.Location = new System.Drawing.Point(11, 368);
             this.listboxchat.Name = "listboxchat";
             this.listboxchat.Size = new System.Drawing.Size(598, 124);
-
             this.listboxchat.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 7);
+            this.label1.Location = new System.Drawing.Point(10, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 33);
+            this.label1.Size = new System.Drawing.Size(208, 36);
             this.label1.TabIndex = 23;
             this.label1.Text = "C A R O G A M E";
             // 
@@ -615,13 +607,11 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-
-            this.lblUsername.Font = new System.Drawing.Font("Copperplate Gothic Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Black;
             this.lblUsername.Location = new System.Drawing.Point(54, 6);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(148, 26);
-
+            this.lblUsername.Size = new System.Drawing.Size(124, 29);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -673,11 +663,11 @@
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Font = new System.Drawing.Font("Berlin Sans FB Demi", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
             this.lblWaiting.Location = new System.Drawing.Point(594, 266);
             this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(161, 23);
+            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
             this.lblWaiting.TabIndex = 0;
             this.lblWaiting.Text = "Wait for player ...";
             // 
@@ -685,13 +675,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 29);
-
             this.label3.TabIndex = 56;
             this.label3.Text = "Room :";
             // 
@@ -699,20 +687,17 @@
             // 
             this.lblSophong.AutoSize = true;
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
-
             this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSophong.ForeColor = System.Drawing.Color.Red;
             this.lblSophong.Location = new System.Drawing.Point(106, 13);
             this.lblSophong.Name = "lblSophong";
             this.lblSophong.Size = new System.Drawing.Size(61, 29);
-
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "0000";
             // 
             // listboxchat2
             // 
             this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-
             this.listboxchat2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat2.FormattingEnabled = true;
             this.listboxchat2.ItemHeight = 15;
@@ -720,15 +705,12 @@
             this.listboxchat2.Name = "listboxchat2";
             this.listboxchat2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listboxchat2.Size = new System.Drawing.Size(364, 139);
-
             this.listboxchat2.TabIndex = 42;
             // 
             // btnThoatTran
             // 
             this.btnThoatTran.BackColor = System.Drawing.Color.IndianRed;
-
             this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnThoatTran.Location = new System.Drawing.Point(509, 488);
             this.btnThoatTran.Name = "btnThoatTran";
@@ -741,26 +723,22 @@
             // lblHost
             // 
             this.lblHost.AutoSize = true;
-
             this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
             this.lblHost.Location = new System.Drawing.Point(542, 49);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(98, 23);
-
             this.lblHost.TabIndex = 53;
             this.lblHost.Text = "UserHost";
             // 
             // lblJoin
             // 
             this.lblJoin.AutoSize = true;
-
             this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
             this.lblJoin.Location = new System.Drawing.Point(741, 49);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 23);
-
             this.lblJoin.TabIndex = 52;
             this.lblJoin.Text = "UserJoin";
             // 
@@ -768,15 +746,11 @@
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-
             this.Time.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.Time.ForeColor = System.Drawing.Color.Red;
             this.Time.Location = new System.Drawing.Point(559, 104);
             this.Time.Name = "Time";
-
             this.Time.Size = new System.Drawing.Size(246, 117);
-
             this.Time.TabIndex = 49;
             this.Time.Text = "0  :  0";
             // 
@@ -841,6 +815,95 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // bunifuGradientPanel1
+            // 
+            this.bunifuGradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
+            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.label4);
+            this.bunifuGradientPanel1.Controls.Add(this.label2);
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.Transparent;
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.Transparent;
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(6, 6);
+            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
+            this.bunifuGradientPanel1.Quality = 10;
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(358, 41);
+            this.bunifuGradientPanel1.TabIndex = 51;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.label4.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(213, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 36);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "O N L I N E";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(810, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "-";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnCloseForm1
+            // 
+            this.btnCloseForm1.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnCloseForm1.FlatAppearance.BorderSize = 2;
+            this.btnCloseForm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseForm1.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnCloseForm1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCloseForm1.Location = new System.Drawing.Point(851, 12);
+            this.btnCloseForm1.Name = "btnCloseForm1";
+            this.btnCloseForm1.Size = new System.Drawing.Size(35, 35);
+            this.btnCloseForm1.TabIndex = 56;
+            this.btnCloseForm1.Text = "X";
+            this.btnCloseForm1.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.label2.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(208, 36);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "C A R O G A M E";
+            // 
+            // bunifuGradientPanel2
+            // 
+            this.bunifuGradientPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel2.BackgroundImage")));
+            this.bunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel2.Controls.Add(this.panelLogin);
+            this.bunifuGradientPanel2.Controls.Add(this.panelSignup);
+            this.bunifuGradientPanel2.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.bunifuGradientPanel2.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.bunifuGradientPanel2.GradientTopLeft = System.Drawing.Color.White;
+            this.bunifuGradientPanel2.GradientTopRight = System.Drawing.Color.White;
+            this.bunifuGradientPanel2.Location = new System.Drawing.Point(6, 53);
+            this.bunifuGradientPanel2.Name = "bunifuGradientPanel2";
+            this.bunifuGradientPanel2.Quality = 10;
+            this.bunifuGradientPanel2.Size = new System.Drawing.Size(880, 529);
+            this.bunifuGradientPanel2.TabIndex = 52;
+            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -859,7 +922,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
-            this.Login.PerformLayout();
             this.panelSignup.ResumeLayout(false);
             this.panelSignup.PerformLayout();
             this.panelLogin.ResumeLayout(false);
@@ -873,6 +935,9 @@
             this.Map.PerformLayout();
             this.pnlChess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
+            this.bunifuGradientPanel1.ResumeLayout(false);
+            this.bunifuGradientPanel1.PerformLayout();
+            this.bunifuGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -940,7 +1005,12 @@
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picWinLose;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCloseForm1;
         public System.Windows.Forms.Label label2;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel2;
     }
 }
 
