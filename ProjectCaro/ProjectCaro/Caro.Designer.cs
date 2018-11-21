@@ -69,6 +69,11 @@
             this.lblRoomList = new System.Windows.Forms.Label();
             this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
+            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVao = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
@@ -98,11 +103,15 @@
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabAll = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSotran = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,6 +128,11 @@
             this.Map.SuspendLayout();
             this.pnlChess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
+            this.tabAll.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -245,7 +259,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLogin.BackColor = System.Drawing.Color.DarkOrange;
             this.btnLogin.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(68, 213);
@@ -332,7 +346,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.BackColor = System.Drawing.Color.Salmon;
             this.btnCancel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(208, 372);
@@ -421,7 +435,7 @@
             // 
             // btnSignup
             // 
-            this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(130)))), ((int)(((byte)(197)))));
+            this.btnSignup.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnSignup.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
             this.btnSignup.Location = new System.Drawing.Point(68, 372);
@@ -608,9 +622,9 @@
             // 
             // btnVaoNhanh
             // 
-            this.btnVaoNhanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnVaoNhanh.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaoNhanh.ForeColor = System.Drawing.Color.White;
+            this.btnVaoNhanh.ForeColor = System.Drawing.Color.GreenYellow;
             this.btnVaoNhanh.Location = new System.Drawing.Point(138, 270);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
             this.btnVaoNhanh.Size = new System.Drawing.Size(125, 45);
@@ -662,11 +676,45 @@
             this.danhsachphong.TabIndex = 33;
             this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             // 
+            // danhsachphong_lock
+            // 
+            this.danhsachphong_lock.HeaderText = "Lock";
+            this.danhsachphong_lock.Name = "danhsachphong_lock";
+            this.danhsachphong_lock.ReadOnly = true;
+            this.danhsachphong_lock.Width = 50;
+            // 
+            // danhsachphong_room_no
+            // 
+            this.danhsachphong_room_no.HeaderText = "Number";
+            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
+            this.danhsachphong_room_no.ReadOnly = true;
+            // 
+            // danhsachphong_room_name
+            // 
+            this.danhsachphong_room_name.HeaderText = "Name";
+            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
+            this.danhsachphong_room_name.ReadOnly = true;
+            this.danhsachphong_room_name.Width = 160;
+            // 
+            // danhsachphong_room_host
+            // 
+            this.danhsachphong_room_host.HeaderText = "Host";
+            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
+            this.danhsachphong_room_host.ReadOnly = true;
+            this.danhsachphong_room_host.Width = 140;
+            // 
+            // danhsachphong_player
+            // 
+            this.danhsachphong_player.HeaderText = "Players";
+            this.danhsachphong_player.Name = "danhsachphong_player";
+            this.danhsachphong_player.ReadOnly = true;
+            this.danhsachphong_player.Width = 140;
+            // 
             // btnVao
             // 
-            this.btnVao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnVao.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnVao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVao.ForeColor = System.Drawing.Color.White;
+            this.btnVao.ForeColor = System.Drawing.Color.GreenYellow;
             this.btnVao.Location = new System.Drawing.Point(485, 270);
             this.btnVao.Name = "btnVao";
             this.btnVao.Size = new System.Drawing.Size(125, 45);
@@ -677,9 +725,9 @@
             // 
             // btnTao
             // 
-            this.btnTao.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnTao.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTao.ForeColor = System.Drawing.Color.White;
+            this.btnTao.ForeColor = System.Drawing.Color.GreenYellow;
             this.btnTao.Location = new System.Drawing.Point(7, 270);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(125, 45);
@@ -723,13 +771,17 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(235)))), ((int)(((byte)(197)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Controls.Add(this.lblSotran);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.tabAll);
             this.panel4.Controls.Add(this.lblUsername);
             this.panel4.Controls.Add(this.lblLevel);
             this.panel4.Controls.Add(this.Level);
             this.panel4.Location = new System.Drawing.Point(633, 40);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(237, 465);
+            this.panel4.Size = new System.Drawing.Size(237, 486);
             this.panel4.TabIndex = 31;
             // 
             // lblUsername
@@ -747,22 +799,22 @@
             // lblLevel
             // 
             this.lblLevel.AutoSize = true;
-            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLevel.ForeColor = System.Drawing.Color.Red;
-            this.lblLevel.Location = new System.Drawing.Point(120, 54);
+            this.lblLevel.Location = new System.Drawing.Point(152, 149);
             this.lblLevel.Name = "lblLevel";
-            this.lblLevel.Size = new System.Drawing.Size(29, 20);
+            this.lblLevel.Size = new System.Drawing.Size(24, 16);
             this.lblLevel.TabIndex = 14;
             this.lblLevel.Text = "30";
             // 
             // Level
             // 
             this.Level.AutoSize = true;
-            this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Level.ForeColor = System.Drawing.Color.Red;
-            this.Level.Location = new System.Drawing.Point(17, 54);
+            this.Level.Location = new System.Drawing.Point(42, 149);
             this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(72, 24);
+            this.Level.Size = new System.Drawing.Size(54, 16);
             this.Level.TabIndex = 12;
             this.Level.Text = "Level :";
             // 
@@ -803,6 +855,8 @@
             // Map
             // 
             this.Map.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.Map.Controls.Add(this.pictureBox3);
+            this.Map.Controls.Add(this.pictureBox2);
             this.Map.Controls.Add(this.lblWaiting);
             this.Map.Controls.Add(this.label3);
             this.Map.Controls.Add(this.lblSophong);
@@ -859,7 +913,7 @@
             // 
             // listboxchat2
             // 
-            this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.listboxchat2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat2.FormattingEnabled = true;
             this.listboxchat2.ItemHeight = 15;
@@ -871,7 +925,7 @@
             // 
             // btnThoatTran
             // 
-            this.btnThoatTran.BackColor = System.Drawing.Color.IndianRed;
+            this.btnThoatTran.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnThoatTran.Location = new System.Drawing.Point(509, 488);
@@ -887,7 +941,7 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(542, 49);
+            this.lblHost.Location = new System.Drawing.Point(527, 19);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(98, 23);
             this.lblHost.TabIndex = 53;
@@ -898,7 +952,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(741, 49);
+            this.lblJoin.Location = new System.Drawing.Point(754, 18);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 23);
             this.lblJoin.TabIndex = 52;
@@ -910,7 +964,7 @@
             this.Time.BackColor = System.Drawing.Color.Transparent;
             this.Time.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time.ForeColor = System.Drawing.Color.Red;
-            this.Time.Location = new System.Drawing.Point(559, 104);
+            this.Time.Location = new System.Drawing.Point(559, 149);
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(246, 117);
             this.Time.TabIndex = 49;
@@ -940,13 +994,14 @@
             // 
             // btnChat2
             // 
+            this.btnChat2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btnChat2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChat2.Location = new System.Drawing.Point(811, 459);
+            this.btnChat2.Location = new System.Drawing.Point(811, 458);
             this.btnChat2.Name = "btnChat2";
-            this.btnChat2.Size = new System.Drawing.Size(62, 24);
+            this.btnChat2.Size = new System.Drawing.Size(62, 26);
             this.btnChat2.TabIndex = 44;
             this.btnChat2.Text = "Send";
-            this.btnChat2.UseVisualStyleBackColor = true;
+            this.btnChat2.UseVisualStyleBackColor = false;
             this.btnChat2.Click += new System.EventHandler(this.btnChat2_Click);
             // 
             // label5
@@ -984,39 +1039,90 @@
             this.bunifuDragControl1.TargetControl = this.Login;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // danhsachphong_lock
+            // tabAll
             // 
-            this.danhsachphong_lock.HeaderText = "Lock";
-            this.danhsachphong_lock.Name = "danhsachphong_lock";
-            this.danhsachphong_lock.ReadOnly = true;
-            this.danhsachphong_lock.Width = 50;
+            this.tabAll.Controls.Add(this.tabPage1);
+            this.tabAll.Controls.Add(this.tabPage2);
+            this.tabAll.Location = new System.Drawing.Point(3, 203);
+            this.tabAll.Name = "tabAll";
+            this.tabAll.SelectedIndex = 0;
+            this.tabAll.Size = new System.Drawing.Size(237, 280);
+            this.tabAll.TabIndex = 15;
             // 
-            // danhsachphong_room_no
+            // tabPage1
             // 
-            this.danhsachphong_room_no.HeaderText = "Number";
-            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
-            this.danhsachphong_room_no.ReadOnly = true;
+            this.tabPage1.BackColor = System.Drawing.Color.Lavender;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(229, 254);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "All";
             // 
-            // danhsachphong_room_name
+            // tabPage2
             // 
-            this.danhsachphong_room_name.HeaderText = "Name";
-            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
-            this.danhsachphong_room_name.ReadOnly = true;
-            this.danhsachphong_room_name.Width = 160;
+            this.tabPage2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(229, 254);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Friend";
             // 
-            // danhsachphong_room_host
+            // label1
             // 
-            this.danhsachphong_room_host.HeaderText = "Host";
-            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
-            this.danhsachphong_room_host.ReadOnly = true;
-            this.danhsachphong_room_host.Width = 140;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(42, 173);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "W/L/D :";
             // 
-            // danhsachphong_player
+            // lblSotran
             // 
-            this.danhsachphong_player.HeaderText = "Players";
-            this.danhsachphong_player.Name = "danhsachphong_player";
-            this.danhsachphong_player.ReadOnly = true;
-            this.danhsachphong_player.Width = 140;
+            this.lblSotran.AutoSize = true;
+            this.lblSotran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSotran.ForeColor = System.Drawing.Color.Red;
+            this.lblSotran.Location = new System.Drawing.Point(152, 173);
+            this.lblSotran.Name = "lblSotran";
+            this.lblSotran.Size = new System.Drawing.Size(24, 16);
+            this.lblSotran.TabIndex = 17;
+            this.lblSotran.Text = "30";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Location = new System.Drawing.Point(23, 42);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(183, 100);
+            this.panel3.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 94);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(525, 59);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(739, 59);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox3.TabIndex = 58;
+            this.pictureBox3.TabStop = false;
             // 
             // Caro
             // 
@@ -1057,6 +1163,11 @@
             this.Map.PerformLayout();
             this.pnlChess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
+            this.tabAll.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1139,6 +1250,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
+        private System.Windows.Forms.TabControl tabAll;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.Label lblSotran;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
