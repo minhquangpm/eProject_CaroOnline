@@ -622,9 +622,9 @@
             // 
             // btnVaoNhanh
             // 
-            this.btnVaoNhanh.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnVaoNhanh.BackColor = System.Drawing.Color.Goldenrod;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaoNhanh.ForeColor = System.Drawing.Color.GreenYellow;
+            this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
             this.btnVaoNhanh.Location = new System.Drawing.Point(138, 270);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
             this.btnVaoNhanh.Size = new System.Drawing.Size(125, 45);
@@ -712,9 +712,9 @@
             // 
             // btnVao
             // 
-            this.btnVao.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnVao.BackColor = System.Drawing.Color.Goldenrod;
             this.btnVao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVao.ForeColor = System.Drawing.Color.GreenYellow;
+            this.btnVao.ForeColor = System.Drawing.Color.LightYellow;
             this.btnVao.Location = new System.Drawing.Point(485, 270);
             this.btnVao.Name = "btnVao";
             this.btnVao.Size = new System.Drawing.Size(125, 45);
@@ -725,9 +725,9 @@
             // 
             // btnTao
             // 
-            this.btnTao.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnTao.BackColor = System.Drawing.Color.Goldenrod;
             this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTao.ForeColor = System.Drawing.Color.GreenYellow;
+            this.btnTao.ForeColor = System.Drawing.Color.LightYellow;
             this.btnTao.Location = new System.Drawing.Point(7, 270);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(125, 45);
