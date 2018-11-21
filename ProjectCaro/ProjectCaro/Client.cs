@@ -143,12 +143,12 @@ namespace ProjectCaro
                         RecvCreateRoom(code[1]);
                         break;
                     case "join":
-                        string check = code[1];
-                        if (check.Equals("true"))
+                        string check_join = code[1];
+                        if (check_join.Equals("true"))
                         {
                             RecvJoinRoom(code[2], code[3]);
                         }
-                        else if (check.Equals("full"))
+                        else if (check_join.Equals("full"))
                         {
                             MessageBox.Show("Room is full.", "Caro");
                         }
@@ -158,7 +158,13 @@ namespace ProjectCaro
                         }
                         break;
                     case "quickjoin":
-                        RecvQuickJoin(code[1], code[2], code[3]);
+                        string check_quick_join = code[1];
+                        if (check_quick_join.Equals("true")) {
+                            RecvQuickJoin(code[2], code[3], code[4]);
+                        }
+                        else if (check_quick_join.Equals("false")) {
+                            MessageBox.Show("No public room to join!");
+                        }
                         break;
                     case "host":
                         RecvSomeoneJoin(code[1], code[2], code[3]);

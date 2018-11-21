@@ -76,12 +76,18 @@
             this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVao = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listboxchat = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblSotran = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabAll = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
@@ -89,6 +95,8 @@
             this.lblOnline2 = new System.Windows.Forms.Label();
             this.lblCaroGame2 = new System.Windows.Forms.Label();
             this.Map = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -107,15 +115,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.tabAll = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSotran = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,15 +127,15 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.panel4.SuspendLayout();
-            this.pnlLogo2.SuspendLayout();
-            this.Map.SuspendLayout();
-            this.pnlChess.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
-            this.tabAll.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabAll.SuspendLayout();
+            this.pnlLogo2.SuspendLayout();
+            this.Map.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlChess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -602,7 +601,6 @@
             this.panel1.Controls.Add(this.lblRoomList);
             this.panel1.Controls.Add(this.btnVaoNhanh);
             this.panel1.Controls.Add(this.danhsachphong);
-            this.panel1.Controls.Add(this.btnVao);
             this.panel1.Controls.Add(this.btnTao);
             this.panel1.Controls.Add(this.btnChat);
             this.panel1.Controls.Add(this.txtChat);
@@ -728,19 +726,6 @@
             this.danhsachphong_player.ReadOnly = true;
             this.danhsachphong_player.Width = 140;
             // 
-            // btnVao
-            // 
-            this.btnVao.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnVao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVao.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVao.Location = new System.Drawing.Point(485, 270);
-            this.btnVao.Name = "btnVao";
-            this.btnVao.Size = new System.Drawing.Size(125, 45);
-            this.btnVao.TabIndex = 28;
-            this.btnVao.Text = "Join Room";
-            this.btnVao.UseVisualStyleBackColor = false;
-            this.btnVao.Click += new System.EventHandler(this.btnVao_Click);
-            // 
             // btnTao
             // 
             this.btnTao.BackColor = System.Drawing.Color.Goldenrod;
@@ -774,6 +759,7 @@
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(472, 26);
             this.txtChat.TabIndex = 32;
+            this.txtChat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat_KeyDown);
             // 
             // listboxchat
             // 
@@ -801,6 +787,75 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(237, 486);
             this.panel4.TabIndex = 31;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Location = new System.Drawing.Point(23, 42);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(183, 100);
+            this.panel3.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 94);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblSotran
+            // 
+            this.lblSotran.AutoSize = true;
+            this.lblSotran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSotran.ForeColor = System.Drawing.Color.Red;
+            this.lblSotran.Location = new System.Drawing.Point(152, 173);
+            this.lblSotran.Name = "lblSotran";
+            this.lblSotran.Size = new System.Drawing.Size(24, 16);
+            this.lblSotran.TabIndex = 17;
+            this.lblSotran.Text = "30";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(42, 173);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "W/L/D :";
+            // 
+            // tabAll
+            // 
+            this.tabAll.Controls.Add(this.tabPage1);
+            this.tabAll.Controls.Add(this.tabPage2);
+            this.tabAll.Location = new System.Drawing.Point(3, 203);
+            this.tabAll.Name = "tabAll";
+            this.tabAll.SelectedIndex = 0;
+            this.tabAll.Size = new System.Drawing.Size(237, 280);
+            this.tabAll.TabIndex = 15;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Lavender;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(229, 254);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "All";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(229, 254);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Friend";
             // 
             // lblUsername
             // 
@@ -893,6 +948,22 @@
             this.Map.Size = new System.Drawing.Size(886, 590);
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(739, 59);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox3.TabIndex = 58;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(525, 59);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabStop = false;
             // 
             // lblWaiting
             // 
@@ -1070,90 +1141,6 @@
             this.bunifuDragControl3.Horizontal = true;
             this.bunifuDragControl3.TargetControl = this.Map;
             this.bunifuDragControl3.Vertical = true;
-            // tabAll
-            // 
-            this.tabAll.Controls.Add(this.tabPage1);
-            this.tabAll.Controls.Add(this.tabPage2);
-            this.tabAll.Location = new System.Drawing.Point(3, 203);
-            this.tabAll.Name = "tabAll";
-            this.tabAll.SelectedIndex = 0;
-            this.tabAll.Size = new System.Drawing.Size(237, 280);
-            this.tabAll.TabIndex = 15;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Lavender;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(229, 254);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "All";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(229, 254);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Friend";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(42, 173);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "W/L/D :";
-            // 
-            // lblSotran
-            // 
-            this.lblSotran.AutoSize = true;
-            this.lblSotran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSotran.ForeColor = System.Drawing.Color.Red;
-            this.lblSotran.Location = new System.Drawing.Point(152, 173);
-            this.lblSotran.Name = "lblSotran";
-            this.lblSotran.Size = new System.Drawing.Size(24, 16);
-            this.lblSotran.TabIndex = 17;
-            this.lblSotran.Text = "30";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(23, 42);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(183, 100);
-            this.panel3.TabIndex = 18;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 94);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(525, 59);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox2.TabIndex = 57;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(739, 59);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox3.TabIndex = 58;
-            this.pictureBox3.TabStop = false;
             // 
             // Caro
             // 
@@ -1188,17 +1175,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabAll.ResumeLayout(false);
             this.pnlLogo2.ResumeLayout(false);
             this.pnlLogo2.PerformLayout();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlChess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
-            this.tabAll.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1265,7 +1252,6 @@
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Button btnVaoNhanh;
         public System.Windows.Forms.DataGridView danhsachphong;
-        public System.Windows.Forms.Button btnVao;
         public System.Windows.Forms.Button btnTao;
         public System.Windows.Forms.Button btnChat;
         public System.Windows.Forms.TextBox txtChat;

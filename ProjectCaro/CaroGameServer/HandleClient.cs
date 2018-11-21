@@ -128,9 +128,11 @@ namespace CaroGameServer
 
         public static void QuickJoinRoom(string user_id, TcpClient userClient)
         {
+            bool check_room = false;
+
             foreach (Room room in roomList)
             {
-                if (!isFull(room))
+                if (!isFull(room) && room.room_key == null)
                 {
                     room.join_id = user_id;
                     room.joinClient = userClient;
@@ -148,7 +150,7 @@ namespace CaroGameServer
                     }
 
                     // gửi thông tin của host cho join
-                    string message_to_join = "quickjoin:" + room.host_id + ":" + room.room_no + ":" + join_turn;
+                    string message_to_join = "quickjoin:true:" + room.host_id + ":" + room.room_no + ":" + join_turn;
                     Server.SendData(message_to_join, userClient);
                     //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
 
@@ -161,8 +163,15 @@ namespace CaroGameServer
                     // update room trong db
                     DataBase.UpdateRoom(room.host_id, user_id, room.room_no);
 
+                    check_room = true;
+
                     break;
                 }
+            }
+
+            if (!check_room)
+            {
+                Server.SendData("quickjoin:false", userClient);
             }
         }
 

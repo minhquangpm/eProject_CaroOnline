@@ -47,16 +47,16 @@ namespace ProjectCaro
         }
 
 
-        private void btnVao_Click(object sender, EventArgs e)
-        {
-            string input = Interaction.InputBox("Enter room number: ", "Caro", "", -1, -1);
+        //private void btnVao_Click(object sender, EventArgs e)
+        //{
+        //    string input = Interaction.InputBox("Enter room number: ", "Caro", "", -1, -1);
             
-            if (input.Length > 0)
-            {
-                room_no = input;
-                SendJoinRoom(user_id, room_no);
-            }
-        }
+        //    if (input.Length > 0)
+        //    {
+        //        room_no = input;
+        //        SendJoinRoom(user_id, room_no);
+        //    }
+        //}
         
 
 
@@ -125,7 +125,6 @@ namespace ProjectCaro
                 btnChat.PerformClick();
             }
         }
-
 
 
         private void btnCloseForm2_Click(object sender, EventArgs e)
