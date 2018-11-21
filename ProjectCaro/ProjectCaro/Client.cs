@@ -112,7 +112,7 @@ namespace ProjectCaro
                     // đọc dữ liệu nhận về
                     bytes = stream.Read(data, 0, data.Length);
                 }
-                catch (IOException ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Disconnected from server", "Caro");
                 }
@@ -210,9 +210,9 @@ namespace ProjectCaro
                         lblWaiting.ForeColor = color_list[i];
                     }));
                 }
-                catch (ObjectDisposedException ex)
+                catch (Exception ex)
                 {
-                    //
+                    
                 }
 
 
@@ -229,6 +229,9 @@ namespace ProjectCaro
 
                         // hiện tên người chơi vào phòng
                         lblJoin.Text = join_id;
+
+                        // cho phép chat
+                        txtChat2.Enabled = true;
                     }));
                     
 
@@ -366,7 +369,7 @@ namespace ProjectCaro
 
                         foreach(RoomGame room in CaroAPI.getRoom.data)
                         {
-                            if (!row.Cells[0].Value.Equals(room.room_no))
+                            if (!row.Cells[2].Value.Equals(room.room_no))
                             {
                                 row_remove_list.Add(row.Index);
                                 break;

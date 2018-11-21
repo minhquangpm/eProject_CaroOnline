@@ -400,5 +400,19 @@ namespace ProjectCaro
             TimeSpan span = DateTime.Now.Subtract(da);
             Time.Text = span.Minutes.ToString() + " : " + span.Seconds.ToString();
         }
+
+
+
+        private void btnMinimizeForm3_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCloseForm3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
     }
 }
