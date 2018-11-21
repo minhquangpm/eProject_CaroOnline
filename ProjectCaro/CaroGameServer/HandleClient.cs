@@ -38,23 +38,30 @@ namespace CaroGameServer
 
 
 
-        public static void CreateRoom(string user_id, string room_no, TcpClient userClient)
+        public static void CreateRoom(string user_id, string room_key, TcpClient userClient)
         {
+            Random random = new Random();
+            string room_no = Convert.ToString(random.Next(1, 999999));
+
+
             Room room = new Room
             {
                 host_id = user_id,
                 hostClient = userClient,
-                room_no = room_no
+                room_no = room_no,
+                room_key = room_key
             };
+
+
 
             // thêm vào danh sách room
             roomList.Add(room);
 
             // allow create room
-            Server.SendData("create:true", userClient);
+            Server.SendData("create:" + room_no, userClient);
 
             // lưu room vào db
-            DataBase.TaoRoom(user_id, room_no);
+            DataBase.TaoRoom(user_id, room_no, room_key);
         }
 
 

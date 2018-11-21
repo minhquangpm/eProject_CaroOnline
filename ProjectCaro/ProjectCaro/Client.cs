@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectCaro.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -326,10 +327,15 @@ namespace ProjectCaro
                 for (int i = 0; i < server_room; i++)
                 {
                     RoomGame room = CaroAPI.getRoom.data[i];
-                    danhsachphong.Rows[i].Cells[0].Value = room.room_no;
-                    danhsachphong.Rows[i].Cells[1].Value = room.roomname;
-                    danhsachphong.Rows[i].Cells[2].Value = room.host_id;
-                    danhsachphong.Rows[i].Cells[3].Value = room.join_id;
+                    if (room.room_key != null)
+                    {
+                        danhsachphong.Rows[i].Cells[0].Value = Resources.key;
+                        danhsachphong.Rows[i].Cells[1].Value = room.room_key;
+                    }
+                    danhsachphong.Rows[i].Cells[2].Value = room.room_no;
+                    danhsachphong.Rows[i].Cells[3].Value = room.roomname;
+                    danhsachphong.Rows[i].Cells[4].Value = room.host_id;
+                    danhsachphong.Rows[i].Cells[5].Value = room.join_id;
                 }
 
                 // quét những phòng đã xóa

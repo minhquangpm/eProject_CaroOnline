@@ -40,11 +40,18 @@ namespace ProjectCaro
 
         private static void SendCreateRoom(string user_id)
         {
-            Random random = new Random();
-            room_no = Convert.ToString(random.Next(1, 10000));
-            string message = "create:" + user_id + ":" + room_no;
+            string message = "create:" + user_id + ":false";
             SendData(message);
         }
+
+
+        private static void SendCreateRoom(string user_id, string room_key)
+        {
+            string message = "create:" + user_id + ":true:" + room_key;
+            SendData(message);
+        }
+
+
 
         private static void SendJoinRoom(string user_id, string room_no)
         {

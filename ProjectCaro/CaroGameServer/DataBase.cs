@@ -8,7 +8,7 @@ namespace CaroGameServer
     {
         public static string[] roomName = { "Lets Play", "Play Now", "Play With Me", "Terminator" };
         //Tạo phòng
-        public static void TaoRoom(string host_id, string room_no, string room_key = null)
+        public static void TaoRoom(string host_id, string room_no, string room_key)
         {
             Random random = new Random();
             int start = random.Next(0, roomName.Length);

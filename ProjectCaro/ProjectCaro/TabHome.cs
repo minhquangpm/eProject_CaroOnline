@@ -22,6 +22,8 @@ namespace ProjectCaro
 
         private void RoomListInit()
         {
+            danhsachphong.DefaultCellStyle.NullValue = null;
+
             for (int i = 0; i < 15; i++)
             {
                 danhsachphong.Rows.Add();
@@ -32,15 +34,15 @@ namespace ProjectCaro
 
         private void btnTao_Click(object sender, EventArgs e)
         {
-            string input = Interaction.InputBox("Create password : ", "Caro", "", -1, -1);
+            string room_key = Interaction.InputBox("Create password: ", "Caro", "", -1, -1);
 
-            if (input.Length > 0)
+            if (room_key.Length > 0)
+            {
+                SendCreateRoom(user_id, room_key);
+            }
+            else if (room_key.Length == 0)
             {
                 SendCreateRoom(user_id);
-            }
-            else
-            {
-
             }
         }
 
@@ -72,16 +74,34 @@ namespace ProjectCaro
             DataGridView dgv = sender as DataGridView;
 
             if ((dgv == null) ||
-                (dgv.CurrentRow.Cells[0].Value == null))
+                (dgv.CurrentRow.Cells[1].Value == null))
             {
                 return;
             }
 
             if (dgv.CurrentRow.Selected)
             {
-                string room_no_selected = dgv.CurrentRow.Cells[0].Value.ToString();
-                room_no = room_no_selected;
-                SendJoinRoom(user_id, room_no_selected);
+                string room_key = dgv.CurrentRow.Cells[1].Value.ToString();
+                if (room_key != null)
+                {
+                    string input_room_key = Interaction.InputBox("Enter password: ", "Caro", "", -1, -1);
+                    if (input_room_key.Equals(room_key))
+                    {
+                        string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
+                        room_no = room_no_selected;
+                        SendJoinRoom(user_id, room_no_selected);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong password!");
+                    }
+                }
+                else
+                {
+                    string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
+                    room_no = room_no_selected;
+                    SendJoinRoom(user_id, room_no_selected);
+                }
             }
         }
 

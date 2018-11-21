@@ -103,7 +103,14 @@ namespace CaroGameServer
                             HandleClient.ChatAll(code[1], code[2]);
                             break;
                         case "create":
-                            HandleClient.CreateRoom(code[1], code[2], client);
+                            if (code[2].Equals("true"))
+                            {
+                                HandleClient.CreateRoom(code[1], code[3], client);
+                            }
+                            else if (code[2].Equals("false"))
+                            {
+                                HandleClient.CreateRoom(code[1], null, client);
+                            }
                             break;
                         case "join":
                             HandleClient.JoinRoom(code[1], code[2], client);

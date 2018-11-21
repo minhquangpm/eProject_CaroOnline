@@ -17,19 +17,17 @@ namespace ProjectCaro
         }
 
 
-        private void RecvCreateRoom(string check)
+        private void RecvCreateRoom(string recv_room_no)
         {
-            if (check.Equals("true"))
-            {
-                host_id = user_id;
+            host_id = user_id;
+            room_no = recv_room_no;
 
-                Invoke(new Action(() =>
-                {
-                    //mở map
-                    MapLoad();
-                    tabControl.SelectTab(Map);
-                }));
-            }
+            Invoke(new Action(() =>
+            {
+                //mở map
+                MapLoad();
+                tabControl.SelectTab(Map);
+            }));
         }
 
 
