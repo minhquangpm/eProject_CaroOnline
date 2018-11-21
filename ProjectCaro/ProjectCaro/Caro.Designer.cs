@@ -26,6 +26,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
@@ -141,7 +142,7 @@
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
-            this.Login.Size = new System.Drawing.Size(886, 544);
+            this.Login.Size = new System.Drawing.Size(886, 590);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             // 
@@ -618,11 +619,12 @@
             this.btnVaoNhanh.TabIndex = 34;
             this.btnVaoNhanh.Text = "Quick Join";
             this.btnVaoNhanh.UseVisualStyleBackColor = false;
+            this.btnVaoNhanh.Click += new System.EventHandler(this.btnVaoNhanh_Click);
             // 
             // danhsachphong
             // 
             this.danhsachphong.AllowUserToAddRows = false;
-            this.danhsachphong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.danhsachphong.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.danhsachphong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhsachphong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -644,34 +646,48 @@
             this.danhsachphong.Location = new System.Drawing.Point(7, 40);
             this.danhsachphong.MultiSelect = false;
             this.danhsachphong.Name = "danhsachphong";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.danhsachphong.RowHeadersVisible = false;
             this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
             this.danhsachphong.RowTemplate.Height = 30;
             this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.danhsachphong.Size = new System.Drawing.Size(603, 224);
             this.danhsachphong.TabIndex = 33;
+            this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             // 
             // danhsachphong_room_no
             // 
             this.danhsachphong_room_no.HeaderText = "Number";
             this.danhsachphong_room_no.Name = "danhsachphong_room_no";
+            this.danhsachphong_room_no.ReadOnly = true;
             // 
             // danhsachphong_room_name
             // 
             this.danhsachphong_room_name.HeaderText = "Name";
             this.danhsachphong_room_name.Name = "danhsachphong_room_name";
-            this.danhsachphong_room_name.Width = 160;
+            this.danhsachphong_room_name.ReadOnly = true;
+            this.danhsachphong_room_name.Width = 200;
             // 
             // danhsachphong_room_host
             // 
             this.danhsachphong_room_host.HeaderText = "Host";
             this.danhsachphong_room_host.Name = "danhsachphong_room_host";
+            this.danhsachphong_room_host.ReadOnly = true;
             this.danhsachphong_room_host.Width = 140;
             // 
             // danhsachphong_player
             // 
             this.danhsachphong_player.HeaderText = "Players";
             this.danhsachphong_player.Name = "danhsachphong_player";
+            this.danhsachphong_player.ReadOnly = true;
             this.danhsachphong_player.Width = 150;
             // 
             // btnVao
@@ -685,6 +701,7 @@
             this.btnVao.TabIndex = 28;
             this.btnVao.Text = "Join Room";
             this.btnVao.UseVisualStyleBackColor = false;
+            this.btnVao.Click += new System.EventHandler(this.btnVao_Click);
             // 
             // btnTao
             // 
@@ -697,6 +714,7 @@
             this.btnTao.TabIndex = 27;
             this.btnTao.Text = "Create Room";
             this.btnTao.UseVisualStyleBackColor = false;
+            this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
             // 
             // btnChat
             // 
@@ -709,6 +727,7 @@
             this.btnChat.TabIndex = 30;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = false;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
             // 
             // txtChat
             // 
@@ -725,7 +744,7 @@
             this.listboxchat.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat.FormattingEnabled = true;
             this.listboxchat.ItemHeight = 15;
-            this.listboxchat.Location = new System.Drawing.Point(7, 321);
+            this.listboxchat.Location = new System.Drawing.Point(7, 351);
             this.listboxchat.Name = "listboxchat";
             this.listboxchat.Size = new System.Drawing.Size(603, 139);
             this.listboxchat.TabIndex = 29;
@@ -736,9 +755,9 @@
             this.panel4.Controls.Add(this.lblUsername);
             this.panel4.Controls.Add(this.lblLevel);
             this.panel4.Controls.Add(this.Level);
-            this.panel4.Location = new System.Drawing.Point(633, 56);
+            this.panel4.Location = new System.Drawing.Point(633, 40);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(237, 449);
+            this.panel4.Size = new System.Drawing.Size(237, 465);
             this.panel4.TabIndex = 31;
             // 
             // lblUsername
@@ -827,7 +846,7 @@
             this.Map.Location = new System.Drawing.Point(4, 22);
             this.Map.Name = "Map";
             this.Map.Padding = new System.Windows.Forms.Padding(3);
-            this.Map.Size = new System.Drawing.Size(886, 544);
+            this.Map.Size = new System.Drawing.Size(886, 590);
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
             // 
@@ -1098,10 +1117,6 @@
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Button btnVaoNhanh;
         public System.Windows.Forms.DataGridView danhsachphong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
         public System.Windows.Forms.Button btnVao;
         public System.Windows.Forms.Button btnTao;
         public System.Windows.Forms.Button btnChat;
@@ -1113,6 +1128,10 @@
         public System.Windows.Forms.Label Level;
         private System.Windows.Forms.Button btnCloseForm2;
         private System.Windows.Forms.Button btnMinimizeForm2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
     }
 }
 
