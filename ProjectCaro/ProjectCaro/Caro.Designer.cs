@@ -70,6 +70,12 @@
             this.lblRoomList = new System.Windows.Forms.Label();
             this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
+            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewImageColumn();
+            this.danhsachphong_pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
@@ -94,8 +100,6 @@
             this.pnlLogo3 = new System.Windows.Forms.Panel();
             this.lblOnline3 = new System.Windows.Forms.Label();
             this.lblCaroGame3 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -114,12 +118,11 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewImageColumn();
-            this.danhsachphong_pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Vs = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -138,10 +141,12 @@
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
             this.pnlLogo3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlChess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -631,7 +636,7 @@
             // 
             // btnVaoNhanh
             // 
-            this.btnVaoNhanh.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
             this.btnVaoNhanh.Location = new System.Drawing.Point(138, 270);
@@ -686,9 +691,60 @@
             this.danhsachphong.TabIndex = 33;
             this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             // 
+            // danhsachphong_lock
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.danhsachphong_lock.DefaultCellStyle = dataGridViewCellStyle1;
+            this.danhsachphong_lock.HeaderText = "Lock";
+            this.danhsachphong_lock.Name = "danhsachphong_lock";
+            this.danhsachphong_lock.ReadOnly = true;
+            this.danhsachphong_lock.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong_lock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.danhsachphong_lock.Width = 50;
+            // 
+            // danhsachphong_pass
+            // 
+            this.danhsachphong_pass.HeaderText = "Pass";
+            this.danhsachphong_pass.Name = "danhsachphong_pass";
+            this.danhsachphong_pass.ReadOnly = true;
+            this.danhsachphong_pass.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong_pass.Visible = false;
+            // 
+            // danhsachphong_room_no
+            // 
+            this.danhsachphong_room_no.HeaderText = "Number";
+            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
+            this.danhsachphong_room_no.ReadOnly = true;
+            this.danhsachphong_room_no.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // danhsachphong_room_name
+            // 
+            this.danhsachphong_room_name.HeaderText = "Name";
+            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
+            this.danhsachphong_room_name.ReadOnly = true;
+            this.danhsachphong_room_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong_room_name.Width = 160;
+            // 
+            // danhsachphong_room_host
+            // 
+            this.danhsachphong_room_host.HeaderText = "Host";
+            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
+            this.danhsachphong_room_host.ReadOnly = true;
+            this.danhsachphong_room_host.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong_room_host.Width = 140;
+            // 
+            // danhsachphong_player
+            // 
+            this.danhsachphong_player.HeaderText = "Players";
+            this.danhsachphong_player.Name = "danhsachphong_player";
+            this.danhsachphong_player.ReadOnly = true;
+            this.danhsachphong_player.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong_player.Width = 140;
+            // 
             // btnTao
             // 
-            this.btnTao.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnTao.BackColor = System.Drawing.Color.Tomato;
             this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.LightYellow;
             this.btnTao.Location = new System.Drawing.Point(7, 270);
@@ -888,11 +944,12 @@
             // Map
             // 
             this.Map.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Map.Controls.Add(this.Vs);
+            this.Map.Controls.Add(this.panel6);
+            this.Map.Controls.Add(this.panel5);
             this.Map.Controls.Add(this.btnCloseForm3);
             this.Map.Controls.Add(this.btnMinimizeForm3);
             this.Map.Controls.Add(this.pnlLogo3);
-            this.Map.Controls.Add(this.pictureBox3);
-            this.Map.Controls.Add(this.pictureBox2);
             this.Map.Controls.Add(this.lblWaiting);
             this.Map.Controls.Add(this.label3);
             this.Map.Controls.Add(this.lblSophong);
@@ -978,28 +1035,12 @@
             this.lblCaroGame3.TabIndex = 55;
             this.lblCaroGame3.Text = "C A R O G A M E";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(739, 104);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox3.TabIndex = 58;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(509, 104);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox2.TabIndex = 57;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
             this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
-            this.lblWaiting.Location = new System.Drawing.Point(604, 320);
+            this.lblWaiting.Location = new System.Drawing.Point(605, 338);
             this.lblWaiting.Name = "lblWaiting";
             this.lblWaiting.Size = new System.Drawing.Size(167, 24);
             this.lblWaiting.TabIndex = 0;
@@ -1010,7 +1051,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.ForeColor = System.Drawing.Color.Yellow;
             this.label3.Location = new System.Drawing.Point(13, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 29);
@@ -1022,7 +1063,7 @@
             this.lblSophong.AutoSize = true;
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
             this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSophong.ForeColor = System.Drawing.Color.Red;
+            this.lblSophong.ForeColor = System.Drawing.Color.Yellow;
             this.lblSophong.Location = new System.Drawing.Point(104, 59);
             this.lblSophong.Name = "lblSophong";
             this.lblSophong.Size = new System.Drawing.Size(61, 29);
@@ -1080,11 +1121,11 @@
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.ForeColor = System.Drawing.Color.Red;
-            this.Time.Location = new System.Drawing.Point(559, 189);
+            this.Time.Font = new System.Drawing.Font("Kristen ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.ForeColor = System.Drawing.Color.Black;
+            this.Time.Location = new System.Drawing.Point(589, 227);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(246, 117);
+            this.Time.Size = new System.Drawing.Size(216, 88);
             this.Time.TabIndex = 49;
             this.Time.Text = "0  :  0";
             // 
@@ -1171,56 +1212,49 @@
             this.bunifuDragControl3.TargetControl = this.Map;
             this.bunifuDragControl3.Vertical = true;
             // 
-            // danhsachphong_lock
+            // panel5
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.danhsachphong_lock.DefaultCellStyle = dataGridViewCellStyle1;
-            this.danhsachphong_lock.HeaderText = "Lock";
-            this.danhsachphong_lock.Name = "danhsachphong_lock";
-            this.danhsachphong_lock.ReadOnly = true;
-            this.danhsachphong_lock.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_lock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.danhsachphong_lock.Width = 50;
+            this.panel5.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Location = new System.Drawing.Point(509, 104);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(142, 97);
+            this.panel5.TabIndex = 65;
             // 
-            // danhsachphong_pass
+            // pictureBox2
             // 
-            this.danhsachphong_pass.HeaderText = "Pass";
-            this.danhsachphong_pass.Name = "danhsachphong_pass";
-            this.danhsachphong_pass.ReadOnly = true;
-            this.danhsachphong_pass.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_pass.Visible = false;
+            this.pictureBox2.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabStop = false;
             // 
-            // danhsachphong_room_no
+            // panel6
             // 
-            this.danhsachphong_room_no.HeaderText = "Number";
-            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
-            this.danhsachphong_room_no.ReadOnly = true;
-            this.danhsachphong_room_no.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.panel6.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Location = new System.Drawing.Point(738, 104);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(142, 97);
+            this.panel6.TabIndex = 66;
             // 
-            // danhsachphong_room_name
+            // pictureBox3
             // 
-            this.danhsachphong_room_name.HeaderText = "Name";
-            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
-            this.danhsachphong_room_name.ReadOnly = true;
-            this.danhsachphong_room_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_name.Width = 160;
+            this.pictureBox3.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
+            this.pictureBox3.TabIndex = 57;
+            this.pictureBox3.TabStop = false;
             // 
-            // danhsachphong_room_host
+            // Vs
             // 
-            this.danhsachphong_room_host.HeaderText = "Host";
-            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
-            this.danhsachphong_room_host.ReadOnly = true;
-            this.danhsachphong_room_host.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_host.Width = 140;
-            // 
-            // danhsachphong_player
-            // 
-            this.danhsachphong_player.HeaderText = "Players";
-            this.danhsachphong_player.Name = "danhsachphong_player";
-            this.danhsachphong_player.ReadOnly = true;
-            this.danhsachphong_player.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_player.Width = 140;
+            this.Vs.AutoSize = true;
+            this.Vs.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vs.Location = new System.Drawing.Point(684, 145);
+            this.Vs.Name = "Vs";
+            this.Vs.Size = new System.Drawing.Size(20, 18);
+            this.Vs.TabIndex = 67;
+            this.Vs.Text = "vs";
             // 
             // Caro
             // 
@@ -1264,10 +1298,12 @@
             this.Map.PerformLayout();
             this.pnlLogo3.ResumeLayout(false);
             this.pnlLogo3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlChess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1353,8 +1389,6 @@
         public System.Windows.Forms.Label lblSotran;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel pnlLogo3;
         public System.Windows.Forms.Label lblOnline3;
         public System.Windows.Forms.Label lblCaroGame3;
@@ -1366,6 +1400,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
+        private System.Windows.Forms.Label Vs;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
