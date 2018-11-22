@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectCaro
@@ -46,6 +47,28 @@ namespace ProjectCaro
         {
             FormBorderStyle = FormBorderStyle.None;
             tabControl.Dock = DockStyle.Fill;
+        }
+        
+
+        public async void LoadData()
+        {
+            await Task.Run(() =>
+            {
+                CaroAPI.FriendList().GetAwaiter().GetResult();
+            });
+            dataGridView1.DataSource = CaroAPI.getFriendList.data;
+        }
+        
+        
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadData();
+
         }
     }
 }
