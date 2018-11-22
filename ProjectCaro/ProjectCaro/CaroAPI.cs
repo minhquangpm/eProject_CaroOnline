@@ -168,7 +168,7 @@ namespace ProjectCaro
 
         public static async Task<GetFriendList> FriendListAsync(HttpClient client)
         {
-            string url = baseAddress + "api/friendlist/" + user.id.ToString();
+            string url = baseAddress + "api/friendlist/" + user.username;
             HttpResponseMessage response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
