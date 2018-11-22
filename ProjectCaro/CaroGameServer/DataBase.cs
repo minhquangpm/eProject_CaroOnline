@@ -223,7 +223,7 @@ namespace CaroGameServer
         }
 
         // ket ban
-        public static void KetBan(string name, string username)
+        public static void KetBan(string username, string name)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
@@ -249,7 +249,7 @@ namespace CaroGameServer
 
 
         // Xoa Ban
-        public static void XoaBan(string name, string username)
+        public static void XoaBan(string username, string name)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;

@@ -48,23 +48,6 @@ namespace ProjectCaro
             FormBorderStyle = FormBorderStyle.None;
             tabControl.Dock = DockStyle.Fill;
         }
-        
-
-        public async void LoadData()
-        {
-            await Task.Run(() =>
-            {
-                CaroAPI.FriendList().GetAwaiter().GetResult();
-            });
-            dataGridView1.DataSource = CaroAPI.getFriendList.data;
-        }
-        
        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoadData();
-
-        }
     }
 }

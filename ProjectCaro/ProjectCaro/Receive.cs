@@ -196,5 +196,32 @@ namespace ProjectCaro
         }
 
 
+        private void RecvAddFriend(string check, string friend_id)
+        {
+            if (check.Equals("true"))
+            {
+                if (friend_id.Equals(host_id))
+                {
+                    Invoke(new Action(() =>
+                    {
+                        btnAddHost.Text = "Added";
+                        btnAddHost.Enabled = false;
+                    }));
+                }
+                else if (friend_id.Equals(join_id))
+                {
+                    Invoke(new Action(() =>
+                    {
+                        btnAddJoin.Text = "Added";
+                        btnAddJoin.Enabled = false;
+                    }));
+                }
+                else
+                {
+
+                }
+            }
+        }
+
     }
 }

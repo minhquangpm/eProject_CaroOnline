@@ -103,10 +103,10 @@ namespace CaroGameServer
                             HandleClient.ChatAll(code[1], code[2]);
                             break;
                         case "addfriend":
-                            HandleClient.AddFriend(code[1], code[2]);
+                            HandleClient.AddFriend(code[1], code[2], client);
                             break;
                         case "removefriend":
-                            HandleClient.RemoveFriend(code[1], code[2]);
+                            HandleClient.RemoveFriend(code[1], code[2], client);
                             break;
                         case "create":
                             if (code[2].Equals("true"))

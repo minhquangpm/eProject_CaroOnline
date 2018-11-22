@@ -399,17 +399,17 @@ namespace CaroGameServer
 
 
 
-        public static void AddFriend(string user_id, string friend_id)
+        public static void AddFriend(string user_id, string friend_id, TcpClient userClient)
         {
-
+            DataBase.KetBan(user_id, friend_id);
+            Server.SendData("addfriend:true:" + friend_id, userClient);
         }
 
 
-        public static void RemoveFriend(string user_id, string friend_id)
+        public static void RemoveFriend(string user_id, string friend_id, TcpClient userClient)
         {
-
+            DataBase.XoaBan(user_id, friend_id);
+            Server.SendData("removefriend:true:" + friend_id, userClient);
         }
-
-
     }
 }

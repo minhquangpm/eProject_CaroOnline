@@ -94,7 +94,7 @@ namespace ProjectCaro
             if (dgv.CurrentRow.Selected)
             {
                 
-                if (dgv.CurrentRow.Cells[1].Value.ToString() != null)
+                if (dgv.CurrentRow.Cells[1].Value != null)
                 {
                     string row_room_key = dgv.CurrentRow.Cells[1].Value.ToString();
                     string input_room_key = Interaction.InputBox("Enter password: ", "Caro", "", -1, -1);

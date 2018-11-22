@@ -135,6 +135,9 @@ namespace ProjectCaro
                     case "create":
                         RecvCreateRoom(code[1]);
                         break;
+                    case "addfriend":
+                        RecvAddFriend(code[1], code[2]);
+                        break;
                     case "join":
                         string check_join = code[1];
                         if (check_join.Equals("true"))
@@ -426,11 +429,19 @@ namespace ProjectCaro
                 });
 
 
-                //foreach (FriendList friend in CaroAPI.getFriendList.data)
-                //{
-                //    //MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
-                //}
+                for(int i = 0; i < CaroAPI.getFriendList.data.Count; i++)
+                {
+                    FriendList friend = CaroAPI.getFriendList.data[i];
 
+                    //danhsachban.Rows.Add();
+                    //danhsachban.Rows[i].Cells[0].Value = friend.name;
+                    //if (friend.status == 0)
+                    //{
+                    //    danhsachban.Rows[i].Cells[1].Value = Resources.online;
+                    //}
+                    MessageBox.Show(friend.name);
+                    
+                }
 
 
                 Thread.Sleep(1000);
