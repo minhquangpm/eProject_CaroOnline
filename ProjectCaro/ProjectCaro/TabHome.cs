@@ -33,6 +33,8 @@ namespace ProjectCaro
         private void RoomListInit()
         {
             danhsachphong.DefaultCellStyle.NullValue = null;
+            danhsachphong.Columns[0].HeaderCell.Style.BackColor = Color.AliceBlue;
+
 
             for (int i = 0; i < 15; i++)
             {

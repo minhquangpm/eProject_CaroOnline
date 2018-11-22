@@ -246,6 +246,8 @@ namespace CaroGameServer
                 conn.Close();
             }
         }
+
+
         // Xoa Ban
         public static void XoaBan(string name, int idUser)
         {
