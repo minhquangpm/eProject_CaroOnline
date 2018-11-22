@@ -223,7 +223,7 @@ namespace CaroGameServer
         }
 
         // ket ban
-        public static void KetBan(string name, int idUser)
+        public static void KetBan(string name, string username)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
@@ -231,9 +231,9 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "INSERT INTO friendlist (idUser,name)  VALUES (@idUser,@name) ";
+                MyCommand.CommandText = "INSERT INTO friendlist (username,name)  VALUES (@username,@name) ";
                 MyCommand.Parameters.AddWithValue("@name", name);
-                MyCommand.Parameters.AddWithValue("@idUser", idUser);
+                MyCommand.Parameters.AddWithValue("@username", username);
                 MyCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -247,7 +247,7 @@ namespace CaroGameServer
             }
         }
         // Xoa Ban
-        public static void XoaBan(string name, int idUser)
+        public static void XoaBan(string name, string username)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
@@ -255,9 +255,9 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "DELETE FROM friendlist WHERE name = @name and idUser = @idUser;";
+                MyCommand.CommandText = "DELETE FROM friendlist WHERE name = @name and username = @username;";
                 MyCommand.Parameters.AddWithValue("@name", name);
-                MyCommand.Parameters.AddWithValue("@idUser", idUser);
+                MyCommand.Parameters.AddWithValue("@username", username);
                 MyCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
