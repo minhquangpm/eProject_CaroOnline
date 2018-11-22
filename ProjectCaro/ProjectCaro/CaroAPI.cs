@@ -29,7 +29,6 @@ namespace ProjectCaro
     }
     public class FriendList
     {
-        public int idUser { get; set; }
         public string name { get; set; }
         public int status { get; set; }
     }

@@ -222,6 +222,54 @@ namespace CaroGameServer
             }
         }
 
+        // ket ban
+        public static void KetBan(string friendName, int idUser)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "INSERT INTO friendlist (idUser,friendName)  VALUES (@idUser,@friendName) ";
+                MyCommand.Parameters.AddWithValue("@friendName", friendName);
+                MyCommand.Parameters.AddWithValue("@idUser", idUser);
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+        // Xoa Ban
+        public static void XoaBan(string friendName, int idUser)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "DELETE FROM friendlist WHERE friendName = @friendName and idUser = @idUser;";
+                MyCommand.Parameters.AddWithValue("@friendName", friendName);
+                MyCommand.Parameters.AddWithValue("@idUser", idUser);
+                MyCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
 
     }
 }
