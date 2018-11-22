@@ -26,13 +26,6 @@ namespace ProjectCaro
         private static TcpClient client = new TcpClient(serverIp, serverPort);
 
 
-        // thông tin user
-        public static string user_id;   
-        public static string host_id;
-        public static string join_id;
-        public static string room_no;
-
-
         // khai báo worker
         public BackgroundWorker workerListener = null;
         public BackgroundWorker workerWaitForPlayer = null;
@@ -233,7 +226,25 @@ namespace ProjectCaro
                         // cho phép chat
                         txtChat2.Enabled = true;
                     }));
-                    
+
+
+                    // check đối thủ có trong friend list
+                    bool check_friend = false;
+                    foreach (FriendList friend in CaroAPI.getFriendList.data)
+                    {
+                        if (friend.name.Equals(join_id))
+                        {
+                            check_friend = true;
+                        }
+                    }
+                    if (!check_friend)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            btnAddJoin.Visible = true;
+                        }));
+                    }
+
 
                     // set turn = 0 (bắt đầu game)
                     turn = 0;
@@ -415,10 +426,10 @@ namespace ProjectCaro
                 });
 
 
-                foreach (FriendList friend in CaroAPI.getFriendList.data)
-                {
-                    //MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
-                }
+                //foreach (FriendList friend in CaroAPI.getFriendList.data)
+                //{
+                //    //MessageBox.Show(friend.idUser.ToString() + " " + friend.name + " " + friend.status.ToString());
+                //}
 
 
 

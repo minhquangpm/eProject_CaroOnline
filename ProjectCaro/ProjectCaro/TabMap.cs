@@ -17,29 +17,37 @@ namespace ProjectCaro
         private const int BOARD_WIDTH = 20;
 
         // player turn
-        public static int turn = -1;
-        public static int player_turn = 0;
+        private static int turn = -1;
+        private static int player_turn = 0;
+
+        // thông tin user
+        private static string user_id;
+        private static string host_id;
+        private static string join_id;
+        private static string room_no;
+        private static string room_key;
 
         private static List<int> playerX = new List<int>();
         private static List<int> playerO = new List<int>();
-        public static List<Button> btnList = new List<Button>();
+        private static List<Button> btnList = new List<Button>();
 
         private DateTime da;
 
         public void MapLoad()
         {
-            InitMap();
+            InitRoom();
             DrawChessBoard();
         }
 
 
-        private void InitMap()
+        private void InitRoom()
         {
+            // hiển thị thông tin phòng
             lblSophong.Text = room_no;
+            lblKey.Text = room_key;
             lblHost.Text = host_id;
             lblJoin.Text = join_id;
 
-            picWinLose.Visible = false;
 
             // thực thi nếu người chơi là host
             if (host_id.Equals(user_id))
@@ -114,8 +122,8 @@ namespace ProjectCaro
                 {
                     //MessageBox.Show("Player " + player_turn + " won");
                     SendWin(user_id, room_no);
-                    picWinLose.Image = Resources.win;
-                    picWinLose.Visible = true;
+                    //picWinLose.Image = Resources.win;
+                    //picWinLose.Visible = true;
 
 
                 }
@@ -134,8 +142,8 @@ namespace ProjectCaro
                 {
                     //MessageBox.Show("Player " + player_turn + " won");
                     SendWin(user_id, room_no);
-                    picWinLose.Image = Resources.win;
-                    picWinLose.Visible = true;
+                    //picWinLose.Image = Resources.win;
+                    //picWinLose.Visible = true;
                 }
 
                 turn++;
@@ -157,14 +165,14 @@ namespace ProjectCaro
                 playerX.Add(vi_tri);
                 //sound.Play();
 
-                bool win = CheckWin(playerX, vi_tri);
-                if (win)
+                bool lose = CheckWin(playerX, vi_tri);
+                if (lose)
                 {
                     //MessageBox.Show("Player " + player_turn + " won");
                     Invoke(new Action(() =>
                     {
-                        picWinLose.Image = Resources.lose;
-                        picWinLose.Visible = true;
+                        //picWinLose.Image = Resources.lose;
+                        //picWinLose.Visible = true;
                     }));
                 }
 
@@ -176,15 +184,21 @@ namespace ProjectCaro
                 playerO.Add(vi_tri);
                 //sound.Play();
 
-                bool win = CheckWin(playerO, vi_tri);
-                if (win)
+                bool lose = CheckWin(playerO, vi_tri);
+                if (lose)
                 {
                     //MessageBox.Show("Player " + player_turn + " won");
                     Invoke(new Action(() =>
                     {
-                        picWinLose.Image = Resources.lose;
-                        picWinLose.Visible = true;
+                        //picWinLose.Image = Resources.lose;
+                        //picWinLose.Visible = true;
                     }));
+                }
+
+                bool draw = CheckDraw();
+                if (draw)
+                {
+
                 }
 
                 turn++;
@@ -243,19 +257,14 @@ namespace ProjectCaro
         }
 
 
-        private void btnThoatTran_Click(object sender, EventArgs e)
+        private bool CheckDraw()
         {
-            //  thoát trước khi vào trận sẽ không trừ điểm
-            if ((host_id != null) && (join_id == null))
-            {
-                QuitBeforeMatch();
+            int chessPlayedCount = playerO.Count + playerX.Count;
+            int chessBoardCount = BOARD_WIDTH * BOARD_HEIGHT;
+            if (chessPlayedCount == chessBoardCount) {
+                return true;
             }
-            // thoát khi đang trong trận sẽ bị trừ điểm
-            else if ((host_id != null) && (join_id != null))
-            {
-                QuitInMatch();
-            }
-            
+            return false;
         }
 
 
@@ -270,7 +279,7 @@ namespace ProjectCaro
 
                     tabControl.SelectTab(Home);
 
-                    NewGame();
+                    NewGame("newroom");
                     break;
                 case DialogResult.No:
                     break;
@@ -289,7 +298,7 @@ namespace ProjectCaro
 
                     tabControl.SelectTab(Home);
 
-                    NewGame();
+                    NewGame("newroom");
                     break;
                 case DialogResult.No:
                     break;
@@ -298,40 +307,48 @@ namespace ProjectCaro
 
 
 
-        private void NewGame()
+        private void NewGame(string check)
         {
-            player_turn = 0;
-            turn = -1;
+            switch(check)
+            {
+                case "newroom":
+                    player_turn = 0;
+                    turn = -1;
 
-            host_id = null;
-            join_id = null;
-            room_no = null;
+                    host_id = null;
+                    join_id = null;
+                    room_no = null;
+
+                    break;
+                case "refreshroom":
+                    player_turn = 0;
+                    turn = -1;
+
+                    host_id = user_id;
+                    join_id = null;
+
+                    break;
+                case "playagain":
+                    // đổi player turn
+                    if (player_turn == 1)
+                    {
+                        player_turn = 2;
+                    }
+                    else if (player_turn == 2)
+                    {
+                        player_turn = 1;
+                    }
+
+                    turn = 0;
+                    break;
+            }
 
             lblHost.BackColor = Color.Transparent;
             lblJoin.BackColor = Color.Transparent;
 
             listboxchat2.Items.Clear();
 
-            playerO.Clear();
-            playerX.Clear();
-
-            btnList.Clear();
-
-            pnlChess.Controls.Clear();
-        }
-
-
-        private void ReGame()
-        {
-            player_turn = 0;
-            turn = -1;
-            host_id = user_id;
-            join_id = null;
-
-            lblHost.BackColor = Color.Transparent;
-            lblJoin.BackColor = Color.Transparent;
-
-            listboxchat2.Items.Clear();
+            btnReplay.Enabled = false;
 
             playerO.Clear();
             playerX.Clear();
@@ -342,35 +359,11 @@ namespace ProjectCaro
         }
 
 
-        private void PlayAgain()
-        {
-            // đổi player turn
-            if (player_turn == 1)
-            {
-                player_turn = 2;
-            }
-            else if (player_turn == 2)
-            {
-                player_turn = 1;
-            }
-
-            turn = 0;
-            playerO.Clear();
-            playerX.Clear();
-
-            btnList.Clear();
-
-            pnlChess.Controls.Clear();
-
-            DrawChessBoard();
-        }
-
-
-        private void picWinLose_Click(object sender, EventArgs e)
-        {
-            picWinLose.Visible = false;
-            PlayAgain();
-        }
+        //private void picWinLose_Click(object sender, EventArgs e)
+        //{
+        //    //picWinLose.Visible = false;
+        //    PlayAgain();
+        //}
 
 
         private void btnChat2_Click(object sender, EventArgs e)
@@ -413,6 +406,37 @@ namespace ProjectCaro
             Application.Exit();
         }
 
+
+        private void btnReplay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddJoin_Click(object sender, EventArgs e)
+        {
+            SendAddFriend(user_id, join_id);
+        }
+
+        private void btnAddHost_Click(object sender, EventArgs e)
+        {
+            SendAddFriend(user_id, host_id);
+        }
+
+
+        private void btnThoatTran_Click(object sender, EventArgs e)
+        {
+            //  thoát trước khi vào trận sẽ không trừ điểm
+            if ((host_id != null) && (join_id == null))
+            {
+                QuitBeforeMatch();
+            }
+            // thoát khi đang trong trận sẽ bị trừ điểm
+            else if ((host_id != null) && (join_id != null))
+            {
+                QuitInMatch();
+            }
+
+        }
 
     }
 }

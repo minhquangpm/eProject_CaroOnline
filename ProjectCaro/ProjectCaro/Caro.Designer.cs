@@ -80,7 +80,7 @@
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listboxchat = new System.Windows.Forms.ListBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSotran = new System.Windows.Forms.Label();
@@ -95,6 +95,16 @@
             this.lblOnline2 = new System.Windows.Forms.Label();
             this.lblCaroGame2 = new System.Windows.Forms.Label();
             this.Map = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.btnAddHost = new System.Windows.Forms.Button();
+            this.btnAddJoin = new System.Windows.Forms.Button();
+            this.btnReplay = new System.Windows.Forms.Button();
+            this.Vs = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCloseForm3 = new System.Windows.Forms.Button();
             this.btnMinimizeForm3 = new System.Windows.Forms.Button();
             this.pnlLogo3 = new System.Windows.Forms.Panel();
@@ -109,7 +119,6 @@
             this.lblJoin = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
-            this.picWinLose = new System.Windows.Forms.PictureBox();
             this.btnChat2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtChat2 = new System.Windows.Forms.TextBox();
@@ -118,11 +127,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Vs = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -134,19 +138,17 @@
             this.Home.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.pnlUserInfo.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabAll.SuspendLayout();
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
-            this.pnlLogo3.SuspendLayout();
-            this.pnlChess.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlLogo3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -616,7 +618,7 @@
             this.panel1.Controls.Add(this.btnChat);
             this.panel1.Controls.Add(this.txtChat);
             this.panel1.Controls.Add(this.listboxchat);
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.pnlUserInfo);
             this.panel1.Location = new System.Drawing.Point(6, 53);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(880, 531);
@@ -639,9 +641,9 @@
             this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(138, 270);
+            this.btnVaoNhanh.Location = new System.Drawing.Point(176, 270);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
-            this.btnVaoNhanh.Size = new System.Drawing.Size(125, 45);
+            this.btnVaoNhanh.Size = new System.Drawing.Size(143, 45);
             this.btnVaoNhanh.TabIndex = 34;
             this.btnVaoNhanh.Text = "Quick Join";
             this.btnVaoNhanh.UseVisualStyleBackColor = false;
@@ -683,8 +685,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.danhsachphong.RowHeadersVisible = false;
+            this.danhsachphong.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
             this.danhsachphong.RowTemplate.Height = 30;
+            this.danhsachphong.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.danhsachphong.Size = new System.Drawing.Size(603, 224);
@@ -749,7 +753,7 @@
             this.btnTao.ForeColor = System.Drawing.Color.LightYellow;
             this.btnTao.Location = new System.Drawing.Point(7, 270);
             this.btnTao.Name = "btnTao";
-            this.btnTao.Size = new System.Drawing.Size(125, 45);
+            this.btnTao.Size = new System.Drawing.Size(151, 45);
             this.btnTao.TabIndex = 27;
             this.btnTao.Text = "Create Room";
             this.btnTao.UseVisualStyleBackColor = false;
@@ -789,35 +793,36 @@
             this.listboxchat.Size = new System.Drawing.Size(603, 139);
             this.listboxchat.TabIndex = 29;
             // 
-            // panel4
+            // pnlUserInfo
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.lblSotran);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.tabAll);
-            this.panel4.Controls.Add(this.lblUsername);
-            this.panel4.Controls.Add(this.lblLevel);
-            this.panel4.Controls.Add(this.Level);
-            this.panel4.Location = new System.Drawing.Point(633, 40);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(237, 486);
-            this.panel4.TabIndex = 31;
+            this.pnlUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlUserInfo.Controls.Add(this.panel3);
+            this.pnlUserInfo.Controls.Add(this.lblSotran);
+            this.pnlUserInfo.Controls.Add(this.label1);
+            this.pnlUserInfo.Controls.Add(this.tabAll);
+            this.pnlUserInfo.Controls.Add(this.lblUsername);
+            this.pnlUserInfo.Controls.Add(this.lblLevel);
+            this.pnlUserInfo.Controls.Add(this.Level);
+            this.pnlUserInfo.Location = new System.Drawing.Point(633, 40);
+            this.pnlUserInfo.Name = "pnlUserInfo";
+            this.pnlUserInfo.Size = new System.Drawing.Size(237, 486);
+            this.pnlUserInfo.TabIndex = 31;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(23, 42);
+            this.panel3.Location = new System.Drawing.Point(70, 46);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(183, 100);
+            this.panel3.Size = new System.Drawing.Size(100, 100);
             this.panel3.TabIndex = 18;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 94);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -875,10 +880,11 @@
             // 
             // lblUsername
             // 
+            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Black;
-            this.lblUsername.Location = new System.Drawing.Point(54, 6);
+            this.lblUsername.Location = new System.Drawing.Point(65, 14);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(124, 29);
             this.lblUsername.TabIndex = 0;
@@ -944,6 +950,11 @@
             // Map
             // 
             this.Map.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Map.Controls.Add(this.label2);
+            this.Map.Controls.Add(this.lblKey);
+            this.Map.Controls.Add(this.btnAddHost);
+            this.Map.Controls.Add(this.btnAddJoin);
+            this.Map.Controls.Add(this.btnReplay);
             this.Map.Controls.Add(this.Vs);
             this.Map.Controls.Add(this.panel6);
             this.Map.Controls.Add(this.panel5);
@@ -968,6 +979,117 @@
             this.Map.Size = new System.Drawing.Size(886, 590);
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
+            this.label2.Location = new System.Drawing.Point(181, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 29);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "Key :";
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.BackColor = System.Drawing.Color.Transparent;
+            this.lblKey.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.ForeColor = System.Drawing.Color.Yellow;
+            this.lblKey.Location = new System.Drawing.Point(241, 60);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(61, 29);
+            this.lblKey.TabIndex = 71;
+            this.lblKey.Text = "0000";
+            // 
+            // btnAddHost
+            // 
+            this.btnAddHost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAddHost.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddHost.Location = new System.Drawing.Point(545, 203);
+            this.btnAddHost.Name = "btnAddHost";
+            this.btnAddHost.Size = new System.Drawing.Size(100, 30);
+            this.btnAddHost.TabIndex = 70;
+            this.btnAddHost.Text = "Add Friend";
+            this.btnAddHost.UseVisualStyleBackColor = false;
+            this.btnAddHost.Visible = false;
+            this.btnAddHost.Click += new System.EventHandler(this.btnAddHost_Click);
+            // 
+            // btnAddJoin
+            // 
+            this.btnAddJoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAddJoin.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddJoin.Location = new System.Drawing.Point(738, 203);
+            this.btnAddJoin.Name = "btnAddJoin";
+            this.btnAddJoin.Size = new System.Drawing.Size(100, 30);
+            this.btnAddJoin.TabIndex = 69;
+            this.btnAddJoin.Text = "Add Friend";
+            this.btnAddJoin.UseVisualStyleBackColor = false;
+            this.btnAddJoin.Visible = false;
+            this.btnAddJoin.Click += new System.EventHandler(this.btnAddJoin_Click);
+            // 
+            // btnReplay
+            // 
+            this.btnReplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnReplay.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnReplay.Location = new System.Drawing.Point(509, 542);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(173, 42);
+            this.btnReplay.TabIndex = 68;
+            this.btnReplay.Text = "Replay";
+            this.btnReplay.UseVisualStyleBackColor = false;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
+            // 
+            // Vs
+            // 
+            this.Vs.AutoSize = true;
+            this.Vs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vs.Location = new System.Drawing.Point(684, 145);
+            this.Vs.Name = "Vs";
+            this.Vs.Size = new System.Drawing.Size(26, 20);
+            this.Vs.TabIndex = 67;
+            this.Vs.Text = "vs";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Location = new System.Drawing.Point(738, 104);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(100, 100);
+            this.panel6.TabIndex = 66;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(94, 94);
+            this.pictureBox3.TabIndex = 57;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Location = new System.Drawing.Point(545, 104);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(100, 100);
+            this.panel5.TabIndex = 65;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(94, 94);
+            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabStop = false;
             // 
             // btnCloseForm3
             // 
@@ -1038,11 +1160,11 @@
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
-            this.lblWaiting.Location = new System.Drawing.Point(605, 338);
+            this.lblWaiting.Location = new System.Drawing.Point(598, 337);
             this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(167, 24);
+            this.lblWaiting.Size = new System.Drawing.Size(194, 25);
             this.lblWaiting.TabIndex = 0;
             this.lblWaiting.Text = "Wait for player ...";
             // 
@@ -1064,7 +1186,7 @@
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
             this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSophong.ForeColor = System.Drawing.Color.Yellow;
-            this.lblSophong.Location = new System.Drawing.Point(104, 59);
+            this.lblSophong.Location = new System.Drawing.Point(91, 59);
             this.lblSophong.Name = "lblSophong";
             this.lblSophong.Size = new System.Drawing.Size(61, 29);
             this.lblSophong.TabIndex = 39;
@@ -1087,9 +1209,9 @@
             this.btnThoatTran.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnThoatTran.Location = new System.Drawing.Point(509, 542);
+            this.btnThoatTran.Location = new System.Drawing.Point(700, 542);
             this.btnThoatTran.Name = "btnThoatTran";
-            this.btnThoatTran.Size = new System.Drawing.Size(364, 42);
+            this.btnThoatTran.Size = new System.Drawing.Size(173, 42);
             this.btnThoatTran.TabIndex = 55;
             this.btnThoatTran.Text = "Quit game";
             this.btnThoatTran.UseVisualStyleBackColor = false;
@@ -1100,7 +1222,7 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(526, 65);
+            this.lblHost.Location = new System.Drawing.Point(541, 64);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(98, 23);
             this.lblHost.TabIndex = 53;
@@ -1111,7 +1233,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(757, 65);
+            this.lblJoin.Location = new System.Drawing.Point(734, 65);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 23);
             this.lblJoin.TabIndex = 52;
@@ -1121,11 +1243,11 @@
             // 
             this.Time.AutoSize = true;
             this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Kristen ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time.ForeColor = System.Drawing.Color.Black;
-            this.Time.Location = new System.Drawing.Point(589, 227);
+            this.Time.Location = new System.Drawing.Point(590, 248);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(216, 88);
+            this.Time.Size = new System.Drawing.Size(197, 73);
             this.Time.TabIndex = 49;
             this.Time.Text = "0  :  0";
             // 
@@ -1134,22 +1256,10 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Controls.Add(this.picWinLose);
             this.pnlChess.Location = new System.Drawing.Point(13, 104);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(480, 480);
             this.pnlChess.TabIndex = 43;
-            // 
-            // picWinLose
-            // 
-            this.picWinLose.Image = global::ProjectCaro.Properties.Resources.lose;
-            this.picWinLose.Location = new System.Drawing.Point(21, 22);
-            this.picWinLose.Name = "picWinLose";
-            this.picWinLose.Size = new System.Drawing.Size(433, 434);
-            this.picWinLose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picWinLose.TabIndex = 1;
-            this.picWinLose.TabStop = false;
-            this.picWinLose.Click += new System.EventHandler(this.picWinLose_Click);
             // 
             // btnChat2
             // 
@@ -1212,50 +1322,6 @@
             this.bunifuDragControl3.TargetControl = this.Map;
             this.bunifuDragControl3.Vertical = true;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Location = new System.Drawing.Point(509, 104);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(142, 97);
-            this.panel5.TabIndex = 65;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(5, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox2.TabIndex = 57;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Location = new System.Drawing.Point(738, 104);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(142, 97);
-            this.panel6.TabIndex = 66;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(5, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(134, 87);
-            this.pictureBox3.TabIndex = 57;
-            this.pictureBox3.TabStop = false;
-            // 
-            // Vs
-            // 
-            this.Vs.AutoSize = true;
-            this.Vs.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vs.Location = new System.Drawing.Point(684, 145);
-            this.Vs.Name = "Vs";
-            this.Vs.Size = new System.Drawing.Size(20, 18);
-            this.Vs.TabIndex = 67;
-            this.Vs.Text = "vs";
-            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1287,8 +1353,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnlUserInfo.ResumeLayout(false);
+            this.pnlUserInfo.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabAll.ResumeLayout(false);
@@ -1296,14 +1362,12 @@
             this.pnlLogo2.PerformLayout();
             this.Map.ResumeLayout(false);
             this.Map.PerformLayout();
-            this.pnlLogo3.ResumeLayout(false);
-            this.pnlLogo3.PerformLayout();
-            this.pnlChess.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picWinLose)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlLogo3.ResumeLayout(false);
+            this.pnlLogo3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1329,7 +1393,6 @@
         public System.Windows.Forms.Label lblWaiting;
         private System.Windows.Forms.Button btnThoatTran;
         public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox picWinLose;
         public System.Windows.Forms.Label lblOnline1;
         private System.Windows.Forms.Button btnMinimizeForm1;
         private System.Windows.Forms.Button btnCloseForm1;
@@ -1374,7 +1437,7 @@
         public System.Windows.Forms.Button btnChat;
         public System.Windows.Forms.TextBox txtChat;
         public System.Windows.Forms.ListBox listboxchat;
-        public System.Windows.Forms.Panel panel4;
+        public System.Windows.Forms.Panel pnlUserInfo;
         public System.Windows.Forms.Label lblUsername;
         public System.Windows.Forms.Label lblLevel;
         public System.Windows.Forms.Label Level;
@@ -1405,6 +1468,11 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnAddJoin;
+        private System.Windows.Forms.Button btnReplay;
+        private System.Windows.Forms.Button btnAddHost;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lblKey;
     }
 }
 

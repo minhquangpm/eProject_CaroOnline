@@ -22,10 +22,10 @@ namespace ProjectCaro
             host_id = user_id;
             room_no = recv_room_no;
 
-            txtChat2.Enabled = false;
-
             Invoke(new Action(() =>
             {
+                txtChat2.Enabled = false;
+
                 //mở map
                 MapLoad();
                 tabControl.SelectTab(Map);
@@ -45,6 +45,24 @@ namespace ProjectCaro
 
             // set turn = 0 (bắt đầu game)
             turn = 0;
+
+            // check đối thủ có trong friend list
+            bool check_friend = false;
+            foreach (FriendList friend in CaroAPI.getFriendList.data)
+            {
+                if (friend.name.Equals(host_id))
+                {
+                    check_friend = true;
+                }
+            }
+            if (!check_friend)
+            {
+                Invoke(new Action(() =>
+                {
+                    btnAddHost.Visible = true;
+                }));
+            }
+
 
             Invoke(new Action(() =>
             {
@@ -115,14 +133,14 @@ namespace ProjectCaro
                         Invoke(new Action(() =>
                         {
                             tabControl.SelectTab(Home);
-                            NewGame();
+                            NewGame("newroom");
                         }));
 
                         break;
                     case DialogResult.No:
                         Invoke(new Action(() =>
                         {
-                            ReGame();
+                            NewGame("refreshroom");
                             MapLoad();
                         }));
                         break;
@@ -139,14 +157,14 @@ namespace ProjectCaro
                         Invoke(new Action(() =>
                         {
                             tabControl.SelectTab(Home);
-                            NewGame();
+                            NewGame("newroom");
                         }));
 
                         break;
                     case DialogResult.No:
                         Invoke(new Action(() =>
                         {
-                            ReGame();
+                            NewGame("refreshroom");
                             MapLoad();
                         }));
 

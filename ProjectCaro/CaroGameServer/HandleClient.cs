@@ -397,5 +397,19 @@ namespace CaroGameServer
             }
         }
 
+
+
+        public static void AddFriend(string user_id, string friend_id)
+        {
+
+        }
+
+
+        public static void RemoveFriend(string user_id, string friend_id)
+        {
+
+        }
+
+
     }
 }

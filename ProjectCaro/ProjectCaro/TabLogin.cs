@@ -25,7 +25,6 @@ namespace ProjectCaro
                 //Load home
                 HomeLoad();
 
-                lblUsername.Text = user_id;
                 //check login và chạy hàm load
                 processbartime.Start();
                 SendUserOnline(user_id);

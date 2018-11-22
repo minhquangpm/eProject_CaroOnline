@@ -38,6 +38,12 @@ namespace ProjectCaro
         }
 
 
+        private static void SendAddFriend(string user_id, string friend_id)
+        {
+            string message = "add:" + user_id + ":" + friend_id;
+            SendData(message);
+        }
+
         private static void SendCreateRoom(string user_id)
         {
             string message = "create:" + user_id + ":false";

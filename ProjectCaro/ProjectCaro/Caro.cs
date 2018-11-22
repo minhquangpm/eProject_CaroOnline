@@ -19,7 +19,7 @@ namespace ProjectCaro
             txt_Log2.PasswordChar = '*';
             txtPassword.PasswordChar = '*';
             password2.PasswordChar = '*';
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

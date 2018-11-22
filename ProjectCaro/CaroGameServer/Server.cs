@@ -102,6 +102,9 @@ namespace CaroGameServer
                         case "chatall":
                             HandleClient.ChatAll(code[1], code[2]);
                             break;
+                        case "add":
+                            HandleClient
+                            break;
                         case "create":
                             if (code[2].Equals("true"))
                             {
