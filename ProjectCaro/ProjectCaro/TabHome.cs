@@ -51,17 +51,18 @@ namespace ProjectCaro
         }
 
 
-        private void btnTao_Click(object sender, EventArgs e)
+        private void btnCreatePublic_Click(object sender, EventArgs e)
+        {
+            SendCreateRoom(user_id);
+        }
+
+
+        private void btnCreatePrivate_Click(object sender, EventArgs e)
         {
             room_key = Interaction.InputBox("Create password: ", "Caro", "", -1, -1);
-
             if (room_key.Length > 0)
             {
                 SendCreateRoom(user_id, room_key);
-            }
-            else if (room_key.Length == 0)
-            {
-                SendCreateRoom(user_id);
             }
         }
 

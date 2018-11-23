@@ -70,6 +70,7 @@
             this.btnCloseForm2 = new System.Windows.Forms.Button();
             this.btnMinimizeForm2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCreatePrivate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
@@ -81,7 +82,7 @@
             this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRoomList = new System.Windows.Forms.Label();
             this.btnVaoNhanh = new System.Windows.Forms.Button();
-            this.btnTao = new System.Windows.Forms.Button();
+            this.btnCreatePublic = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listboxchat = new System.Windows.Forms.ListBox();
@@ -624,10 +625,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel1.Controls.Add(this.btnCreatePrivate);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.lblRoomList);
             this.panel1.Controls.Add(this.btnVaoNhanh);
-            this.panel1.Controls.Add(this.btnTao);
+            this.panel1.Controls.Add(this.btnCreatePublic);
             this.panel1.Controls.Add(this.btnChat);
             this.panel1.Controls.Add(this.txtChat);
             this.panel1.Controls.Add(this.listboxchat);
@@ -636,6 +638,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(910, 555);
             this.panel1.TabIndex = 60;
+            // 
+            // btnCreatePrivate
+            // 
+            this.btnCreatePrivate.BackColor = System.Drawing.Color.Tomato;
+            this.btnCreatePrivate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreatePrivate.ForeColor = System.Drawing.Color.LightYellow;
+            this.btnCreatePrivate.Location = new System.Drawing.Point(241, 270);
+            this.btnCreatePrivate.Name = "btnCreatePrivate";
+            this.btnCreatePrivate.Size = new System.Drawing.Size(232, 45);
+            this.btnCreatePrivate.TabIndex = 37;
+            this.btnCreatePrivate.Text = "Create Private Room";
+            this.btnCreatePrivate.UseVisualStyleBackColor = false;
+            this.btnCreatePrivate.Click += new System.EventHandler(this.btnCreatePrivate_Click);
             // 
             // panel7
             // 
@@ -771,26 +786,26 @@
             this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(186, 270);
+            this.btnVaoNhanh.Location = new System.Drawing.Point(479, 270);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
-            this.btnVaoNhanh.Size = new System.Drawing.Size(143, 45);
+            this.btnVaoNhanh.Size = new System.Drawing.Size(155, 45);
             this.btnVaoNhanh.TabIndex = 34;
             this.btnVaoNhanh.Text = "Quick Join";
             this.btnVaoNhanh.UseVisualStyleBackColor = false;
             this.btnVaoNhanh.Click += new System.EventHandler(this.btnVaoNhanh_Click);
             // 
-            // btnTao
+            // btnCreatePublic
             // 
-            this.btnTao.BackColor = System.Drawing.Color.Tomato;
-            this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTao.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnTao.Location = new System.Drawing.Point(17, 270);
-            this.btnTao.Name = "btnTao";
-            this.btnTao.Size = new System.Drawing.Size(151, 45);
-            this.btnTao.TabIndex = 27;
-            this.btnTao.Text = "Create Room";
-            this.btnTao.UseVisualStyleBackColor = false;
-            this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
+            this.btnCreatePublic.BackColor = System.Drawing.Color.Tomato;
+            this.btnCreatePublic.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreatePublic.ForeColor = System.Drawing.Color.LightYellow;
+            this.btnCreatePublic.Location = new System.Drawing.Point(17, 270);
+            this.btnCreatePublic.Name = "btnCreatePublic";
+            this.btnCreatePublic.Size = new System.Drawing.Size(218, 45);
+            this.btnCreatePublic.TabIndex = 27;
+            this.btnCreatePublic.Text = "Create Public Room";
+            this.btnCreatePublic.UseVisualStyleBackColor = false;
+            this.btnCreatePublic.Click += new System.EventHandler(this.btnCreatePublic_Click);
             // 
             // btnChat
             // 
@@ -1539,7 +1554,7 @@
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Button btnVaoNhanh;
         public System.Windows.Forms.DataGridView danhsachphong;
-        public System.Windows.Forms.Button btnTao;
+        public System.Windows.Forms.Button btnCreatePublic;
         public System.Windows.Forms.Button btnChat;
         public System.Windows.Forms.TextBox txtChat;
         public System.Windows.Forms.ListBox listboxchat;
@@ -1599,6 +1614,7 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.VScrollBar vScrollBar2;
         private System.Windows.Forms.Label lblGameStatus;
+        public System.Windows.Forms.Button btnCreatePrivate;
     }
 }
 
