@@ -1089,7 +1089,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label2.Location = new System.Drawing.Point(182, 4);
+            this.label2.Location = new System.Drawing.Point(281, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 29);
             this.label2.TabIndex = 92;
@@ -1101,7 +1101,7 @@
             this.lblKey.BackColor = System.Drawing.Color.Transparent;
             this.lblKey.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKey.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.lblKey.Location = new System.Drawing.Point(253, 4);
+            this.lblKey.Location = new System.Drawing.Point(352, 3);
             this.lblKey.Name = "lblKey";
             this.lblKey.Size = new System.Drawing.Size(61, 29);
             this.lblKey.TabIndex = 91;
