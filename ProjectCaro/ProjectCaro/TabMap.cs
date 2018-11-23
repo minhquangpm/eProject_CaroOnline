@@ -444,6 +444,7 @@ namespace ProjectCaro
             listboxchat2.Items.Clear();
 
             btnReplay.Enabled = false;
+            pnlChess.Enabled = true;
 
             playerO.Clear();
             playerX.Clear();

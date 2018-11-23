@@ -417,7 +417,7 @@ namespace ProjectCaro
                 // lưu số lượng phòng mới vào biến tạm thời trên client
                 client_room = server_room;
 
-                Thread.Sleep(1000);
+                Thread.Sleep(1500);
             }
 
         }
@@ -514,7 +514,7 @@ namespace ProjectCaro
 
                 client_friend = server_friend;
 
-                Thread.Sleep(1500);
+                Thread.Sleep(5000);
             }
         }
 
