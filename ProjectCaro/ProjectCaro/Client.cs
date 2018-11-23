@@ -466,6 +466,10 @@ namespace ProjectCaro
                     {
                         danhsachban.Rows[i].Cells[1].Value = Resources.online;
                     }
+                    else
+                    {
+                        danhsachban.Rows[i].Cells[1].Value = null;
+                    }
                 }
 
                 // quét friend đã xóa
