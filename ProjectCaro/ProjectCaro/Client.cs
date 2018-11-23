@@ -417,7 +417,7 @@ namespace ProjectCaro
                 // lưu số lượng phòng mới vào biến tạm thời trên client
                 client_room = server_room;
 
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
 
         }

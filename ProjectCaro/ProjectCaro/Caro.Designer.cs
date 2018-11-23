@@ -546,6 +546,7 @@
             // btnCloseForm1
             // 
             this.btnCloseForm1.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm1.CausesValidation = false;
             this.btnCloseForm1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
             this.btnCloseForm1.FlatAppearance.BorderSize = 2;
             this.btnCloseForm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -555,13 +556,16 @@
             this.btnCloseForm1.Name = "btnCloseForm1";
             this.btnCloseForm1.Size = new System.Drawing.Size(35, 35);
             this.btnCloseForm1.TabIndex = 56;
+            this.btnCloseForm1.TabStop = false;
             this.btnCloseForm1.Text = "X";
+            this.btnCloseForm1.UseMnemonic = false;
             this.btnCloseForm1.UseVisualStyleBackColor = false;
             this.btnCloseForm1.Click += new System.EventHandler(this.btnCloseForm1_Click);
             // 
             // btnMinimizeForm1
             // 
             this.btnMinimizeForm1.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizeForm1.CausesValidation = false;
             this.btnMinimizeForm1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
             this.btnMinimizeForm1.FlatAppearance.BorderSize = 2;
             this.btnMinimizeForm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -572,7 +576,9 @@
             this.btnMinimizeForm1.Name = "btnMinimizeForm1";
             this.btnMinimizeForm1.Size = new System.Drawing.Size(35, 35);
             this.btnMinimizeForm1.TabIndex = 57;
+            this.btnMinimizeForm1.TabStop = false;
             this.btnMinimizeForm1.Text = "-";
+            this.btnMinimizeForm1.UseMnemonic = false;
             this.btnMinimizeForm1.UseVisualStyleBackColor = false;
             this.btnMinimizeForm1.Click += new System.EventHandler(this.btnMinimizeForm1_Click);
             // 
@@ -593,7 +599,9 @@
             // btnCloseForm2
             // 
             this.btnCloseForm2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm2.CausesValidation = false;
             this.btnCloseForm2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnCloseForm2.FlatAppearance.BorderSize = 2;
             this.btnCloseForm2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm2.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -602,14 +610,18 @@
             this.btnCloseForm2.Name = "btnCloseForm2";
             this.btnCloseForm2.Size = new System.Drawing.Size(35, 35);
             this.btnCloseForm2.TabIndex = 61;
+            this.btnCloseForm2.TabStop = false;
             this.btnCloseForm2.Text = "X";
+            this.btnCloseForm2.UseMnemonic = false;
             this.btnCloseForm2.UseVisualStyleBackColor = false;
             this.btnCloseForm2.Click += new System.EventHandler(this.btnCloseForm2_Click);
             // 
             // btnMinimizeForm2
             // 
             this.btnMinimizeForm2.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizeForm2.CausesValidation = false;
             this.btnMinimizeForm2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnMinimizeForm2.FlatAppearance.BorderSize = 2;
             this.btnMinimizeForm2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeForm2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizeForm2.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -618,7 +630,9 @@
             this.btnMinimizeForm2.Name = "btnMinimizeForm2";
             this.btnMinimizeForm2.Size = new System.Drawing.Size(35, 35);
             this.btnMinimizeForm2.TabIndex = 62;
+            this.btnMinimizeForm2.TabStop = false;
             this.btnMinimizeForm2.Text = "-";
+            this.btnMinimizeForm2.UseMnemonic = false;
             this.btnMinimizeForm2.UseVisualStyleBackColor = false;
             this.btnMinimizeForm2.Click += new System.EventHandler(this.btnMinimizeForm2_Click);
             // 
@@ -641,7 +655,7 @@
             // 
             // btnCreatePrivate
             // 
-            this.btnCreatePrivate.BackColor = System.Drawing.Color.Tomato;
+            this.btnCreatePrivate.BackColor = System.Drawing.Color.MediumPurple;
             this.btnCreatePrivate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePrivate.ForeColor = System.Drawing.Color.LightYellow;
             this.btnCreatePrivate.Location = new System.Drawing.Point(241, 270);
@@ -796,7 +810,7 @@
             // 
             // btnCreatePublic
             // 
-            this.btnCreatePublic.BackColor = System.Drawing.Color.Tomato;
+            this.btnCreatePublic.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreatePublic.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePublic.ForeColor = System.Drawing.Color.LightYellow;
             this.btnCreatePublic.Location = new System.Drawing.Point(17, 270);
@@ -1361,7 +1375,9 @@
             // btnCloseForm3
             // 
             this.btnCloseForm3.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm3.CausesValidation = false;
             this.btnCloseForm3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnCloseForm3.FlatAppearance.BorderSize = 2;
             this.btnCloseForm3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm3.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm3.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -1370,14 +1386,18 @@
             this.btnCloseForm3.Name = "btnCloseForm3";
             this.btnCloseForm3.Size = new System.Drawing.Size(35, 35);
             this.btnCloseForm3.TabIndex = 63;
+            this.btnCloseForm3.TabStop = false;
             this.btnCloseForm3.Text = "X";
+            this.btnCloseForm3.UseMnemonic = false;
             this.btnCloseForm3.UseVisualStyleBackColor = false;
             this.btnCloseForm3.Click += new System.EventHandler(this.btnCloseForm3_Click);
             // 
             // btnMinimizeForm3
             // 
             this.btnMinimizeForm3.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizeForm3.CausesValidation = false;
             this.btnMinimizeForm3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnMinimizeForm3.FlatAppearance.BorderSize = 2;
             this.btnMinimizeForm3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeForm3.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizeForm3.ForeColor = System.Drawing.Color.PapayaWhip;
@@ -1386,7 +1406,9 @@
             this.btnMinimizeForm3.Name = "btnMinimizeForm3";
             this.btnMinimizeForm3.Size = new System.Drawing.Size(35, 35);
             this.btnMinimizeForm3.TabIndex = 64;
+            this.btnMinimizeForm3.TabStop = false;
             this.btnMinimizeForm3.Text = "-";
+            this.btnMinimizeForm3.UseMnemonic = false;
             this.btnMinimizeForm3.UseVisualStyleBackColor = false;
             this.btnMinimizeForm3.Click += new System.EventHandler(this.btnMinimizeForm3_Click);
             // 
