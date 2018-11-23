@@ -11,7 +11,9 @@ namespace ProjectCaro
         private void HomeLoad()
         {
             RoomListInit();
-            
+            FriendListInit();
+
+
             if (!workerRefreshRoom.IsBusy)
             {
                 workerRefreshRoom.RunWorkerAsync();
@@ -32,9 +34,8 @@ namespace ProjectCaro
 
         private void RoomListInit()
         {
-            danhsachphong.DefaultCellStyle.NullValue = null;
-            danhsachphong.Columns[0].HeaderCell.Style.BackColor = Color.AliceBlue;
-
+            // custom scrollbar
+            danhsachphong.ScrollBars = ScrollBars.None;
 
             for (int i = 0; i < 15; i++)
             {
@@ -42,7 +43,13 @@ namespace ProjectCaro
                 danhsachphong.Rows[i].ReadOnly = true;
             }
         }
-        
+
+
+        private void FriendListInit()
+        {
+            danhsachban.ScrollBars = ScrollBars.None;
+        }
+
 
         private void btnTao_Click(object sender, EventArgs e)
         {
@@ -57,19 +64,6 @@ namespace ProjectCaro
                 SendCreateRoom(user_id);
             }
         }
-
-
-        //private void btnVao_Click(object sender, EventArgs e)
-        //{
-        //    string input = Interaction.InputBox("Enter room number: ", "Caro", "", -1, -1);
-            
-        //    if (input.Length > 0)
-        //    {
-        //        room_no = input;
-        //        SendJoinRoom(user_id, room_no);
-        //    }
-        //}
-        
 
 
         private void btnVaoNhanh_Click(object sender, EventArgs e)
@@ -144,6 +138,41 @@ namespace ProjectCaro
                 btnChat.PerformClick();
             }
         }
+
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            danhsachphong.FirstDisplayedScrollingRowIndex = vScrollBar1.Value;
+        }
+
+
+
+        private void danhsachphong_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (danhsachphong.RowCount > 6)
+            {
+                vScrollBar1.Enabled = true;
+            }
+
+            vScrollBar1.Maximum = danhsachphong.RowCount + 4;
+        }
+
+        private void vScrollBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            danhsachban.FirstDisplayedScrollingRowIndex = vScrollBar2.Value;
+        }
+
+
+        private void danhsachban_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (danhsachban.RowCount > 7)
+            {
+                vScrollBar2.Enabled = true;
+            }
+
+            vScrollBar2.Maximum = danhsachban.RowCount + 3;
+        }
+
 
 
         private void btnCloseForm2_Click(object sender, EventArgs e)

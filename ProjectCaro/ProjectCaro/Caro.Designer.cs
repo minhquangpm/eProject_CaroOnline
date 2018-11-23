@@ -25,13 +25,14 @@
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabControl = new ProjectCaro.CustomTabControl();
             this.Login = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlBorderLogin = new System.Windows.Forms.Panel();
@@ -69,8 +70,8 @@
             this.btnCloseForm2 = new System.Windows.Forms.Button();
             this.btnMinimizeForm2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblRoomList = new System.Windows.Forms.Label();
-            this.btnVaoNhanh = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
             this.danhsachphong_lock = new System.Windows.Forms.DataGridViewImageColumn();
             this.danhsachphong_pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,15 +79,19 @@
             this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRoomList = new System.Windows.Forms.Label();
+            this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.btnTao = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listboxchat = new System.Windows.Forms.ListBox();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.danhsachban = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.danhsachban_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachban_status = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSotran = new System.Windows.Forms.Label();
@@ -98,6 +103,7 @@
             this.lblOnline2 = new System.Windows.Forms.Label();
             this.lblCaroGame2 = new System.Windows.Forms.Label();
             this.Map = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.btnAddHost = new System.Windows.Forms.Button();
@@ -108,11 +114,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCloseForm3 = new System.Windows.Forms.Button();
-            this.btnMinimizeForm3 = new System.Windows.Forms.Button();
-            this.pnlLogo3 = new System.Windows.Forms.Panel();
-            this.lblOnline3 = new System.Windows.Forms.Label();
-            this.lblCaroGame3 = new System.Windows.Forms.Label();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -125,6 +126,11 @@
             this.btnChat2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtChat2 = new System.Windows.Forms.TextBox();
+            this.btnCloseForm3 = new System.Windows.Forms.Button();
+            this.btnMinimizeForm3 = new System.Windows.Forms.Button();
+            this.pnlLogo3 = new System.Windows.Forms.Panel();
+            this.lblOnline3 = new System.Windows.Forms.Label();
+            this.lblCaroGame3 = new System.Windows.Forms.Label();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -140,13 +146,16 @@
             this.pnlLogo1.SuspendLayout();
             this.Home.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.pnlUserInfo.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel5.SuspendLayout();
@@ -162,7 +171,7 @@
             this.tabControl.Location = new System.Drawing.Point(-5, -2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(894, 616);
+            this.tabControl.Size = new System.Drawing.Size(894, 630);
             this.tabControl.TabIndex = 0;
             // 
             // Login
@@ -176,7 +185,7 @@
             this.Login.Location = new System.Drawing.Point(4, 22);
             this.Login.Name = "Login";
             this.Login.Padding = new System.Windows.Forms.Padding(3);
-            this.Login.Size = new System.Drawing.Size(886, 590);
+            this.Login.Size = new System.Drawing.Size(886, 604);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             // 
@@ -186,9 +195,9 @@
             this.panel2.Controls.Add(this.pnlBorderLogin);
             this.panel2.Controls.Add(this.pnlBorderSignup);
             this.panel2.Controls.Add(this.processBar1);
-            this.panel2.Location = new System.Drawing.Point(6, 53);
+            this.panel2.Location = new System.Drawing.Point(0, 53);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(880, 531);
+            this.panel2.Size = new System.Drawing.Size(903, 555);
             this.panel2.TabIndex = 59;
             // 
             // pnlBorderLogin
@@ -575,7 +584,7 @@
             this.Home.Location = new System.Drawing.Point(4, 22);
             this.Home.Name = "Home";
             this.Home.Padding = new System.Windows.Forms.Padding(3);
-            this.Home.Size = new System.Drawing.Size(886, 590);
+            this.Home.Size = new System.Drawing.Size(886, 604);
             this.Home.TabIndex = 1;
             this.Home.Text = "Home";
             // 
@@ -614,43 +623,37 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.lblRoomList);
             this.panel1.Controls.Add(this.btnVaoNhanh);
-            this.panel1.Controls.Add(this.danhsachphong);
             this.panel1.Controls.Add(this.btnTao);
             this.panel1.Controls.Add(this.btnChat);
             this.panel1.Controls.Add(this.txtChat);
             this.panel1.Controls.Add(this.listboxchat);
             this.panel1.Controls.Add(this.pnlUserInfo);
-            this.panel1.Location = new System.Drawing.Point(6, 53);
+            this.panel1.Location = new System.Drawing.Point(-4, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 531);
+            this.panel1.Size = new System.Drawing.Size(910, 555);
             this.panel1.TabIndex = 60;
             // 
-            // lblRoomList
+            // panel7
             // 
-            this.lblRoomList.AutoSize = true;
-            this.lblRoomList.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomList.ForeColor = System.Drawing.Color.White;
-            this.lblRoomList.Location = new System.Drawing.Point(7, 10);
-            this.lblRoomList.Name = "lblRoomList";
-            this.lblRoomList.Size = new System.Drawing.Size(97, 27);
-            this.lblRoomList.TabIndex = 35;
-            this.lblRoomList.Text = "List room";
+            this.panel7.Controls.Add(this.vScrollBar1);
+            this.panel7.Controls.Add(this.danhsachphong);
+            this.panel7.Location = new System.Drawing.Point(17, 40);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(617, 224);
+            this.panel7.TabIndex = 36;
             // 
-            // btnVaoNhanh
+            // vScrollBar1
             // 
-            this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
-            this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(176, 270);
-            this.btnVaoNhanh.Name = "btnVaoNhanh";
-            this.btnVaoNhanh.Size = new System.Drawing.Size(143, 45);
-            this.btnVaoNhanh.TabIndex = 34;
-            this.btnVaoNhanh.Text = "Quick Join";
-            this.btnVaoNhanh.UseVisualStyleBackColor = false;
-            this.btnVaoNhanh.Click += new System.EventHandler(this.btnVaoNhanh_Click);
+            this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar1.Enabled = false;
+            this.vScrollBar1.Location = new System.Drawing.Point(600, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 224);
+            this.vScrollBar1.TabIndex = 34;
+            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             // 
             // danhsachphong
             // 
@@ -667,26 +670,26 @@
             this.danhsachphong_room_host,
             this.danhsachphong_player});
             this.danhsachphong.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong.DefaultCellStyle = dataGridViewCellStyle2;
             this.danhsachphong.GridColor = System.Drawing.SystemColors.ControlText;
-            this.danhsachphong.Location = new System.Drawing.Point(7, 40);
+            this.danhsachphong.Location = new System.Drawing.Point(0, 0);
             this.danhsachphong.MultiSelect = false;
             this.danhsachphong.Name = "danhsachphong";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.danhsachphong.RowHeadersVisible = false;
             this.danhsachphong.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
@@ -697,12 +700,13 @@
             this.danhsachphong.Size = new System.Drawing.Size(603, 224);
             this.danhsachphong.TabIndex = 33;
             this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
+            this.danhsachphong.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.danhsachphong_RowsAdded);
             // 
             // danhsachphong_lock
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = null;
-            this.danhsachphong_lock.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.danhsachphong_lock.DefaultCellStyle = dataGridViewCellStyle1;
             this.danhsachphong_lock.HeaderText = "Lock";
             this.danhsachphong_lock.Name = "danhsachphong_lock";
             this.danhsachphong_lock.ReadOnly = true;
@@ -731,7 +735,7 @@
             this.danhsachphong_room_name.Name = "danhsachphong_room_name";
             this.danhsachphong_room_name.ReadOnly = true;
             this.danhsachphong_room_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_name.Width = 160;
+            this.danhsachphong_room_name.Width = 169;
             // 
             // danhsachphong_room_host
             // 
@@ -749,12 +753,37 @@
             this.danhsachphong_player.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachphong_player.Width = 140;
             // 
+            // lblRoomList
+            // 
+            this.lblRoomList.AutoSize = true;
+            this.lblRoomList.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomList.ForeColor = System.Drawing.Color.White;
+            this.lblRoomList.Location = new System.Drawing.Point(17, 10);
+            this.lblRoomList.Name = "lblRoomList";
+            this.lblRoomList.Size = new System.Drawing.Size(97, 27);
+            this.lblRoomList.TabIndex = 35;
+            this.lblRoomList.Text = "List room";
+            // 
+            // btnVaoNhanh
+            // 
+            this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
+            this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
+            this.btnVaoNhanh.Location = new System.Drawing.Point(186, 270);
+            this.btnVaoNhanh.Name = "btnVaoNhanh";
+            this.btnVaoNhanh.Size = new System.Drawing.Size(143, 45);
+            this.btnVaoNhanh.TabIndex = 34;
+            this.btnVaoNhanh.Text = "Quick Join";
+            this.btnVaoNhanh.UseVisualStyleBackColor = false;
+            this.btnVaoNhanh.Click += new System.EventHandler(this.btnVaoNhanh_Click);
+            // 
             // btnTao
             // 
             this.btnTao.BackColor = System.Drawing.Color.Tomato;
             this.btnTao.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnTao.Location = new System.Drawing.Point(7, 270);
+            this.btnTao.Location = new System.Drawing.Point(17, 270);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(151, 45);
             this.btnTao.TabIndex = 27;
@@ -767,7 +796,7 @@
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
             this.btnChat.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChat.ForeColor = System.Drawing.Color.White;
-            this.btnChat.Location = new System.Drawing.Point(485, 496);
+            this.btnChat.Location = new System.Drawing.Point(495, 496);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(125, 32);
             this.btnChat.TabIndex = 30;
@@ -778,7 +807,7 @@
             // txtChat
             // 
             this.txtChat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChat.Location = new System.Drawing.Point(7, 500);
+            this.txtChat.Location = new System.Drawing.Point(17, 501);
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(472, 26);
             this.txtChat.TabIndex = 32;
@@ -791,7 +820,7 @@
             this.listboxchat.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat.FormattingEnabled = true;
             this.listboxchat.ItemHeight = 15;
-            this.listboxchat.Location = new System.Drawing.Point(7, 351);
+            this.listboxchat.Location = new System.Drawing.Point(17, 351);
             this.listboxchat.Name = "listboxchat";
             this.listboxchat.Size = new System.Drawing.Size(603, 139);
             this.listboxchat.TabIndex = 29;
@@ -799,17 +828,36 @@
             // pnlUserInfo
             // 
             this.pnlUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pnlUserInfo.Controls.Add(this.danhsachban);
+            this.pnlUserInfo.Controls.Add(this.panel8);
             this.pnlUserInfo.Controls.Add(this.panel3);
             this.pnlUserInfo.Controls.Add(this.lblSotran);
             this.pnlUserInfo.Controls.Add(this.label1);
             this.pnlUserInfo.Controls.Add(this.lblUsername);
             this.pnlUserInfo.Controls.Add(this.lblLevel);
             this.pnlUserInfo.Controls.Add(this.Level);
-            this.pnlUserInfo.Location = new System.Drawing.Point(633, 40);
+            this.pnlUserInfo.Location = new System.Drawing.Point(656, 40);
             this.pnlUserInfo.Name = "pnlUserInfo";
             this.pnlUserInfo.Size = new System.Drawing.Size(237, 486);
             this.pnlUserInfo.TabIndex = 31;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.vScrollBar2);
+            this.panel8.Controls.Add(this.danhsachban);
+            this.panel8.Location = new System.Drawing.Point(0, 230);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(237, 258);
+            this.panel8.TabIndex = 19;
+            // 
+            // vScrollBar2
+            // 
+            this.vScrollBar2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar2.Enabled = false;
+            this.vScrollBar2.Location = new System.Drawing.Point(220, 0);
+            this.vScrollBar2.Name = "vScrollBar2";
+            this.vScrollBar2.Size = new System.Drawing.Size(17, 258);
+            this.vScrollBar2.TabIndex = 35;
+            this.vScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar2_Scroll);
             // 
             // danhsachban
             // 
@@ -819,30 +867,31 @@
             this.danhsachban.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.danhsachban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.danhsachban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.Column1,
-            this.dataGridViewTextBoxColumn5});
+            this.danhsachban_name,
+            this.danhsachban_status,
+            this.Column1});
             this.danhsachban.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban.DefaultCellStyle = dataGridViewCellStyle5;
             this.danhsachban.GridColor = System.Drawing.SystemColors.ControlText;
-            this.danhsachban.Location = new System.Drawing.Point(3, 252);
+            this.danhsachban.Location = new System.Drawing.Point(0, 0);
             this.danhsachban.MultiSelect = false;
             this.danhsachban.Name = "danhsachban";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhsachban.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhsachban.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.danhsachban.RowHeadersVisible = false;
             this.danhsachban.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.danhsachban.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
@@ -850,34 +899,38 @@
             this.danhsachban.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachban.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.danhsachban.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.danhsachban.Size = new System.Drawing.Size(231, 231);
+            this.danhsachban.Size = new System.Drawing.Size(221, 258);
             this.danhsachban.TabIndex = 34;
+            this.danhsachban.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.danhsachban_RowsAdded);
             // 
-            // dataGridViewTextBoxColumn4
+            // danhsachban_name
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Friends";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn4.Width = 120;
+            this.danhsachban_name.HeaderText = "Name";
+            this.danhsachban_name.Name = "danhsachban_name";
+            this.danhsachban_name.ReadOnly = true;
+            this.danhsachban_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban_name.Width = 134;
+            // 
+            // danhsachban_status
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.danhsachban_status.DefaultCellStyle = dataGridViewCellStyle4;
+            this.danhsachban_status.HeaderText = "";
+            this.danhsachban_status.Name = "danhsachban_status";
+            this.danhsachban_status.ReadOnly = true;
+            this.danhsachban_status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban_status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.danhsachban_status.Width = 30;
             // 
             // Column1
             // 
+            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column1.Width = 30;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn5.Width = 80;
+            this.Column1.Text = "invite";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 60;
             // 
             // panel3
             // 
@@ -991,46 +1044,55 @@
             // Map
             // 
             this.Map.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.Map.Controls.Add(this.label2);
-            this.Map.Controls.Add(this.lblKey);
-            this.Map.Controls.Add(this.btnAddHost);
-            this.Map.Controls.Add(this.btnAddJoin);
-            this.Map.Controls.Add(this.btnReplay);
-            this.Map.Controls.Add(this.Vs);
-            this.Map.Controls.Add(this.panel6);
-            this.Map.Controls.Add(this.panel5);
+            this.Map.Controls.Add(this.panel4);
             this.Map.Controls.Add(this.btnCloseForm3);
             this.Map.Controls.Add(this.btnMinimizeForm3);
             this.Map.Controls.Add(this.pnlLogo3);
-            this.Map.Controls.Add(this.lblWaiting);
-            this.Map.Controls.Add(this.label3);
-            this.Map.Controls.Add(this.lblSophong);
-            this.Map.Controls.Add(this.listboxchat2);
-            this.Map.Controls.Add(this.btnThoatTran);
-            this.Map.Controls.Add(this.lblHost);
-            this.Map.Controls.Add(this.lblJoin);
-            this.Map.Controls.Add(this.Time);
-            this.Map.Controls.Add(this.pnlChess);
-            this.Map.Controls.Add(this.btnChat2);
-            this.Map.Controls.Add(this.label5);
-            this.Map.Controls.Add(this.txtChat2);
             this.Map.Location = new System.Drawing.Point(4, 22);
             this.Map.Name = "Map";
             this.Map.Padding = new System.Windows.Forms.Padding(3);
-            this.Map.Size = new System.Drawing.Size(886, 590);
+            this.Map.Size = new System.Drawing.Size(886, 604);
             this.Map.TabIndex = 2;
             this.Map.Text = "Map";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lblKey);
+            this.panel4.Controls.Add(this.btnAddHost);
+            this.panel4.Controls.Add(this.btnAddJoin);
+            this.panel4.Controls.Add(this.btnReplay);
+            this.panel4.Controls.Add(this.Vs);
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.lblWaiting);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.lblSophong);
+            this.panel4.Controls.Add(this.listboxchat2);
+            this.panel4.Controls.Add(this.btnThoatTran);
+            this.panel4.Controls.Add(this.lblHost);
+            this.panel4.Controls.Add(this.lblJoin);
+            this.panel4.Controls.Add(this.Time);
+            this.panel4.Controls.Add(this.pnlChess);
+            this.panel4.Controls.Add(this.btnChat2);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.txtChat2);
+            this.panel4.Location = new System.Drawing.Point(-4, 53);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(913, 555);
+            this.panel4.TabIndex = 65;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(181, 60);
+            this.label2.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label2.Location = new System.Drawing.Point(182, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 29);
-            this.label2.TabIndex = 72;
+            this.label2.TabIndex = 92;
             this.label2.Text = "Key :";
             // 
             // lblKey
@@ -1038,11 +1100,11 @@
             this.lblKey.AutoSize = true;
             this.lblKey.BackColor = System.Drawing.Color.Transparent;
             this.lblKey.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKey.ForeColor = System.Drawing.Color.Yellow;
-            this.lblKey.Location = new System.Drawing.Point(241, 60);
+            this.lblKey.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.lblKey.Location = new System.Drawing.Point(253, 4);
             this.lblKey.Name = "lblKey";
             this.lblKey.Size = new System.Drawing.Size(61, 29);
-            this.lblKey.TabIndex = 71;
+            this.lblKey.TabIndex = 91;
             this.lblKey.Text = "0000";
             // 
             // btnAddHost
@@ -1050,10 +1112,10 @@
             this.btnAddHost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnAddHost.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddHost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddHost.Location = new System.Drawing.Point(545, 203);
+            this.btnAddHost.Location = new System.Drawing.Point(523, 147);
             this.btnAddHost.Name = "btnAddHost";
             this.btnAddHost.Size = new System.Drawing.Size(100, 30);
-            this.btnAddHost.TabIndex = 70;
+            this.btnAddHost.TabIndex = 90;
             this.btnAddHost.Text = "Add Friend";
             this.btnAddHost.UseVisualStyleBackColor = false;
             this.btnAddHost.Visible = false;
@@ -1064,10 +1126,10 @@
             this.btnAddJoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnAddJoin.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddJoin.Location = new System.Drawing.Point(738, 203);
+            this.btnAddJoin.Location = new System.Drawing.Point(787, 147);
             this.btnAddJoin.Name = "btnAddJoin";
             this.btnAddJoin.Size = new System.Drawing.Size(100, 30);
-            this.btnAddJoin.TabIndex = 69;
+            this.btnAddJoin.TabIndex = 89;
             this.btnAddJoin.Text = "Add Friend";
             this.btnAddJoin.UseVisualStyleBackColor = false;
             this.btnAddJoin.Visible = false;
@@ -1078,10 +1140,10 @@
             this.btnReplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnReplay.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnReplay.Location = new System.Drawing.Point(509, 542);
+            this.btnReplay.Location = new System.Drawing.Point(523, 486);
             this.btnReplay.Name = "btnReplay";
             this.btnReplay.Size = new System.Drawing.Size(173, 42);
-            this.btnReplay.TabIndex = 68;
+            this.btnReplay.TabIndex = 88;
             this.btnReplay.Text = "Replay";
             this.btnReplay.UseVisualStyleBackColor = false;
             this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
@@ -1090,20 +1152,20 @@
             // 
             this.Vs.AutoSize = true;
             this.Vs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vs.Location = new System.Drawing.Point(684, 145);
+            this.Vs.Location = new System.Drawing.Point(687, 100);
             this.Vs.Name = "Vs";
             this.Vs.Size = new System.Drawing.Size(26, 20);
-            this.Vs.TabIndex = 67;
+            this.Vs.TabIndex = 87;
             this.Vs.Text = "vs";
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.PapayaWhip;
             this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Location = new System.Drawing.Point(738, 104);
+            this.panel6.Location = new System.Drawing.Point(787, 48);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(100, 100);
-            this.panel6.TabIndex = 66;
+            this.panel6.TabIndex = 86;
             // 
             // pictureBox3
             // 
@@ -1118,10 +1180,10 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.PapayaWhip;
             this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Location = new System.Drawing.Point(545, 104);
+            this.panel5.Location = new System.Drawing.Point(523, 48);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(100, 100);
-            this.panel5.TabIndex = 65;
+            this.panel5.TabIndex = 85;
             // 
             // pictureBox2
             // 
@@ -1131,6 +1193,141 @@
             this.pictureBox2.Size = new System.Drawing.Size(94, 94);
             this.pictureBox2.TabIndex = 57;
             this.pictureBox2.TabStop = false;
+            // 
+            // lblWaiting
+            // 
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
+            this.lblWaiting.Location = new System.Drawing.Point(611, 281);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(194, 25);
+            this.lblWaiting.TabIndex = 73;
+            this.lblWaiting.Text = "Wait for player ...";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label3.Location = new System.Drawing.Point(17, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 29);
+            this.label3.TabIndex = 84;
+            this.label3.Text = "Room :";
+            // 
+            // lblSophong
+            // 
+            this.lblSophong.AutoSize = true;
+            this.lblSophong.BackColor = System.Drawing.Color.Transparent;
+            this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSophong.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.lblSophong.Location = new System.Drawing.Point(101, 3);
+            this.lblSophong.Name = "lblSophong";
+            this.lblSophong.Size = new System.Drawing.Size(61, 29);
+            this.lblSophong.TabIndex = 74;
+            this.lblSophong.Text = "0000";
+            // 
+            // listboxchat2
+            // 
+            this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.listboxchat2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listboxchat2.FormattingEnabled = true;
+            this.listboxchat2.ItemHeight = 15;
+            this.listboxchat2.Location = new System.Drawing.Point(523, 309);
+            this.listboxchat2.Name = "listboxchat2";
+            this.listboxchat2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listboxchat2.Size = new System.Drawing.Size(364, 139);
+            this.listboxchat2.TabIndex = 75;
+            // 
+            // btnThoatTran
+            // 
+            this.btnThoatTran.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnThoatTran.Location = new System.Drawing.Point(714, 486);
+            this.btnThoatTran.Name = "btnThoatTran";
+            this.btnThoatTran.Size = new System.Drawing.Size(173, 42);
+            this.btnThoatTran.TabIndex = 83;
+            this.btnThoatTran.Text = "Quit game";
+            this.btnThoatTran.UseVisualStyleBackColor = false;
+            this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
+            // 
+            // lblHost
+            // 
+            this.lblHost.AutoSize = true;
+            this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
+            this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.lblHost.Location = new System.Drawing.Point(522, 10);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(98, 23);
+            this.lblHost.TabIndex = 82;
+            this.lblHost.Text = "UserHost";
+            // 
+            // lblJoin
+            // 
+            this.lblJoin.AutoSize = true;
+            this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.lblJoin.Location = new System.Drawing.Point(786, 8);
+            this.lblJoin.Name = "lblJoin";
+            this.lblJoin.Size = new System.Drawing.Size(98, 23);
+            this.lblJoin.TabIndex = 81;
+            this.lblJoin.Text = "UserJoin";
+            // 
+            // Time
+            // 
+            this.Time.AutoSize = true;
+            this.Time.BackColor = System.Drawing.Color.Transparent;
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.ForeColor = System.Drawing.Color.Black;
+            this.Time.Location = new System.Drawing.Point(603, 200);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(197, 73);
+            this.Time.TabIndex = 80;
+            this.Time.Text = "0  :  0";
+            // 
+            // pnlChess
+            // 
+            this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChess.Location = new System.Drawing.Point(17, 48);
+            this.pnlChess.Name = "pnlChess";
+            this.pnlChess.Size = new System.Drawing.Size(480, 480);
+            this.pnlChess.TabIndex = 76;
+            // 
+            // btnChat2
+            // 
+            this.btnChat2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btnChat2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChat2.Location = new System.Drawing.Point(825, 454);
+            this.btnChat2.Name = "btnChat2";
+            this.btnChat2.Size = new System.Drawing.Size(62, 26);
+            this.btnChat2.TabIndex = 77;
+            this.btnChat2.Text = "Send";
+            this.btnChat2.UseVisualStyleBackColor = false;
+            this.btnChat2.Click += new System.EventHandler(this.btnChat2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Maroon;
+            this.label5.Location = new System.Drawing.Point(101, 248);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 25);
+            this.label5.TabIndex = 79;
+            // 
+            // txtChat2
+            // 
+            this.txtChat2.Font = new System.Drawing.Font("Consolas", 12F);
+            this.txtChat2.Location = new System.Drawing.Point(523, 454);
+            this.txtChat2.Name = "txtChat2";
+            this.txtChat2.Size = new System.Drawing.Size(296, 26);
+            this.txtChat2.TabIndex = 78;
             // 
             // btnCloseForm3
             // 
@@ -1198,142 +1395,6 @@
             this.lblCaroGame3.TabIndex = 55;
             this.lblCaroGame3.Text = "C A R O G A M E";
             // 
-            // lblWaiting
-            // 
-            this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWaiting.ForeColor = System.Drawing.Color.DarkSalmon;
-            this.lblWaiting.Location = new System.Drawing.Point(598, 337);
-            this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(194, 25);
-            this.lblWaiting.TabIndex = 0;
-            this.lblWaiting.Text = "Wait for player ...";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(13, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 29);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Room :";
-            // 
-            // lblSophong
-            // 
-            this.lblSophong.AutoSize = true;
-            this.lblSophong.BackColor = System.Drawing.Color.Transparent;
-            this.lblSophong.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSophong.ForeColor = System.Drawing.Color.Yellow;
-            this.lblSophong.Location = new System.Drawing.Point(91, 59);
-            this.lblSophong.Name = "lblSophong";
-            this.lblSophong.Size = new System.Drawing.Size(61, 29);
-            this.lblSophong.TabIndex = 39;
-            this.lblSophong.Text = "0000";
-            // 
-            // listboxchat2
-            // 
-            this.listboxchat2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.listboxchat2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listboxchat2.FormattingEnabled = true;
-            this.listboxchat2.ItemHeight = 15;
-            this.listboxchat2.Location = new System.Drawing.Point(509, 365);
-            this.listboxchat2.Name = "listboxchat2";
-            this.listboxchat2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listboxchat2.Size = new System.Drawing.Size(364, 139);
-            this.listboxchat2.TabIndex = 42;
-            // 
-            // btnThoatTran
-            // 
-            this.btnThoatTran.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnThoatTran.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoatTran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnThoatTran.Location = new System.Drawing.Point(700, 542);
-            this.btnThoatTran.Name = "btnThoatTran";
-            this.btnThoatTran.Size = new System.Drawing.Size(173, 42);
-            this.btnThoatTran.TabIndex = 55;
-            this.btnThoatTran.Text = "Quit game";
-            this.btnThoatTran.UseVisualStyleBackColor = false;
-            this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
-            // 
-            // lblHost
-            // 
-            this.lblHost.AutoSize = true;
-            this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(541, 64);
-            this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(98, 23);
-            this.lblHost.TabIndex = 53;
-            this.lblHost.Text = "UserHost";
-            // 
-            // lblJoin
-            // 
-            this.lblJoin.AutoSize = true;
-            this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(734, 65);
-            this.lblJoin.Name = "lblJoin";
-            this.lblJoin.Size = new System.Drawing.Size(98, 23);
-            this.lblJoin.TabIndex = 52;
-            this.lblJoin.Text = "UserJoin";
-            // 
-            // Time
-            // 
-            this.Time.AutoSize = true;
-            this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.ForeColor = System.Drawing.Color.Black;
-            this.Time.Location = new System.Drawing.Point(590, 248);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(197, 73);
-            this.Time.TabIndex = 49;
-            this.Time.Text = "0  :  0";
-            // 
-            // pnlChess
-            // 
-            this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Location = new System.Drawing.Point(13, 104);
-            this.pnlChess.Name = "pnlChess";
-            this.pnlChess.Size = new System.Drawing.Size(480, 480);
-            this.pnlChess.TabIndex = 43;
-            // 
-            // btnChat2
-            // 
-            this.btnChat2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btnChat2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChat2.Location = new System.Drawing.Point(811, 510);
-            this.btnChat2.Name = "btnChat2";
-            this.btnChat2.Size = new System.Drawing.Size(62, 26);
-            this.btnChat2.TabIndex = 44;
-            this.btnChat2.Text = "Send";
-            this.btnChat2.UseVisualStyleBackColor = false;
-            this.btnChat2.Click += new System.EventHandler(this.btnChat2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(104, 304);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 25);
-            this.label5.TabIndex = 47;
-            // 
-            // txtChat2
-            // 
-            this.txtChat2.Font = new System.Drawing.Font("Consolas", 12F);
-            this.txtChat2.Location = new System.Drawing.Point(509, 510);
-            this.txtChat2.Name = "txtChat2";
-            this.txtChat2.Size = new System.Drawing.Size(296, 26);
-            this.txtChat2.TabIndex = 45;
-            this.txtChat2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat2_KeyDown);
-            // 
             // processbartime
             // 
             this.processbartime.Tick += new System.EventHandler(this.processbartime_Tick);
@@ -1367,6 +1428,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(884, 601);
             this.Controls.Add(this.tabControl);
             this.DoubleBuffered = true;
@@ -1378,7 +1440,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caro ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Caro_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.Login.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1393,16 +1454,19 @@
             this.Home.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
             this.pnlUserInfo.ResumeLayout(false);
             this.pnlUserInfo.PerformLayout();
+            this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlLogo2.ResumeLayout(false);
             this.pnlLogo2.PerformLayout();
             this.Map.ResumeLayout(false);
-            this.Map.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1415,25 +1479,13 @@
 
         #endregion
 
-        public System.Windows.Forms.TabControl tabControl;
+        public CustomTabControl tabControl;
         public System.Windows.Forms.TabPage Login;
         public System.Windows.Forms.TabPage Home;
         public System.Windows.Forms.TabPage Map;
         public System.Windows.Forms.Timer processbartime;
-        public System.Windows.Forms.Label lblSophong;
-        public System.Windows.Forms.Label Time;
-        public System.Windows.Forms.Panel pnlChess;
-        public System.Windows.Forms.ListBox listboxchat2;
-        public System.Windows.Forms.Button btnChat2;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txtChat2;
         public System.Windows.Forms.Timer timer1;
         private System.ComponentModel.IContainer components;
-        public System.Windows.Forms.Label lblHost;
-        public System.Windows.Forms.Label lblJoin;
-        public System.Windows.Forms.Label lblWaiting;
-        private System.Windows.Forms.Button btnThoatTran;
-        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblOnline1;
         private System.Windows.Forms.Button btnMinimizeForm1;
         private System.Windows.Forms.Button btnCloseForm1;
@@ -1492,29 +1544,46 @@
         public System.Windows.Forms.Label lblCaroGame3;
         private System.Windows.Forms.Button btnCloseForm3;
         private System.Windows.Forms.Button btnMinimizeForm3;
+        public System.Windows.Forms.DataGridView danhsachban;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
+        private System.Windows.Forms.Panel panel4;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lblKey;
+        private System.Windows.Forms.Button btnAddHost;
+        private System.Windows.Forms.Button btnAddJoin;
+        private System.Windows.Forms.Button btnReplay;
         private System.Windows.Forms.Label Vs;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnAddJoin;
-        private System.Windows.Forms.Button btnReplay;
-        private System.Windows.Forms.Button btnAddHost;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label lblKey;
-        public System.Windows.Forms.DataGridView danhsachban;
+        public System.Windows.Forms.Label lblWaiting;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lblSophong;
+        public System.Windows.Forms.ListBox listboxchat2;
+        private System.Windows.Forms.Button btnThoatTran;
+        public System.Windows.Forms.Label lblHost;
+        public System.Windows.Forms.Label lblJoin;
+        public System.Windows.Forms.Label Time;
+        public System.Windows.Forms.Panel pnlChess;
+        public System.Windows.Forms.Button btnChat2;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtChat2;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridViewImageColumn danhsachphong_lock;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_pass;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn5;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachban_name;
+        private System.Windows.Forms.DataGridViewImageColumn danhsachban_status;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.VScrollBar vScrollBar2;
     }
 }
 

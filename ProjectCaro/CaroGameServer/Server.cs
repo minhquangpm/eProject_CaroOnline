@@ -48,8 +48,14 @@ namespace CaroGameServer
             DataBase.ClearRoom();
             DataBase.ResetUser();
 
+            // start server
             server.Start();
 
+            // start user offline collector
+            Thread uocThread = new Thread(new ThreadStart(() => sv.UserOfflineCollector()));
+            uocThread.Start();
+
+            // chấp nhận kết nối từ client
             while (true)
             {
                 counter++;
@@ -63,7 +69,7 @@ namespace CaroGameServer
         }
 
 
-        public void User(TcpClient client)
+        private void User(TcpClient client)
         {
             int i;
 
@@ -140,10 +146,10 @@ namespace CaroGameServer
             }
             catch (Exception ex)
             {
-                if (ex is IOException || ex is InvalidOperationException)
+                if (ex is IOException)
                 {
                     //Console.WriteLine("Client disconnected");
-                    HandleClient.UserOffline();
+                    //HandleClient.UserOffline();
 
 
                     //stream.Close();
@@ -151,5 +157,17 @@ namespace CaroGameServer
                 }
             }
         }
+
+
+        private void UserOfflineCollector()
+        {
+            while (true)
+            {
+                HandleClient.UserOffline();
+
+                Thread.Sleep(1000);
+            }
+        }
+
     }
 }

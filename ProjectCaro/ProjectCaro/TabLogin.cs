@@ -8,30 +8,61 @@ namespace ProjectCaro
     {
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
         
+
+        private void LoginLoad()
+        {
+            //đổi pass thành *
+            txt_Log2.PasswordChar = '*';
+            txtPassword.PasswordChar = '*';
+            password2.PasswordChar = '*';
+
+            pnlBorderSignup.Visible = false;
+            pnlBorderLogin.Visible = true;
+            processBar1.Visible = false;
+        }
+
+
+
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            //không cho hành động khi chờ response
+            txt_Log1.Enabled = false;
+            txt_Log2.Enabled = false;
+            btnLogin.Enabled = false;
+
+
             user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
             bool check = await CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
 
             if (check)
             {
-                //không cho hành động khi load form
-                txt_Log1.Enabled = false;
-                txt_Log2.Enabled = false;
-                btnLogin.Enabled = false;
-
+                InitClient();
 
                 //Load home
                 HomeLoad();
 
                 //check login và chạy hàm load
                 processbartime.Start();
+
                 SendUserOnline(user_id);
             }
             else
             {
-                MessageBox.Show(CaroAPI.userReturn.statuscode);
+                try
+                {
+                    MessageBox.Show(CaroAPI.userReturn.statuscode);
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show("Cannot connect to server!");
+                }
+
+                // cho hành động lại khi thông báo lỗi
+                txt_Log1.Enabled = true;
+                txt_Log2.Enabled = true;
+                btnLogin.Enabled = true;
+
                 CaroAPI.userReturn = null;
             }
         }

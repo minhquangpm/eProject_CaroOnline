@@ -266,8 +266,14 @@ namespace CaroGameServer
         // xóa user khỏi online list
         public static void UserOffline()
         {
-            foreach (Online userOnline in onlineList)
+            if (onlineList.Count == 0)
             {
+                return;
+            }
+
+            for (int i = 0; i < onlineList.Count; i++)
+            {
+                Online userOnline = onlineList[i];
                 if (!isConnected(userOnline.userClient))
                 {
                     Console.WriteLine("User " + userOnline.user_id + " offline");
@@ -280,9 +286,9 @@ namespace CaroGameServer
 
                     // xóa object
                     onlineList.Remove(userOnline);
-                    break;
                 }
             }
+                
         }
 
 
@@ -291,38 +297,31 @@ namespace CaroGameServer
         // TH3: xử lý khi join disconnect giữa trận
         private static void RemoveUserFromRoom(string disconnect_user)
         {
-            //try
-            //{
-                foreach (Room room in roomList)
+            for (int i = 0; i < roomList.Count; i++) 
+            {
+                Room room = roomList[i];
+                if (disconnect_user.Equals(room.host_id) && room.join_id == null)
                 {
-                    if (disconnect_user.Equals(room.host_id) && room.join_id == null)
-                    {
-                        Console.WriteLine("User " + disconnect_user + " disconnect while waiting join");
+                    Console.WriteLine("User " + disconnect_user + " disconnect while waiting join");
 
-                        RemoveRoom(room.room_no);
-                        break;
-                    }
-                    else if (disconnect_user.Equals(room.host_id) && room.join_id != null)
-                    {
-                        Console.WriteLine("User " + disconnect_user + " disconnect between match");
-
-                        QuitRoom(disconnect_user, room.room_no);
-                        break;
-                    }
-                    else if (disconnect_user.Equals(room.join_id))
-                    {
-                        Console.WriteLine("User " + disconnect_user + " disconnect between match");
-
-                        QuitRoom(disconnect_user, room.room_no);
-                        break;
-                    }
+                    RemoveRoom(room.room_no);
+                    break;
                 }
-            //}
-            //catch (NullReferenceException ex)
-            //{
-            //    Console.WriteLine("NULL ERROR: " + disconnect_user + " " + roomList.Count);
-            //}
-            
+                else if (disconnect_user.Equals(room.host_id) && room.join_id != null)
+                {
+                    Console.WriteLine("User " + disconnect_user + " disconnect between match");
+
+                    QuitRoom(disconnect_user, room.room_no);
+                    break;
+                }
+                else if (disconnect_user.Equals(room.join_id))
+                {
+                    Console.WriteLine("User " + disconnect_user + " disconnect between match");
+
+                    QuitRoom(disconnect_user, room.room_no);
+                    break;
+                }
+            }
         }
 
 

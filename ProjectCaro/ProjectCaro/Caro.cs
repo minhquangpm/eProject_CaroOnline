@@ -5,30 +5,20 @@ using System.Windows.Forms;
 
 namespace ProjectCaro
 {
-    partial class Caro : Form
+    partial class Caro : ShadowedForm
     {
         public Caro()
         {
             InitializeComponent();
-            InitClient();
+
+            //InitClient();
 
             HideTab();
 
             FullWindow();
 
-            //đổi pass thành *
-            txt_Log2.PasswordChar = '*';
-            txtPassword.PasswordChar = '*';
-            password2.PasswordChar = '*';
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            pnlBorderSignup.Visible = false;
-            pnlBorderLogin.Visible = true;
-            processBar1.Visible = false;
-        }
+            LoginLoad();
+}
 
         private void Caro_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -48,6 +38,5 @@ namespace ProjectCaro
             FormBorderStyle = FormBorderStyle.None;
             tabControl.Dock = DockStyle.Fill;
         }
-       
     }
 }

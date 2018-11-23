@@ -23,7 +23,7 @@ namespace ProjectCaro
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
         //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
-        private static TcpClient client = new TcpClient(serverIp, serverPort);
+        private static TcpClient client = null;
 
 
         // khai báo worker
@@ -36,7 +36,14 @@ namespace ProjectCaro
         public void InitClient()
         {
             // tạo udpclient
-            //client = new UdpClient();
+            try
+            {
+                client = new TcpClient(serverIp, serverPort);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fail to connect to server!");
+            }
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -108,6 +115,11 @@ namespace ProjectCaro
                 catch (Exception ex)
                 {
                     MessageBox.Show("Disconnected from server", "Caro");
+                    tabControl.SelectTab(Login);
+
+                    // cancel listener
+                    workerListener.CancelAsync();
+                    return;
                 }
                 
 
@@ -413,6 +425,9 @@ namespace ProjectCaro
 
         private async void DoRefreshFriend(object sender, DoWorkEventArgs e)
         {
+            int server_friend = 0;
+            int client_friend = 0;
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -429,20 +444,71 @@ namespace ProjectCaro
                 });
 
 
-                for(int i = 0; i < CaroAPI.getFriendList.data.Count; i++)
+                // đếm số friend và nhét vào danhsachban
+                server_friend = CaroAPI.getFriendList.data.Count;
+                for (int i = 0; i < server_friend; i++)
                 {
                     FriendList friend = CaroAPI.getFriendList.data[i];
 
-                    //danhsachban.Rows.Add();
-                    //danhsachban.Rows[i].Cells[0].Value = friend.name;
-                    //if (friend.status == 0)
-                    //{
-                    //    danhsachban.Rows[i].Cells[1].Value = Resources.online;
-                    //}
-                    MessageBox.Show(friend.name);
                     
+                    if (server_friend > client_friend)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            danhsachban.Rows.Add();
+                        }));
+                    }
+                    
+
+                    danhsachban.Rows[i].Cells[0].Value = friend.name;
+                    
+                    if (friend.status == 1)
+                    {
+                        danhsachban.Rows[i].Cells[1].Value = Resources.online;
+                    }
                 }
 
+                // quét friend đã xóa
+                List<int> row_remove_list = new List<int>();
+
+                if (server_friend == 0)
+                {
+                    for (int j = 0; j < client_friend; j++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            danhsachban.Rows.RemoveAt(j);
+                        }));
+                    }
+                }
+
+                if (server_friend < client_friend)
+                {
+                    for (int k = 0; k < client_friend; k++)
+                    {
+                        DataGridViewRow row = danhsachban.Rows[k];
+
+                        foreach (FriendList friend in CaroAPI.getFriendList.data)
+                        {
+                            if (!row.Cells[0].Value.Equals(friend.name))
+                            {
+                                row_remove_list.Add(row.Index);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // xóa những friend quét được trên danhsachban
+                foreach (int row_remove_index in row_remove_list)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        danhsachban.Rows.RemoveAt(row_remove_index);
+                    }));
+                }
+
+                client_friend = server_friend;
 
                 Thread.Sleep(1000);
             }
