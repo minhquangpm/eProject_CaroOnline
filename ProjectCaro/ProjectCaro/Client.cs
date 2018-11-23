@@ -514,7 +514,7 @@ namespace ProjectCaro
 
                 client_friend = server_friend;
 
-                Thread.Sleep(1000);
+                Thread.Sleep(1500);
             }
         }
 
