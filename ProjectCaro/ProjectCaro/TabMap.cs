@@ -409,6 +409,7 @@ namespace ProjectCaro
                     host_id = null;
                     join_id = null;
                     room_no = null;
+                    room_key = null;
 
                     break;
                 case "refreshroom":
