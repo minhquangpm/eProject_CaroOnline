@@ -437,6 +437,8 @@ namespace ProjectCaro
             lblHost.BackColor = Color.Transparent;
             lblJoin.BackColor = Color.Transparent;
             lblGameStatus.Visible = false;
+            btnAddHost.Visible = false;
+            btnAddJoin.Visible = false;
 
             listboxchat2.Items.Clear();
 
