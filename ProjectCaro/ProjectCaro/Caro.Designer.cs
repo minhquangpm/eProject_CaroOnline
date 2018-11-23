@@ -104,6 +104,7 @@
             this.lblCaroGame2 = new System.Windows.Forms.Label();
             this.Map = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblGameStatus = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.btnAddHost = new System.Windows.Forms.Button();
@@ -1058,6 +1059,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel4.Controls.Add(this.lblGameStatus);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.lblKey);
             this.panel4.Controls.Add(this.btnAddHost);
@@ -1082,6 +1084,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(913, 555);
             this.panel4.TabIndex = 65;
+            // 
+            // lblGameStatus
+            // 
+            this.lblGameStatus.AutoSize = true;
+            this.lblGameStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameStatus.Location = new System.Drawing.Point(513, 200);
+            this.lblGameStatus.Name = "lblGameStatus";
+            this.lblGameStatus.Size = new System.Drawing.Size(351, 73);
+            this.lblGameStatus.TabIndex = 58;
+            this.lblGameStatus.Text = "YOU WON";
+            this.lblGameStatus.Visible = false;
             // 
             // label2
             // 
@@ -1138,6 +1151,7 @@
             // btnReplay
             // 
             this.btnReplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnReplay.Enabled = false;
             this.btnReplay.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnReplay.Location = new System.Drawing.Point(523, 486);
@@ -1151,10 +1165,10 @@
             // Vs
             // 
             this.Vs.AutoSize = true;
-            this.Vs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vs.Location = new System.Drawing.Point(687, 100);
+            this.Vs.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vs.Location = new System.Drawing.Point(678, 88);
             this.Vs.Name = "Vs";
-            this.Vs.Size = new System.Drawing.Size(26, 20);
+            this.Vs.Size = new System.Drawing.Size(44, 31);
             this.Vs.TabIndex = 87;
             this.Vs.Text = "vs";
             // 
@@ -1259,7 +1273,7 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(522, 10);
+            this.lblHost.Location = new System.Drawing.Point(519, 8);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(98, 23);
             this.lblHost.TabIndex = 82;
@@ -1270,7 +1284,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(786, 8);
+            this.lblJoin.Location = new System.Drawing.Point(783, 8);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 23);
             this.lblJoin.TabIndex = 81;
@@ -1584,6 +1598,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.VScrollBar vScrollBar2;
+        private System.Windows.Forms.Label lblGameStatus;
     }
 }
 

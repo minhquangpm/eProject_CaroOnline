@@ -139,5 +139,29 @@
   <ItemGroup>
     <None Include="Resources\online.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_slash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_slash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_slash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_slash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o_cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_cut.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

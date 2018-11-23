@@ -29,6 +29,7 @@ namespace ProjectCaro
 
         private static List<int> playerX = new List<int>();
         private static List<int> playerO = new List<int>();
+        private static List<int> winChessList = new List<int>();
         private static List<Button> btnList = new List<Button>();
 
         private DateTime da;
@@ -47,6 +48,7 @@ namespace ProjectCaro
             lblKey.Text = room_key;
             lblHost.Text = host_id;
             lblJoin.Text = join_id;
+
 
 
             // thực thi nếu người chơi là host
@@ -113,40 +115,18 @@ namespace ProjectCaro
             if ((turn % 2 == 0) && (player_turn == 1))
             {
                 btn.BackgroundImage = Resources.x;
-                playerX.Add(vi_tri);
 
                 SendPlay(user_id, room_no, vi_tri);
 
-                bool win = CheckWin(playerX, vi_tri);
-                if (win)
-                {
-                    //MessageBox.Show("Player " + player_turn + " won");
-                    SendWin(user_id, room_no);
-                    //picWinLose.Image = Resources.win;
-                    //picWinLose.Visible = true;
-
-
-                }
-
-                turn++;
+                Play(playerX, vi_tri, 1);
             }
             else if ((turn % 2 > 0) && (player_turn == 2))
             {
                 btn.BackgroundImage = Resources.o;
-                playerO.Add(vi_tri);
 
                 SendPlay(user_id, room_no, vi_tri);
 
-                bool win = CheckWin(playerO, vi_tri);
-                if (win)
-                {
-                    //MessageBox.Show("Player " + player_turn + " won");
-                    SendWin(user_id, room_no);
-                    //picWinLose.Image = Resources.win;
-                    //picWinLose.Visible = true;
-                }
-
-                turn++;
+                Play(playerO, vi_tri, 2);
             }
         }
 
@@ -162,53 +142,47 @@ namespace ProjectCaro
             if (player_turn == 2)
             {
                 btn.BackgroundImage = Resources.x;
-                playerX.Add(vi_tri);
-                //sound.Play();
-
-                bool lose = CheckWin(playerX, vi_tri);
-                if (lose)
-                {
-                    //MessageBox.Show("Player " + player_turn + " won");
-                    Invoke(new Action(() =>
-                    {
-                        //picWinLose.Image = Resources.lose;
-                        //picWinLose.Visible = true;
-                    }));
-                }
-
-                turn++;
+                Play(playerX, vi_tri, 1);
             }
             else if (player_turn == 1)
             {
                 btn.BackgroundImage = Resources.o;
-                playerO.Add(vi_tri);
-                //sound.Play();
-
-                bool lose = CheckWin(playerO, vi_tri);
-                if (lose)
-                {
-                    //MessageBox.Show("Player " + player_turn + " won");
-                    Invoke(new Action(() =>
-                    {
-                        //picWinLose.Image = Resources.lose;
-                        //picWinLose.Visible = true;
-                    }));
-                }
-
-                bool draw = CheckDraw();
-                if (draw)
-                {
-
-                }
-
-                turn++;
+                Play(playerO, vi_tri, 2);
             }
         }
 
 
+        private void Play(List<int> player, int vi_tri, int play_turn)
+        {
+            player.Add(vi_tri);
+
+            int win = CheckWin(player, vi_tri);
+            if (win > 0)
+            {
+                DrawBtnWin(win, play_turn);
+                if (play_turn == player_turn)
+                {
+                    SendWin(user_id, room_no);
+                    WonGame();
+                }
+                else
+                {
+                    LostGame();
+                }
+            }
+
+            bool draw = CheckDraw();
+            if (draw)
+            {
+
+            }
+
+            turn++;
+        }
+
 
         // check thắng
-        public static bool CheckWin(List<int> checkPlayer, int vi_tri)
+        private static int CheckWin(List<int> checkPlayer, int vi_tri)
         {
             for (int i = -4; i < 1; i++)
             {
@@ -219,7 +193,12 @@ namespace ProjectCaro
                 checkPlayer.Contains(vi_tri + i + 3) &&
                 checkPlayer.Contains(vi_tri + i + 4))
                 {
-                    return true;
+                    winChessList.Add(vi_tri + i);
+                    winChessList.Add(vi_tri + i + 1);
+                    winChessList.Add(vi_tri + i + 2);
+                    winChessList.Add(vi_tri + i + 3);
+                    winChessList.Add(vi_tri + i + 4);
+                    return 1;
                 }
 
                 // check hàng chéo phải sang trái
@@ -229,7 +208,12 @@ namespace ProjectCaro
                 checkPlayer.Contains(vi_tri + (i + 3) * (BOARD_WIDTH - 1)) &&
                 checkPlayer.Contains(vi_tri + (i + 4) * (BOARD_WIDTH - 1)))
                 {
-                    return true;
+                    winChessList.Add(vi_tri + i * (BOARD_WIDTH - 1));
+                    winChessList.Add(vi_tri + (i + 1) * (BOARD_WIDTH - 1));
+                    winChessList.Add(vi_tri + (i + 2) * (BOARD_WIDTH - 1));
+                    winChessList.Add(vi_tri + (i + 3) * (BOARD_WIDTH - 1));
+                    winChessList.Add(vi_tri + (i + 4) * (BOARD_WIDTH - 1));
+                    return 2;
                 }
 
                 // check hàng dọc
@@ -239,7 +223,12 @@ namespace ProjectCaro
                 checkPlayer.Contains(vi_tri + (i + 3) * BOARD_WIDTH) &&
                 checkPlayer.Contains(vi_tri + (i + 4) * BOARD_WIDTH))
                 {
-                    return true;
+                    winChessList.Add(vi_tri + i * BOARD_WIDTH);
+                    winChessList.Add(vi_tri + (i + 1) * BOARD_WIDTH);
+                    winChessList.Add(vi_tri + (i + 2) * BOARD_WIDTH);
+                    winChessList.Add(vi_tri + (i + 3) * BOARD_WIDTH);
+                    winChessList.Add(vi_tri + (i + 4) * BOARD_WIDTH);
+                    return 3;
                 }
 
                 // check hàng chéo trái sang phải
@@ -249,11 +238,16 @@ namespace ProjectCaro
                 checkPlayer.Contains(vi_tri + (i + 3) * (BOARD_WIDTH + 1)) &&
                 checkPlayer.Contains(vi_tri + (i + 4) * (BOARD_WIDTH + 1)))
                 {
-                    return true;
+                    winChessList.Add(vi_tri + i * (BOARD_WIDTH + 1));
+                    winChessList.Add(vi_tri + (i + 1) * (BOARD_WIDTH + 1));
+                    winChessList.Add(vi_tri + (i + 2) * (BOARD_WIDTH + 1));
+                    winChessList.Add(vi_tri + (i + 3) * (BOARD_WIDTH + 1));
+                    winChessList.Add(vi_tri + (i + 4) * (BOARD_WIDTH + 1));
+                    return 4;
                 }
             }
 
-            return false;
+            return 0;
         }
 
 
@@ -267,6 +261,85 @@ namespace ProjectCaro
             return false;
         }
 
+
+        private void DrawBtnWin(int win_status, int player_turn)
+        {
+            Bitmap draw = null;
+
+            if (win_status == 1 && player_turn == 1)
+            {
+                draw = Resources.x_over;
+            }
+            else if (win_status == 2 && player_turn == 1)
+            {
+                draw = Resources.x_slash;
+            }
+            else if (win_status == 3 && player_turn == 1)
+            {
+                draw = Resources.x_cut;
+            }
+            else if (win_status == 4 && player_turn == 1)
+            {
+                draw = Resources.x_slash1;
+            }
+            else if (win_status == 1 && player_turn == 2)
+            {
+                draw = Resources.o_over;
+            }
+            else if (win_status == 2 && player_turn == 2) 
+            {
+                draw = Resources.o_slash;
+            }
+            else if (win_status == 3 && player_turn == 2)
+            {
+                draw = Resources.o_cut;
+            }
+            else if (win_status == 4 && player_turn ==2)
+            {
+                draw = Resources.o_slash1;
+            }
+ 
+
+            foreach (int index in winChessList)
+            {
+                btnList[index].BackgroundImage = draw;
+            }
+            winChessList.Clear();
+        }
+
+
+
+        private void WonGame()
+        {
+            // show  YOU WON
+            lblGameStatus.Text = "YOU WON";
+            lblGameStatus.ForeColor = Color.Gold;
+            lblGameStatus.Visible = true;
+
+            // enable replay btn
+            btnReplay.Enabled = true;
+
+            // không cho người chơi đánh tiếp
+            pnlChess.Enabled = false;
+        }
+
+
+        private void LostGame()
+        {
+            Invoke(new Action(() =>
+            {
+                // show YOU LOST from other thread
+                lblGameStatus.Text = "YOU LOST";
+                lblGameStatus.ForeColor = Color.Red;
+                lblGameStatus.Visible = true;
+
+                // enable replay btn
+                btnReplay.Enabled = true;
+
+                // không cho người chơi đánh tiếp
+                pnlChess.Enabled = false;
+            }));
+        }
 
 
         private void QuitBeforeMatch()
@@ -291,6 +364,24 @@ namespace ProjectCaro
         private void QuitInMatch()
         {
             DialogResult result = MessageBox.Show("Are you sure you want to quit?\n\nIf Yes, your point will be reduced", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    SendQuitRoom(user_id, room_no);
+
+                    tabControl.SelectTab(Home);
+
+                    NewGame("newroom");
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+
+        private void QuitFinishMatch()
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (result)
             {
                 case DialogResult.Yes:
@@ -345,6 +436,7 @@ namespace ProjectCaro
 
             lblHost.BackColor = Color.Transparent;
             lblJoin.BackColor = Color.Transparent;
+            lblGameStatus.Visible = false;
 
             listboxchat2.Items.Clear();
 
@@ -357,13 +449,6 @@ namespace ProjectCaro
 
             pnlChess.Controls.Clear();
         }
-
-
-        //private void picWinLose_Click(object sender, EventArgs e)
-        //{
-        //    //picWinLose.Visible = false;
-        //    PlayAgain();
-        //}
 
 
         private void btnChat2_Click(object sender, EventArgs e)
@@ -433,7 +518,14 @@ namespace ProjectCaro
             // thoát khi đang trong trận sẽ bị trừ điểm
             else if ((host_id != null) && (join_id != null))
             {
-                QuitInMatch();
+                if (!lblGameStatus.Visible)
+                {
+                    QuitInMatch();
+                }
+                else
+                {
+                    QuitFinishMatch();
+                }
             }
 
         }
