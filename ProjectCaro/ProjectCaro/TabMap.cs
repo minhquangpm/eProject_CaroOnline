@@ -514,6 +514,7 @@ namespace ProjectCaro
 
         private void btnThoatTran_Click(object sender, EventArgs e)
         {
+            LoadInfo();
             //  thoát trước khi vào trận sẽ không trừ điểm
             if ((host_id != null) && (join_id == null))
             {

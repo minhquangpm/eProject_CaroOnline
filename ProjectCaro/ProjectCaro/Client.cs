@@ -82,10 +82,69 @@ namespace ProjectCaro
             workerListener.RunWorkerAsync();
         }
 
-        public void LoadAvatar()
+        public async void LoadAvatar()
         {
+            int expLevel = 75;
+            int exp;
             string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
             pictureBox1.Load(url);
+            await Task.Run(() =>
+            {
+                CaroAPI.ThongKe().GetAwaiter().GetResult();
+            });
+            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+
+        public async void LoadInfo()
+        {
+            int expLevel = 75;
+            int exp;
+            await Task.Run(() =>
+            {
+                CaroAPI.ThongKe().GetAwaiter().GetResult();
+            });
+            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
 
