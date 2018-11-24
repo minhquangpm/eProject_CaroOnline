@@ -12,6 +12,7 @@ namespace ProjectCaro
         {
             RoomListInit();
             FriendListInit();
+            LoadAvatar();
 
 
             if (!workerRefreshRoom.IsBusy)
