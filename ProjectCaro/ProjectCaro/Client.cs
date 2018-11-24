@@ -339,7 +339,7 @@ namespace ProjectCaro
         {
             int server_room = 0;
             int client_room = 0;
-            bool check = true;
+
             RoomGame room = new RoomGame();
             List<string> oldRoom_no = new List<string>();
             while (true)
