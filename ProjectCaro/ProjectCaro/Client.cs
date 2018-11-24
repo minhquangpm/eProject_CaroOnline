@@ -339,7 +339,9 @@ namespace ProjectCaro
         {
             int server_room = 0;
             int client_room = 0;
-
+            bool check = true;
+            RoomGame room = new RoomGame();
+            List<string> oldRoom_no = new List<string>();
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -356,12 +358,68 @@ namespace ProjectCaro
                     CaroAPI.Room().GetAwaiter().GetResult();
                 });
 
+
+                // quét những phòng đã xóa
+                List<int> row_remove_list = new List<int>();
+
+                if (server_room == 0)
+                {
+                    for (int i = 0; i < client_room; i++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            danhsachphong.Rows[i].Cells[0].Value = null;
+                            danhsachphong.Rows[i].Cells[1].Value = "";
+                            danhsachphong.Rows[i].Cells[2].Value = "";
+                            danhsachphong.Rows[i].Cells[3].Value = "";
+                            danhsachphong.Rows[i].Cells[4].Value = "";
+                            danhsachphong.Rows[i].Cells[5].Value = "";
+                        }));
+                    }
+                }
+
+                if (server_room < client_room && server_room != 0)
+                {
+                    for (int k = 0; k < client_room; k++)
+                    {
+                        DataGridViewRow row = danhsachphong.Rows[k];
+
+                        foreach(String roomold in oldRoom_no)
+                        {
+                            if (!row.Cells[2].Value.Equals(roomold))
+                            {
+                                row_remove_list.Add(row.Index);
+                                break;
+                            }
+                            
+                        }
+                    }
+                    oldRoom_no.Clear();
+                }
+
+                // xóa những phòng quét được trên danhsachphong
+                foreach (int row_remove_index in row_remove_list)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        danhsachphong.Rows[row_remove_index].Cells[0].Value = null;
+                        danhsachphong.Rows[row_remove_index].Cells[1].Value = "";
+                        danhsachphong.Rows[row_remove_index].Cells[2].Value = "";
+                        danhsachphong.Rows[row_remove_index].Cells[3].Value = "";
+                        danhsachphong.Rows[row_remove_index].Cells[4].Value = "";
+                        danhsachphong.Rows[row_remove_index].Cells[5].Value = "";
+                    }));
+                }
+
+
+                // lưu số lượng phòng mới vào biến tạm thời trên client
+                client_room = server_room;
                 // đếm số phòng nhận được từ server và nhét vào danhsachphong
                 server_room = CaroAPI.getRoom.data.Count;
 
                 for (int i = 0; i < server_room; i++)
                 {
-                    RoomGame room = CaroAPI.getRoom.data[i];
+                    room = CaroAPI.getRoom.data[i];
                     if (room.room_key != null)
                     {
                         danhsachphong.Rows[i].Cells[0].Value = Resources.key;
@@ -371,53 +429,9 @@ namespace ProjectCaro
                     danhsachphong.Rows[i].Cells[3].Value = room.roomname;
                     danhsachphong.Rows[i].Cells[4].Value = room.host_id;
                     danhsachphong.Rows[i].Cells[5].Value = room.join_id;
+                    oldRoom_no.Add(room.room_no);
                 }
-
-                // quét những phòng đã xóa
-                List<int> row_remove_list = new List<int>();
-
-                if (server_room == 0)
-                {
-                    for (int j = 0; j < client_room; j++)
-                    {
-                        Invoke(new Action(() =>
-                        {
-                            danhsachphong.Rows.RemoveAt(j);
-                        }));
-                    }
-                }
-
-                if (server_room < client_room)
-                {
-                    for (int k = 0; k < client_room; k++)
-                    {
-                        DataGridViewRow row = danhsachphong.Rows[k];
-
-                        foreach(RoomGame room in CaroAPI.getRoom.data)
-                        {
-                            if (!row.Cells[2].Value.Equals(room.room_no))
-                            {
-                                row_remove_list.Add(row.Index);
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                // xóa những phòng quét được trên danhsachphong
-                foreach (int row_remove_index in row_remove_list)
-                {
-                    Invoke(new Action(() =>
-                    {
-                        danhsachphong.Rows.RemoveAt(row_remove_index);
-                    }));
-                }
-
-
-                // lưu số lượng phòng mới vào biến tạm thời trên client
-                client_room = server_room;
-
-                Thread.Sleep(1500);
+                Thread.Sleep(3000);
             }
 
         }
@@ -514,7 +528,7 @@ namespace ProjectCaro
 
                 client_friend = server_friend;
 
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
             }
         }
 
