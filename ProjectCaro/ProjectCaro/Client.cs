@@ -82,7 +82,11 @@ namespace ProjectCaro
             workerListener.RunWorkerAsync();
         }
 
-
+        public void LoadAvatar()
+        {
+            string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
+            pictureBox1.Load(url);
+        }
 
 
         private void DoReceiver(object sender, DoWorkEventArgs e)

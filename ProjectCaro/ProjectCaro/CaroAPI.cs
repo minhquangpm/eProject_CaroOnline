@@ -63,6 +63,7 @@ namespace ProjectCaro
         public string name { get; set; }
         public string password { get; set; }
         public string email { get; set; }
+        public string avatar { get; set; }
     }
     public class UserReturn
     {
@@ -73,6 +74,7 @@ namespace ProjectCaro
         public int id { get; set; }
         public string username { get; set; }
         public string name { get; set; }
+        public string avatar { get; set; }
 
         public UserModel()
         {
@@ -92,6 +94,8 @@ namespace ProjectCaro
         public static GetRank getRank;
 
         public static UserReturn userReturn;
+
+        public static string[] avatar = { "manh1.jpg", "manh2.jpg", "manh3.jpg"};
 
         static string baseAddress = "http://159.89.193.234/";
 
@@ -227,12 +231,16 @@ namespace ProjectCaro
 
             try
             {
+                Random random = new Random();
+                int start = random.Next(0, avatar.Length);
+                string getavatar = avatar[start];
                 UserSignUp userSignUp = new UserSignUp
                 {
                     username = username,
                     name = name,
                     password = password,
                     email = email,
+                    avatar = getavatar,
                 };
                 bool check = await SignUpAsync(userSignUp, client);
                 if (check)

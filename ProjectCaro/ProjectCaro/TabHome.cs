@@ -12,6 +12,7 @@ namespace ProjectCaro
         {
             RoomListInit();
             FriendListInit();
+            LoadAvatar();
 
 
             if (!workerRefreshRoom.IsBusy)
@@ -36,12 +37,57 @@ namespace ProjectCaro
         {
             // custom scrollbar
             danhsachphong.ScrollBars = ScrollBars.None;
-            danhsachphong.Columns.Add("danhsachphong_lock", "Lock");
-            danhsachphong.Columns.Add("danhsachphong_pass", "Pass");
-            danhsachphong.Columns.Add("danhsachphong_no", "Number");
-            danhsachphong.Columns.Add("danhsachphong_name", "Name");
-            danhsachphong.Columns.Add("danhsachphong_host", "Host");
-            danhsachphong.Columns.Add("danhsachphong_player", "Player");
+
+            // custom column header
+            DataGridViewImageColumn danhsachphong_lock = new DataGridViewImageColumn
+            {
+                Name = "danhsachphong_lock",
+                HeaderText = "Lock",
+                Width = 50
+            };
+
+            DataGridViewTextBoxColumn danhsachphong_pass = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachphong_pass",
+                HeaderText = "Pass",
+                Width = 50,
+                Visible = false
+            };
+
+            DataGridViewTextBoxColumn danhsachphong_no = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachphong_no",
+                HeaderText = "Number",
+                Width = 100
+            };
+
+            DataGridViewTextBoxColumn danhsachphong_name = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachphong_name",
+                HeaderText = "Name",
+                Width = 169
+            };
+
+            DataGridViewTextBoxColumn danhsachphong_host = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachphong_host",
+                HeaderText = "Host",
+                Width = 140
+            };
+
+            DataGridViewTextBoxColumn danhsachphong_join = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachphong_join",
+                HeaderText = "Join",
+                Width = 140
+            };
+
+            danhsachphong.Columns.Add(danhsachphong_lock);
+            danhsachphong.Columns.Add(danhsachphong_pass);
+            danhsachphong.Columns.Add(danhsachphong_no);
+            danhsachphong.Columns.Add(danhsachphong_name);
+            danhsachphong.Columns.Add(danhsachphong_host);
+            danhsachphong.Columns.Add(danhsachphong_join);
 
             for (int i = 0; i < danhsachphong.Columns.Count; i++)
             {
@@ -51,16 +97,11 @@ namespace ProjectCaro
                 danhsachphong.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 danhsachphong.Columns[i].Resizable = DataGridViewTriState.False;
                 danhsachphong.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                danhsachphong.Columns[i].DefaultCellStyle.NullValue = null;
+                danhsachphong.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
             
-            danhsachphong.Columns[0].Width = 50;
-            danhsachphong.Columns[1].Width = 50;
-            danhsachphong.Columns[1].Visible = false;
-            danhsachphong.Columns[2].Width = 100;
-            danhsachphong.Columns[3].Width = 169;
-            danhsachphong.Columns[4].Width = 140;
-            danhsachphong.Columns[5].Width = 140;
-            
+
 
             for (int i = 0; i < 15; i++)
             {
