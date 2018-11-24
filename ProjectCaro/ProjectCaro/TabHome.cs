@@ -36,6 +36,31 @@ namespace ProjectCaro
         {
             // custom scrollbar
             danhsachphong.ScrollBars = ScrollBars.None;
+            danhsachphong.Columns.Add("danhsachphong_lock", "Lock");
+            danhsachphong.Columns.Add("danhsachphong_pass", "Pass");
+            danhsachphong.Columns.Add("danhsachphong_no", "Number");
+            danhsachphong.Columns.Add("danhsachphong_name", "Name");
+            danhsachphong.Columns.Add("danhsachphong_host", "Host");
+            danhsachphong.Columns.Add("danhsachphong_player", "Player");
+
+            for (int i = 0; i < danhsachphong.Columns.Count; i++)
+            {
+                danhsachphong.Columns[i].HeaderCell.Style.Font = new Font("Comic Sans MS", 12, FontStyle.Bold);
+                danhsachphong.Columns[i].HeaderCell.Style.BackColor = Color.LightSlateGray;
+                danhsachphong.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                danhsachphong.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                danhsachphong.Columns[i].Resizable = DataGridViewTriState.False;
+                danhsachphong.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            
+            danhsachphong.Columns[0].Width = 50;
+            danhsachphong.Columns[1].Width = 50;
+            danhsachphong.Columns[1].Visible = false;
+            danhsachphong.Columns[2].Width = 100;
+            danhsachphong.Columns[3].Width = 169;
+            danhsachphong.Columns[4].Width = 140;
+            danhsachphong.Columns[5].Width = 140;
+            
 
             for (int i = 0; i < 15; i++)
             {
@@ -147,7 +172,6 @@ namespace ProjectCaro
         }
 
 
-
         private void danhsachphong_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (danhsachphong.RowCount > 6)
@@ -155,7 +179,7 @@ namespace ProjectCaro
                 vScrollBar1.Enabled = true;
             }
 
-            vScrollBar1.Maximum = danhsachphong.RowCount + 4;
+            vScrollBar1.Maximum = danhsachphong.RowCount + 5;
         }
 
         private void vScrollBar2_Scroll(object sender, ScrollEventArgs e)

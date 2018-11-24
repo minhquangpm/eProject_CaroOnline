@@ -38,7 +38,5 @@ namespace ProjectCaro
             FormBorderStyle = FormBorderStyle.None;
             tabControl.Dock = DockStyle.Fill;
         }
-
-
     }
 }

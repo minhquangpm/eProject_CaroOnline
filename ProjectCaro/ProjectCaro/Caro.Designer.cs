@@ -25,12 +25,11 @@
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new ProjectCaro.CustomTabControl();
             this.Login = new System.Windows.Forms.TabPage();
@@ -84,6 +83,9 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.danhsachban = new System.Windows.Forms.DataGridView();
+            this.danhsachban_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhsachban_status = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSotran = new System.Windows.Forms.Label();
@@ -129,15 +131,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.danhsachphong_lock = new System.Windows.Forms.DataGridViewImageColumn();
-            this.danhsachphong_pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_room_host = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachphong_player = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachban_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachban_status = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -658,7 +651,7 @@
             this.btnCreatePrivate.BackColor = System.Drawing.Color.MediumPurple;
             this.btnCreatePrivate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePrivate.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnCreatePrivate.Location = new System.Drawing.Point(192, 270);
+            this.btnCreatePrivate.Location = new System.Drawing.Point(192, 280);
             this.btnCreatePrivate.Name = "btnCreatePrivate";
             this.btnCreatePrivate.Size = new System.Drawing.Size(171, 45);
             this.btnCreatePrivate.TabIndex = 37;
@@ -670,7 +663,7 @@
             // 
             this.panel7.Controls.Add(this.vScrollBar1);
             this.panel7.Controls.Add(this.danhsachphong);
-            this.panel7.Location = new System.Drawing.Point(17, 40);
+            this.panel7.Location = new System.Drawing.Point(17, 50);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(617, 224);
             this.panel7.TabIndex = 36;
@@ -691,41 +684,40 @@
             this.danhsachphong.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.danhsachphong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhsachphong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachphong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.danhsachphong_lock,
-            this.danhsachphong_pass,
-            this.danhsachphong_room_no,
-            this.danhsachphong_room_name,
-            this.danhsachphong_room_host,
-            this.danhsachphong_player});
+            this.danhsachphong.ColumnHeadersHeight = 30;
+            this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.danhsachphong.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachphong.DefaultCellStyle = dataGridViewCellStyle1;
+            this.danhsachphong.EnableHeadersVisualStyles = false;
             this.danhsachphong.GridColor = System.Drawing.SystemColors.ControlText;
             this.danhsachphong.Location = new System.Drawing.Point(0, 0);
             this.danhsachphong.MultiSelect = false;
             this.danhsachphong.Name = "danhsachphong";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhsachphong.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.danhsachphong.RowHeadersVisible = false;
             this.danhsachphong.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.danhsachphong.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.danhsachphong.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.danhsachphong.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightPink;
+            this.danhsachphong.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.danhsachphong.RowTemplate.Height = 30;
             this.danhsachphong.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.danhsachphong.Size = new System.Drawing.Size(603, 224);
             this.danhsachphong.TabIndex = 33;
@@ -738,7 +730,7 @@
             this.lblRoomList.BackColor = System.Drawing.Color.LightSeaGreen;
             this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomList.ForeColor = System.Drawing.Color.White;
-            this.lblRoomList.Location = new System.Drawing.Point(17, 10);
+            this.lblRoomList.Location = new System.Drawing.Point(17, 20);
             this.lblRoomList.Name = "lblRoomList";
             this.lblRoomList.Size = new System.Drawing.Size(97, 27);
             this.lblRoomList.TabIndex = 35;
@@ -749,7 +741,7 @@
             this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(479, 270);
+            this.btnVaoNhanh.Location = new System.Drawing.Point(479, 280);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
             this.btnVaoNhanh.Size = new System.Drawing.Size(155, 45);
             this.btnVaoNhanh.TabIndex = 34;
@@ -762,7 +754,7 @@
             this.btnCreatePublic.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreatePublic.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePublic.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnCreatePublic.Location = new System.Drawing.Point(17, 270);
+            this.btnCreatePublic.Location = new System.Drawing.Point(17, 280);
             this.btnCreatePublic.Name = "btnCreatePublic";
             this.btnCreatePublic.Size = new System.Drawing.Size(162, 45);
             this.btnCreatePublic.TabIndex = 27;
@@ -850,30 +842,34 @@
             this.danhsachban_status,
             this.Column1});
             this.danhsachban.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban.DefaultCellStyle = dataGridViewCellStyle4;
             this.danhsachban.GridColor = System.Drawing.SystemColors.ControlText;
             this.danhsachban.Location = new System.Drawing.Point(0, 0);
             this.danhsachban.MultiSelect = false;
             this.danhsachban.Name = "danhsachban";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhsachban.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhsachban.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.danhsachban.RowHeadersVisible = false;
             this.danhsachban.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.danhsachban.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.danhsachban.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.danhsachban.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.danhsachban.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.danhsachban.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightPink;
+            this.danhsachban.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.danhsachban.RowTemplate.Height = 30;
             this.danhsachban.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachban.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -881,6 +877,35 @@
             this.danhsachban.Size = new System.Drawing.Size(221, 258);
             this.danhsachban.TabIndex = 34;
             this.danhsachban.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.danhsachban_RowsAdded);
+            // 
+            // danhsachban_name
+            // 
+            this.danhsachban_name.HeaderText = "Name";
+            this.danhsachban_name.Name = "danhsachban_name";
+            this.danhsachban_name.ReadOnly = true;
+            this.danhsachban_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.danhsachban_name.Width = 134;
+            // 
+            // danhsachban_status
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = null;
+            this.danhsachban_status.DefaultCellStyle = dataGridViewCellStyle3;
+            this.danhsachban_status.HeaderText = "";
+            this.danhsachban_status.Name = "danhsachban_status";
+            this.danhsachban_status.ReadOnly = true;
+            this.danhsachban_status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.danhsachban_status.Width = 30;
+            // 
+            // Column1
+            // 
+            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Text = "invite";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 60;
             // 
             // panel3
             // 
@@ -1222,7 +1247,7 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
             this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(519, 8);
+            this.lblHost.Location = new System.Drawing.Point(525, 8);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(98, 23);
             this.lblHost.TabIndex = 82;
@@ -1233,7 +1258,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(783, 8);
+            this.lblJoin.Location = new System.Drawing.Point(786, 9);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(98, 23);
             this.lblJoin.TabIndex = 81;
@@ -1395,90 +1420,6 @@
             this.bunifuDragControl3.TargetControl = this.Home;
             this.bunifuDragControl3.Vertical = true;
             // 
-            // danhsachphong_lock
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.danhsachphong_lock.DefaultCellStyle = dataGridViewCellStyle1;
-            this.danhsachphong_lock.HeaderText = "Lock";
-            this.danhsachphong_lock.Name = "danhsachphong_lock";
-            this.danhsachphong_lock.ReadOnly = true;
-            this.danhsachphong_lock.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_lock.Width = 50;
-            // 
-            // danhsachphong_pass
-            // 
-            this.danhsachphong_pass.HeaderText = "Pass";
-            this.danhsachphong_pass.Name = "danhsachphong_pass";
-            this.danhsachphong_pass.ReadOnly = true;
-            this.danhsachphong_pass.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_pass.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachphong_pass.Visible = false;
-            // 
-            // danhsachphong_room_no
-            // 
-            this.danhsachphong_room_no.HeaderText = "Number";
-            this.danhsachphong_room_no.Name = "danhsachphong_room_no";
-            this.danhsachphong_room_no.ReadOnly = true;
-            this.danhsachphong_room_no.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // danhsachphong_room_name
-            // 
-            this.danhsachphong_room_name.HeaderText = "Name";
-            this.danhsachphong_room_name.Name = "danhsachphong_room_name";
-            this.danhsachphong_room_name.ReadOnly = true;
-            this.danhsachphong_room_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachphong_room_name.Width = 169;
-            // 
-            // danhsachphong_room_host
-            // 
-            this.danhsachphong_room_host.HeaderText = "Host";
-            this.danhsachphong_room_host.Name = "danhsachphong_room_host";
-            this.danhsachphong_room_host.ReadOnly = true;
-            this.danhsachphong_room_host.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_room_host.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachphong_room_host.Width = 140;
-            // 
-            // danhsachphong_player
-            // 
-            this.danhsachphong_player.HeaderText = "Players";
-            this.danhsachphong_player.Name = "danhsachphong_player";
-            this.danhsachphong_player.ReadOnly = true;
-            this.danhsachphong_player.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachphong_player.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachphong_player.Width = 140;
-            // 
-            // danhsachban_name
-            // 
-            this.danhsachban_name.HeaderText = "Name";
-            this.danhsachban_name.Name = "danhsachban_name";
-            this.danhsachban_name.ReadOnly = true;
-            this.danhsachban_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachban_name.Width = 134;
-            // 
-            // danhsachban_status
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = null;
-            this.danhsachban_status.DefaultCellStyle = dataGridViewCellStyle4;
-            this.danhsachban_status.HeaderText = "";
-            this.danhsachban_status.Name = "danhsachban_status";
-            this.danhsachban_status.ReadOnly = true;
-            this.danhsachban_status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban_status.Width = 30;
-            // 
-            // Column1
-            // 
-            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "invite";
-            this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 60;
-            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1632,12 +1573,6 @@
         private System.Windows.Forms.VScrollBar vScrollBar2;
         private System.Windows.Forms.Label lblGameStatus;
         public System.Windows.Forms.Button btnCreatePrivate;
-        private System.Windows.Forms.DataGridViewImageColumn danhsachphong_lock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_pass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_room_host;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachphong_player;
         private System.Windows.Forms.DataGridViewTextBoxColumn danhsachban_name;
         private System.Windows.Forms.DataGridViewImageColumn danhsachban_status;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
