@@ -369,11 +369,11 @@ namespace ProjectCaro
                         Invoke(new Action(() =>
                         {
                             danhsachphong.Rows[i].Cells[0].Value = null;
-                            danhsachphong.Rows[i].Cells[1].Value = "";
-                            danhsachphong.Rows[i].Cells[2].Value = "";
-                            danhsachphong.Rows[i].Cells[3].Value = "";
-                            danhsachphong.Rows[i].Cells[4].Value = "";
-                            danhsachphong.Rows[i].Cells[5].Value = "";
+                            danhsachphong.Rows[i].Cells[1].Value = null;
+                            danhsachphong.Rows[i].Cells[2].Value = null;
+                            danhsachphong.Rows[i].Cells[3].Value = null;
+                            danhsachphong.Rows[i].Cells[4].Value = null;
+                            danhsachphong.Rows[i].Cells[5].Value = null;
                         }));
                     }
                 }
@@ -403,17 +403,18 @@ namespace ProjectCaro
                     Invoke(new Action(() =>
                     {
                         danhsachphong.Rows[row_remove_index].Cells[0].Value = null;
-                        danhsachphong.Rows[row_remove_index].Cells[1].Value = "";
-                        danhsachphong.Rows[row_remove_index].Cells[2].Value = "";
-                        danhsachphong.Rows[row_remove_index].Cells[3].Value = "";
-                        danhsachphong.Rows[row_remove_index].Cells[4].Value = "";
-                        danhsachphong.Rows[row_remove_index].Cells[5].Value = "";
+                        danhsachphong.Rows[row_remove_index].Cells[1].Value = null;
+                        danhsachphong.Rows[row_remove_index].Cells[2].Value = null;
+                        danhsachphong.Rows[row_remove_index].Cells[3].Value = null;
+                        danhsachphong.Rows[row_remove_index].Cells[4].Value = null;
+                        danhsachphong.Rows[row_remove_index].Cells[5].Value = null;
                     }));
                 }
+                row_remove_list.Clear();
 
 
-                // lưu số lượng phòng mới vào biến tạm thời trên client
-                client_room = server_room;
+               // lưu số lượng phòng mới vào biến tạm thời trên client
+               client_room = server_room;
                 // đếm số phòng nhận được từ server và nhét vào danhsachphong
                 server_room = CaroAPI.getRoom.data.Count;
 
