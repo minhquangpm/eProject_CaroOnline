@@ -359,6 +359,10 @@ namespace ProjectCaro
                 });
 
 
+                // đếm số phòng nhận được từ server và nhét vào danhsachphong
+                server_room = CaroAPI.getRoom.data.Count;
+
+
                 // quét những phòng đã xóa
                 List<int> row_remove_list = new List<int>();
 
@@ -415,8 +419,7 @@ namespace ProjectCaro
 
                // lưu số lượng phòng mới vào biến tạm thời trên client
                client_room = server_room;
-                // đếm số phòng nhận được từ server và nhét vào danhsachphong
-                server_room = CaroAPI.getRoom.data.Count;
+                
 
                 for (int i = 0; i < server_room; i++)
                 {
