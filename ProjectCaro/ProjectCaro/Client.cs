@@ -446,9 +446,9 @@ namespace ProjectCaro
 
                 if (server_room < client_room && server_room != 0)
                 {
-                    for (int k = 0; k < client_room; k++)
+                    for (int i = 0; i < client_room; i++)
                     {
-                        DataGridViewRow row = danhsachphong.Rows[k];
+                        DataGridViewRow row = danhsachphong.Rows[i];
 
                         foreach(string roomold in oldRoom_no)
                         {
@@ -502,6 +502,8 @@ namespace ProjectCaro
             int server_friend = 0;
             int client_friend = 0;
 
+            List<string> oldFriend_name = new List<string>();
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -518,37 +520,11 @@ namespace ProjectCaro
                 });
 
 
-                // đếm số friend và nhét vào danhsachban
+                // đếm số friend
                 server_friend = CaroAPI.getFriendList.data.Count;
-                for (int i = 0; i < server_friend; i++)
-                {
-                    FriendList friend = CaroAPI.getFriendList.data[i];
 
-                    
-                    if (server_friend > client_friend)
-                    {
-                        Invoke(new Action(() =>
-                        {
-                            danhsachban.Rows.Add();
-                        }));
-                    }
-                    
-
-                    danhsachban.Rows[i].Cells[0].Value = friend.name;
-                    
-                    if (friend.status == 1)
-                    {
-                        danhsachban.Rows[i].Cells[1].Value = Resources.online;
-                    }
-                    else
-                    {
-                        danhsachban.Rows[i].Cells[1].Value = null;
-                    }
-                }
-
+               
                 // quét friend đã xóa
-                List<int> row_remove_list = new List<int>();
-
                 if (server_friend == 0)
                 {
                     for (int j = 0; j < client_friend; j++)
@@ -566,33 +542,56 @@ namespace ProjectCaro
                     {
                         DataGridViewRow row = danhsachban.Rows[k];
 
-                        foreach (FriendList friend in CaroAPI.getFriendList.data)
+                        foreach (string old_friend in oldFriend_name)
                         {
-                            if (!row.Cells[0].Value.Equals(friend.name))
+                            if (!row.Cells[0].Value.Equals(old_friend))
                             {
-                                row_remove_list.Add(row.Index);
+                                Invoke(new Action(() =>
+                                {
+                                    danhsachban.Rows.RemoveAt(row.Index);
+                                }));
                                 break;
                             }
                         }
                     }
                 }
 
-                // xóa những friend quét được trên danhsachban
-                foreach (int row_remove_index in row_remove_list)
+
+                // nhét friend nhận đc từ server vào danh sách bạn
+                if (server_friend > client_friend)
                 {
-                    Invoke(new Action(() =>
+                    for (int i = 0; i < (server_friend - client_friend); i++)
                     {
-                        danhsachban.Rows.RemoveAt(row_remove_index);
-                    }));
+                        Invoke(new Action(() =>
+                        {
+                            danhsachban.Rows.Add();
+                        }));
+                    }
                 }
+
+                for (int i = 0; i < server_friend; i++)
+                {
+                    FriendList friend = CaroAPI.getFriendList.data[i];
+
+                    danhsachban.Rows[i].Cells[0].Value = friend.name;
+
+                    if (friend.status == 1)
+                    {
+                        danhsachban.Rows[i].Cells[1].Value = Resources.online;
+                    }
+                    else
+                    {
+                        danhsachban.Rows[i].Cells[1].Value = null;
+                    }
+
+                    oldFriend_name.Add(friend.name);
+                }
+
 
                 client_friend = server_friend;
 
                 Thread.Sleep(10000);
             }
         }
-
-
-
     }
 }
