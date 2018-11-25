@@ -225,6 +225,7 @@ namespace CaroGameServer
         // ket ban
         public static void KetBan(string username, string name)
         {
+            int status = 1;
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
             MyCommand = conn.CreateCommand();
@@ -234,6 +235,7 @@ namespace CaroGameServer
                 MyCommand.CommandText = "INSERT INTO friendlist (username,name)  VALUES (@username,@name) ";
                 MyCommand.Parameters.AddWithValue("@name", name);
                 MyCommand.Parameters.AddWithValue("@username", username);
+                MyCommand.Parameters.AddWithValue("@status", status);
                 MyCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
