@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using ProjectCaro.Properties;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -28,11 +29,11 @@ namespace ProjectCaro
 
             // căn chỉnh label Username vào giữa panel User Info
             lblUsername.Text = user_id;
-            lblUsername.Location = new Point((pnlUserInfo.Width - lblUsername.Width) / 2, 14);
+            lblUsername.Location = new Point((pnlUserInfo.Width - lblUsername.Width) / 2, 10);
 
         }
 
-
+        #region roomlist
         private void RoomListInit()
         {
             // custom scrollbar
@@ -111,9 +112,65 @@ namespace ProjectCaro
         }
 
 
-        private void FriendListInit()
+        // xử lý khi người chơi double click vào phòng
+        private void danhsachphong_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            danhsachban.ScrollBars = ScrollBars.None;
+            DataGridView dgv = sender as DataGridView;
+
+            if ((dgv == null) ||
+                (dgv.CurrentRow.Cells[2].Value == null))
+            {
+                return;
+            }
+
+            if (dgv.CurrentRow.Selected)
+            {
+
+                if (dgv.CurrentRow.Cells[1].Value != null)
+                {
+                    string row_room_key = dgv.CurrentRow.Cells[1].Value.ToString();
+                    string input_room_key = Interaction.InputBox("Enter password: ", "Caro", "", -1, -1);
+                    if (input_room_key.Length > 0)
+                    {
+                        if (input_room_key.Equals(row_room_key))
+                        {
+                            string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
+                            room_no = room_no_selected;
+                            room_key = input_room_key;
+                            SendJoinRoom(user_id, room_no_selected);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong password!");
+                        }
+                    }
+
+                }
+                else
+                {
+                    string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
+                    room_no = room_no_selected;
+                    room_key = "";
+                    SendJoinRoom(user_id, room_no_selected);
+                }
+            }
+        }
+
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            danhsachphong.FirstDisplayedScrollingRowIndex = vScrollBar1.Value;
+        }
+
+
+        private void danhsachphong_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (danhsachphong.RowCount > 6)
+            {
+                vScrollBar1.Enabled = true;
+            }
+
+            vScrollBar1.Maximum = danhsachphong.RowCount + 5;
         }
 
 
@@ -138,54 +195,141 @@ namespace ProjectCaro
             SendQuickJoin(user_id);
         }
 
+        #endregion
 
 
-
-        // xử lý khi người chơi double click vào phòng
-        private void danhsachphong_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        #region friendlist
+        private void FriendListInit()
         {
-            DataGridView dgv = sender as DataGridView;
+            danhsachban.ScrollBars = ScrollBars.None;
 
-            if ((dgv == null) ||
-                (dgv.CurrentRow.Cells[2].Value == null))
+            DataGridViewImageColumn danhsachban_arrow = new DataGridViewImageColumn
             {
-                return;
-            }
+                Name = "danhsachban_arrow",
+                HeaderText = "",
+                Width = 30
+            };
 
-            if (dgv.CurrentRow.Selected)
+            DataGridViewTextBoxColumn danhsachban_name = new DataGridViewTextBoxColumn
             {
-                
-                if (dgv.CurrentRow.Cells[1].Value != null)
-                {
-                    string row_room_key = dgv.CurrentRow.Cells[1].Value.ToString();
-                    string input_room_key = Interaction.InputBox("Enter password: ", "Caro", "", -1, -1);
-                    if (input_room_key.Length > 0)
-                    {
-                        if (input_room_key.Equals(row_room_key))
-                        {
-                            string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
-                            room_no = room_no_selected;
-                            room_key = input_room_key;
-                            SendJoinRoom(user_id, room_no_selected);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Wrong password!");
-                        }
-                    }
-                        
-                }
-                else
-                {
-                    string room_no_selected = dgv.CurrentRow.Cells[2].Value.ToString();
-                    room_no = room_no_selected;
-                    room_key = "";
-                    SendJoinRoom(user_id, room_no_selected);
-                }
+                Name = "danhsachban_name",
+                HeaderText = "Friend",
+                Width = 153
+            };
+
+            DataGridViewImageColumn danhsachban_status = new DataGridViewImageColumn
+            {
+                Name = "danhsachban_status",
+                HeaderText = "",
+                Width = 30
+            };
+
+            danhsachban.Columns.Add(danhsachban_arrow);
+            danhsachban.Columns.Add(danhsachban_name);
+            danhsachban.Columns.Add(danhsachban_status);
+
+            for (int i = 0; i < danhsachban.Columns.Count; i++)
+            {
+                danhsachban.Columns[i].HeaderCell.Style.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
+                danhsachban.Columns[i].HeaderCell.Style.BackColor = Color.LightSlateGray;
+                danhsachban.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                danhsachban.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                danhsachban.Columns[i].Resizable = DataGridViewTriState.False;
+                danhsachban.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                danhsachban.Columns[i].DefaultCellStyle.NullValue = null;
+                danhsachban.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                danhsachban.Columns[i].ReadOnly = true;
             }
         }
 
+        /*
+         *  load friend info into pnlFriendInfo here
+         * 
+         */
+        private void danhsachban_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            DataGridView dgv = sender as DataGridView;
 
+            if (dgv.CurrentRow.Selected)
+            {
+                dgv.CurrentRow.Cells[0].Value = Resources.right_arrow;
+                lblFriendName.Text = dgv.CurrentRow.Cells[1].Value.ToString();
+            }
+
+            danhsachban.Enabled = false;
+
+            pnlFriendInfo.Visible = true;
+        }
+
+        private void btnCloseFriendInfo_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in danhsachban.Rows)
+            {
+                string friend_name_in_list = row.Cells[1].Value.ToString();
+                if (friend_name_in_list.Equals(lblFriendName.Text))
+                {
+                    row.Cells[0].Value = Resources.left_arrow;
+                    break;
+                }
+            }
+
+
+            lblFriendName.Text = "";
+
+            pnlFriendInfo.Visible = false;
+
+            danhsachban.Enabled = true;
+        }
+
+
+        private void vScrollBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            danhsachban.FirstDisplayedScrollingRowIndex = vScrollBar2.Value;
+        }
+
+
+        private void danhsachban_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (danhsachban.RowCount > 7)
+            {
+                vScrollBar2.Enabled = true;
+            }
+
+            vScrollBar2.Maximum = danhsachban.RowCount + 3;
+        }
+
+
+        private void btnDeleteFriend_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this friend?", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    SendRemoveFriend(user_id, lblFriendName.Text);
+
+                    for (int i = 0; i < danhsachban.RowCount; i++)
+                    {
+                        string friend_name_in_list = danhsachban.Rows[i].Cells[1].Value.ToString();
+
+                        if (friend_name_in_list.Equals(lblFriendName.Text)) {
+                            danhsachban.Rows.RemoveAt(i);
+                            break;
+                        }
+                    }
+
+                    pnlFriendInfo.Visible = false;
+                    danhsachban.Enabled = true;
+                    break;
+                case DialogResult.No:
+
+                    break;
+            }
+        }
+        #endregion
+
+
+        #region chat all
         private void btnChat_Click(object sender, EventArgs e)
         {
             if (txtChat.Text.Length > 0)
@@ -205,39 +349,43 @@ namespace ProjectCaro
                 btnChat.PerformClick();
             }
         }
+        #endregion
 
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            danhsachphong.FirstDisplayedScrollingRowIndex = vScrollBar1.Value;
-        }
-
-
-        private void danhsachphong_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (danhsachphong.RowCount > 6)
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (result)
             {
-                vScrollBar1.Enabled = true;
+                case DialogResult.Yes:
+                    SendUserOffline(user_id);
+
+                    // reset all fields
+                    Logout();
+
+                    // return Login tab
+                    tabControl.SelectTab(Login);
+                    break;
+                case DialogResult.No:
+                    break;
             }
-
-            vScrollBar1.Maximum = danhsachphong.RowCount + 5;
         }
 
-        private void vScrollBar2_Scroll(object sender, ScrollEventArgs e)
+
+        private void Logout()
         {
-            danhsachban.FirstDisplayedScrollingRowIndex = vScrollBar2.Value;
+            txt_Log1.Text = "";
+            txt_Log1.Enabled = true;
+            txt_Log2.Text = "";
+            txt_Log2.Enabled = true;
+            btnLogin.Enabled = true;
+
+            user_id = "";
+
+            processBar1.Visible = false;
+            processBar1.Value = 0;
         }
 
-
-        private void danhsachban_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (danhsachban.RowCount > 7)
-            {
-                vScrollBar2.Enabled = true;
-            }
-
-            vScrollBar2.Maximum = danhsachban.RowCount + 3;
-        }
 
 
 

@@ -213,6 +213,9 @@ namespace ProjectCaro
                     case "addfriend":
                         RecvAddFriend(code[1], code[2]);
                         break;
+                    case "removefriend":
+                        MessageBox.Show("Friend deleted");
+                        break;
                     case "join":
                         string check_join = code[1];
                         if (check_join.Equals("true"))
@@ -502,7 +505,7 @@ namespace ProjectCaro
             int server_friend = 0;
             int client_friend = 0;
 
-            List<string> oldFriend_name = new List<string>();
+            //List<string> oldFriend_name = new List<string>();
 
             while (true)
             {
@@ -523,40 +526,6 @@ namespace ProjectCaro
                 // đếm số friend
                 server_friend = CaroAPI.getFriendList.data.Count;
 
-               
-                // quét friend đã xóa
-                if (server_friend == 0)
-                {
-                    for (int j = 0; j < client_friend; j++)
-                    {
-                        Invoke(new Action(() =>
-                        {
-                            danhsachban.Rows.RemoveAt(j);
-                        }));
-                    }
-                }
-
-                if (server_friend < client_friend)
-                {
-                    for (int k = 0; k < client_friend; k++)
-                    {
-                        DataGridViewRow row = danhsachban.Rows[k];
-
-                        foreach (string old_friend in oldFriend_name)
-                        {
-                            if (!row.Cells[0].Value.Equals(old_friend))
-                            {
-                                Invoke(new Action(() =>
-                                {
-                                    danhsachban.Rows.RemoveAt(row.Index);
-                                }));
-                                break;
-                            }
-                        }
-                    }
-                }
-
-
                 // nhét friend nhận đc từ server vào danh sách bạn
                 if (server_friend > client_friend)
                 {
@@ -573,18 +542,23 @@ namespace ProjectCaro
                 {
                     FriendList friend = CaroAPI.getFriendList.data[i];
 
-                    danhsachban.Rows[i].Cells[0].Value = friend.name;
+                    if (danhsachban.Rows[i].Cells[0].Value == null)
+                    {
+                        danhsachban.Rows[i].Cells[0].Value = Resources.left_arrow;
+                    }
+                    
+                    danhsachban.Rows[i].Cells[1].Value = friend.name;
 
                     if (friend.status == 1)
                     {
-                        danhsachban.Rows[i].Cells[1].Value = Resources.online;
+                        danhsachban.Rows[i].Cells[2].Value = Resources.online;
                     }
                     else
                     {
-                        danhsachban.Rows[i].Cells[1].Value = null;
+                        danhsachban.Rows[i].Cells[2].Value = null;
                     }
 
-                    oldFriend_name.Add(friend.name);
+                    //oldFriend_name.Add(friend.name);
                 }
 
 

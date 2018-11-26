@@ -232,7 +232,7 @@ namespace CaroGameServer
             conn.Open();
             try
             {
-                MyCommand.CommandText = "INSERT INTO friendlist (username,name)  VALUES (@username,@name) ";
+                MyCommand.CommandText = "INSERT INTO friendlist (username, name, status)  VALUES (@username,@name, @status) ";
                 MyCommand.Parameters.AddWithValue("@name", name);
                 MyCommand.Parameters.AddWithValue("@username", username);
                 MyCommand.Parameters.AddWithValue("@status", status);

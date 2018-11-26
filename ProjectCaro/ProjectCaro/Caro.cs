@@ -18,7 +18,7 @@ namespace ProjectCaro
             FullWindow();
 
             LoginLoad();
-                }
+        }
 
         private void Caro_FormClosing(object sender, FormClosingEventArgs e)
         {

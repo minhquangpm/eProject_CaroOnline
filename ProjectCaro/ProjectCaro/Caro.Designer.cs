@@ -27,8 +27,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caro));
             this.tabControl = new ProjectCaro.CustomTabControl();
             this.Login = new System.Windows.Forms.TabPage();
@@ -68,30 +68,47 @@
             this.btnCloseForm2 = new System.Windows.Forms.Button();
             this.btnMinimizeForm2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblRoomList = new System.Windows.Forms.Label();
+            this.pnlFriendInfo = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblFriendLose = new System.Windows.Forms.Label();
+            this.lblFriendDraw = new System.Windows.Forms.Label();
+            this.lblFriendWin = new System.Windows.Forms.Label();
+            this.lblFriendLevel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnDeleteFriend = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lblFriendName = new System.Windows.Forms.Label();
+            this.btnCloseFriendInfo = new System.Windows.Forms.Button();
             this.btnCreatePrivate = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.danhsachphong = new System.Windows.Forms.DataGridView();
-            this.lblRoomList = new System.Windows.Forms.Label();
             this.btnVaoNhanh = new System.Windows.Forms.Button();
             this.btnCreatePublic = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listboxchat = new System.Windows.Forms.ListBox();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.danhsachban = new System.Windows.Forms.DataGridView();
-            this.danhsachban_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhsachban_status = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSotran = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
+            this.pnlFriendList = new System.Windows.Forms.Panel();
+            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
+            this.danhsachban = new System.Windows.Forms.DataGridView();
             this.pnlLogo2 = new System.Windows.Forms.Panel();
             this.lblOnline2 = new System.Windows.Forms.Label();
             this.lblCaroGame2 = new System.Windows.Forms.Label();
@@ -106,15 +123,15 @@
             this.Vs = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblJoin = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblHost = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
             this.listboxchat2 = new System.Windows.Forms.ListBox();
             this.btnThoatTran = new System.Windows.Forms.Button();
-            this.lblHost = new System.Windows.Forms.Label();
-            this.lblJoin = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
             this.btnChat2 = new System.Windows.Forms.Button();
@@ -140,13 +157,20 @@
             this.pnlLogo1.SuspendLayout();
             this.Home.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.pnlFriendInfo.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.pnlUserInfo.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlFriendList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).BeginInit();
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -272,7 +296,7 @@
             this.formName.AutoSize = true;
             this.formName.BackColor = System.Drawing.Color.Transparent;
             this.formName.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.formName.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.formName.Location = new System.Drawing.Point(158, 11);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(86, 40);
@@ -449,7 +473,7 @@
             this.Signup.AutoSize = true;
             this.Signup.BackColor = System.Drawing.Color.Transparent;
             this.Signup.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Signup.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.Signup.Location = new System.Drawing.Point(129, 13);
             this.Signup.Name = "Signup";
             this.Signup.Size = new System.Drawing.Size(133, 40);
@@ -612,7 +636,7 @@
             // 
             this.btnMinimizeForm2.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimizeForm2.CausesValidation = false;
-            this.btnMinimizeForm2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnMinimizeForm2.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
             this.btnMinimizeForm2.FlatAppearance.BorderSize = 2;
             this.btnMinimizeForm2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeForm2.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -631,9 +655,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel1.Controls.Add(this.btnLogout);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.pnlFriendInfo);
             this.panel1.Controls.Add(this.btnCreatePrivate);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.lblRoomList);
             this.panel1.Controls.Add(this.btnVaoNhanh);
             this.panel1.Controls.Add(this.btnCreatePublic);
             this.panel1.Controls.Add(this.btnChat);
@@ -645,12 +671,255 @@
             this.panel1.Size = new System.Drawing.Size(910, 555);
             this.panel1.TabIndex = 60;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.LightCoral;
+            this.btnLogout.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(656, 505);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(238, 32);
+            this.btnLogout.TabIndex = 38;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.LightSalmon;
+            this.panel8.Controls.Add(this.lblRoomList);
+            this.panel8.Location = new System.Drawing.Point(17, 31);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(600, 33);
+            this.panel8.TabIndex = 35;
+            // 
+            // lblRoomList
+            // 
+            this.lblRoomList.AutoSize = true;
+            this.lblRoomList.BackColor = System.Drawing.Color.Transparent;
+            this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomList.ForeColor = System.Drawing.Color.White;
+            this.lblRoomList.Location = new System.Drawing.Point(3, 3);
+            this.lblRoomList.Name = "lblRoomList";
+            this.lblRoomList.Size = new System.Drawing.Size(97, 27);
+            this.lblRoomList.TabIndex = 35;
+            this.lblRoomList.Text = "List room";
+            // 
+            // pnlFriendInfo
+            // 
+            this.pnlFriendInfo.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnlFriendInfo.Controls.Add(this.panel10);
+            this.pnlFriendInfo.Controls.Add(this.panel9);
+            this.pnlFriendInfo.Location = new System.Drawing.Point(453, 297);
+            this.pnlFriendInfo.Name = "pnlFriendInfo";
+            this.pnlFriendInfo.Size = new System.Drawing.Size(200, 175);
+            this.pnlFriendInfo.TabIndex = 35;
+            this.pnlFriendInfo.Visible = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel10.Controls.Add(this.lblFriendLose);
+            this.panel10.Controls.Add(this.lblFriendDraw);
+            this.panel10.Controls.Add(this.lblFriendWin);
+            this.panel10.Controls.Add(this.lblFriendLevel);
+            this.panel10.Controls.Add(this.label9);
+            this.panel10.Controls.Add(this.label8);
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Controls.Add(this.label6);
+            this.panel10.Controls.Add(this.btnDeleteFriend);
+            this.panel10.Controls.Add(this.button1);
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Location = new System.Drawing.Point(3, 32);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(194, 139);
+            this.panel10.TabIndex = 1;
+            // 
+            // lblFriendLose
+            // 
+            this.lblFriendLose.AutoSize = true;
+            this.lblFriendLose.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFriendLose.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblFriendLose.Location = new System.Drawing.Point(147, 63);
+            this.lblFriendLose.Name = "lblFriendLose";
+            this.lblFriendLose.Size = new System.Drawing.Size(25, 19);
+            this.lblFriendLose.TabIndex = 29;
+            this.lblFriendLose.Text = "30";
+            // 
+            // lblFriendDraw
+            // 
+            this.lblFriendDraw.AutoSize = true;
+            this.lblFriendDraw.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFriendDraw.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblFriendDraw.Location = new System.Drawing.Point(147, 44);
+            this.lblFriendDraw.Name = "lblFriendDraw";
+            this.lblFriendDraw.Size = new System.Drawing.Size(25, 19);
+            this.lblFriendDraw.TabIndex = 28;
+            this.lblFriendDraw.Text = "30";
+            // 
+            // lblFriendWin
+            // 
+            this.lblFriendWin.AutoSize = true;
+            this.lblFriendWin.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFriendWin.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblFriendWin.Location = new System.Drawing.Point(147, 25);
+            this.lblFriendWin.Name = "lblFriendWin";
+            this.lblFriendWin.Size = new System.Drawing.Size(25, 19);
+            this.lblFriendWin.TabIndex = 27;
+            this.lblFriendWin.Text = "30";
+            // 
+            // lblFriendLevel
+            // 
+            this.lblFriendLevel.AutoSize = true;
+            this.lblFriendLevel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFriendLevel.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblFriendLevel.Location = new System.Drawing.Point(147, 6);
+            this.lblFriendLevel.Name = "lblFriendLevel";
+            this.lblFriendLevel.Size = new System.Drawing.Size(25, 19);
+            this.lblFriendLevel.TabIndex = 26;
+            this.lblFriendLevel.Text = "30";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.label9.Location = new System.Drawing.Point(95, 63);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 19);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Lose :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.label8.Location = new System.Drawing.Point(95, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 19);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Draw :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.label7.Location = new System.Drawing.Point(95, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 19);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Win :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.label6.Location = new System.Drawing.Point(95, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 19);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Level :";
+            // 
+            // btnDeleteFriend
+            // 
+            this.btnDeleteFriend.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteFriend.BackgroundImage = global::ProjectCaro.Properties.Resources.delete;
+            this.btnDeleteFriend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDeleteFriend.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.btnDeleteFriend.FlatAppearance.BorderSize = 2;
+            this.btnDeleteFriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFriend.Location = new System.Drawing.Point(126, 99);
+            this.btnDeleteFriend.Name = "btnDeleteFriend";
+            this.btnDeleteFriend.Size = new System.Drawing.Size(62, 35);
+            this.btnDeleteFriend.TabIndex = 21;
+            this.btnDeleteFriend.UseVisualStyleBackColor = false;
+            this.btnDeleteFriend.Click += new System.EventHandler(this.btnDeleteFriend_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSalmon;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.button1.Location = new System.Drawing.Point(3, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 35);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "FIGHT";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel11.Controls.Add(this.pictureBox4);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(90, 90);
+            this.panel11.TabIndex = 19;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox4.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(84, 84);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel9.Controls.Add(this.lblFriendName);
+            this.panel9.Controls.Add(this.btnCloseFriendInfo);
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(194, 26);
+            this.panel9.TabIndex = 0;
+            // 
+            // lblFriendName
+            // 
+            this.lblFriendName.AutoSize = true;
+            this.lblFriendName.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFriendName.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblFriendName.Location = new System.Drawing.Point(3, 4);
+            this.lblFriendName.Name = "lblFriendName";
+            this.lblFriendName.Size = new System.Drawing.Size(48, 19);
+            this.lblFriendName.TabIndex = 64;
+            this.lblFriendName.Text = "friend";
+            // 
+            // btnCloseFriendInfo
+            // 
+            this.btnCloseFriendInfo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCloseFriendInfo.CausesValidation = false;
+            this.btnCloseFriendInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(231)))), ((int)(((byte)(201)))));
+            this.btnCloseFriendInfo.FlatAppearance.BorderSize = 2;
+            this.btnCloseFriendInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseFriendInfo.Font = new System.Drawing.Font("Comic Sans MS", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseFriendInfo.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.btnCloseFriendInfo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCloseFriendInfo.Location = new System.Drawing.Point(171, 3);
+            this.btnCloseFriendInfo.Name = "btnCloseFriendInfo";
+            this.btnCloseFriendInfo.Size = new System.Drawing.Size(20, 20);
+            this.btnCloseFriendInfo.TabIndex = 63;
+            this.btnCloseFriendInfo.TabStop = false;
+            this.btnCloseFriendInfo.Text = "X";
+            this.btnCloseFriendInfo.UseMnemonic = false;
+            this.btnCloseFriendInfo.UseVisualStyleBackColor = false;
+            this.btnCloseFriendInfo.Click += new System.EventHandler(this.btnCloseFriendInfo_Click);
+            // 
             // btnCreatePrivate
             // 
             this.btnCreatePrivate.BackColor = System.Drawing.Color.MediumPurple;
             this.btnCreatePrivate.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePrivate.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnCreatePrivate.Location = new System.Drawing.Point(192, 280);
+            this.btnCreatePrivate.Location = new System.Drawing.Point(192, 297);
             this.btnCreatePrivate.Name = "btnCreatePrivate";
             this.btnCreatePrivate.Size = new System.Drawing.Size(171, 45);
             this.btnCreatePrivate.TabIndex = 37;
@@ -662,7 +931,7 @@
             // 
             this.panel7.Controls.Add(this.vScrollBar1);
             this.panel7.Controls.Add(this.danhsachphong);
-            this.panel7.Location = new System.Drawing.Point(17, 50);
+            this.panel7.Location = new System.Drawing.Point(17, 67);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(617, 224);
             this.panel7.TabIndex = 36;
@@ -683,8 +952,8 @@
             this.danhsachphong.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.danhsachphong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhsachphong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            this.danhsachphong.ColumnHeadersHeight = 30;
-            this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.danhsachphong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.danhsachphong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.danhsachphong.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkTurquoise;
@@ -712,35 +981,23 @@
             this.danhsachphong.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightSeaGreen;
             this.danhsachphong.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.danhsachphong.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.danhsachphong.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightPink;
+            this.danhsachphong.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             this.danhsachphong.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.danhsachphong.RowTemplate.Height = 30;
             this.danhsachphong.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachphong.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.danhsachphong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.danhsachphong.Size = new System.Drawing.Size(603, 224);
+            this.danhsachphong.Size = new System.Drawing.Size(600, 224);
             this.danhsachphong.TabIndex = 33;
             this.danhsachphong.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachphong_CellDoubleClick);
             this.danhsachphong.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.danhsachphong_RowsAdded);
-            // 
-            // lblRoomList
-            // 
-            this.lblRoomList.AutoSize = true;
-            this.lblRoomList.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.lblRoomList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomList.ForeColor = System.Drawing.Color.White;
-            this.lblRoomList.Location = new System.Drawing.Point(17, 20);
-            this.lblRoomList.Name = "lblRoomList";
-            this.lblRoomList.Size = new System.Drawing.Size(97, 27);
-            this.lblRoomList.TabIndex = 35;
-            this.lblRoomList.Text = "List room";
             // 
             // btnVaoNhanh
             // 
             this.btnVaoNhanh.BackColor = System.Drawing.Color.Tomato;
             this.btnVaoNhanh.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVaoNhanh.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnVaoNhanh.Location = new System.Drawing.Point(479, 280);
+            this.btnVaoNhanh.Location = new System.Drawing.Point(479, 297);
             this.btnVaoNhanh.Name = "btnVaoNhanh";
             this.btnVaoNhanh.Size = new System.Drawing.Size(155, 45);
             this.btnVaoNhanh.TabIndex = 34;
@@ -750,10 +1007,10 @@
             // 
             // btnCreatePublic
             // 
-            this.btnCreatePublic.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCreatePublic.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnCreatePublic.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePublic.ForeColor = System.Drawing.Color.LightYellow;
-            this.btnCreatePublic.Location = new System.Drawing.Point(17, 280);
+            this.btnCreatePublic.Location = new System.Drawing.Point(17, 297);
             this.btnCreatePublic.Name = "btnCreatePublic";
             this.btnCreatePublic.Size = new System.Drawing.Size(162, 45);
             this.btnCreatePublic.TabIndex = 27;
@@ -766,7 +1023,7 @@
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
             this.btnChat.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChat.ForeColor = System.Drawing.Color.White;
-            this.btnChat.Location = new System.Drawing.Point(495, 496);
+            this.btnChat.Location = new System.Drawing.Point(509, 505);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(125, 32);
             this.btnChat.TabIndex = 30;
@@ -777,9 +1034,9 @@
             // txtChat
             // 
             this.txtChat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChat.Location = new System.Drawing.Point(17, 501);
+            this.txtChat.Location = new System.Drawing.Point(17, 509);
             this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(472, 26);
+            this.txtChat.Size = new System.Drawing.Size(486, 26);
             this.txtChat.TabIndex = 32;
             this.txtChat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat_KeyDown);
             // 
@@ -790,42 +1047,129 @@
             this.listboxchat.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listboxchat.FormattingEnabled = true;
             this.listboxchat.ItemHeight = 15;
-            this.listboxchat.Location = new System.Drawing.Point(17, 351);
+            this.listboxchat.Location = new System.Drawing.Point(17, 359);
             this.listboxchat.Name = "listboxchat";
-            this.listboxchat.Size = new System.Drawing.Size(603, 139);
+            this.listboxchat.Size = new System.Drawing.Size(617, 139);
             this.listboxchat.TabIndex = 29;
             // 
             // pnlUserInfo
             // 
-            this.pnlUserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pnlUserInfo.Controls.Add(this.panel8);
+            this.pnlUserInfo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnlUserInfo.Controls.Add(this.panel3);
-            this.pnlUserInfo.Controls.Add(this.lblSotran);
-            this.pnlUserInfo.Controls.Add(this.label1);
-            this.pnlUserInfo.Controls.Add(this.lblUsername);
-            this.pnlUserInfo.Controls.Add(this.lblLevel);
-            this.pnlUserInfo.Controls.Add(this.Level);
-            this.pnlUserInfo.Location = new System.Drawing.Point(656, 40);
+            this.pnlUserInfo.Controls.Add(this.pnlFriendList);
+            this.pnlUserInfo.Location = new System.Drawing.Point(656, 31);
             this.pnlUserInfo.Name = "pnlUserInfo";
-            this.pnlUserInfo.Size = new System.Drawing.Size(237, 486);
+            this.pnlUserInfo.Size = new System.Drawing.Size(237, 467);
             this.pnlUserInfo.TabIndex = 31;
             // 
-            // panel8
+            // panel3
             // 
-            this.panel8.Controls.Add(this.vScrollBar2);
-            this.panel8.Controls.Add(this.danhsachban);
-            this.panel8.Location = new System.Drawing.Point(0, 230);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(237, 258);
-            this.panel8.TabIndex = 19;
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Controls.Add(this.lblUsername);
+            this.panel3.Controls.Add(this.panel12);
+            this.panel3.Controls.Add(this.lblSotran);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lblLevel);
+            this.panel3.Controls.Add(this.Level);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(231, 257);
+            this.panel3.TabIndex = 20;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(66, 14);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(111, 30);
+            this.lblUsername.TabIndex = 19;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel12.Controls.Add(this.pictureBox1);
+            this.panel12.Location = new System.Drawing.Point(71, 47);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(100, 100);
+            this.panel12.TabIndex = 24;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblSotran
+            // 
+            this.lblSotran.AutoSize = true;
+            this.lblSotran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSotran.ForeColor = System.Drawing.Color.Red;
+            this.lblSotran.Location = new System.Drawing.Point(153, 185);
+            this.lblSotran.Name = "lblSotran";
+            this.lblSotran.Size = new System.Drawing.Size(24, 16);
+            this.lblSotran.TabIndex = 23;
+            this.lblSotran.Text = "30";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(43, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "W/D/L :";
+            // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.ForeColor = System.Drawing.Color.Red;
+            this.lblLevel.Location = new System.Drawing.Point(153, 161);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(24, 16);
+            this.lblLevel.TabIndex = 21;
+            this.lblLevel.Text = "30";
+            // 
+            // Level
+            // 
+            this.Level.AutoSize = true;
+            this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Level.ForeColor = System.Drawing.Color.Red;
+            this.Level.Location = new System.Drawing.Point(43, 161);
+            this.Level.Name = "Level";
+            this.Level.Size = new System.Drawing.Size(54, 16);
+            this.Level.TabIndex = 20;
+            this.Level.Text = "Level :";
+            // 
+            // pnlFriendList
+            // 
+            this.pnlFriendList.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnlFriendList.Controls.Add(this.vScrollBar2);
+            this.pnlFriendList.Controls.Add(this.danhsachban);
+            this.pnlFriendList.Location = new System.Drawing.Point(3, 266);
+            this.pnlFriendList.Name = "pnlFriendList";
+            this.pnlFriendList.Size = new System.Drawing.Size(231, 198);
+            this.pnlFriendList.TabIndex = 19;
             // 
             // vScrollBar2
             // 
             this.vScrollBar2.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScrollBar2.Enabled = false;
-            this.vScrollBar2.Location = new System.Drawing.Point(220, 0);
+            this.vScrollBar2.Location = new System.Drawing.Point(214, 0);
             this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(17, 258);
+            this.vScrollBar2.Size = new System.Drawing.Size(17, 198);
             this.vScrollBar2.TabIndex = 35;
             this.vScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar2_Scroll);
             // 
@@ -835,13 +1179,19 @@
             this.danhsachban.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.danhsachban.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhsachban.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
+            this.danhsachban.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.danhsachban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.danhsachban_name,
-            this.danhsachban_status,
-            this.Column1});
             this.danhsachban.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachban.DefaultCellStyle = dataGridViewCellStyle3;
+            this.danhsachban.EnableHeadersVisualStyles = false;
             this.danhsachban.GridColor = System.Drawing.SystemColors.ControlText;
             this.danhsachban.Location = new System.Drawing.Point(0, 0);
             this.danhsachban.MultiSelect = false;
@@ -865,120 +1215,10 @@
             this.danhsachban.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.danhsachban.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.danhsachban.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.danhsachban.Size = new System.Drawing.Size(221, 258);
+            this.danhsachban.Size = new System.Drawing.Size(218, 198);
             this.danhsachban.TabIndex = 34;
+            this.danhsachban.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.danhsachban_CellMouseClick);
             this.danhsachban.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.danhsachban_RowsAdded);
-            // 
-            // danhsachban_name
-            // 
-            this.danhsachban_name.HeaderText = "Name";
-            this.danhsachban_name.Name = "danhsachban_name";
-            this.danhsachban_name.ReadOnly = true;
-            this.danhsachban_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.danhsachban_name.Width = 134;
-            // 
-            // danhsachban_status
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban_status.DefaultCellStyle = dataGridViewCellStyle3;
-            this.danhsachban_status.HeaderText = "";
-            this.danhsachban_status.Name = "danhsachban_status";
-            this.danhsachban_status.ReadOnly = true;
-            this.danhsachban_status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.danhsachban_status.Width = 30;
-            // 
-            // Column1
-            // 
-            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "invite";
-            this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 60;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(70, 46);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(100, 100);
-            this.panel3.TabIndex = 18;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblSotran
-            // 
-            this.lblSotran.AutoSize = true;
-            this.lblSotran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSotran.ForeColor = System.Drawing.Color.Red;
-            this.lblSotran.Location = new System.Drawing.Point(152, 173);
-            this.lblSotran.Name = "lblSotran";
-            this.lblSotran.Size = new System.Drawing.Size(24, 16);
-            this.lblSotran.TabIndex = 17;
-            this.lblSotran.Text = "30";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(42, 173);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "W/L/D :";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.Black;
-            this.lblUsername.Location = new System.Drawing.Point(65, 14);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(124, 29);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblLevel
-            // 
-            this.lblLevel.AutoSize = true;
-            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLevel.ForeColor = System.Drawing.Color.Red;
-            this.lblLevel.Location = new System.Drawing.Point(152, 149);
-            this.lblLevel.Name = "lblLevel";
-            this.lblLevel.Size = new System.Drawing.Size(24, 16);
-            this.lblLevel.TabIndex = 14;
-            this.lblLevel.Text = "30";
-            // 
-            // Level
-            // 
-            this.Level.AutoSize = true;
-            this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Level.ForeColor = System.Drawing.Color.Red;
-            this.Level.Location = new System.Drawing.Point(42, 149);
-            this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(54, 16);
-            this.Level.TabIndex = 12;
-            this.Level.Text = "Level :";
             // 
             // pnlLogo2
             // 
@@ -1016,7 +1256,7 @@
             // 
             // Map
             // 
-            this.Map.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Map.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Map.Controls.Add(this.panel4);
             this.Map.Controls.Add(this.btnCloseForm3);
             this.Map.Controls.Add(this.btnMinimizeForm3);
@@ -1045,8 +1285,6 @@
             this.panel4.Controls.Add(this.lblSophong);
             this.panel4.Controls.Add(this.listboxchat2);
             this.panel4.Controls.Add(this.btnThoatTran);
-            this.panel4.Controls.Add(this.lblHost);
-            this.panel4.Controls.Add(this.lblJoin);
             this.panel4.Controls.Add(this.Time);
             this.panel4.Controls.Add(this.pnlChess);
             this.panel4.Controls.Add(this.btnChat2);
@@ -1060,10 +1298,10 @@
             // lblGameStatus
             // 
             this.lblGameStatus.AutoSize = true;
-            this.lblGameStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameStatus.Location = new System.Drawing.Point(513, 200);
+            this.lblGameStatus.Font = new System.Drawing.Font("Comic Sans MS", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameStatus.Location = new System.Drawing.Point(512, 191);
             this.lblGameStatus.Name = "lblGameStatus";
-            this.lblGameStatus.Size = new System.Drawing.Size(351, 73);
+            this.lblGameStatus.Size = new System.Drawing.Size(375, 90);
             this.lblGameStatus.TabIndex = 58;
             this.lblGameStatus.Text = "YOU WON";
             this.lblGameStatus.Visible = false;
@@ -1097,7 +1335,7 @@
             this.btnAddHost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnAddHost.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddHost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddHost.Location = new System.Drawing.Point(523, 147);
+            this.btnAddHost.Location = new System.Drawing.Point(523, 18);
             this.btnAddHost.Name = "btnAddHost";
             this.btnAddHost.Size = new System.Drawing.Size(100, 30);
             this.btnAddHost.TabIndex = 90;
@@ -1111,7 +1349,7 @@
             this.btnAddJoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnAddJoin.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddJoin.Location = new System.Drawing.Point(787, 147);
+            this.btnAddJoin.Location = new System.Drawing.Point(787, 18);
             this.btnAddJoin.Name = "btnAddJoin";
             this.btnAddJoin.Size = new System.Drawing.Size(100, 30);
             this.btnAddJoin.TabIndex = 89;
@@ -1137,43 +1375,68 @@
             // Vs
             // 
             this.Vs.AutoSize = true;
-            this.Vs.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vs.Location = new System.Drawing.Point(678, 88);
+            this.Vs.Font = new System.Drawing.Font("Comic Sans MS", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vs.ForeColor = System.Drawing.Color.Tomato;
+            this.Vs.Location = new System.Drawing.Point(657, 58);
             this.Vs.Name = "Vs";
-            this.Vs.Size = new System.Drawing.Size(44, 31);
+            this.Vs.Size = new System.Drawing.Size(100, 90);
             this.Vs.TabIndex = 87;
             this.Vs.Text = "vs";
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel6.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Controls.Add(this.lblJoin);
             this.panel6.Location = new System.Drawing.Point(787, 48);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(100, 100);
+            this.panel6.Size = new System.Drawing.Size(100, 129);
             this.panel6.TabIndex = 86;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox3.BackColor = System.Drawing.Color.PapayaWhip;
             this.pictureBox3.Location = new System.Drawing.Point(3, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(94, 94);
             this.pictureBox3.TabIndex = 57;
             this.pictureBox3.TabStop = false;
             // 
+            // lblJoin
+            // 
+            this.lblJoin.AutoSize = true;
+            this.lblJoin.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJoin.ForeColor = System.Drawing.Color.FloralWhite;
+            this.lblJoin.Location = new System.Drawing.Point(2, 100);
+            this.lblJoin.Name = "lblJoin";
+            this.lblJoin.Size = new System.Drawing.Size(78, 23);
+            this.lblJoin.TabIndex = 81;
+            this.lblJoin.Text = "UserJoin";
+            // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel5.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel5.Controls.Add(this.lblHost);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Location = new System.Drawing.Point(523, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(100, 100);
+            this.panel5.Size = new System.Drawing.Size(100, 129);
             this.panel5.TabIndex = 85;
+            // 
+            // lblHost
+            // 
+            this.lblHost.AutoSize = true;
+            this.lblHost.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHost.ForeColor = System.Drawing.Color.FloralWhite;
+            this.lblHost.Location = new System.Drawing.Point(3, 100);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(83, 23);
+            this.lblHost.TabIndex = 82;
+            this.lblHost.Text = "UserHost";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox2.BackColor = System.Drawing.Color.PapayaWhip;
             this.pictureBox2.Location = new System.Drawing.Point(3, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(94, 94);
@@ -1239,28 +1502,6 @@
             this.btnThoatTran.Text = "Quit game";
             this.btnThoatTran.UseVisualStyleBackColor = false;
             this.btnThoatTran.Click += new System.EventHandler(this.btnThoatTran_Click);
-            // 
-            // lblHost
-            // 
-            this.lblHost.AutoSize = true;
-            this.lblHost.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHost.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblHost.Location = new System.Drawing.Point(525, 8);
-            this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(98, 23);
-            this.lblHost.TabIndex = 82;
-            this.lblHost.Text = "UserHost";
-            // 
-            // lblJoin
-            // 
-            this.lblJoin.AutoSize = true;
-            this.lblJoin.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblJoin.Location = new System.Drawing.Point(786, 9);
-            this.lblJoin.Name = "lblJoin";
-            this.lblJoin.Size = new System.Drawing.Size(98, 23);
-            this.lblJoin.TabIndex = 81;
-            this.lblJoin.Text = "UserJoin";
             // 
             // Time
             // 
@@ -1448,22 +1689,34 @@
             this.Home.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.pnlFriendInfo.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).EndInit();
             this.pnlUserInfo.ResumeLayout(false);
-            this.pnlUserInfo.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlFriendList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).EndInit();
             this.pnlLogo2.ResumeLayout(false);
             this.pnlLogo2.PerformLayout();
             this.Map.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlLogo3.ResumeLayout(false);
             this.pnlLogo3.PerformLayout();
@@ -1524,15 +1777,8 @@
         public System.Windows.Forms.TextBox txtChat;
         public System.Windows.Forms.ListBox listboxchat;
         public System.Windows.Forms.Panel pnlUserInfo;
-        public System.Windows.Forms.Label lblUsername;
-        public System.Windows.Forms.Label lblLevel;
-        public System.Windows.Forms.Label Level;
         private System.Windows.Forms.Button btnCloseForm2;
         private System.Windows.Forms.Button btnMinimizeForm2;
-        private System.Windows.Forms.Panel panel3;
-        public System.Windows.Forms.Label lblSotran;
-        public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlLogo3;
         public System.Windows.Forms.Label lblOnline3;
         public System.Windows.Forms.Label lblCaroGame3;
@@ -1566,14 +1812,38 @@
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtChat2;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel pnlFriendList;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.VScrollBar vScrollBar2;
         private System.Windows.Forms.Label lblGameStatus;
         public System.Windows.Forms.Button btnCreatePrivate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn danhsachban_name;
-        private System.Windows.Forms.DataGridViewImageColumn danhsachban_status;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.Panel pnlFriendInfo;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label lblFriendName;
+        private System.Windows.Forms.Button btnCloseFriendInfo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnDeleteFriend;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFriendLevel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblFriendLose;
+        private System.Windows.Forms.Label lblFriendDraw;
+        private System.Windows.Forms.Label lblFriendWin;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label lblSotran;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lblUsername;
+        public System.Windows.Forms.Label lblLevel;
+        public System.Windows.Forms.Label Level;
+        private System.Windows.Forms.Panel panel8;
+        public System.Windows.Forms.Button btnLogout;
     }
 }
 

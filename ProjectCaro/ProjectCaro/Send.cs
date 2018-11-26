@@ -102,6 +102,13 @@ namespace ProjectCaro
         }
 
 
+        private static void SendUserOffline(string user_id)
+        {
+            string message = "offline:" + user_id;
+            SendData(message);
+        }
+
+
         private static void SendData(string message)
         {
             // gửi dữ liệu lên server

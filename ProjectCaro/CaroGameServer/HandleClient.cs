@@ -287,8 +287,28 @@ namespace CaroGameServer
                     // xóa object
                     onlineList.Remove(userOnline);
                 }
+            } 
+        }
+
+
+        public static void UserOffline(string offline_user)
+        {
+            // xóa object
+            for (int i = 0; i < onlineList.Count; i++)
+            {
+                Online user = onlineList[i];
+                if (user.user_id.Equals(offline_user))
+                {
+                    
+                    Console.WriteLine("User " + user.user_id + " offline");
+
+                    DataBase.ChangeStatusUser(user.user_id);
+                    DataBase.ChangeStatusFriendList(user.user_id);
+
+                    onlineList.Remove(user);
+                    break;
+                }
             }
-                
         }
 
 
