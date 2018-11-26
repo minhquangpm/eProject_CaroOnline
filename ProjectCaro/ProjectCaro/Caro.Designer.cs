@@ -1247,7 +1247,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 22;
-            this.label1.Text = "W/D/L :";
+            this.label1.Text = "W/L/D :";
             // 
             // lblLevel
             // 

@@ -315,6 +315,7 @@ namespace ProjectCaro
         {
             // show  YOU WON
             lblGameStatus.Text = "YOU WON";
+            LoadInfo();
             lblGameStatus.ForeColor = Color.Gold;
             lblGameStatus.Visible = true;
 
@@ -332,6 +333,7 @@ namespace ProjectCaro
             {
                 // show YOU LOST from other thread
                 lblGameStatus.Text = "YOU LOST";
+                LoadInfo();
                 lblGameStatus.ForeColor = Color.Red;
                 lblGameStatus.Visible = true;
 
