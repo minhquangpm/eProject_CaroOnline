@@ -146,6 +146,31 @@ namespace ProjectCaro
                 }
             }
         }
+        public void LoadInfoFriend(int win, int draw)
+        {
+            int expLevel = 75;
+            int exp;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = win * 50 + draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblFriendLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblFriendLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
 
 
         private void DoReceiver(object sender, DoWorkEventArgs e)

@@ -264,6 +264,7 @@ namespace ProjectCaro
                 {
                     if (lblFriendName.Text.Equals(manh.name))
                     {
+                        LoadInfoFriend(manh.thongke.win, manh.thongke.draw);
                         lblFriendWin.Text = manh.thongke.win.ToString();
                         lblFriendLose.Text = manh.thongke.lose.ToString();
                         lblFriendDraw.Text = manh.thongke.draw.ToString();
