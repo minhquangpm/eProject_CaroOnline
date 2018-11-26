@@ -260,6 +260,17 @@ namespace ProjectCaro
             {
                 dgv.CurrentRow.Cells[0].Value = Resources.right_arrow;
                 lblFriendName.Text = dgv.CurrentRow.Cells[1].Value.ToString();
+                foreach(FriendList manh in CaroAPI.getFriendList.data)
+                {
+                    if (lblFriendName.Text.Equals(manh.name))
+                    {
+                        LoadInfoFriend(manh.thongke.win, manh.thongke.draw);
+                        lblFriendWin.Text = manh.thongke.win.ToString();
+                        lblFriendLose.Text = manh.thongke.lose.ToString();
+                        lblFriendDraw.Text = manh.thongke.draw.ToString();
+                        pictureBox4.Load("http://159.89.193.234/svg/" + manh.user.avatar);
+                    }
+                }
             }
 
             danhsachban.Enabled = false;

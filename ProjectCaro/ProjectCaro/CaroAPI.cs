@@ -31,6 +31,18 @@ namespace ProjectCaro
     {
         public string name { get; set; }
         public int status { get; set; }
+        public FriendListThongKe thongke { get; set; }
+        public FriendListInfo user { get; set; }
+    }
+    public class FriendListThongKe
+    {
+        public int win { get; set; }
+        public int lose { get; set; }
+        public int draw { get; set; }
+    }
+    public class FriendListInfo
+    {
+        public string avatar { get; set; }
     }
     public class RoomGame
     {
