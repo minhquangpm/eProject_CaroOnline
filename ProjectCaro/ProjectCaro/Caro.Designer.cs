@@ -826,7 +826,7 @@
             this.pnlFriendInfo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnlFriendInfo.Controls.Add(this.panel10);
             this.pnlFriendInfo.Controls.Add(this.panel9);
-            this.pnlFriendInfo.Location = new System.Drawing.Point(459, 297);
+            this.pnlFriendInfo.Location = new System.Drawing.Point(459, 300);
             this.pnlFriendInfo.Name = "pnlFriendInfo";
             this.pnlFriendInfo.Size = new System.Drawing.Size(200, 175);
             this.pnlFriendInfo.TabIndex = 35;

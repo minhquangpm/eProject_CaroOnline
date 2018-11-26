@@ -135,7 +135,7 @@ namespace ProjectCaro
         public void opponent_btnClick(Button btn)
         {
             // lưu vị trí theo thứ tự 1-> 81 vào List
-            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT;
+            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT - 1;
 
             //SoundPlayer sound = new SoundPlayer(Resources.DanhCoSound);
 

@@ -249,6 +249,10 @@ namespace ProjectCaro
                         {
                             RecvCreateRoom(code[2]);
                         }
+                        else if (check_duel.Equals("busy"))
+                        {
+                            MessageBox.Show("Friend is busy");
+                        }
                         else if (check_duel.Equals("false"))
                         {
                             RecvRefuseInvite(code[2]);

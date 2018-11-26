@@ -459,6 +459,16 @@ namespace CaroGameServer
 
         public static void Invite(string user_id, string friend_id, TcpClient userClient)
         {
+            for (int i = 0; i < roomList.Count; i++)
+            {
+                Room room = roomList[i];
+                if (room.join_id.Equals(friend_id))
+                {
+                    Server.SendData("youhostduel:busy:", userClient);
+                    return;
+                }
+            }
+
             for (int i = 0; i < onlineList.Count; i++)
             {
                 Online friend = onlineList[i];
