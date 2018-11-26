@@ -70,7 +70,7 @@ namespace CaroGameServer
 
         public static void Result(string result, string user_id)
         {
-
+            DataBase.KetQua(user_id, result);
         }
 
 
