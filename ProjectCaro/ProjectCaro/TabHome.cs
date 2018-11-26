@@ -511,6 +511,7 @@ namespace ProjectCaro
         public async void LoadAvatar()
         {
             int expLevel = 75;
+            int expLevelcoban = 75;
             int exp;
             string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
             userAvatar.Load(url);
@@ -527,7 +528,7 @@ namespace ProjectCaro
             {
 
                 exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
-                if ((exp / expLevel) >= (i + 1))
+                if ((exp / expLevel) >= 1)
                 {
                     lblLevel.Text = (i + 1).ToString();
                     expLevel = expLevel * 2;
@@ -559,7 +560,7 @@ namespace ProjectCaro
             {
 
                 exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
-                if ((exp / expLevel) >= (i + 1))
+                if ((exp / expLevel) >= 1)
                 {
                     lblLevel.Text = (i + 1).ToString();
                     expLevel = expLevel * 2;
