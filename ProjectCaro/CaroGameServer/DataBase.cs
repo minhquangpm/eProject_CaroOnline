@@ -285,5 +285,41 @@ namespace CaroGameServer
             }
         }
 
+        // Ket Qua
+        public static void KetQua(string user_id, string ketqua)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                if (ketqua == "win")
+                {
+                    MyCommand.CommandText = $"UPDATE thongke SET win = win + 1, gameCount = gameCount + 1 WHERE name = '" + user_id + "';";
+                    MyCommand.ExecuteNonQuery();
+                }
+                else if (ketqua == "lose")
+                {
+                    MyCommand.CommandText = $"UPDATE thongke SET lose = lose + 1, gameCount = gameCount + 1 WHERE name = '" + user_id + "';";
+                    MyCommand.ExecuteNonQuery();
+                }
+                else
+                {
+                    MyCommand.CommandText = $"UPDATE thongke SET draw = draw + 1, gameCount = gameCount + 1 WHERE name = '" + user_id + "';";
+                    MyCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
     }
 }
