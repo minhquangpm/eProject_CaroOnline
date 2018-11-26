@@ -87,7 +87,7 @@ namespace ProjectCaro
             int expLevel = 75;
             int exp;
             string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
-            pictureBox1.Load(url);
+            userAvatar.Load(url);
             await Task.Run(() =>
             {
                 CaroAPI.ThongKe().GetAwaiter().GetResult();
