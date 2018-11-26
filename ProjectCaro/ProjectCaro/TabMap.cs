@@ -162,11 +162,12 @@ namespace ProjectCaro
                 DrawBtnWin(win, play_turn);
                 if (play_turn == player_turn)
                 {
-                    SendWin(user_id, room_no);
+                    SendResult("win", user_id);
                     WonGame();
                 }
                 else
                 {
+                    SendResult("lose", user_id);
                     LostGame();
                 }
             }
@@ -174,7 +175,7 @@ namespace ProjectCaro
             bool draw = CheckDraw();
             if (draw)
             {
-
+                SendResult("draw", user_id);
             }
 
             turn++;

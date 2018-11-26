@@ -509,8 +509,11 @@ namespace ProjectCaro
                             danhsachphong.Rows[i].Cells[0].Value = Resources.duel;
                             danhsachphong.Rows[i].Cells[1].Value = room.room_key;
                         }
-                        danhsachphong.Rows[i].Cells[0].Value = Resources.key;
-                        danhsachphong.Rows[i].Cells[1].Value = room.room_key;
+                        else
+                        {
+                            danhsachphong.Rows[i].Cells[0].Value = Resources.key;
+                            danhsachphong.Rows[i].Cells[1].Value = room.room_key;
+                        }
                     }
                     danhsachphong.Rows[i].Cells[2].Value = room.room_no;
                     danhsachphong.Rows[i].Cells[3].Value = room.roomname;

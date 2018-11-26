@@ -67,6 +67,12 @@ namespace CaroGameServer
 
 
 
+        public static void Result(string result, string user_id)
+        {
+
+        }
+
+
         public static void CreateRoom(string user_id, string room_key, TcpClient userClient)
         {
             Random random = new Random();

@@ -16,9 +16,9 @@ namespace ProjectCaro
         }
 
 
-        private static void SendWin(string user_id, string room_no)
+        private static void SendResult(string result, string user_id)
         {
-            string message = "win:" + user_id + ":" + room_no;
+            string message = "result:" + result + ":" + user_id;
             SendData(message);
         }
 
