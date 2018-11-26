@@ -220,7 +220,7 @@ namespace ProjectCaro
                         string check_join = code[1];
                         if (check_join.Equals("true"))
                         {
-                            RecvJoinRoom(code[2], code[3]);
+                            RecvJoinRoom(code[2], code[3], code[4]);
                         }
                         else if (check_join.Equals("full"))
                         {
@@ -242,6 +242,20 @@ namespace ProjectCaro
                         break;
                     case "host":
                         RecvSomeoneJoin(code[1], code[2], code[3]);
+                        break;
+                    case "youhostduel":
+                        string check_duel = code[1];
+                        if (check_duel.Equals("true"))
+                        {
+                            RecvCreateRoom(code[2]);
+                        }
+                        else if (check_duel.Equals("false"))
+                        {
+                            RecvRefuseInvite(code[2]);
+                        }
+                        break;
+                    case "invitetoduel":
+                        RecvInviteToDuel(code[1]);
                         break;
                     case "otherquit":
                         RecvPlayerQuit(code[1]);
@@ -360,17 +374,17 @@ namespace ProjectCaro
                     if (user_id.Equals(host_id))
                     {
                         // đổi màu nền tên người chơi
-                        lblHost.BackColor = Color.Green;
+                        pnlHost.BackColor = Color.LightSeaGreen;
 
-                        lblJoin.BackColor = Color.Transparent;
+                        pnlJoin.BackColor = Color.Transparent;
                     }
 
                     if (user_id.Equals(join_id))
                     {
                         // đổi màu nền tên người chơi
-                        lblJoin.BackColor = Color.Green;
+                        pnlJoin.BackColor = Color.LightSeaGreen;
 
-                        lblHost.BackColor = Color.Transparent;
+                        pnlHost.BackColor = Color.Transparent;
                     }
 
                 }
@@ -380,17 +394,17 @@ namespace ProjectCaro
                     if (user_id.Equals(host_id))
                     {
                         // đổi màu nền tên người chơi
-                        lblHost.BackColor = Color.Transparent;
+                        pnlHost.BackColor = Color.Transparent;
 
-                        lblJoin.BackColor = Color.Red;
+                        pnlJoin.BackColor = Color.Red;
                     }
 
                     if (user_id.Equals(join_id))
                     {
                         // đổi màu nền tên người chơi
-                        lblJoin.BackColor = Color.Transparent;
+                        pnlJoin.BackColor = Color.Transparent;
 
-                        lblHost.BackColor = Color.Red;
+                        pnlHost.BackColor = Color.Red;
                     }
                 }
 
@@ -483,8 +497,14 @@ namespace ProjectCaro
                 for (int i = 0; i < server_room; i++)
                 {
                     RoomGame room = CaroAPI.getRoom.data[i];
+                    
                     if (room.room_key != null)
                     {
+                        if (room.room_key.Equals("duelyst"))
+                        {
+                            danhsachphong.Rows[i].Cells[0].Value = Resources.duel;
+                            danhsachphong.Rows[i].Cells[1].Value = room.room_key;
+                        }
                         danhsachphong.Rows[i].Cells[0].Value = Resources.key;
                         danhsachphong.Rows[i].Cells[1].Value = room.room_key;
                     }

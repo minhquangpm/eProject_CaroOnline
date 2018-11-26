@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,11 +35,13 @@ namespace ProjectCaro
 
 
 
-        private void RecvJoinRoom(string recv_host_id, string recv_player_turn)
+        private void RecvJoinRoom(string recv_host_id, string recv_room_no, string recv_player_turn)
         {
             host_id = recv_host_id;
 
             join_id = user_id;
+
+            room_no = recv_room_no;
 
             // set player turn
             player_turn = Convert.ToInt32(recv_player_turn);
@@ -117,6 +120,42 @@ namespace ProjectCaro
                 player_turn = Convert.ToInt32(recv_player_turn);
             }
         }
+
+
+        private void RecvInviteToDuel(string recv_host_id)
+        {
+            Invoke(new Action(() =>
+            {
+                lblInviteName.Text = recv_host_id;
+                lblInviteName.Location = new Point((pnlInvite.Width - lblInviteName.Width) / 2, 10);
+
+                pnlHome.Enabled = false;
+                pnlInvite.Visible = true;
+            }));
+            
+
+           
+        }
+
+
+        private void RecvRefuseInvite(string refuse_id)
+        {
+            DialogResult result = MessageBox.Show("User " + refuse_id + " chose being a loser.", "", MessageBoxButtons.OK);
+            switch (result)
+            {
+                case DialogResult.OK:
+                    SendRemoveRoom(room_no);
+
+                    Invoke(new Action(() =>
+                    {
+                        tabControl.SelectTab(Home);
+                        NewGame("newroom");
+                    }));
+
+                    break;
+            }
+        }
+
 
 
 

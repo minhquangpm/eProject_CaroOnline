@@ -114,6 +114,15 @@ namespace CaroGameServer
                         case "removefriend":
                             HandleClient.RemoveFriend(code[1], code[2], client);
                             break;
+                        case "invite":
+                            HandleClient.Invite(code[1], code[2], client);
+                            break;
+                        case "duelaccept":
+                            HandleClient.DuelAccept(code[1]);
+                            break;
+                        case "duelrefuse":
+                            HandleClient.DuelRefuse(code[1]);
+                            break;
                         case "create":
                             if (code[2].Equals("true"))
                             {

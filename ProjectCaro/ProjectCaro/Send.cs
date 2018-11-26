@@ -52,6 +52,28 @@ namespace ProjectCaro
 
         }
 
+
+        private static void SendInviteFriend(string user_id, string friend_id)
+        {
+            string message = "invite:" + user_id + ":" + friend_id;
+            SendData(message);
+        }
+
+
+        private static void SendAcceptInvite(string user_id)
+        {
+            string message = "duelaccept:" + user_id;
+            SendData(message);
+        }
+
+
+        private static void SendRefuseInvite(string user_id)
+        {
+            string message = "duelrefuse:" + user_id;
+            SendData(message);
+        }
+
+
         private static void SendCreateRoom(string user_id)
         {
             string message = "create:" + user_id + ":false";

@@ -13,6 +13,16 @@ namespace CaroGameServer
             Random random = new Random();
             int start = random.Next(0, roomName.Length);
             string roomname = roomName[start];
+
+            if (room_key != null)
+            {
+                if (room_key.Equals("duelyst"))
+                {
+                    roomname = "THIS IS A DUEL";
+                }
+            }
+            
+
             MySqlConnection conn = DBUtils.GetDBConnection();
             MySqlCommand MyCommand;
             MyCommand = conn.CreateCommand();

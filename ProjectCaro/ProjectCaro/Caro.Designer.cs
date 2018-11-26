@@ -67,7 +67,15 @@
             this.Home = new System.Windows.Forms.TabPage();
             this.btnCloseForm2 = new System.Windows.Forms.Button();
             this.btnMinimizeForm2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlHome = new System.Windows.Forms.Panel();
+            this.pnlInvite = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnRefuseFight = new System.Windows.Forms.Button();
+            this.lblInviteName = new System.Windows.Forms.Label();
+            this.btnAcceptFight = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblRoomList = new System.Windows.Forms.Label();
@@ -82,7 +90,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDeleteFriend = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInviteFriend = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -121,10 +129,10 @@
             this.btnAddJoin = new System.Windows.Forms.Button();
             this.btnReplay = new System.Windows.Forms.Button();
             this.Vs = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnlJoin = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblJoin = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlHost = new System.Windows.Forms.Panel();
             this.lblHost = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblWaiting = new System.Windows.Forms.Label();
@@ -147,6 +155,7 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.tabControl.SuspendLayout();
             this.Login.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -156,7 +165,10 @@
             this.panelSignup.SuspendLayout();
             this.pnlLogo1.SuspendLayout();
             this.Home.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlHome.SuspendLayout();
+            this.pnlInvite.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlFriendInfo.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -174,9 +186,9 @@
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnlJoin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.pnlHost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlLogo3.SuspendLayout();
             this.SuspendLayout();
@@ -603,7 +615,7 @@
             this.Home.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Home.Controls.Add(this.btnCloseForm2);
             this.Home.Controls.Add(this.btnMinimizeForm2);
-            this.Home.Controls.Add(this.panel1);
+            this.Home.Controls.Add(this.pnlHome);
             this.Home.Controls.Add(this.pnlLogo2);
             this.Home.Location = new System.Drawing.Point(4, 22);
             this.Home.Name = "Home";
@@ -652,24 +664,128 @@
             this.btnMinimizeForm2.UseVisualStyleBackColor = false;
             this.btnMinimizeForm2.Click += new System.EventHandler(this.btnMinimizeForm2_Click);
             // 
-            // panel1
+            // pnlHome
             // 
-            this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.pnlFriendInfo);
-            this.panel1.Controls.Add(this.btnCreatePrivate);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.btnVaoNhanh);
-            this.panel1.Controls.Add(this.btnCreatePublic);
-            this.panel1.Controls.Add(this.btnChat);
-            this.panel1.Controls.Add(this.txtChat);
-            this.panel1.Controls.Add(this.listboxchat);
-            this.panel1.Controls.Add(this.pnlUserInfo);
-            this.panel1.Location = new System.Drawing.Point(-4, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 555);
-            this.panel1.TabIndex = 60;
+            this.pnlHome.BackColor = System.Drawing.Color.PapayaWhip;
+            this.pnlHome.Controls.Add(this.pnlInvite);
+            this.pnlHome.Controls.Add(this.btnLogout);
+            this.pnlHome.Controls.Add(this.panel8);
+            this.pnlHome.Controls.Add(this.pnlFriendInfo);
+            this.pnlHome.Controls.Add(this.btnCreatePrivate);
+            this.pnlHome.Controls.Add(this.panel7);
+            this.pnlHome.Controls.Add(this.btnVaoNhanh);
+            this.pnlHome.Controls.Add(this.btnCreatePublic);
+            this.pnlHome.Controls.Add(this.btnChat);
+            this.pnlHome.Controls.Add(this.txtChat);
+            this.pnlHome.Controls.Add(this.listboxchat);
+            this.pnlHome.Controls.Add(this.pnlUserInfo);
+            this.pnlHome.Location = new System.Drawing.Point(-4, 53);
+            this.pnlHome.Name = "pnlHome";
+            this.pnlHome.Size = new System.Drawing.Size(910, 555);
+            this.pnlHome.TabIndex = 60;
+            // 
+            // pnlInvite
+            // 
+            this.pnlInvite.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnlInvite.Controls.Add(this.panel14);
+            this.pnlInvite.Controls.Add(this.panel13);
+            this.pnlInvite.Location = new System.Drawing.Point(319, 102);
+            this.pnlInvite.Name = "pnlInvite";
+            this.pnlInvite.Size = new System.Drawing.Size(273, 166);
+            this.pnlInvite.TabIndex = 39;
+            this.pnlInvite.Visible = false;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Location = new System.Drawing.Point(3, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(267, 33);
+            this.panel14.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(6, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 19);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Invite for Duel";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel13.Controls.Add(this.label10);
+            this.panel13.Controls.Add(this.btnRefuseFight);
+            this.panel13.Controls.Add(this.lblInviteName);
+            this.panel13.Controls.Add(this.btnAcceptFight);
+            this.panel13.Location = new System.Drawing.Point(3, 39);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(267, 124);
+            this.panel13.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(71, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(127, 19);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "invite you to fight";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRefuseFight
+            // 
+            this.btnRefuseFight.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnRefuseFight.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.btnRefuseFight.FlatAppearance.BorderSize = 2;
+            this.btnRefuseFight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefuseFight.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefuseFight.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.btnRefuseFight.Location = new System.Drawing.Point(137, 79);
+            this.btnRefuseFight.Name = "btnRefuseFight";
+            this.btnRefuseFight.Size = new System.Drawing.Size(127, 38);
+            this.btnRefuseFight.TabIndex = 31;
+            this.btnRefuseFight.Text = "BE A LOSER";
+            this.btnRefuseFight.UseVisualStyleBackColor = false;
+            this.btnRefuseFight.Click += new System.EventHandler(this.btnRefuseFight_Click);
+            // 
+            // lblInviteName
+            // 
+            this.lblInviteName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblInviteName.AutoSize = true;
+            this.lblInviteName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInviteName.ForeColor = System.Drawing.Color.White;
+            this.lblInviteName.Location = new System.Drawing.Point(70, 9);
+            this.lblInviteName.Name = "lblInviteName";
+            this.lblInviteName.Size = new System.Drawing.Size(128, 30);
+            this.lblInviteName.TabIndex = 25;
+            this.lblInviteName.Text = "Friendname";
+            this.lblInviteName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAcceptFight
+            // 
+            this.btnAcceptFight.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnAcceptFight.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.btnAcceptFight.FlatAppearance.BorderSize = 2;
+            this.btnAcceptFight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcceptFight.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceptFight.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.btnAcceptFight.Location = new System.Drawing.Point(3, 79);
+            this.btnAcceptFight.Name = "btnAcceptFight";
+            this.btnAcceptFight.Size = new System.Drawing.Size(128, 38);
+            this.btnAcceptFight.TabIndex = 30;
+            this.btnAcceptFight.Text = "BE A HERO";
+            this.btnAcceptFight.UseVisualStyleBackColor = false;
+            this.btnAcceptFight.Click += new System.EventHandler(this.btnAcceptFight_Click);
             // 
             // btnLogout
             // 
@@ -710,7 +826,7 @@
             this.pnlFriendInfo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnlFriendInfo.Controls.Add(this.panel10);
             this.pnlFriendInfo.Controls.Add(this.panel9);
-            this.pnlFriendInfo.Location = new System.Drawing.Point(453, 297);
+            this.pnlFriendInfo.Location = new System.Drawing.Point(459, 297);
             this.pnlFriendInfo.Name = "pnlFriendInfo";
             this.pnlFriendInfo.Size = new System.Drawing.Size(200, 175);
             this.pnlFriendInfo.TabIndex = 35;
@@ -728,7 +844,7 @@
             this.panel10.Controls.Add(this.label7);
             this.panel10.Controls.Add(this.label6);
             this.panel10.Controls.Add(this.btnDeleteFriend);
-            this.panel10.Controls.Add(this.button1);
+            this.panel10.Controls.Add(this.btnInviteFriend);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Location = new System.Drawing.Point(3, 32);
             this.panel10.Name = "panel10";
@@ -838,20 +954,21 @@
             this.btnDeleteFriend.UseVisualStyleBackColor = false;
             this.btnDeleteFriend.Click += new System.EventHandler(this.btnDeleteFriend_Click);
             // 
-            // button1
+            // btnInviteFriend
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSalmon;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.PapayaWhip;
-            this.button1.Location = new System.Drawing.Point(3, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 35);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "FIGHT";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnInviteFriend.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnInviteFriend.FlatAppearance.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.btnInviteFriend.FlatAppearance.BorderSize = 2;
+            this.btnInviteFriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInviteFriend.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInviteFriend.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.btnInviteFriend.Location = new System.Drawing.Point(3, 99);
+            this.btnInviteFriend.Name = "btnInviteFriend";
+            this.btnInviteFriend.Size = new System.Drawing.Size(117, 35);
+            this.btnInviteFriend.TabIndex = 20;
+            this.btnInviteFriend.Text = "FIGHT";
+            this.btnInviteFriend.UseVisualStyleBackColor = false;
+            this.btnInviteFriend.Click += new System.EventHandler(this.btnInviteFriend_Click);
             // 
             // panel11
             // 
@@ -1278,8 +1395,8 @@
             this.panel4.Controls.Add(this.btnAddJoin);
             this.panel4.Controls.Add(this.btnReplay);
             this.panel4.Controls.Add(this.Vs);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.pnlJoin);
+            this.panel4.Controls.Add(this.pnlHost);
             this.panel4.Controls.Add(this.lblWaiting);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lblSophong);
@@ -1383,15 +1500,15 @@
             this.Vs.TabIndex = 87;
             this.Vs.Text = "vs";
             // 
-            // panel6
+            // pnlJoin
             // 
-            this.panel6.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Controls.Add(this.lblJoin);
-            this.panel6.Location = new System.Drawing.Point(787, 48);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(100, 129);
-            this.panel6.TabIndex = 86;
+            this.pnlJoin.BackColor = System.Drawing.Color.Transparent;
+            this.pnlJoin.Controls.Add(this.pictureBox3);
+            this.pnlJoin.Controls.Add(this.lblJoin);
+            this.pnlJoin.Location = new System.Drawing.Point(787, 48);
+            this.pnlJoin.Name = "pnlJoin";
+            this.pnlJoin.Size = new System.Drawing.Size(100, 129);
+            this.pnlJoin.TabIndex = 86;
             // 
             // pictureBox3
             // 
@@ -1406,28 +1523,28 @@
             // 
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJoin.ForeColor = System.Drawing.Color.FloralWhite;
+            this.lblJoin.ForeColor = System.Drawing.Color.Black;
             this.lblJoin.Location = new System.Drawing.Point(2, 100);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(78, 23);
             this.lblJoin.TabIndex = 81;
             this.lblJoin.Text = "UserJoin";
             // 
-            // panel5
+            // pnlHost
             // 
-            this.panel5.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel5.Controls.Add(this.lblHost);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Location = new System.Drawing.Point(523, 48);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(100, 129);
-            this.panel5.TabIndex = 85;
+            this.pnlHost.BackColor = System.Drawing.Color.Transparent;
+            this.pnlHost.Controls.Add(this.lblHost);
+            this.pnlHost.Controls.Add(this.pictureBox2);
+            this.pnlHost.Location = new System.Drawing.Point(523, 48);
+            this.pnlHost.Name = "pnlHost";
+            this.pnlHost.Size = new System.Drawing.Size(100, 129);
+            this.pnlHost.TabIndex = 85;
             // 
             // lblHost
             // 
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHost.ForeColor = System.Drawing.Color.FloralWhite;
+            this.lblHost.ForeColor = System.Drawing.Color.Black;
             this.lblHost.Location = new System.Drawing.Point(3, 100);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(83, 23);
@@ -1659,6 +1776,13 @@
             this.bunifuDragControl3.TargetControl = this.Home;
             this.bunifuDragControl3.Vertical = true;
             // 
+            // bunifuDragControl4
+            // 
+            this.bunifuDragControl4.Fixed = true;
+            this.bunifuDragControl4.Horizontal = true;
+            this.bunifuDragControl4.TargetControl = this.pnlInvite;
+            this.bunifuDragControl4.Vertical = true;
+            // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1687,8 +1811,13 @@
             this.pnlLogo1.ResumeLayout(false);
             this.pnlLogo1.PerformLayout();
             this.Home.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlHome.ResumeLayout(false);
+            this.pnlHome.PerformLayout();
+            this.pnlInvite.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.pnlFriendInfo.ResumeLayout(false);
@@ -1712,11 +1841,11 @@
             this.Map.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.pnlJoin.ResumeLayout(false);
+            this.pnlJoin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.pnlHost.ResumeLayout(false);
+            this.pnlHost.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlLogo3.ResumeLayout(false);
             this.pnlLogo3.PerformLayout();
@@ -1768,7 +1897,7 @@
         private System.Windows.Forms.Panel pnlLogo2;
         public System.Windows.Forms.Label lblOnline2;
         public System.Windows.Forms.Label lblCaroGame2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.Label lblRoomList;
         public System.Windows.Forms.Button btnVaoNhanh;
         public System.Windows.Forms.DataGridView danhsachphong;
@@ -1795,9 +1924,9 @@
         private System.Windows.Forms.Button btnAddJoin;
         private System.Windows.Forms.Button btnReplay;
         private System.Windows.Forms.Label Vs;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnlJoin;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlHost;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Label lblWaiting;
         public System.Windows.Forms.Label label3;
@@ -1822,7 +1951,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lblFriendName;
         private System.Windows.Forms.Button btnCloseFriendInfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInviteFriend;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnDeleteFriend;
@@ -1844,6 +1973,15 @@
         public System.Windows.Forms.Label Level;
         private System.Windows.Forms.Panel panel8;
         public System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Panel pnlInvite;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
+        private System.Windows.Forms.Panel panel13;
+        public System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnRefuseFight;
+        public System.Windows.Forms.Label lblInviteName;
+        private System.Windows.Forms.Button btnAcceptFight;
+        private System.Windows.Forms.Panel panel14;
+        public System.Windows.Forms.Label label11;
     }
 }
 

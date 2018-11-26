@@ -4,10 +4,39 @@ using System.Net.Sockets;
 
 namespace CaroGameServer
 {
+    class Room
+    {
+        public string host_id { set; get; }
+        public TcpClient hostClient { set; get; }
+        public string join_id { set; get; }
+        public TcpClient joinClient { set; get; }
+        public string room_no { set; get; }
+        public string room_key { set; get; }
+        //public bool isDuel { set; get; }
+    }
+
+    class RoomDuel : Room
+    {
+        public RoomDuel()
+        {
+            this.room_key = "duelyst";
+        }
+    }
+
+
+    class Online
+    {
+        public string user_id { set; get; }
+        public TcpClient userClient { set; get; }
+    }
+
+
+
     class HandleClient
     {
         // danh sách phòng chơi
         private static List<Room> roomList = new List<Room>();
+        private static List<RoomDuel> roomDuelList = new List<RoomDuel>();
 
         // danh sách người chơi online
         private static List<Online> onlineList = new List<Online>();
@@ -93,7 +122,7 @@ namespace CaroGameServer
                         }
 
                         // gửi thông tin của host cho join
-                        string message_to_join = "join:true:" + room.host_id + ":" + join_turn;
+                        string message_to_join = "join:true:" + room.host_id + ":" + room.room_no + ":" + join_turn;
                         Server.SendData(message_to_join, userClient);
                         //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
 
@@ -243,6 +272,16 @@ namespace CaroGameServer
                     break;
                 }
             }
+
+            foreach (RoomDuel roomDuel in roomDuelList)
+            {
+                if (roomDuel.room_no.Equals(room_no))
+                {
+                    roomDuelList.Remove(roomDuel);
+
+                    break;
+                }
+            }
         }
 
 
@@ -287,7 +326,7 @@ namespace CaroGameServer
                     // xóa object
                     onlineList.Remove(userOnline);
                 }
-            } 
+            }
         }
 
 
@@ -299,7 +338,7 @@ namespace CaroGameServer
                 Online user = onlineList[i];
                 if (user.user_id.Equals(offline_user))
                 {
-                    
+
                     Console.WriteLine("User " + user.user_id + " offline");
 
                     DataBase.ChangeStatusUser(user.user_id);
@@ -317,7 +356,7 @@ namespace CaroGameServer
         // TH3: xử lý khi join disconnect giữa trận
         private static void RemoveUserFromRoom(string disconnect_user)
         {
-            for (int i = 0; i < roomList.Count; i++) 
+            for (int i = 0; i < roomList.Count; i++)
             {
                 Room room = roomList[i];
                 if (disconnect_user.Equals(room.host_id) && room.join_id == null)
@@ -415,6 +454,86 @@ namespace CaroGameServer
                 }
             }
         }
+
+
+
+        public static void Invite(string user_id, string friend_id, TcpClient userClient)
+        {
+            for (int i = 0; i < onlineList.Count; i++)
+            {
+                Online friend = onlineList[i];
+                if (friend.user_id.Equals(friend_id))
+                {
+                    Random random = new Random();
+                    string room_no = Convert.ToString(random.Next(1, 999999));
+
+                    RoomDuel roomDuel = new RoomDuel
+                    {
+                        host_id = user_id,
+                        join_id = friend_id,
+                        hostClient = userClient,
+                        joinClient = friend.userClient,
+                        room_no = room_no
+                    };
+
+
+                    Room room = new Room
+                    {
+                        host_id = user_id,
+                        hostClient = userClient,
+                        room_no = room_no,
+                        room_key = roomDuel.room_key
+                    };
+
+
+                    // thêm vào danh sách room
+                    roomList.Add(room);
+                    roomDuelList.Add(roomDuel);
+
+                    // gửi thông tin cho phép user tạo phòng chiến với bạn
+                    Server.SendData("youhostduel:true:" + room_no, userClient);
+
+                    // gửi thông tin lời mời cho friend
+                    Server.SendData("invitetoduel:" + user_id + ":" + room_no, friend.userClient);
+
+                    // lưu room vào db
+                    DataBase.TaoRoom(user_id, room_no, roomDuel.room_key);
+
+                    break;
+                }
+            }
+        }
+
+
+        public static void DuelAccept(string accept_id)
+        {
+            for (int i = 0; i < roomDuelList.Count; i++)
+            {
+                RoomDuel roomDuel = roomDuelList[i];
+                if (roomDuel.join_id.Equals(accept_id))
+                {
+                    JoinRoom(accept_id, roomDuel.room_no, roomDuel.joinClient);
+                    break;
+                }
+            }
+        }
+
+
+        public static void DuelRefuse(string refuse_id)
+        {
+            for (int i = 0; i < roomDuelList.Count; i++)
+            {
+                RoomDuel roomDuel = roomDuelList[i];
+                if (roomDuel.join_id.Equals(refuse_id))
+                {
+                    Server.SendData("youhostduel:false:" + refuse_id, roomDuel.hostClient);
+
+                    RemoveRoom(roomDuel.room_no);
+                    break;
+                }
+            }
+        }
+
 
 
 

@@ -435,8 +435,8 @@ namespace ProjectCaro
                     break;
             }
 
-            lblHost.BackColor = Color.Transparent;
-            lblJoin.BackColor = Color.Transparent;
+            pnlHost.BackColor = Color.Transparent;
+            pnlJoin.BackColor = Color.Transparent;
             lblGameStatus.Visible = false;
 
             btnAddHost.Text = "Add";

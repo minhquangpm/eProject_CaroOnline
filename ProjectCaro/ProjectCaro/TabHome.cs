@@ -125,10 +125,15 @@ namespace ProjectCaro
 
             if (dgv.CurrentRow.Selected)
             {
-
                 if (dgv.CurrentRow.Cells[1].Value != null)
                 {
                     string row_room_key = dgv.CurrentRow.Cells[1].Value.ToString();
+                    if (row_room_key.Equals("duelyst"))
+                    {
+                        MessageBox.Show("You can not join a duel like this. Wait for Watch function coming soon!");
+                        return;
+                    }
+
                     string input_room_key = Interaction.InputBox("Enter password: ", "Caro", "", -1, -1);
                     if (input_room_key.Length > 0)
                     {
@@ -259,6 +264,18 @@ namespace ProjectCaro
 
             danhsachban.Enabled = false;
 
+
+            if (dgv.CurrentRow.Cells[2].Value == null)
+            {
+                btnInviteFriend.BackColor = Color.Gray;
+                btnInviteFriend.Enabled = false;
+            }
+            else
+            {
+                btnInviteFriend.BackColor = Color.LightSalmon;
+                btnInviteFriend.Enabled = true;
+            }
+
             pnlFriendInfo.Visible = true;
         }
 
@@ -300,6 +317,13 @@ namespace ProjectCaro
         }
 
 
+        private void btnInviteFriend_Click(object sender, EventArgs e)
+        {
+            SendInviteFriend(user_id, lblFriendName.Text);
+            btnCloseFriendInfo.PerformClick();
+        }
+
+
         private void btnDeleteFriend_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this friend?", "Caro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -327,6 +351,23 @@ namespace ProjectCaro
             }
         }
         #endregion
+
+        #region invitation
+        private void btnAcceptFight_Click(object sender, EventArgs e)
+        {
+            SendAcceptInvite(user_id);
+            pnlInvite.Visible = false;
+            pnlHome.Enabled = true;
+        }
+
+        private void btnRefuseFight_Click(object sender, EventArgs e)
+        {
+            SendRefuseInvite(user_id);
+            pnlInvite.Visible = false;
+            pnlHome.Enabled = true;
+        }
+        #endregion
+
 
 
         #region chat all
