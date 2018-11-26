@@ -403,7 +403,7 @@ namespace ProjectCaro
             {
 
                 exp = win * 50 + draw * 25;
-                if ((exp / expLevel) >= (i + 1))
+                if ((exp / expLevel) >= 1)
                 {
                     lblFriendLevel.Text = (i + 1).ToString();
                     expLevel = expLevel * 2;
