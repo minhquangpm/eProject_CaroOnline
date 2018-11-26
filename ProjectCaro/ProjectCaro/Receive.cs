@@ -129,7 +129,13 @@ namespace ProjectCaro
                 lblInviteName.Text = recv_host_id;
                 lblInviteName.Location = new Point((pnlInvite.Width - lblInviteName.Width) / 2, 10);
 
-                pnlHome.Enabled = false;
+                //pnlHome.Enabled = false;
+                danhsachphong.Enabled = false;
+                danhsachban.Enabled = false;
+                btnCreatePrivate.Enabled = false;
+                btnCreatePublic.Enabled = false;
+                btnVaoNhanh.Enabled = false;
+
                 pnlInvite.Visible = true;
             }));
             

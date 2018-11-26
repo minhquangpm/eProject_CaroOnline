@@ -357,14 +357,24 @@ namespace ProjectCaro
         {
             SendAcceptInvite(user_id);
             pnlInvite.Visible = false;
-            pnlHome.Enabled = true;
+
+            danhsachphong.Enabled = true;
+            danhsachban.Enabled = true;
+            btnCreatePrivate.Enabled = true;
+            btnCreatePublic.Enabled = true;
+            btnVaoNhanh.Enabled = true;
         }
 
         private void btnRefuseFight_Click(object sender, EventArgs e)
         {
             SendRefuseInvite(user_id);
             pnlInvite.Visible = false;
-            pnlHome.Enabled = true;
+
+            danhsachphong.Enabled = true;
+            danhsachban.Enabled = true;
+            btnCreatePrivate.Enabled = true;
+            btnCreatePublic.Enabled = true;
+            btnVaoNhanh.Enabled = true;
         }
         #endregion
 
