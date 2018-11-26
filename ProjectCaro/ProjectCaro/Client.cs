@@ -83,7 +83,6 @@ namespace ProjectCaro
         }
 
 
-
         private void DoReceiver(object sender, DoWorkEventArgs e)
         {
             NetworkStream stream = null;
