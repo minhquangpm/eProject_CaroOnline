@@ -23,7 +23,7 @@ namespace ProjectCaro
             host_id = user_id;
             room_no = recv_room_no;
 
-            hostAvatar = userAvatar;
+            hostAvatar.Image = userAvatar.Image;
 
             Invoke(new Action(() =>
             {
@@ -37,13 +37,21 @@ namespace ProjectCaro
 
 
 
-        private void RecvJoinRoom(string recv_host_id, string recv_room_no, string recv_player_turn)
+        private void RecvJoinRoom(string recv_host_id, string recv_room_no, string recv_host_avatar, string recv_player_turn)
         {
             host_id = recv_host_id;
 
             join_id = user_id;
+            joinAvatar.Image = userAvatar.Image;
 
             room_no = recv_room_no;
+
+
+            Invoke(new Action(() =>
+            {
+                string url = $"http://159.89.193.234/svg/" + recv_host_avatar;
+                hostAvatar.Load(url);
+            }));
 
             // set player turn
             player_turn = Convert.ToInt32(recv_player_turn);
@@ -83,13 +91,21 @@ namespace ProjectCaro
         }
 
 
-        private void RecvQuickJoin(string recv_host_id, string recv_room_no, string recv_player_turn)
+        private void RecvQuickJoin(string recv_host_id, string recv_room_no, string recv_host_avatar, string recv_player_turn)
         {
             host_id = recv_host_id;
 
             join_id = user_id;
+            joinAvatar.Image = userAvatar.Image;
 
             room_no = recv_room_no;
+
+            Invoke(new Action(() =>
+            {
+                string url = $"http://159.89.193.234/svg/" + recv_host_avatar;
+                hostAvatar.Load(url);
+            }));
+
 
             // set player turn
             player_turn = Convert.ToInt32(recv_player_turn);
@@ -112,11 +128,19 @@ namespace ProjectCaro
 
 
 
-        private void RecvSomeoneJoin(string recv_user_id, string recv_join_id, string recv_player_turn)
+        private void RecvSomeoneJoin(string recv_user_id, string recv_join_id, string recv_join_avatar, string recv_player_turn)
         {
             if (recv_user_id.Equals(user_id))
             {
                 join_id = recv_join_id;
+
+                // lấy avatar của join
+                Invoke(new Action(() =>
+                {
+                    string url = $"http://159.89.193.234/svg/" + recv_join_avatar;
+                    joinAvatar.Load(url);
+                }));
+                
 
                 // set player turn
                 player_turn = Convert.ToInt32(recv_player_turn);
@@ -169,6 +193,13 @@ namespace ProjectCaro
 
         private void RecvPlayerQuit(string recv_who_quit)
         {
+            // disable btn quitgame when someone quited
+            Invoke(new Action(() =>
+            {
+                btnThoatTran.Enabled = false;
+            }));
+            
+
             if (recv_who_quit.Equals("join"))
             {
                 DialogResult result = MessageBox.Show("User " + join_id + " has quited. Do you want to quit?", "Caro", MessageBoxButtons.YesNo);
@@ -181,6 +212,8 @@ namespace ProjectCaro
                         {
                             tabControl.SelectTab(Home);
                             NewGame("newroom");
+
+                            btnThoatTran.Enabled = true;
                         }));
 
                         break;
@@ -189,6 +222,8 @@ namespace ProjectCaro
                         {
                             NewGame("refreshroom");
                             MapLoad();
+
+                            btnThoatTran.Enabled = true;
                         }));
                         break;
                 }
@@ -205,6 +240,8 @@ namespace ProjectCaro
                         {
                             tabControl.SelectTab(Home);
                             NewGame("newroom");
+
+                            btnThoatTran.Enabled = true;
                         }));
 
                         break;
@@ -213,6 +250,8 @@ namespace ProjectCaro
                         {
                             NewGame("refreshroom");
                             MapLoad();
+
+                            btnThoatTran.Enabled = true;
                         }));
 
                         break;

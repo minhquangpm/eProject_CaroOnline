@@ -118,10 +118,10 @@ namespace CaroGameServer
                             HandleClient.RemoveFriend(code[1], code[2], client);
                             break;
                         case "invite":
-                            HandleClient.Invite(code[1], code[2], client);
+                            HandleClient.Invite(code[1], code[2], code[3], client);
                             break;
                         case "duelaccept":
-                            HandleClient.DuelAccept(code[1]);
+                            HandleClient.DuelAccept(code[1], code[2]);
                             break;
                         case "duelrefuse":
                             HandleClient.DuelRefuse(code[1]);
@@ -129,18 +129,18 @@ namespace CaroGameServer
                         case "create":
                             if (code[2].Equals("true"))
                             {
-                                HandleClient.CreateRoom(code[1], code[3], client);
+                                HandleClient.CreateRoom(code[1], code[3], code[4], client);
                             }
                             else if (code[2].Equals("false"))
                             {
-                                HandleClient.CreateRoom(code[1], null, client);
+                                HandleClient.CreateRoom(code[1], null, code[3], client);
                             }
                             break;
                         case "join":
-                            HandleClient.JoinRoom(code[1], code[2], client);
+                            HandleClient.JoinRoom(code[1], code[2], code[3], client);
                             break;
                         case "quickjoin":
-                            HandleClient.QuickJoinRoom(code[1], client);
+                            HandleClient.QuickJoinRoom(code[1], code[2], client);
                             break;
                         case "online":
                             HandleClient.UserOnline(code[1], client);

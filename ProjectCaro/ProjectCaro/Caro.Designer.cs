@@ -1219,6 +1219,7 @@
             // 
             this.userAvatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.userAvatar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.userAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.userAvatar.Location = new System.Drawing.Point(3, 3);
             this.userAvatar.Name = "userAvatar";
             this.userAvatar.Size = new System.Drawing.Size(94, 94);
@@ -1516,6 +1517,7 @@
             this.joinAvatar.Location = new System.Drawing.Point(3, 3);
             this.joinAvatar.Name = "joinAvatar";
             this.joinAvatar.Size = new System.Drawing.Size(94, 94);
+            this.joinAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.joinAvatar.TabIndex = 57;
             this.joinAvatar.TabStop = false;
             // 
@@ -1557,6 +1559,7 @@
             this.hostAvatar.Location = new System.Drawing.Point(3, 3);
             this.hostAvatar.Name = "hostAvatar";
             this.hostAvatar.Size = new System.Drawing.Size(94, 94);
+            this.hostAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.hostAvatar.TabIndex = 57;
             this.hostAvatar.TabStop = false;
             // 

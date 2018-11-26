@@ -82,95 +82,6 @@ namespace ProjectCaro
             workerListener.RunWorkerAsync();
         }
 
-        public async void LoadAvatar()
-        {
-            int expLevel = 75;
-            int exp;
-            string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
-            pictureBox1.Load(url);
-            await Task.Run(() =>
-            {
-                CaroAPI.ThongKe().GetAwaiter().GetResult();
-            });
-            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
-            for (int i = 0; i < 100; i++)
-            {
-
-                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
-                if ((exp / expLevel) >= (i + 1))
-                {
-                    lblLevel.Text = (i + 1).ToString();
-                    expLevel = expLevel * 2;
-                }
-                else if (exp == 0)
-                {
-
-                    lblLevel.Text = i.ToString();
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-
-
-        public async void LoadInfo()
-        {
-            int expLevel = 75;
-            int exp;
-            await Task.Run(() =>
-            {
-                CaroAPI.ThongKe().GetAwaiter().GetResult();
-            });
-            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
-            for (int i = 0; i < 100; i++)
-            {
-
-                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
-                if ((exp / expLevel) >= (i + 1))
-                {
-                    lblLevel.Text = (i + 1).ToString();
-                    expLevel = expLevel * 2;
-                }
-                else if (exp == 0)
-                {
-
-                    lblLevel.Text = i.ToString();
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-        public void LoadInfoFriend(int win, int draw)
-        {
-            int expLevel = 75;
-            int exp;
-            for (int i = 0; i < 100; i++)
-            {
-
-                exp = win * 50 + draw * 25;
-                if ((exp / expLevel) >= (i + 1))
-                {
-                    lblFriendLevel.Text = (i + 1).ToString();
-                    expLevel = expLevel * 2;
-                }
-                else if (exp == 0)
-                {
-
-                    lblFriendLevel.Text = i.ToString();
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
 
 
         private void DoReceiver(object sender, DoWorkEventArgs e)
@@ -245,7 +156,7 @@ namespace ProjectCaro
                         string check_join = code[1];
                         if (check_join.Equals("true"))
                         {
-                            RecvJoinRoom(code[2], code[3], code[4]);
+                            RecvJoinRoom(code[2], code[3], code[4], code[5]);
                         }
                         else if (check_join.Equals("full"))
                         {
@@ -259,14 +170,14 @@ namespace ProjectCaro
                     case "quickjoin":
                         string check_quick_join = code[1];
                         if (check_quick_join.Equals("true")) {
-                            RecvQuickJoin(code[2], code[3], code[4]);
+                            RecvQuickJoin(code[2], code[3], code[4], code[5]);
                         }
                         else if (check_quick_join.Equals("false")) {
                             MessageBox.Show("No public room to join!");
                         }
                         break;
                     case "host":
-                        RecvSomeoneJoin(code[1], code[2], code[3]);
+                        RecvSomeoneJoin(code[1], code[2], code[3], code[4]);
                         break;
                     case "youhostduel":
                         string check_duel = code[1];

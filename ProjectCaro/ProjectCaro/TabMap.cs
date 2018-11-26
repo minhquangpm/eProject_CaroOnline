@@ -22,6 +22,7 @@ namespace ProjectCaro
 
         // thông tin user
         private static string user_id;
+        private static string user_avatar;
         private static string host_id;
         private static string join_id;
         private static string room_no;
@@ -452,8 +453,8 @@ namespace ProjectCaro
             btnReplay.Enabled = false;
             pnlChess.Enabled = true;
 
-            hostAvatar = null;
-            joinAvatar = null;
+            hostAvatar.Image = null;
+            joinAvatar.Image = null;
 
             playerO.Clear();
             playerX.Clear();

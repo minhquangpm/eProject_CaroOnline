@@ -3,6 +3,7 @@ using ProjectCaro.Properties;
 using System;
 using System.Drawing;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectCaro
@@ -310,6 +311,8 @@ namespace ProjectCaro
                 lblFriendWin.Text = dgv.CurrentRow.Cells[4].Value as string;
                 lblFriendDraw.Text = dgv.CurrentRow.Cells[5].Value as string;
                 lblFriendLose.Text = dgv.CurrentRow.Cells[6].Value as string;
+
+                LoadInfoFriend(Convert.ToInt32(lblFriendWin.Text), Convert.ToInt32(lblFriendDraw.Text));
             }
 
             danhsachban.Enabled = false;
@@ -389,6 +392,32 @@ namespace ProjectCaro
                 case DialogResult.No:
 
                     break;
+            }
+        }
+
+        public void LoadInfoFriend(int win, int draw)
+        {
+            int expLevel = 75;
+            int exp;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = win * 50 + draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblFriendLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblFriendLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         #endregion
@@ -477,6 +506,78 @@ namespace ProjectCaro
             processBar1.Visible = false;
             processBar1.Value = 0;
         }
+
+
+        public async void LoadAvatar()
+        {
+            int expLevel = 75;
+            int exp;
+            string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
+            userAvatar.Load(url);
+
+            // lưu giá trị của avatar dùng để chuyển cho user khác
+            user_avatar = CaroAPI.user.avatar;
+
+            await Task.Run(() =>
+            {
+                CaroAPI.ThongKe().GetAwaiter().GetResult();
+            });
+            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+
+        public async void LoadInfo()
+        {
+            int expLevel = 75;
+            int exp;
+            await Task.Run(() =>
+            {
+                CaroAPI.ThongKe().GetAwaiter().GetResult();
+            });
+            lblSotran.Text = CaroAPI.thongke.win + "/" + CaroAPI.thongke.lose + "/" + CaroAPI.thongke.draw;
+            for (int i = 0; i < 100; i++)
+            {
+
+                exp = CaroAPI.thongke.win * 50 + CaroAPI.thongke.draw * 25;
+                if ((exp / expLevel) >= (i + 1))
+                {
+                    lblLevel.Text = (i + 1).ToString();
+                    expLevel = expLevel * 2;
+                }
+                else if (exp == 0)
+                {
+
+                    lblLevel.Text = i.ToString();
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        
 
 
 

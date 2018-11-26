@@ -55,14 +55,14 @@ namespace ProjectCaro
 
         private static void SendInviteFriend(string user_id, string friend_id)
         {
-            string message = "invite:" + user_id + ":" + friend_id;
+            string message = "invite:" + user_id + ":" + friend_id + ":" + user_avatar;
             SendData(message);
         }
 
 
         private static void SendAcceptInvite(string user_id)
         {
-            string message = "duelaccept:" + user_id;
+            string message = "duelaccept:" + user_id + ":" + user_avatar;
             SendData(message);
         }
 
@@ -76,14 +76,14 @@ namespace ProjectCaro
 
         private static void SendCreateRoom(string user_id)
         {
-            string message = "create:" + user_id + ":false";
+            string message = "create:" + user_id + ":false:" + user_avatar;
             SendData(message);
         }
 
 
         private static void SendCreateRoom(string user_id, string room_key)
         {
-            string message = "create:" + user_id + ":true:" + room_key;
+            string message = "create:" + user_id + ":true:" + room_key + ":" + user_avatar;
             SendData(message);
         }
 
@@ -91,14 +91,14 @@ namespace ProjectCaro
 
         private static void SendJoinRoom(string user_id, string room_no)
         {
-            string message = "join:" + user_id + ":" + room_no;
+            string message = "join:" + user_id + ":" + room_no + ":" + user_avatar;
             SendData(message);
         }
 
 
         private static void SendQuickJoin(string user_id)
         {
-            string message = "quickjoin:" + user_id;
+            string message = "quickjoin:" + user_id + ":" + user_avatar;
             SendData(message);
         }
 

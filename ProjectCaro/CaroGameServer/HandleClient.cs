@@ -7,12 +7,13 @@ namespace CaroGameServer
     class Room
     {
         public string host_id { set; get; }
+        public string host_avatar { set; get; }
         public TcpClient hostClient { set; get; }
         public string join_id { set; get; }
+        public string join_avatar { set; get; }
         public TcpClient joinClient { set; get; }
         public string room_no { set; get; }
         public string room_key { set; get; }
-        //public bool isDuel { set; get; }
     }
 
     class RoomDuel : Room
@@ -73,7 +74,7 @@ namespace CaroGameServer
         }
 
 
-        public static void CreateRoom(string user_id, string room_key, TcpClient userClient)
+        public static void CreateRoom(string user_id, string room_key, string user_avatar, TcpClient userClient)
         {
             Random random = new Random();
             string room_no = Convert.ToString(random.Next(1, 999999));
@@ -83,6 +84,7 @@ namespace CaroGameServer
             {
                 host_id = user_id,
                 hostClient = userClient,
+                host_avatar = user_avatar,
                 room_no = room_no,
                 room_key = room_key
             };
@@ -102,7 +104,7 @@ namespace CaroGameServer
 
 
 
-        public static void JoinRoom(string user_id, string room_no, TcpClient userClient)
+        public static void JoinRoom(string user_id, string room_no, string user_avatar, TcpClient userClient)
         {
             bool check_room = false;
 
@@ -114,6 +116,7 @@ namespace CaroGameServer
                     {
                         room.join_id = user_id;
                         room.joinClient = userClient;
+                        room.join_avatar = user_avatar;
 
                         Random random = new Random();
                         int host_turn = random.Next(1, 3);
@@ -128,12 +131,12 @@ namespace CaroGameServer
                         }
 
                         // gửi thông tin của host cho join
-                        string message_to_join = "join:true:" + room.host_id + ":" + room.room_no + ":" + join_turn;
+                        string message_to_join = "join:true:" + room.host_id + ":" + room.room_no + ":" + room.host_avatar + ":" + join_turn;
                         Server.SendData(message_to_join, userClient);
                         //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
 
                         // gửi thông tin của join cho host
-                        string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
+                        string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + room.join_avatar + ":" + host_turn;
                         Server.SendData(message_to_host, room.hostClient);
                         //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
 
@@ -161,7 +164,7 @@ namespace CaroGameServer
 
 
 
-        public static void QuickJoinRoom(string user_id, TcpClient userClient)
+        public static void QuickJoinRoom(string user_id, string user_avatar, TcpClient userClient)
         {
             bool check_room = false;
 
@@ -171,6 +174,7 @@ namespace CaroGameServer
                 {
                     room.join_id = user_id;
                     room.joinClient = userClient;
+                    room.join_avatar = user_avatar;
 
                     Random random = new Random();
                     int host_turn = random.Next(1, 3);
@@ -185,12 +189,12 @@ namespace CaroGameServer
                     }
 
                     // gửi thông tin của host cho join
-                    string message_to_join = "quickjoin:true:" + room.host_id + ":" + room.room_no + ":" + join_turn;
+                    string message_to_join = "quickjoin:true:" + room.host_id + ":" + room.room_no + ":" + room.host_avatar + ":" + join_turn;
                     Server.SendData(message_to_join, userClient);
                     //Console.WriteLine("join " + room.join_id + " " + room.joinClient.Client.RemoteEndPoint);
 
                     // gửi thông tin của join cho host
-                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
+                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + user_avatar + ":" + host_turn;
                     Server.SendData(message_to_host, room.hostClient);
                     //Console.WriteLine("host " + room.host_id + " " + room.hostClient.Client.RemoteEndPoint);
 
@@ -463,7 +467,7 @@ namespace CaroGameServer
 
 
 
-        public static void Invite(string user_id, string friend_id, TcpClient userClient)
+        public static void Invite(string user_id, string friend_id, string user_avatar, TcpClient userClient)
         {
             for (int i = 0; i < roomList.Count; i++)
             {
@@ -496,6 +500,7 @@ namespace CaroGameServer
                     Room room = new Room
                     {
                         host_id = user_id,
+                        host_avatar = user_avatar,
                         hostClient = userClient,
                         room_no = room_no,
                         room_key = roomDuel.room_key
@@ -521,14 +526,14 @@ namespace CaroGameServer
         }
 
 
-        public static void DuelAccept(string accept_id)
+        public static void DuelAccept(string accept_id, string accept_avatar)
         {
             for (int i = 0; i < roomDuelList.Count; i++)
             {
                 RoomDuel roomDuel = roomDuelList[i];
                 if (roomDuel.join_id.Equals(accept_id))
                 {
-                    JoinRoom(accept_id, roomDuel.room_no, roomDuel.joinClient);
+                    JoinRoom(accept_id, roomDuel.room_no, accept_avatar, roomDuel.joinClient);
                     break;
                 }
             }
