@@ -92,7 +92,7 @@
             this.btnDeleteFriend = new System.Windows.Forms.Button();
             this.btnInviteFriend = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.friendAvatar = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblFriendName = new System.Windows.Forms.Label();
             this.btnCloseFriendInfo = new System.Windows.Forms.Button();
@@ -109,7 +109,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.userAvatar = new System.Windows.Forms.PictureBox();
             this.lblSotran = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
@@ -130,11 +130,11 @@
             this.btnReplay = new System.Windows.Forms.Button();
             this.Vs = new System.Windows.Forms.Label();
             this.pnlJoin = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.joinAvatar = new System.Windows.Forms.PictureBox();
             this.lblJoin = new System.Windows.Forms.Label();
             this.pnlHost = new System.Windows.Forms.Panel();
             this.lblHost = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.hostAvatar = new System.Windows.Forms.PictureBox();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
@@ -173,23 +173,23 @@
             this.pnlFriendInfo.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.friendAvatar)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachphong)).BeginInit();
             this.pnlUserInfo.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAvatar)).BeginInit();
             this.pnlFriendList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).BeginInit();
             this.pnlLogo2.SuspendLayout();
             this.Map.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlJoin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.joinAvatar)).BeginInit();
             this.pnlHost.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostAvatar)).BeginInit();
             this.pnlLogo3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -973,22 +973,22 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel11.Controls.Add(this.pictureBox4);
+            this.panel11.Controls.Add(this.friendAvatar);
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(90, 90);
             this.panel11.TabIndex = 19;
             // 
-            // pictureBox4
+            // friendAvatar
             // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox4.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(84, 84);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
+            this.friendAvatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.friendAvatar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.friendAvatar.Location = new System.Drawing.Point(3, 3);
+            this.friendAvatar.Name = "friendAvatar";
+            this.friendAvatar.Size = new System.Drawing.Size(84, 84);
+            this.friendAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.friendAvatar.TabIndex = 0;
+            this.friendAvatar.TabStop = false;
             // 
             // panel9
             // 
@@ -1209,22 +1209,22 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel12.Controls.Add(this.pictureBox1);
+            this.panel12.Controls.Add(this.userAvatar);
             this.panel12.Location = new System.Drawing.Point(71, 47);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(100, 100);
             this.panel12.TabIndex = 24;
             // 
-            // pictureBox1
+            // userAvatar
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.userAvatar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.userAvatar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.userAvatar.Location = new System.Drawing.Point(3, 3);
+            this.userAvatar.Name = "userAvatar";
+            this.userAvatar.Size = new System.Drawing.Size(94, 94);
+            this.userAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userAvatar.TabIndex = 0;
+            this.userAvatar.TabStop = false;
             // 
             // lblSotran
             // 
@@ -1503,21 +1503,21 @@
             // pnlJoin
             // 
             this.pnlJoin.BackColor = System.Drawing.Color.Transparent;
-            this.pnlJoin.Controls.Add(this.pictureBox3);
+            this.pnlJoin.Controls.Add(this.joinAvatar);
             this.pnlJoin.Controls.Add(this.lblJoin);
             this.pnlJoin.Location = new System.Drawing.Point(787, 48);
             this.pnlJoin.Name = "pnlJoin";
             this.pnlJoin.Size = new System.Drawing.Size(100, 129);
             this.pnlJoin.TabIndex = 86;
             // 
-            // pictureBox3
+            // joinAvatar
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.PapayaWhip;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(94, 94);
-            this.pictureBox3.TabIndex = 57;
-            this.pictureBox3.TabStop = false;
+            this.joinAvatar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.joinAvatar.Location = new System.Drawing.Point(3, 3);
+            this.joinAvatar.Name = "joinAvatar";
+            this.joinAvatar.Size = new System.Drawing.Size(94, 94);
+            this.joinAvatar.TabIndex = 57;
+            this.joinAvatar.TabStop = false;
             // 
             // lblJoin
             // 
@@ -1534,7 +1534,7 @@
             // 
             this.pnlHost.BackColor = System.Drawing.Color.Transparent;
             this.pnlHost.Controls.Add(this.lblHost);
-            this.pnlHost.Controls.Add(this.pictureBox2);
+            this.pnlHost.Controls.Add(this.hostAvatar);
             this.pnlHost.Location = new System.Drawing.Point(523, 48);
             this.pnlHost.Name = "pnlHost";
             this.pnlHost.Size = new System.Drawing.Size(100, 129);
@@ -1551,14 +1551,14 @@
             this.lblHost.TabIndex = 82;
             this.lblHost.Text = "UserHost";
             // 
-            // pictureBox2
+            // hostAvatar
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.PapayaWhip;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(94, 94);
-            this.pictureBox2.TabIndex = 57;
-            this.pictureBox2.TabStop = false;
+            this.hostAvatar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.hostAvatar.Location = new System.Drawing.Point(3, 3);
+            this.hostAvatar.Name = "hostAvatar";
+            this.hostAvatar.Size = new System.Drawing.Size(94, 94);
+            this.hostAvatar.TabIndex = 57;
+            this.hostAvatar.TabStop = false;
             // 
             // lblWaiting
             // 
@@ -1824,7 +1824,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.friendAvatar)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -1833,7 +1833,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAvatar)).EndInit();
             this.pnlFriendList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhsachban)).EndInit();
             this.pnlLogo2.ResumeLayout(false);
@@ -1843,10 +1843,10 @@
             this.panel4.PerformLayout();
             this.pnlJoin.ResumeLayout(false);
             this.pnlJoin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.joinAvatar)).EndInit();
             this.pnlHost.ResumeLayout(false);
             this.pnlHost.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostAvatar)).EndInit();
             this.pnlLogo3.ResumeLayout(false);
             this.pnlLogo3.PerformLayout();
             this.ResumeLayout(false);
@@ -1925,9 +1925,9 @@
         private System.Windows.Forms.Button btnReplay;
         private System.Windows.Forms.Label Vs;
         private System.Windows.Forms.Panel pnlJoin;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox joinAvatar;
         private System.Windows.Forms.Panel pnlHost;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox hostAvatar;
         public System.Windows.Forms.Label lblWaiting;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblSophong;
@@ -1953,7 +1953,7 @@
         private System.Windows.Forms.Button btnCloseFriendInfo;
         private System.Windows.Forms.Button btnInviteFriend;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox friendAvatar;
         private System.Windows.Forms.Button btnDeleteFriend;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -1965,7 +1965,7 @@
         private System.Windows.Forms.Label lblFriendWin;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox userAvatar;
         public System.Windows.Forms.Label lblSotran;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lblUsername;

@@ -229,11 +229,43 @@ namespace ProjectCaro
                 Width = 30
             };
 
+            DataGridViewTextBoxColumn danhsachban_avatar = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachban_avatar",
+                HeaderText = "",
+                Visible = false
+            };
+
+            DataGridViewTextBoxColumn danhsachban_win = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachban_win",
+                HeaderText = "",
+                Visible = false
+            };
+
+            DataGridViewTextBoxColumn danhsachban_draw = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachban_draw",
+                HeaderText = "",
+                Visible = false
+            };
+
+            DataGridViewTextBoxColumn danhsachban_lose = new DataGridViewTextBoxColumn
+            {
+                Name = "danhsachban_lose",
+                HeaderText = "",
+                Visible = false
+            };
+
             danhsachban.Columns.Add(danhsachban_arrow);
             danhsachban.Columns.Add(danhsachban_name);
             danhsachban.Columns.Add(danhsachban_status);
+            danhsachban.Columns.Add(danhsachban_avatar);
+            danhsachban.Columns.Add(danhsachban_win);
+            danhsachban.Columns.Add(danhsachban_draw);
+            danhsachban.Columns.Add(danhsachban_lose);
 
-            for (int i = 0; i < danhsachban.Columns.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
                 danhsachban.Columns[i].HeaderCell.Style.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
                 danhsachban.Columns[i].HeaderCell.Style.BackColor = Color.LightSlateGray;
@@ -259,33 +291,31 @@ namespace ProjectCaro
             if (dgv.CurrentRow.Selected)
             {
                 dgv.CurrentRow.Cells[0].Value = Resources.right_arrow;
-                lblFriendName.Text = dgv.CurrentRow.Cells[1].Value.ToString();
-                foreach(FriendList manh in CaroAPI.getFriendList.data)
+                lblFriendName.Text = dgv.CurrentRow.Cells[1].Value as string;
+
+                if (dgv.CurrentRow.Cells[2].Value == null)
                 {
-                    if (lblFriendName.Text.Equals(manh.name))
-                    {
-                        LoadInfoFriend(manh.thongke.win, manh.thongke.draw);
-                        lblFriendWin.Text = manh.thongke.win.ToString();
-                        lblFriendLose.Text = manh.thongke.lose.ToString();
-                        lblFriendDraw.Text = manh.thongke.draw.ToString();
-                        pictureBox4.Load("http://159.89.193.234/svg/" + manh.user.avatar);
-                    }
+                    btnInviteFriend.BackColor = Color.Gray;
+                    btnInviteFriend.Enabled = false;
                 }
+                else
+                {
+                    btnInviteFriend.BackColor = Color.LightSalmon;
+                    btnInviteFriend.Enabled = true;
+                }
+
+                string url = $"http://159.89.193.234/svg/" + dgv.CurrentRow.Cells[3].Value as string;
+                friendAvatar.Load(url);
+
+                lblFriendWin.Text = dgv.CurrentRow.Cells[4].Value as string;
+                lblFriendDraw.Text = dgv.CurrentRow.Cells[5].Value as string;
+                lblFriendLose.Text = dgv.CurrentRow.Cells[6].Value as string;
             }
 
             danhsachban.Enabled = false;
 
 
-            if (dgv.CurrentRow.Cells[2].Value == null)
-            {
-                btnInviteFriend.BackColor = Color.Gray;
-                btnInviteFriend.Enabled = false;
-            }
-            else
-            {
-                btnInviteFriend.BackColor = Color.LightSalmon;
-                btnInviteFriend.Enabled = true;
-            }
+            
 
             pnlFriendInfo.Visible = true;
         }

@@ -610,6 +610,11 @@ namespace ProjectCaro
                         danhsachban.Rows[i].Cells[2].Value = null;
                     }
 
+                    danhsachban.Rows[i].Cells[3].Value = friend.user.avatar;
+                    danhsachban.Rows[i].Cells[4].Value = Convert.ToString(friend.thongke.win);
+                    danhsachban.Rows[i].Cells[5].Value = Convert.ToString(friend.thongke.draw);
+                    danhsachban.Rows[i].Cells[6].Value = Convert.ToString(friend.thongke.lose);
+
                     //oldFriend_name.Add(friend.name);
                 }
 

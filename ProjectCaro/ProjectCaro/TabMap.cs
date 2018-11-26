@@ -452,6 +452,9 @@ namespace ProjectCaro
             btnReplay.Enabled = false;
             pnlChess.Enabled = true;
 
+            hostAvatar = null;
+            joinAvatar = null;
+
             playerO.Clear();
             playerX.Clear();
 

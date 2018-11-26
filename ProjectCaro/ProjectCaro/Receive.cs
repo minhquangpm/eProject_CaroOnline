@@ -23,6 +23,8 @@ namespace ProjectCaro
             host_id = user_id;
             room_no = recv_room_no;
 
+            hostAvatar = userAvatar;
+
             Invoke(new Action(() =>
             {
                 txtChat2.Enabled = false;
