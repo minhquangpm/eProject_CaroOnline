@@ -305,7 +305,7 @@ namespace ProjectCaro
                     btnInviteFriend.Enabled = true;
                 }
 
-                string url = $"http://159.89.193.234/svg/" + dgv.CurrentRow.Cells[3].Value as string;
+                string url = $"http://127.0.0.1:8000/svg/" + dgv.CurrentRow.Cells[3].Value as string;
                 friendAvatar.Load(url);
 
                 lblFriendWin.Text = dgv.CurrentRow.Cells[4].Value as string;
@@ -511,9 +511,8 @@ namespace ProjectCaro
         public async void LoadAvatar()
         {
             int expLevel = 75;
-            int expLevelcoban = 75;
             int exp;
-            string url = $"http://159.89.193.234/svg/" + CaroAPI.user.avatar;
+            string url = $"http://127.0.0.1:8000/svg/" + CaroAPI.user.avatar;
             userAvatar.Load(url);
 
             // lưu giá trị của avatar dùng để chuyển cho user khác

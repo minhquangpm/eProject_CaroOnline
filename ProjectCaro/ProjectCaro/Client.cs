@@ -16,9 +16,9 @@ namespace ProjectCaro
     {
         // khai báo thông tin server
         //debug
-        //private static string serverIp = "127.0.0.1";
+        private static string serverIp = "127.0.0.1";
         // real server
-        private const string serverIp = "159.89.193.234";
+        //private const string serverIp = "159.89.193.234";
         private const int serverPort = 12345;
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server

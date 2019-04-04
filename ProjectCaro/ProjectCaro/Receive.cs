@@ -49,7 +49,7 @@ namespace ProjectCaro
 
             Invoke(new Action(() =>
             {
-                string url = $"http://159.89.193.234/svg/" + recv_host_avatar;
+                string url = $"http://127.0.0.1:8000/svg/" + recv_host_avatar;
                 hostAvatar.Load(url);
             }));
 
@@ -137,7 +137,7 @@ namespace ProjectCaro
                 // lấy avatar của join
                 Invoke(new Action(() =>
                 {
-                    string url = $"http://159.89.193.234/svg/" + recv_join_avatar;
+                    string url = $"http://127.0.0.1:8000/svg/" + recv_join_avatar;
                     joinAvatar.Load(url);
                 }));
                 

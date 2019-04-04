@@ -109,7 +109,7 @@ namespace ProjectCaro
 
         public static string[] avatar = { "manh1.jpg", "manh2.jpg", "manh3.jpg"};
 
-        static string baseAddress = "http://159.89.193.234/";
+        static string baseAddress = "http://127.0.0.1:8000/";
 
         // Login Bằng UserName và Password
         #region Login
